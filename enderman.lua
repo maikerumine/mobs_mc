@@ -66,7 +66,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	replace_offset = -1,
 
 })
-mobs:register_spawn("mobs_mc:enderman", {"group:crumbly", "default:sand", "default:desert_sand"}, 7, -1, 5000, 4, 31000)
+mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 5, -1, 5000, 4, 31000)
 
 
 
