@@ -11,7 +11,8 @@ mobs:register_mob("mobs_mc:skeleton", {
 	type = "monster",
 	hp_max = 30,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
-	
+	pathfinding = true,
+	group_attack = true,
 	visual = "mesh",
 	mesh = "mobs_skeleton.x",
 	textures = {

@@ -65,7 +65,8 @@ mobs:register_mob("mobs_mc:villager", {
 						minetest.sound_play("Villageraccept", {to_player = player:get_player_name()})
 					end
 					if listname == "input" or listname == "output" then
-						return 1000
+						--return 1000
+						return 0
 					else
 						return 0
 					end
@@ -102,6 +103,7 @@ mobs:register_mob("mobs_mc:villager", {
 					else
 						inv:set_stack("output", 1, ItemStack(""))
 						minetest.sound_play("Villagerdeny", {to_player = player:get_player_name()})
+						
 					end
 				end,
 			})

@@ -12,6 +12,9 @@ dofile(path .. "/sheep.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/pig.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/horse.lua") -- KrupnoPavel
 dofile(path .. "/wolf.lua") -- KrupnoPavel
+dofile(path .. "/pig.lua") -- Mesh and animation by Pavel_S
+dofile(path .. "/horse.lua") -- KrupnoPavel
+
 
 -- NPC
 dofile(path .. "/villager.lua") -- KrupnoPavel
