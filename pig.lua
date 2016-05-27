@@ -56,6 +56,7 @@ mobs:register_mob("mobs_mc:pig", {
 		if not clicker or not clicker:is_player() then
 			return
 		end
+	
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "mobs:saddle" and self.saddle ~= "yes" then
 			self.object:set_properties({
@@ -83,6 +84,7 @@ mobs:register_mob("mobs_mc:pig", {
 		end
 	-- from boats mod
 	local name = clicker:get_player_name()
+
 	if self.driver and clicker == self.driver then
 		self.driver = nil
 		clicker:set_detach()
@@ -95,10 +97,41 @@ mobs:register_mob("mobs_mc:pig", {
 		minetest.after(0.2, function()
 			default.player_set_animation(clicker, "sit" , 30)
 		end)
+		----[[
+			-- ridable pigs
+		if self.name == "mobs:pig" and self.saddle == "yes" and self.driver then
+			local item = self.driver:get_wielded_item()
+			if item:get_name() == "mobs:carrotstick" then
+				local yaw = self.driver:get_look_yaw() - math.pi / 2
+				local velo = self.object:getvelocity()
+				local v = 1.5
+				if math.abs(velo.x) + math.abs(velo.z) < .6 then velo.y = 5 end
+				self.state = "walk"
+				self:set_animation("walk")
+				self.object:setyaw(yaw)
+				self.object:setvelocity({x = -math.sin(yaw) * v, y = velo.y, z = math.cos(yaw) * v})
+
+				local inv = self.driver:get_inventory()
+				local stack = inv:get_stack("main", self.driver:get_wield_index())
+				stack:add_wear(100)
+				if stack:get_wear() > 65400 then
+					stack = {name = "fishing:pole", count = 1}
+				end
+				inv:set_stack("main", self.driver:get_wield_index(), stack)
+				return
+			end
+			end
+			--]]
 		--self.object:setyaw(clicker:get_look_yaw() - math.pi / 2)
 	end
+	--from mobs_animals
+		if mobs:feed_tame(self, clicker, 8, true, true) then
+			return
+		end
+		mobs:capture_mob(self, clicker, 0, 5, 50, false, nil)
 	end,
 })
+
 mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, 20, 12, 5000, 1, 31000)
 	
 
@@ -167,6 +200,40 @@ minetest.register_craft({
 	{"default:steel_ingot", "", "default:steel_ingot"}
 	},
 })
+
+--api code to fix
+--[[
+
+	on_step = function(self, dtime)
+		-- ridable pigs
+		if self.name == "mobs:pig" and self.saddle == "yes" and self.driver then
+			local item = self.driver:get_wielded_item()
+			if item:get_name() == "mobs:carrotstick" then
+				local yaw = self.driver:get_look_yaw() - math.pi / 2
+				local velo = self.object:getvelocity()
+				local v = 1.5
+				if math.abs(velo.x) + math.abs(velo.z) < .6 then velo.y = 5 end
+				self.state = "walk"
+				self:set_animation("walk")
+				self.object:setyaw(yaw)
+				self.object:setvelocity({x = -math.sin(yaw) * v, y = velo.y, z = math.cos(yaw) * v})
+
+				local inv = self.driver:get_inventory()
+				local stack = inv:get_stack("main", self.driver:get_wield_index())
+				stack:add_wear(100)
+				if stack:get_wear() > 65400 then
+					stack = {name = "fishing:pole", count = 1}
+				end
+				inv:set_stack("main", self.driver:get_wield_index(), stack)
+				return
+			end
+		end
+	end,
+]]
+
+
+
+
 
 
 -- compatibility

@@ -13,9 +13,9 @@ mobs:register_mob("mobs_mc:chicken", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	
 	visual = "mesh",
-	mesh = "mobs_chicken.x",
+	mesh = "mobs_mc_chicken.x",
 	textures = {
-	{"mobs_chicken.png"}
+	{"mobs_mc_chicken.png"}
 	},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
@@ -56,6 +56,7 @@ mobs:register_mob("mobs_mc:chicken", {
 		fly_start = 181,
 		fly_end = 187,
 	},
+	--[[
 	follow = "farming:seed_wheat",
 	view_range = 5,
 	on_rightclick = function(self, clicker)
@@ -83,7 +84,40 @@ mobs:register_mob("mobs_mc:chicken", {
 			max_hear_distance = 5,
 		})
 	end,
+	]]
+	--from mobs_animals
+	follow = {"farming:seed_wheat", "farming:seed_cotton"},
+	view_range = 5,
+
+	on_rightclick = function(self, clicker)
+
+		if mobs:feed_tame(self, clicker, 8, true, true) then
+			return
+		end
+
+		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
+	end,
+
+	do_custom = function(self)
+
+		if self.child
+		or math.random(1, 5000) > 1 then
+			return
+		end
+
+		local pos = self.object:getpos()
+
+		minetest.add_item(pos, "mobs:egg")
+
+		minetest.sound_play("default_place_node_hard", {
+			pos = pos,
+			gain = 1.0,
+			max_hear_distance = 5,
+		})
+	end,	
+	
 })
+
 mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
 
 
