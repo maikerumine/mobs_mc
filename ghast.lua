@@ -43,6 +43,10 @@ mobs:register_mob("mobs_mc:ghast", {
 		chance = 1,
 		min = 1,
 		max = 5,},
+		{name = "mobs_mc:ghast_head",
+		chance = 10,
+		min = 0,
+		max = 1,},
 	},
 	animation = {
 		speed_normal = 24,

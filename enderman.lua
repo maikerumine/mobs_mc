@@ -15,7 +15,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	visual = "mesh",
 	mesh = "mobs_sand_monster.b3d",
 	textures = {
-	{"mobs_sand_monster.png^[colorize:#000000:290"}
+	{"mobs_endermen.png"}
 	},
 	visual_size = {x=1.2, y=2.5},
 	makes_footstep_sound = true,
@@ -39,6 +39,10 @@ mobs:register_mob("mobs_mc:enderman", {
 		max = 1,},
 		{name = "farorb:farorb",
 		chance = 3,
+		min = 0,
+		max = 1,},
+		{name = "mobs_mc:enderman_head",
+		chance = 10,
 		min = 0,
 		max = 1,},
 	},

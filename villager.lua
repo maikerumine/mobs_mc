@@ -8,8 +8,9 @@
 
 
 mobs:register_mob("mobs_mc:villager", {
-	type = "animal",
-	hp_max = 30,
+	type = "npc",
+	hp_min = 35,
+	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
 	textures = {
 	{"mobs_farmer.png"}
@@ -17,16 +18,19 @@ mobs:register_mob("mobs_mc:villager", {
 	visual = "mesh",
 	mesh = "mobs_villager.x",
 	makes_footstep_sound = true,
+	damage = 2,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	damage = 1,
+		group_attack = true,
+		attack_type = "dogfight",
 	drops = {
 		{name = "default:apple",
-		chance = 100,
+		chance = 10,
 		min = 1,
 		max = 2,},
 	},
-	armor = 200,
+	armor = 90,
 	sounds = {
 		random = "Villager1",
 		death = "Villagerdead",
@@ -114,39 +118,39 @@ mobs:register_mob("mobs_mc:villager", {
 		inv:set_size("offered", 1)
 
 		local trades = {
-			{"default:apple 12",			"default:diamond 1"},
-			{"default:coal_lump 20",		"default:diamond 1"},
-			{"default:paper 30",			"default:diamond 1"},
-			{"mobs:leather 10",			"default:diamond 1"},
-			{"default:book 2",			"default:diamond 1"},
-			{"default:diamond 3",		"default:diamond 1"},
-			{"farming:potato 15",		"default:diamond 1"},
-			{"farming:wheat 20",			"default:diamond 1"},
-			{"farming:carrot 15",			"default:diamond 1"},
-			{"farming:melon_8 8",		"default:diamond 1"},
-			{"mobs:rotten_flesh 40",		"default:diamond 1"},
-			{"default:gold_ingot 10",		"default:diamond 1"},
-			{"farming:cotton 10",			"default:diamond 1"},
-			{"wool:white 15",			"default:diamond 1"},
-			{"farming:pumpkin 8",		"default:diamond 1"},
+			{"default:apple 12",			"default:clay_lump 1"},
+			{"default:coal_lump 20",		"default:clay_lump 1"},
+			{"default:paper 30",			"default:clay_lump 1"},
+			{"mobs:leather 10",			"default:clay_lump 1"},
+			{"default:book 2",			"default:clay_lump 1"},
+			{"default:clay_lump 3",		"default:clay_lump 1"},
+			{"farming:potato 15",		"default:clay_lump 1"},
+			{"farming:wheat 20",			"default:clay_lump 1"},
+			{"farming:carrot 15",			"default:clay_lump 1"},
+			{"farming:melon_8 8",		"default:clay_lump 1"},
+			{"mobs:rotten_flesh 40",		"default:clay_lump 1"},
+			{"default:gold_ingot 10",		"default:clay_lump 1"},
+			{"farming:cotton 10",			"default:clay_lump 1"},
+			{"wool:white 15",			"default:clay_lump 1"},
+			{"farming:pumpkin 8",		"default:clay_lump 1"},
 
-			{"default:diamond 1",		"mobs:beef_cooked 5"},
-			{"default:diamond 1",		"mobs:chicken_cooked 7"},
-			{"default:diamond 1",		"farming:cookie 6"},
-			{"default:diamond 1",		"farming:pumpkin_bread 3"},
-			{"default:diamond 1",		"mobs:arrow 10"},
-			{"default:diamond 3",		"mobs:bow_wood 1"},
-			{"default:diamond 8",		"fishing:pole_wood 1"},
-			--{"default:diamond 4",		"potionspack:healthii 1"},
-			{"default:diamond 1",		"cake:cake 1"},
-			{"default:diamond 10",		"mobs:saddle 1"},
-			--{"default:diamond 10",		"clock:1 1"},
-			--{"default:diamondd 10",		"compass:0 1"},
-			{"default:diamond 1",		"default:glass 5"},
-			{"default:diamond 1",		"nether:glowstone 3"},
-			{"default:diamond 3",		"mobs:shears 1"},
-			{"default:diamond 10",		"default:sword_diamond 1"},
-			{"default:diamond 20",		"3d_armor:chestplate_diamond 1"},
+			{"default:clay_lump 1",		"mobs:beef_cooked 5"},
+			{"default:clay_lump 1",		"mobs:chicken_cooked 7"},
+			{"default:clay_lump 1",		"farming:cookie 6"},
+			{"default:clay_lump 1",		"farming:pumpkin_bread 3"},
+			{"default:clay_lump 1",		"mobs:arrow 10"},
+			{"default:clay_lump 3",		"mobs:bow_wood 1"},
+			{"default:clay_lump 8",		"fishing:pole_wood 1"},
+			--{"default:clay_lump 4",		"potionspack:healthii 1"},
+			{"default:clay_lump 1",		"cake:cake 1"},
+			{"default:clay_lump 10",		"mobs:saddle 1"},
+			{"default:clay_lump 10",		"clock:1 1"},
+			{"default:clay_lumpd 10",		"compass:0 1"},
+			{"default:clay_lump 1",		"default:glass 5"},
+			{"default:clay_lump 1",		"nether:glowstone 3"},
+			{"default:clay_lump 3",		"mobs:shears 1"},
+			{"default:clay_lump 10",		"default:sword_diamond 1"},
+			{"default:clay_lump 20",		"3d_armor:chestplate_diamond 1"},
 		}
 		local tradenum = math.random(#trades)
 		inv:set_stack("wanted", 1, ItemStack(trades[tradenum][1]))
@@ -167,7 +171,8 @@ mobs:register_mob("mobs_mc:villager", {
 		minetest.show_formspec(clicker:get_player_name(), "tradespec", formspec)
 	end,
 })
-mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
+--mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
+mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 500, 2, 31000)
 
 
 -- compatibility

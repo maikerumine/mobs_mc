@@ -124,7 +124,7 @@ mobs:register_mob("mobs_mc:cow", {
 	end,	
 })
 
-mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+--mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
 
 
 -- beef

@@ -12,7 +12,6 @@ dofile(path .. "/sheep.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/pig.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/horse.lua") -- KrupnoPavel
 dofile(path .. "/wolf.lua") -- KrupnoPavel
-dofile(path .. "/pig.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/horse.lua") -- KrupnoPavel
 
 
@@ -26,8 +25,10 @@ dofile(path .. "/zombie.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/zombiepig.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/slimes.lua") -- Tomas J. Luis
 dofile(path .. "/spider.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
-dofile(path .. "/enderman.lua") -- 
-dofile(path .. "/ghast.lua") -- 
+dofile(path .. "/enderman.lua") -- maikerumine
+dofile(path .. "/ghast.lua") -- maikerumine
 
+--Heads
+dofile(path .. "/heads.lua") -- maikerumine
 
 print ("[MOD] Mobs Redo 'MC' loaded")
