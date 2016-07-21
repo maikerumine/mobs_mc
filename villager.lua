@@ -58,6 +58,7 @@ mobs:register_mob("mobs_mc:villager", {
 	light_damage = 0,
 	view_range = 16,
 	fear_height = 5,
+	--[[
 	on_rightclick = function(self, clicker)
 		local inv
 		inv = minetest.get_inventory({type="detached", name="trading_inv"})
@@ -170,6 +171,8 @@ mobs:register_mob("mobs_mc:villager", {
 		minetest.sound_play("Villagertrade", {to_player = clicker:get_player_name()})
 		minetest.show_formspec(clicker:get_player_name(), "tradespec", formspec)
 	end,
+	
+	]]
 })
 --mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
 mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 500, 2, 31000)

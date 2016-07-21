@@ -11,7 +11,8 @@
 mobs:register_mob("mobs_mc:dog", {
 	type = "npc",
 	passive = true,
-	hp_max = 55,
+	hp_min = 55,
+	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	visual = "mesh",
 	mesh = "mobs_wolf.x",
@@ -31,7 +32,8 @@ mobs:register_mob("mobs_mc:dog", {
 	run_velocity = 4,
 	stepheight = 1.1,
 	damage = 3,
-	armor = 200,
+	group_attack = true,
+	armor = 100,
 	attacks_monsters = true,
 	attack_type = "dogfight",
 	drops = {
@@ -118,8 +120,10 @@ mobs:register_mob("mobs_mc:dog", {
 -- Wolf by KrupnoPavel
 mobs:register_mob("mobs_mc:wolf", {
 	type = "animal",
-	hp_max = 55,
+	hp_min = 55,
+	hp_max = 75,
 	passive = false,
+	group_attack = true,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	visual = "mesh",
 	mesh = "mobs_wolf.x",
