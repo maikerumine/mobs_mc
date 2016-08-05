@@ -146,10 +146,10 @@ minetest.register_craft({
 	cooktime = 5,
 })
 
-
+--[[
 -- compatibility
 mobs:alias_mob("mobs:sheep", "mobs_mc:sheep")
-
+]]
 -- spawn eggs
 mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
 

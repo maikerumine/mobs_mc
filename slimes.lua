@@ -159,7 +159,7 @@ mobs:register_mob("mobs_mc:greenbig", {
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
-	damage = 2,
+	damage = 3,
 	armor = 100,
 	drops = {
 		{name = "default:leaves",
@@ -214,7 +214,7 @@ mobs:register_mob("mobs_mc:lavasmall", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 15,
+	hp_max = 25,
 	collisionbox = {-0.2, -0.4, -0.2, 0.2, 0.2, 0.2},
 	visual_size = {x=0.5, y=0.5},
 	textures = {
@@ -276,7 +276,7 @@ mobs:register_mob("mobs_mc:lavabig", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 15,
+	hp_max = 95,
 	collisionbox = {-0.75, -0.75, -0.75, 0.75, 0.75, 0.75},
 	visual_size = {x=1.5, y=1.5},
 	textures = {

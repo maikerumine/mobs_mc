@@ -339,10 +339,11 @@ minetest.register_craft({
 })
 
 -- compatibility
+--[[
 mobs:alias_mob("mobs:horse", "mobs_mc:horse")
 mobs:alias_mob("mobs:horse2", "mobs_mc:horse2")
 mobs:alias_mob("mobs:horse3", "mobs_mc:horse3")
-
+]]
 -- spawn eggs
 -- KPV wild horse spawn eggs
 mobs:register_egg("mobs_mc:horse", "Brown Horse", "mobs_horse_inv.png", 0)

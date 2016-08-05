@@ -8,7 +8,7 @@
 
 mobs:register_mob("mobs_mc:skeleton", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 80,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -25,7 +25,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	},
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	damage = 1,
+	damage = 2,
 	armor = 200,
 	drops = {
 		{name = "mobs:arrow",
@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 		min = 0,
 		max = 2,},
 		{name = "mobs_mc:skeleton_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},
@@ -75,12 +75,13 @@ mobs:register_mob("mobs_mc:skeleton", {
 	dogshoot_switch = 1,
 	dogshoot_count_max =3,
 })
-mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+--mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
 
 
 mobs:register_mob("mobs_mc:skeleton2", {
 	type = "monster",
-	hp_max = 60,
+	hp_max = 160,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -147,8 +148,8 @@ mobs:register_mob("mobs_mc:skeleton2", {
 	dogshoot_switch = 1,
 	dogshoot_count_max =6,
 })
-mobs:register_spawn("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, -3000)
-
+--mobs:register_spawn("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, -3000)
+mobs:spawn_specific("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 7, 20, 9000, 2, -4010, -2100)
 
 
 -- leather, feathers, etc.

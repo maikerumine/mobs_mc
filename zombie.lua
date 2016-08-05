@@ -10,7 +10,7 @@
 
 mobs:register_mob("mobs_mc:zombie", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 65,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	textures = {
 	{"mobs_zombie.png"}
@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:zombie", {
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
-	damage = 1,
+	damage = 2,
 	pathfinding = true,
 	group_attack = true,
 	armor = 200,
@@ -56,7 +56,7 @@ mobs:register_mob("mobs_mc:zombie", {
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombie_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},
@@ -81,7 +81,8 @@ mobs:register_mob("mobs_mc:zombie", {
 	view_range = 16,
 	attack_type = "dogfight",
 })
-mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+--mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+mobs:spawn_specific("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
 
 
 -- meat rotted

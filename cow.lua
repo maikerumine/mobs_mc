@@ -163,10 +163,10 @@ minetest.register_craft({
 	},
 })
 
-
+--[[
 -- compatibility
 mobs:alias_mob("mobs:cow", "mobs_mc:cow")
-
+]]
 -- spawn egg
 mobs:register_egg("mobs_mc:cow", "Cow", "spawn_egg_cow.png")
 

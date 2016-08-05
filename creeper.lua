@@ -8,9 +8,10 @@
 
 
 
+
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 50,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -30,7 +31,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	},
 	walk_velocity = 1.5,
 	run_velocity = 3,
-	damage = 1,
+	damage = 2,
 	explosion_radius = 3,
 	armor = 200,
 	maxdrops = 3,
@@ -48,31 +49,31 @@ mobs:register_mob("mobs_mc:creeper", {
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_1",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_2",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_3",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_4",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_5",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "jdukebox:disc_6",
-		chance = 10,
+		chance = 30,
 		min = 0,
 		max = 1,},
 		{name = "mobs_mc:creeper_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},
@@ -98,9 +99,19 @@ mobs:register_mob("mobs_mc:creeper", {
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "explode",
+	
+	--[[
+		on_die =function(self, pos)
+		tnt = minetest.add_entity(self.object:getpos(), ":tnt:boom")
+			ent = tnt:get_luaentity()
+			end
+			]]
 })
-mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-
+--mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -310, 31000)
+--[[
+mobs:spawn_specific("nssm:sandworm", {"default:desert_sand", "default:desert_stone"}, {"air"},0, 20, 20, 9000, 2, -31000, 31000)
+]]
 
 
 -- compatibility

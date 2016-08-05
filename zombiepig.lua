@@ -9,7 +9,7 @@
 
 mobs:register_mob("mobs_mc:pigman", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 75,
 	--old zombie mesh code
 	--collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	--textures = {
@@ -55,7 +55,7 @@ mobs:register_mob("mobs_mc:pigman", {
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombiepig_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},
@@ -99,7 +99,7 @@ mobs:register_mob("mobs_mc:pigman", {
 mobs:register_spawn("mobs_mc:pigman", {"nether:rack"},  17, -1, 5000, 3, -2000)
 mobs:register_spawn("mobs_mc:pigman", {"nether:portal"}, 15, -1, 500, 4, 31000)
 mobs:register_spawn("mobs_mc:pigman", {"default:obsidian"}, 17, -1, 1900, 1, 31000)
-
+mobs:spawn_specific("mobs_mc:pigman", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 12, 20, 9000, 2, -3510, -2100)
 
 -- meat rotted
 minetest.register_craftitem(":mobs:rotten_flesh", {

@@ -10,7 +10,7 @@ mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 50,
+	hp_max = 90,
 	collisionbox = {-1.45, -1.45, -1.45 ,1.45, 1.45, 1.45},
 	visual_size = {x=3.0, y=3.0},
 --	textures = {
@@ -44,7 +44,7 @@ mobs:register_mob("mobs_mc:ghast", {
 		min = 1,
 		max = 5,},
 		{name = "mobs_mc:ghast_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},
@@ -87,8 +87,8 @@ mobs:register_mob("mobs_mc:ghast", {
 })
 
 
-mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-
+--mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
+mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"},{"air"},0, 17, 20, 5000, 2, -3610, -2100)
 -- fireball (weapon)
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",

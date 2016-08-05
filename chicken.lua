@@ -165,7 +165,7 @@ minetest.register_node(":mobs:egg", {
 			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
 		end
 	end,
-	on_use = mobs_shoot_egg
+	on_use = mobs.shoot_egg
 })
 
 -- fried egg
@@ -187,10 +187,10 @@ minetest.register_craftitem(":mobs:feather", {
 	inventory_image = "mobs_feather.png",
 })
 
-
+--[[
 -- compatibility
 mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
-
+]]
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "spawn_egg_chicken.png")
 
