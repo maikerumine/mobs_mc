@@ -193,6 +193,6 @@ mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 20
 mobs:register_egg("mobs_mc:evoker", "Evoker", "evoker_inv.png", 0)
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Evoker loaded")
 end

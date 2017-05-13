@@ -122,6 +122,6 @@ mobs:register_spawn("mobs_mc:witherskeleton",
 -- spawn eggs
 mobs:register_egg("mobs_mc:witherskeleton", "Wither Skeleton", "witherskeleton_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Wither Skeleton loaded")
 end

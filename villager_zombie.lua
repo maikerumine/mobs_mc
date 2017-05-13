@@ -118,6 +118,6 @@ mobs:register_spawn("mobs_mc:villager_zombie", {"mg_villages:road"}, 7, -1, 4090
 --mobs:register_egg("mobs_mc:villager", "Villager", "spawn_egg_villager.png")
 mobs:register_egg("mobs_mc:villager_zombie", "Zombie Villager", "zvillager_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC mobs Zombie Villager loaded")
 end

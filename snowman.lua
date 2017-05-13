@@ -130,6 +130,6 @@ mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}
 mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Enderman loaded")
 end

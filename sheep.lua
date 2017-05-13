@@ -132,13 +132,13 @@ mobs:register_mob("mobs_mc:sheep", {
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "farming:wheat" then
 			if not self.tamed then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
 				self.tamed = true
 			elseif self.gotten then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -170,7 +170,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			self.object:set_properties({
 				textures = self.base_texture,
 			})
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				item:add_wear(300)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
@@ -234,6 +234,6 @@ mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
 mobs:register_egg("mobs_mc:sheep", "Sheep", "mobs_mc_spawn_icon_sheep.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Sheep loaded")
 end

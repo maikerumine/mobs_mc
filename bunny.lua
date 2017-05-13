@@ -102,7 +102,7 @@ mobs:register_mob("mobs_mc:rabbit", {
 
 		if item:get_name() == "mobs:lava_orb" then
 
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				item:take_item()
 				clicker:set_wielded_item(item)
 			end
@@ -134,6 +134,6 @@ mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Bunny loaded")
 end
