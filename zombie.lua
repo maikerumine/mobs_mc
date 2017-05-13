@@ -99,6 +99,6 @@ mobs:alias_mob("mobs:zombie", "mobs_mc:zombie")
 mobs:register_egg("mobs_mc:zombie", "Zombie", "spawn_egg_zombie.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Zombie loaded")
 end

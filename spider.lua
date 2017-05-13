@@ -103,6 +103,6 @@ mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Spiders loaded")
 end

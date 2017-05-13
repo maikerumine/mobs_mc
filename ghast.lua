@@ -124,6 +124,6 @@ mobs:register_arrow(":mobs_monster:fireball", {
 mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Ghast loaded")
 end

@@ -110,6 +110,6 @@ mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
 mobs:register_egg("mobs_mc:creeper", "Creeper", "spawn_egg_creeper.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Creeper loaded")
 end
