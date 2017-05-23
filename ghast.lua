@@ -6,6 +6,40 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+--###################
+--################### GHAST
+--###################
+
+mobs:register_mob("mobs_mc:15ghast", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "ghast.b3d",
+	textures = {
+		{"ghast.png"},
+	},
+	visual_size = {x=4, y=4},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 25,
+		stand_start = 0,		stand_end = 40,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:15ghast", "Ghast", "ghast_inv.png", 0)
+
+
 mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
 	pathfinding = true,
@@ -39,10 +73,10 @@ mobs:register_mob("mobs_mc:ghast", {
 		chance = 3,
 		min = 1,
 		max = 4,},
-		{name = "default:diamond",
-		chance = 1,
-		min = 1,
-		max = 5,},
+		{name = "mobs_mc:ghast_tear",
+		chance = 6,
+		min = 0,
+		max = 1,},
 		{name = "mobs_mc:ghast_head",
 		chance = 50,
 		min = 0,
@@ -93,7 +127,7 @@ mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",
 	visual_size = {x = 0.5, y = 0.5},
-	textures = {"mobs_fireball.png"},
+	textures = {"mcl_mobitems_fireball.png"},
 	velocity = 6,
 
 	-- direct hit, no fire... just plenty of pain
@@ -117,7 +151,14 @@ mobs:register_arrow(":mobs_monster:fireball", {
 	end
 })
 
-
+minetest.register_craftitem("mobs_mc:ghast_tear", {
+	description = "Ghast Tear",
+	_doc_items_longdesc = "A ghast tear is an item used in potion brewing. It is dropped from dead ghasts.",
+	wield_image = "mcl_mobitems_ghast_tear.png",
+	inventory_image = "mcl_mobitems_ghast_tear.png",
+	groups = { brewitem = 1 },
+	stack_max = 64,
+})
 
 
 -- spawn eggs

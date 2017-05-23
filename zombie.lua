@@ -2,16 +2,45 @@
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
+--###################
+--################### ZOMBIE
+--###################
+
+mobs:register_mob("mobs_mc:22zombie", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "zombie.b3d",
+	textures = {
+		{"zombie.png"},
+	},
+	visual_size = {x=3.5, y=3.5},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:22zombie", "Zombie", "zombie_inv.png", 0)
 
 
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
-
-mobs:register_mob("mobs_mc:zombie", {
+local zombie = {
 	type = "monster",
-	hp_max = 65,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
+	hp_min = 20,
+	hp_max = 20,
+	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
 	textures = {
 	{"mobs_zombie.png"}
 	},
@@ -26,38 +55,36 @@ mobs:register_mob("mobs_mc:zombie", {
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
-	damage = 2,
-	pathfinding = true,
+	damage = 3,
+	fear_height = 8,
+	pathfinding = 1,
+	jump = true,
+	jump_height = 3,
 	group_attack = true,
-	armor = 200,
 	drops = {
 		{name = "mobs:rotten_flesh",
 		chance = 1,
-		min = 1,
-		max = 1,},
-		{name = "default:steel_ingot",
-		chance = 3,
 		min = 0,
 		max = 2,},
-		{name = "default:shovel_steel",
-		chance = 4,
-		min = 1,
-		max = 1,},
-		{name = "default:sword_steel",
-		chance = 8,
+		{name = "default:iron_ingot",
+		-- approximation to 8.5%
+		chance = 11,
 		min = 1,
 		max = 1,},
 		{name = "farming:carrot",
-		chance = 10,
+		-- approximation to 8.5%
+		chance = 11,
 		min = 1,
 		max = 1,},
 		{name = "farming:potato",
-		chance = 10,
+		-- approximation to 8.5%
+		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "mobs_mc:zombie_head",
-		chance = 50,
-		min = 0,
+		-- TODO: Remove this drop when record discs are properly dropped
+		{name = "mcl_jukebox:record_8",
+		chance = 150,
+		min = 1,
 		max = 1,},
 	},
 	animation = {
@@ -75,29 +102,65 @@ mobs:register_mob("mobs_mc:zombie", {
 		death_end = 118,
 	},
 	drawtype = "front",
-	water_damage = 1,
 	lava_damage = 5,
+	-- TODO: Burn mob only when in direct sunlight
 	light_damage = 1,
-	view_range = 16,
+	view_range = 40,
 	attack_type = "dogfight",
-})
---mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
+}
 
 
--- meat rotted
-minetest.register_craftitem(":mobs:rotten_flesh", {
-	description = "Rotten Flesh",
-	inventory_image = "mobs_rotten_flesh.png",
-	on_use = minetest.item_eat(4),
-})
+mobs:register_mob("mobs_mc:zombie", zombie)
+
+-- Baby zombie.
+-- A smaller and more dangerous variant of the zombie
+
+local baby_zombie = table.copy(zombie)
+baby_zombie.collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.94, 0.25}
+baby_zombie.visual_size = {x=0.5, y=0.5}
+baby_zombie.walk_velocity = 1.2
+baby_zombie.run_velocity = 2.4
+baby_zombie.light_damage = 0
+
+mobs:register_mob("mobs_mc:baby_zombie", baby_zombie)
+
+-- Husk.
+-- Desert variant of the zombie
+local husk = table.copy(zombie)
+husk.textures = {{"mobs_mc_husk.png"}}
+husk.light_damage = 0
+-- TODO: Husks avoid water
+
+mobs:register_mob("mobs_mc:husk", husk)
+
+-- Baby husk.
+-- A smaller and more dangerous variant of the husk
+local baby_husk = table.copy(husk)
+baby_husk.collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.94, 0.25}
+baby_husk.visual_size = {x=0.5, y=0.5}
+baby_husk.walk_velocity = 1.2
+baby_husk.run_velocity = 2.4
+
+mobs:register_mob("mobs_mc:baby_husk", baby_husk)
 
 
--- compatibility
+-- Spawning
+
+mobs:register_spawn("mobs_mc:zombie", {"group:solid"}, 7, -1, 3000, 4, 31000)
+-- Baby zombie is 20 times less likely than regular zombies
+mobs:register_spawn("mobs_mc:baby_zombie", {"group:solid"}, 7, -1, 100000, 4, 31000)
+mobs:register_spawn("mobs_mc:husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 4090, 4, 31000)
+mobs:register_spawn("mobs_mc:baby_husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 100000, 4, 31000)
+
+
+-- Compatibility
 mobs:alias_mob("mobs:zombie", "mobs_mc:zombie")
 
--- spawn eggs
-mobs:register_egg("mobs_mc:zombie", "Zombie", "spawn_egg_zombie.png")
+-- Spawn eggs
+mobs:register_egg("mobs_mc:zombie", "Spawn Zombie", "spawn_egg_zombie.png")
+mobs:register_egg("mobs_mc:baby_zombie", "Spawn Baby Zombie", "spawn_egg_baby_zombie.png") -- TODO: To be removed
+mobs:register_egg("mobs_mc:husk", "Spawn Husk", "spawn_egg_husk.png") -- TODO: To be removed
+mobs:register_egg("mobs_mc:baby_husk", "Spawn Baby Husk", "spawn_egg_baby_husk.png") -- TODO: To be removed
 
 
 if minetest.setting_get("log_mods") then

@@ -6,6 +6,39 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+--###################
+--################### ENDERMAN
+--###################
+
+mobs:register_mob("mobs_mc:13enderman", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "enderman.b3d",
+	textures = {
+		{"enderman.png"},
+	},
+	visual_size = {x=3, y=3},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:13enderman", "Enderman", "enderman_inv.png", 0)
+
 
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
@@ -30,11 +63,11 @@ mobs:register_mob("mobs_mc:enderman", {
 	armor = 200,
 	drops = {
 		{name = "default:obsidian",
-		chance = 4,
+		chance = 40,
 		min = 0,
 		max = 2,},
 		{name = "default:diamond",
-		chance = 11,
+		chance = 61,
 		min = 1,
 		max = 1,},
 		{name = "farorb:farorb",
@@ -70,6 +103,24 @@ mobs:register_mob("mobs_mc:enderman", {
 	replace_offset = -1,
 
 })
+
+minetest.register_craftitem("mobs_mc:ender_eye", {
+	description = "Ender Eye",
+
+	inventory_image = "mcl_end_ender_eye.png",
+	groups = { craftitem = 1 },
+})
+
+minetest.register_craft({
+	output		= 'mobs_mc:ender_eye',
+	recipe		= {
+		{ 'farorb:farorb', 'mobs_mc:blaze_rod'}
+	}
+})
+
+
+
+
 mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 5, -1, 5000, 4, 31000)
 
 

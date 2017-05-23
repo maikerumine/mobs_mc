@@ -5,6 +5,37 @@
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
+--###################
+--################### VILLAGER
+--###################
+
+mobs:register_mob("mobs_mc:58villager", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "villager.b3d",
+    textures = {{"villager.png"},{"villager1.png"},{"villager2.png"},{"villager3.png"},},
+	visual_size = {x=3, y=3},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:58villager", "Villager", "villager_inv.png", 0)
+
 
 
 mobs:register_mob("mobs_mc:villager", {
@@ -175,7 +206,7 @@ mobs:register_mob("mobs_mc:villager", {
 	]]
 })
 --mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
-mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 500, 2, 31000)
+mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, 20, 8, 500, 2, 31000)
 
 
 -- compatibility

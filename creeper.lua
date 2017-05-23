@@ -7,7 +7,38 @@
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
 
+--###################
+--################### CREEPER
+--###################
 
+mobs:register_mob("mobs_mc:27creeper", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "creeper.b3d",
+	textures = {
+		{"creeper.png"},
+	},
+	visual_size = {x=3, y=3},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
@@ -32,22 +63,20 @@ mobs:register_mob("mobs_mc:creeper", {
 	walk_velocity = 1.5,
 	run_velocity = 3,
 	damage = 2,
-	explosion_radius = 3,
+	explosion_radius = 4,
 	armor = 200,
 	maxdrops = 3,
 	drops = {
 		{name = "tnt:gunpowder",
-		chance = 1,
+		chance = 3,
 		min = 0,
 		max = 2,},
-		{name = "fire:flint_and_steel",
-		chance = 1,
+		{name = "default:flint_and_steel",
+		chance = 3,
 		min = 0,
 		max = 1,},
-		{name = "farorb:farorb",
-		chance = 1,
-		min = 0,
-		max = 1,},
+
+		--[[
 		{name = "jdukebox:disc_1",
 		chance = 30,
 		min = 0,
@@ -72,6 +101,43 @@ mobs:register_mob("mobs_mc:creeper", {
 		chance = 30,
 		min = 0,
 		max = 1,},
+		]]
+		
+		{name = "mcl_jukebox:record_1",
+		chance = 30,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_2",
+		chance = 40,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_3",
+		chance = 20,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_4",
+		chance = 30,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_5",
+		chance = 30,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_6",
+		chance = 30,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_7",
+		chance = 30,
+		min = 0,
+		max = 1,},
+		{name = "mcl_jukebox:record_8",
+		chance = 50,
+		min = 0,
+		max = 1,},
+
+		
+		
 		{name = "mobs_mc:creeper_head",
 		chance = 50,
 		min = 0,

@@ -6,6 +6,40 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+--###################
+--################### WOLF
+--###################
+
+mobs:register_mob("mobs_mc:33wolf", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "wolf.b3d",
+	textures = {
+		{"wolf.png"},
+	},
+	visual_size = {x=3, y=3},
+	walk_velocity = 2,
+	run_velocity = 4,
+	jump = true,
+	animation = {
+		speed_normal = 50,		speed_run = 100,
+		stand_start = 40,		stand_end = 45,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:33wolf", "Wolf", "wolf_inv.png", 0)
+
+
 
 -- Dog
 mobs:register_mob("mobs_mc:dog", {

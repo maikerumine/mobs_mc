@@ -6,6 +6,41 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+--###################
+--################### PIG
+--###################
+
+mobs:register_mob("mobs_mc:21apig", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "pig.b3d",
+	textures = {
+		{"pig.png"},
+	},
+	visual_size = {x=3, y=3},
+	walk_velocity = 1.5,
+	run_velocity = 4,
+	jump = true,
+	animation = {
+		speed_normal = 40,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:21apig", "Pig", "pig_inv.png", 0)
+
+
+
 mobs:register_mob("mobs_mc:pig", {
 	type = "animal",
 	hp_max = 25,
