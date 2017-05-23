@@ -2,7 +2,7 @@
 --###################
 --################### WITHER
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:32wither", {
 	type = "animal",
 	passive = true,
@@ -32,28 +32,31 @@ mobs:register_mob("mobs_mc:32wither", {
 
 mobs:register_egg("mobs_mc:32wither", "Wither", "wither_inv.png", 0)
 
+]]
 
-
-mobs:spawn_specific("nssm:mese_dragon", {"default:bedrock","default:mese"}, {"air"},
+mobs:spawn_specific("mobs_mc:wither", {"default:bedrock","default:mese"}, {"air"},
 	0, 20, 60, 300, 2, -31000, -50)
-	
+mobs:alias_mob("nssm:mese_dragon", "mobs_mc:wither")	
 	
 
-mobs:register_mob("mobs_mc:mese_dragon", {
+mobs:register_mob("mobs_mc:wither", {
 	type = "monster",
 	hp_max = 333,
 	hp_min = 333,
-	collisionbox = {-1, 0, -1, 1, 5, 1},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mese_dragon.x",
-	textures = {{"mese_dragon.png"}},
-	visual_size = {x=12, y=12},
+	mesh = "wither.b3d",
+	textures = {
+		{"wither.png"},
+	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	view_range = 45,
-	rotate = 270,
 	fear_height = 5,
 	walk_velocity = 2,
 	run_velocity = 4,
+	stepheight = 1.2,
     sounds = {
 		shoot_attack = "mesed",
 		attack = "mese_dragon",
@@ -97,23 +100,10 @@ mobs:register_mob("mobs_mc:mese_dragon", {
 	shoot_interval = 0.5,
 	shoot_offset = -1,
 	animation = {
-		speed_normal = 15,
-		speed_run = 25,
-		stand_start = 60,
-		stand_end = 120,
-		walk_start = 161,
-		walk_end = 205,
-		run_start = 206,
-		run_end = 242,
-		punch_start = 242,
-		punch_end = 275,
-		punch1_start = 330,
-		punch1_end = 370,
-    dattack_start = 120,
-    dattack_end = 160,
-    	--attacks_monsters = true,
-	--peaceful = false,
-	--group_attack = true,
+		speed_normal = 12,		speed_run = 12,
+		stand_start = 0,		stand_end = 20,
+        walk_start = 0,		walk_end = 20,
+		run_start = 0,		run_end = 20,
 	},
 --[[
 	do_custom = function(self)
@@ -248,5 +238,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-
+mobs:register_egg("mobs_mc:wither", "Wither", "wither_inv.png", 0)
 

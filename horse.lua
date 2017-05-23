@@ -9,7 +9,7 @@
 --###################
 --################### HORSE
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:52horse", {
 	type = "animal",
 	passive = true,
@@ -36,7 +36,7 @@ mobs:register_mob("mobs_mc:52horse", {
 })
 
 mobs:register_egg("mobs_mc:52horse", "Horse", "horse_inv.png", 0)
-
+]]
 
 
 

@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -9,7 +9,7 @@
 --###################
 --################### ENDERMAN
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:13enderman", {
 	type = "animal",
 	passive = true,
@@ -38,19 +38,22 @@ mobs:register_mob("mobs_mc:13enderman", {
 })
 
 mobs:register_egg("mobs_mc:13enderman", "Enderman", "enderman_inv.png", 0)
-
+]]
 
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
-	hp_max = 79,
-	collisionbox = {-0.4, -2.4, -0.4, 0.4, 1.8, 0.4},
-	
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_sand_monster.b3d",
+	mesh = "enderman.b3d",
 	textures = {
-	{"mobs_endermen.png"}
+		{"enderman.png"},
 	},
-	visual_size = {x=1.2, y=2.5},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mobs_sandmonster",
@@ -60,7 +63,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	walk_velocity = 3.2,
 	run_velocity = 5.4,
 	damage = 3,
-	armor = 200,
+	armor = 150,
 	drops = {
 		{name = "default:obsidian",
 		chance = 40,
@@ -80,16 +83,10 @@ mobs:register_mob("mobs_mc:enderman", {
 		max = 1,},
 	},
 	animation = {
-		speed_normal = 45,
-		speed_run = 15,
-		stand_start = 0,
-		stand_end = 39,
-		walk_start = 41,
-		walk_end = 72,
-		run_start = 74,
-		run_end = 105,
-		punch_start = 74,
-		punch_end = 105,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -127,8 +124,8 @@ mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
-
+--mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
+mobs:register_egg("mobs_mc:enderman", "Enderman", "enderman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Enderman loaded")

@@ -1,11 +1,11 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 --###################
 --################### ZOMBIE
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:22zombie", {
 	type = "animal",
 	passive = true,
@@ -34,18 +34,20 @@ mobs:register_mob("mobs_mc:22zombie", {
 })
 
 mobs:register_egg("mobs_mc:22zombie", "Zombie", "zombie_inv.png", 0)
-
+]]
 
 local zombie = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
-	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
-	textures = {
-	{"mobs_zombie.png"}
-	},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_zombie.x",
+	mesh = "zombie.b3d",
+	textures = {
+		{"zombie.png"},
+	},
+	visual_size = {x=3.5, y=3.5},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "zombie1",
@@ -79,11 +81,6 @@ local zombie = {
 		{name = "farming:potato",
 		-- approximation to 8.5%
 		chance = 11,
-		min = 1,
-		max = 1,},
-		-- TODO: Remove this drop when record discs are properly dropped
-		{name = "mcl_jukebox:record_8",
-		chance = 150,
 		min = 1,
 		max = 1,},
 	},
@@ -161,7 +158,7 @@ mobs:register_egg("mobs_mc:zombie", "Spawn Zombie", "spawn_egg_zombie.png")
 mobs:register_egg("mobs_mc:baby_zombie", "Spawn Baby Zombie", "spawn_egg_baby_zombie.png") -- TODO: To be removed
 mobs:register_egg("mobs_mc:husk", "Spawn Husk", "spawn_egg_husk.png") -- TODO: To be removed
 mobs:register_egg("mobs_mc:baby_husk", "Spawn Baby Husk", "spawn_egg_baby_husk.png") -- TODO: To be removed
-
+mobs:register_egg("mobs_mc:zombie", "Zombie", "zombie_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Zombie loaded")

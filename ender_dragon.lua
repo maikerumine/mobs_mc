@@ -1,10 +1,9 @@
-mobs:spawn_specific("mobs_mc:mese_dragon", {"default:bedrock","default:mese"}, {"air"},
-	0, 20, 60, 300, 2, -31000, -50)
+
 	
 --###################
 --################### ENDERDRAGON
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:12enderdragon", {
 	type = "animal",
 	passive = true,
@@ -33,16 +32,19 @@ mobs:register_mob("mobs_mc:12enderdragon", {
 })
 
 mobs:register_egg("mobs_mc:12enderdragon", "Enderdragon", "enderdragon_inv.png", 0)	
-
-mobs:register_mob("mobs_mc:mese_dragon", {
+]]
+mobs:register_mob("mobs_mc:enderdragon", {
 	type = "monster",
-	hp_max = 333,
-	hp_min = 333,
-	collisionbox = {-1, 0, -1, 1, 5, 1},
+	hp_max = 533,
+	hp_min = 433,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mese_dragon.x",
-	textures = {{"mese_dragon.png"}},
-	visual_size = {x=12, y=12},
+	mesh = "enderdragon.b3d",
+	textures = {
+		{"enderdragon.png"},
+	},
+	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
 	view_range = 45,
 	rotate = 270,
@@ -59,7 +61,7 @@ mobs:register_mob("mobs_mc:mese_dragon", {
 	jump_height = 10,
 	jump_chance = 98,
 	fear_height = 120,	
-	--fly = true,
+	fly = true,
 	dogshoot_switch = 1,
 	dogshoot_count_max =1,
 	passive = false,
@@ -73,7 +75,7 @@ mobs:register_mob("mobs_mc:mese_dragon", {
 		chance = 1,
 		min = 99,
 		max = 99},
-		{name = "mobs_mc:sun_sword", chance = 1, min = 1, max = 1},
+
     },
 	armor = 60,
 	drawtype = "front",
@@ -92,24 +94,15 @@ mobs:register_mob("mobs_mc:mese_dragon", {
 	shoot_interval = 0.5,
 	shoot_offset = -1,
 	animation = {
-		speed_normal = 15,
-		speed_run = 25,
-		stand_start = 60,
-		stand_end = 120,
-		walk_start = 161,
-		walk_end = 205,
-		run_start = 206,
-		run_end = 242,
-		punch_start = 242,
-		punch_end = 275,
-		punch1_start = 330,
-		punch1_end = 370,
-    dattack_start = 120,
-    dattack_end = 160,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 20,
+		walk_start = 0,		walk_end = 20,
+		run_start = 0,		run_end = 20,
+	},
     	--attacks_monsters = true,
 	--peaceful = false,
 	--group_attack = true,
-	},
+	--},
 --[[
 	do_custom = function(self)
 		--mobs:midas_ability(self, "default:mese_block", self.run_velocity,2, 3)
@@ -162,7 +155,7 @@ mobs:register_mob("mobs_mc:mese_dragon", {
 
 
 
-mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
+mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
 	--textures = {"transparent.png"},
@@ -186,7 +179,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 		local objects = minetest.env:get_objects_inside_radius(pos, 1)
 	    for _,obj in ipairs(objects) do
 			local name = obj:get_entity_name()
-			if name~="mobs_mc:roar_of_the_dragon" and name ~= "mobs_mc:mese_dragon" then
+			if name~="mobs_mc:roar_of_the_dragon2" and name ~= "mobs_mc:enderdragon" then
 		        obj:set_hp(obj:get_hp()-0.05)
 		        if (obj:get_hp() <= 0) then
 		            if (not obj:is_player()) and name ~= self.object:get_luaentity().name then
@@ -211,8 +204,8 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 mobs:register_arrow(":mobs_mc:fireball2", {
 	visual = "sprite",
 	visual_size = {x = 1.5, y = 1.5},
-	--textures = {"mobs_fireball.png"},
-	textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
+	textures = {"mobs_fireball.png"},
+	--textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
 	velocity = 6,
 
 	-- direct hit, no fire... just plenty of pain
@@ -243,5 +236,8 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-
+mobs:spawn_specific("mobs_mc:enderdragon", {"default:bedrock","default:mese"}, {"air"},
+	0, 20, 60, 300, 1, -31000, -5000)
+	
+mobs:register_egg("mobs_mc:enderdragon", "Enderdragon", "enderdragon_inv.png", 0)
 

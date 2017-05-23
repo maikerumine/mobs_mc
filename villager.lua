@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -8,7 +8,7 @@
 --###################
 --################### VILLAGER
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:58villager", {
 	type = "animal",
 	passive = true,
@@ -35,19 +35,19 @@ mobs:register_mob("mobs_mc:58villager", {
 })
 
 mobs:register_egg("mobs_mc:58villager", "Villager", "villager_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:villager", {
 	type = "npc",
 	hp_min = 35,
 	hp_max = 75,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
-	textures = {
-	{"mobs_farmer.png"}
-	},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_villager.x",
+	mesh = "villager.b3d",
+    textures = {{"villager.png"},{"villager1.png"},{"villager2.png"},{"villager3.png"},},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 2,
 	walk_velocity = 1.2,
@@ -68,20 +68,10 @@ mobs:register_mob("mobs_mc:villager", {
 		damage = "Villagerhurt1",
 	},
 	animation = {
-		speed_normal = 30,
-		speed_run = 60,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		run_start = 24,
-		run_end = 49,
-		hurt_start = 85,
-		hurt_end = 115,
-		death_start = 117,
-		death_end = 145,
-		shoot_start = 50,
-		shoot_end = 82,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -206,15 +196,15 @@ mobs:register_mob("mobs_mc:villager", {
 	]]
 })
 --mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
-mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, 20, 8, 500, 2, 31000)
+mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, 20, 8, 5000, 2, 31000)
 
 
 -- compatibility
 mobs:alias_mob("mobs:villager", "mobs_mc:villager")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:villager", "Villager", "spawn_egg_villager.png")
-
+--mobs:register_egg("mobs_mc:villager", "Villager", "spawn_egg_villager.png")
+mobs:register_egg("mobs_mc:villager", "Villager", "villager_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC mobs loaded")

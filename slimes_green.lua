@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -10,7 +10,7 @@
 --###################
 --################### SLIME
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:11slime", {
 	type = "animal",
 	passive = true,
@@ -39,7 +39,7 @@ mobs:register_mob("mobs_mc:11slime", {
 })
 
 mobs:register_egg("mobs_mc:11slime", "Slime", "slime_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:greensmall", {

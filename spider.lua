@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -9,7 +9,7 @@
 --###################
 --################### SPIDER
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:38spider", {
 	type = "animal",
 	passive = true,
@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:38spider", {
 })
 
 mobs:register_egg("mobs_mc:38spider", "Spider", "spider_inv.png", 0)
-
+]]
 
 -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 mobs:register_mob("mobs_mc:spider", {
@@ -50,13 +50,14 @@ mobs:register_mob("mobs_mc:spider", {
 	hp_min = 32,
 	hp_max = 50,
 	armor = 100,
-	collisionbox = {-0.9, -0.01, -0.7, 0.7, 0.6, 0.7},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_spider.x",
+	mesh = "spider.b3d",
 	textures = {
-		{"mobs_spider.png"}
+		{"spider.png"},
 	},
-	visual_size = {x=5,y=5},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
 	sounds = {
 		random = "mobs_spider",
@@ -88,11 +89,10 @@ mobs:register_mob("mobs_mc:spider", {
 	light_damage = 0,
 	fear_height = 14,
 	animation = {
-		speed_normal = 15,		speed_run = 15,
-		stand_start = 1,		stand_end = 1,
-		walk_start = 20,		walk_end = 40,
-		run_start = 20,			run_end = 40,
-		punch_start = 50,		punch_end = 90,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 })
 mobs:register_spawn("mobs_mc:spider", {"default:stone" ,"default:gravel","default:cobble","group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 4, -1, 17000, 2, 3000)
@@ -145,8 +145,8 @@ mobs:alias_mob("mobs:spider", "mobs_mc:spider")
 mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
-
+--mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
+mobs:register_egg("mobs_mc:spider", "Spider", "spider_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Spiders loaded")

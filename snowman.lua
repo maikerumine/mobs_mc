@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -9,7 +9,7 @@
 --###################
 --################### SNOWMAN
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:26snowman", {
 	type = "animal",
 	passive = true,
@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:26snowman", {
 })
 
 mobs:register_egg("mobs_mc:26snowman", "Snowman", "snowman_inv.png", 0)
-
+]]
 
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",

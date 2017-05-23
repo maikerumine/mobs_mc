@@ -2,7 +2,7 @@
 --###################
 --################### ENDERMITE
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:14endermite", {
 	type = "animal",
 	passive = true,
@@ -31,22 +31,23 @@ mobs:register_mob("mobs_mc:14endermite", {
 })
 
 mobs:register_egg("mobs_mc:14endermite", "Endermite", "endermite_inv.png", 0)
-
+]]
 -- Rat by PilzAdam
 
-mobs:register_mob("mobs_mc:rat", {
-	type = "animal",
-	passive = true,
+mobs:register_mob("mobs_mc:endermite", {
+	type = "monster",
+	passive = false,
 	hp_min = 1,
 	hp_max = 4,
 	armor = 200,
-	collisionbox = {-0.2, -1, -0.2, 0.2, -0.8, 0.2},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_rat.b3d",
+	mesh = "endermite.b3d",
 	textures = {
-		{"mobs_rat.png"},
-		{"mobs_rat2.png"},
+		{"endermite.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
 	sounds = {
 		random = "mobs_rat",
@@ -88,23 +89,9 @@ mobs:register_mob("mobs_mc:rat", {
 ]]
 })
 
-mobs:register_spawn("mobs_mc:rat", {"default:stone"}, 20, 5, 15000, 2, 0)
+mobs:register_spawn("mobs_mc:endermite", {"default:stone"}, 20, 5, 15000, 2, 0)
 
---mobs:register_egg("mobs_mc:rat", S("Rat"), "mobs_rat_inventory.png", 0)
+--mobs:register_egg("mobs_mc:endermite", "Rat", "mobs_rat_inventory.png", 0)
+mobs:register_egg("mobs_mc:endermite", "Endermite", "endermite_inv.png", 0)
 
--- compatibility
-mobs:alias_mob("mobs:rat", "mobs_mc:rat")
 
--- cooked rat, yummy!
-minetest.register_craftitem(":mobs:rat_cooked", {
-	description = "Cooked Rat",
-	inventory_image = "mobs_cooked_rat.png",
-	on_use = minetest.item_eat(3),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs:rat_cooked",
-	recipe = "mobs:rat",
-	cooktime = 5,
-})

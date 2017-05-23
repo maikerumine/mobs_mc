@@ -9,7 +9,7 @@
 --###################
 --################### COW MOOSHROOM
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:0amooshroom", {
 	type = "animal",
 	passive = true,
@@ -37,22 +37,25 @@ mobs:register_mob("mobs_mc:0amooshroom", {
 	},
 })
 
-mobs:register_egg("mobs_mc:0amooshroom", "Mooshroom", "mooshroom_inv.png", 0)
-
+mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom", "mooshroom_inv.png", 0)
+]]
 
 mobs:register_mob("mobs_mc:mooshroom_cow", {
 	type = "animal",
+	runaway = true,
+    stepheight = 1.2,
 	hp_max = 28,
-	collisionbox = {-0.6, -0.01, -0.6, 0.6, 1.8, 0.6},
-	
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_mc_cow.x",
+	mesh = "mooshroom.b3d",
 	textures = {
-	{"mobs_mc_mooshroom_cow.png"}
+		{"mooshroom.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
+	armor = 150,
 	drops = {
 		{name = "mobs:beef_raw",
 		chance = 1,
@@ -74,19 +77,10 @@ mobs:register_mob("mobs_mc:mooshroom_cow", {
 		damage = "Cowhurt1",
 	},
 	animation = {
-		speed_normal = 24,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		hurt_start = 118,
-		hurt_end = 154,
-		death_start = 154,
-		death_end = 179,
-		eat_start = 49,
-		eat_end = 78,
-		look_start = 78,
-		look_end = 108,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	--[[
 	follow = "farming:wheat",

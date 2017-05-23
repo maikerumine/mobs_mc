@@ -9,7 +9,7 @@
 --###################
 --################### BLAZE
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:3blaze", {
 	type = "animal",
 	passive = true,
@@ -39,19 +39,21 @@ mobs:register_mob("mobs_mc:3blaze", {
 
 mobs:register_egg("mobs_mc:3blaze", "Blaze", "blaze_inv.png", 0)
 
-
+]]
 
 
 mobs:register_mob("mobs_mc:blaze", {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
-	collisionbox = {-0.4, 0.4, -0.4, 0.4, 1.9, 0.4},
-	textures = {
-	{"mobs_blaze.png"}
-	},
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_blaze.b3d",
+	mesh = "blaze.b3d",
+	textures = {
+		{"blaze.png"},
+	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "blaze_breath",
@@ -136,7 +138,8 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:blaze", "Spawn Blaze", "spawn_egg_blaze.png")
+--mobs:register_egg("mobs_mc:blaze", "Spawn Blaze", "spawn_egg_blaze.png")
+mobs:register_egg("mobs_mc:blaze", "Blaze", "blaze_inv.png", 0)
 
 
 minetest.register_craftitem("mobs_mc:blaze_rod", {

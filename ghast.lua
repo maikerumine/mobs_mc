@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -9,7 +9,7 @@
 --###################
 --################### GHAST
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:15ghast", {
 	type = "animal",
 	passive = true,
@@ -38,22 +38,21 @@ mobs:register_mob("mobs_mc:15ghast", {
 })
 
 mobs:register_egg("mobs_mc:15ghast", "Ghast", "ghast_inv.png", 0)
-
+]]
 
 mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
 	hp_max = 90,
-	collisionbox = {-1.45, -1.45, -1.45 ,1.45, 1.45, 1.45},
-	visual_size = {x=3.0, y=3.0},
---	textures = {
---	{"ghast_top.png", "ghast_bottom.png", "ghast_front.png", "ghast_sides.png", "ghast_sides.png", "ghast_sides.png"}
---	},	
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "ghast.b3d",
 	textures = {
-	{"ghast_white.png", "ghast_white.png", "ghast_front.png", "ghast_white.png", "ghast_white.png", "ghast_white.png"}
+		{"ghast.png"},
 	},
-	visual = "cube",
+	visual_size = {x=4, y=4},
 	blood_texture ="mobs_blood.png",
 	rotate = 270,
 	makes_footstep_sound = true,
@@ -83,18 +82,10 @@ mobs:register_mob("mobs_mc:ghast", {
 		max = 1,},
 	},
 	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
+		speed_normal = 25,		speed_run = 25,
+		stand_start = 0,		stand_end = 40,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	drawtype = "front",
 	water_damage = 10,
@@ -162,8 +153,8 @@ minetest.register_craftitem("mobs_mc:ghast_tear", {
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
-
+--mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
+mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Ghast loaded")
