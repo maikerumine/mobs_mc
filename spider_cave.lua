@@ -9,7 +9,7 @@
 --###################
 --################### CAVE SPIDER
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:38cavespider", {
 	type = "animal",
 	passive = true,
@@ -38,11 +38,11 @@ mobs:register_mob("mobs_mc:38cavespider", {
 })
 
 mobs:register_egg("mobs_mc:38cavespider", "Cave Spider", "cave_spider_inv.png", 0)
-
+]]
 
 
 -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
-mobs:register_mob("mobs_mc:spider", {
+mobs:register_mob("mobs_mc:cavespider", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -52,12 +52,13 @@ mobs:register_mob("mobs_mc:spider", {
 	hp_max = 50,
 	armor = 100,
 	collisionbox = {-0.9, -0.01, -0.7, 0.7, 0.6, 0.7},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_spider.x",
+	mesh = "spider.b3d",
 	textures = {
-		{"mobs_spider.png"}
+		{"cave_spider.png"},
 	},
-	visual_size = {x=5,y=5},
+	visual_size = {x=2, y=2},
 	makes_footstep_sound = false,
 	sounds = {
 		random = "mobs_spider",
@@ -89,16 +90,15 @@ mobs:register_mob("mobs_mc:spider", {
 	light_damage = 0,
 	fear_height = 14,
 	animation = {
-		speed_normal = 15,		speed_run = 15,
-		stand_start = 1,		stand_end = 1,
-		walk_start = 20,		walk_end = 40,
-		run_start = 20,			run_end = 40,
-		punch_start = 50,		punch_end = 90,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 })
-mobs:register_spawn("mobs_mc:spider", {"default:stone" ,"default:gravel","default:cobble","group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 4, -1, 17000, 2, 3000)
+mobs:register_spawn("mobs_mc:cavespider", {"default:mossycobble" ,"default:wood","default:cobble"}, 4, -1, 17000, 2, -35)
 
-
+--[[
 -- Cobweb
 minetest.register_node(":mobs:cobweb", {
 	description = "Cobweb",
@@ -139,15 +139,12 @@ minetest.register_craftitem("mobs_mc:spider_eye", {
 	groups = { food = 2, eatable = 2 },
 	stack_max = 64,
 })
+]]
 
-
--- compatibility
-mobs:alias_mob("mobs:spider", "mobs_mc:spider")
-mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
-
+--mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
+mobs:register_egg("mobs_mc:cavespider", "Cave Spider", "cave_spider_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Spiders loaded")

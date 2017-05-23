@@ -40,7 +40,7 @@ mobs:register_mob("mobs_mc:endermite", {
 	hp_min = 1,
 	hp_max = 4,
 	armor = 200,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.3, 0.2},
     rotate = -180,
 	visual = "mesh",
 	mesh = "endermite.b3d",
@@ -89,9 +89,9 @@ mobs:register_mob("mobs_mc:endermite", {
 ]]
 })
 
-mobs:register_spawn("mobs_mc:endermite", {"default:stone"}, 20, 5, 15000, 2, 0)
+mobs:register_spawn("mobs_mc:endermite", {"default:stone"}, 20, 5, 15000, 2, -3000)
 
---mobs:register_egg("mobs_mc:endermite", "Rat", "mobs_rat_inventory.png", 0)
+
 mobs:register_egg("mobs_mc:endermite", "Endermite", "endermite_inv.png", 0)
 
 

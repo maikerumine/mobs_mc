@@ -42,7 +42,7 @@ mobs:register_mob("mobs_mc:rabbit", {
 	hp_min = 1,
 	hp_max = 4,
 	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    collisionbox = {-0.268, -0.02, -0.268,  0.268, -0.5, 0.268},
     rotate = -180,
 	visual = "mesh",
 	mesh = "rabbit.b3d",
@@ -112,4 +112,4 @@ mobs:register_spawn("mobs_mc:rabbit",
 --mobs:register_egg("mobs_mc:bunny", S("Bunny"), "mobs_bunny_inv.png", 0)
 mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
 -- compatibility
-mobs:alias_mob("mobs:bunny", "mobs_mc:bunny")
+mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")

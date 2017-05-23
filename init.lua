@@ -16,12 +16,12 @@ dofile(path .. "/chicken.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/cow.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/cow_mooshroom.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/horse.lua") -- KrupnoPavel
---dofile(path .. "/horse_mule.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/horse_skeleton.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/horse_zombie.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/llama.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/ocelot.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/parrot.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/horse_mule.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/horse_skeleton.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/horse_zombie.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/llama.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/ocelot.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/parrot.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/pig.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/polar_bear.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/sheep.lua") -- Mesh and animation by Pavel_S
@@ -34,7 +34,7 @@ dofile(path .. "/villager.lua") -- KrupnoPavel Mesh and animation by toby109tt  
 --dofile(path .. "/villager_evoker.lua") -- KrupnoPavel
 --dofile(path .. "/villager_vindicator.lua") -- KrupnoPavel
 dofile(path .. "/villager_zombie.lua") -- KrupnoPavel
---dofile(path .. "/witch.lua") -- KrupnoPavel
+dofile(path .. "/witch.lua") -- KrupnoPavel
 
 --Monsters
 dofile(path .. "/blaze.lua") -- Animation by daufinsyd
@@ -49,15 +49,15 @@ dofile(path .. "/iron_golem.lua") -- maikerumine Mesh and animation by toby109tt
 --dofile(path .. "/shulker.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/silver_fish.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/skeleton.lua") -- Mesh by Morn76 Animation by Pavel_S
---dofile(path .. "/skeleton_stray.lua") -- Mesh by Morn76 Animation by Pavel_S
---dofile(path .. "/skeleton_wither.lua") -- Mesh by Morn76 Animation by Pavel_S
+dofile(path .. "/skeleton_stray.lua") -- Mesh by Morn76 Animation by Pavel_S
+dofile(path .. "/skeleton_wither.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/zombie.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/zombiepig.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/slime_magma_cube.lua") -- Tomas J. Luis
 dofile(path .. "/slimes_green.lua") -- Tomas J. Luis
 --dofile(path .. "/snowman.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/spider.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
---dofile(path .. "/spider_cave.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
+dofile(path .. "/spider_cave.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 --dofile(path .. "/vex.lua") -- KrupnoPavel
 dofile(path .. "/wither.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 

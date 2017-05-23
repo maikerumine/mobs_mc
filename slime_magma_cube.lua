@@ -45,7 +45,7 @@ mobs:register_egg("mobs_mc:10magmacube", "Magmacube", "magmacube_inv.png", 0)
 
 
 
-mobs:register_mob("mobs_mc:lavasmall", {
+mobs:register_mob("mobs_mc:magmasmall", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
@@ -109,7 +109,6 @@ mobs:register_mob("mobs_mc:magmacube", {
 		{"magmacube.png"},
 	},
 	blood_texture ="lava_slime_blood.png",
-	rotate = 270,
 	makes_footstep_sound = true,
 	sounds = {
 		jump = "green_slime_jump",
@@ -122,7 +121,7 @@ mobs:register_mob("mobs_mc:magmacube", {
 	damage = 2,
 	armor = 100,
 	drops = {
-		{name = "mobs_mc:lavasmall",
+		{name = "mobs_mc:magmasmall",
 		chance = 1,
 		min = 1,
 		max = 5,},
@@ -146,10 +145,10 @@ mobs:register_mob("mobs_mc:magmacube", {
 	jump_chance = 100,
 	fear_height = 60,
 	on_die =function(self, pos)
-		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:lavasmall")
-		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:lavasmall")
-		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:lavasmall")
-		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:lavasmall")
+		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:magmasmall")
+		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:magmasmall")
+		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:magmasmall")
+		lavasmall = minetest.add_entity(self.object:getpos(), "mobs_mc:magmasmall")
 			ent = lavasmall:get_luaentity()
 			end
 })
@@ -168,12 +167,15 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 
 
 
-mobs:register_spawn("mobs_mc:lavasmall", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
-mobs:register_spawn("mobs_mc:lavabig", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
+mobs:register_spawn("mobs_mc:magmasmall", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
+mobs:register_spawn("mobs_mc:magmacube", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
+
+-- compatibility
+mobs:alias_mob("mobs_mc:lavasmall", "mobs_mc:magmasmall")
+mobs:alias_mob("mobs_mc:lavabig", "mobs_mc:magmacube")
 
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:lavabig", "Magma Cube", "spawn_egg_magma_cube.png")
 mobs:register_egg("mobs_mc:magmacube", "Magmacube", "magmacube_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

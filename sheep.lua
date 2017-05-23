@@ -10,7 +10,7 @@
 --###################
 --################### SHEEP
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:24sheep", {
 	type = "animal",
 	passive = true,
@@ -41,19 +41,23 @@ mobs:register_mob("mobs_mc:24sheep", {
 })
 
 mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
-
+]]
 
 --mcsheep
 mobs:register_mob("mobs_mc:sheep", {
 	type = "animal",
 	hp_max = 25,
 	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
-	
+	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_sheep.x",
+	mesh = "sheep.b3d",
 	textures = {
-	{"mobs_sheep.png"}
+		{"sheep.png"},
 	},
+    gotten_texture = {"sheeps.png"},
+    gotten_mesh = "sheeps.b3d",
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -78,19 +82,10 @@ mobs:register_mob("mobs_mc:sheep", {
 		damage = "Sheep3",
 	},
 	animation = {
-		speed_normal = 24,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		hurt_start = 118,
-		hurt_end = 154,
-		death_start = 154,
-		death_end = 179,
-		eat_start = 49,
-		eat_end = 78,
-		look_start = 78,
-		look_end = 108,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	follow = "farming:wheat",
 	view_range = 5,
@@ -131,7 +126,8 @@ mobs:register_mob("mobs_mc:sheep", {
 				minetest.add_item(pos, ItemStack("wool:"..self.color.." "..math.random(1,3)))
 			end
 			self.object:set_properties({
-				textures = {"sheep_sheared.png"},
+				textures = {"sheeps.png"},
+				mesh = "sheeps.b3d",
 			})
 			if not minetest.setting_getbool("creative_mode") then
 				item:add_wear(300)
@@ -145,6 +141,7 @@ print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
 
 			self.object:set_properties({
 				textures = {"mobs_sheep_"..pname..".png"},
+				mesh = "sheeps.b3d",
 			})
 			self.color = pname
 			self.drops = {
@@ -160,7 +157,7 @@ print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
 		end
 	end,
 })
---mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 5000, 2, 31000)
+mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 5000, 2, 31000)
 
 
 --mutton
@@ -187,9 +184,10 @@ minetest.register_craft({
 -- compatibility
 mobs:alias_mob("mobs:sheep", "mobs_mc:sheep")
 ]]
+mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
-mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
-
+--mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
+mobs:register_egg("mobs_mc:sheep", "Sheep", "sheep_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Sheep loaded")

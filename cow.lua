@@ -10,7 +10,7 @@
 --###################
 --################### COW
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:0acow", {
 	type = "animal",
 	passive = true,
@@ -39,18 +39,19 @@ mobs:register_mob("mobs_mc:0acow", {
 })
 
 mobs:register_egg("mobs_mc:0acow", "Cow", "cow_inv.png", 0)
-
+]]
 
 mobs:register_mob("mobs_mc:cow", {
 	type = "animal",
 	hp_max = 28,
 	collisionbox = {-0.6, -0.01, -0.6, 0.6, 1.8, 0.6},
-	
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_mc_cow.x",
+	mesh = "cow.b3d",
 	textures = {
-	{"mobs_mc_cow.png"}
+		{"cow.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -75,19 +76,10 @@ mobs:register_mob("mobs_mc:cow", {
 		damage = "Cowhurt1",
 	},
 	animation = {
-		speed_normal = 24,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		hurt_start = 118,
-		hurt_end = 154,
-		death_start = 154,
-		death_end = 179,
-		eat_start = 49,
-		eat_end = 78,
-		look_start = 78,
-		look_end = 108,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	--[[
 	follow = "farming:wheat",
@@ -159,7 +151,7 @@ mobs:register_mob("mobs_mc:cow", {
 	end,	
 })
 
---mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
 
 
 -- beef
@@ -198,13 +190,13 @@ minetest.register_craft({
 	},
 })
 
---[[
--- compatibility
-mobs:alias_mob("mobs:cow", "mobs_mc:cow")
-]]
--- spawn egg
-mobs:register_egg("mobs_mc:cow", "Cow", "spawn_egg_cow.png")
 
+-- compatibility
+mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
+
+-- spawn egg
+--mobs:register_egg("mobs_mc:cow", "Cow", "spawn_egg_cow.png")
+mobs:register_egg("mobs_mc:cow", "Cow", "cow_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")

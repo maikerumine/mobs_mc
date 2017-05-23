@@ -101,8 +101,8 @@ mobs:register_mob("mobs_mc:polarbear", {
 	end,
 	]]
 	--from mobs_animals
-	follow = "farming:wheat",
-	view_range = 7,
+	follow = "fishing:clownfish_raw","fishing:fish_raw",
+	view_range = 12,
 	replace_rate = 10,
 	replace_what = {"default:grass_3", "default:grass_4", "default:grass_5", "farming:wheat_8"},
 	replace_with = "air",
@@ -110,11 +110,11 @@ mobs:register_mob("mobs_mc:polarbear", {
 
 })
 
---mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:polarbear", {"default:snowblock", "default:snow"}, 20, 8, 7000, 1, 31000)
 
 
 -- spawn egg
---mobs:register_egg("mobs_mc:cow", "Cow", "spawn_egg_cow.png")
+
 mobs:register_egg("mobs_mc:polarbear", "Polarbear", "polarbear_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

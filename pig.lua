@@ -9,7 +9,7 @@
 --###################
 --################### PIG
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:21apig", {
 	type = "animal",
 	passive = true,
@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:21apig", {
 })
 
 mobs:register_egg("mobs_mc:21apig", "Pig", "pig_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:pig", {
@@ -134,7 +134,7 @@ mobs:register_mob("mobs_mc:pig", {
 		end)
 		----[[
 			-- ridable pigs
-		if self.name == "mobs:pig" and self.saddle == "yes" and self.driver then
+		if self.name == "mobs_mc:pig" and self.saddle == "yes" and self.driver then
 			local item = self.driver:get_wielded_item()
 			if item:get_name() == "mobs:carrotstick" then
 				local yaw = self.driver:get_look_yaw() - math.pi / 2
@@ -275,8 +275,8 @@ minetest.register_craft({
 mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pig", "Pig", "spawn_egg_pig.png")
-
+--mobs:register_egg("mobs_mc:pig", "Pig", "spawn_egg_pig.png")
+mobs:register_egg("mobs_mc:pig", "Pig", "pig_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Pig loaded")

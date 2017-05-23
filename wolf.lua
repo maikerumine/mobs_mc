@@ -9,7 +9,7 @@
 --###################
 --################### WOLF
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:33wolf", {
 	type = "animal",
 	passive = true,
@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:33wolf", {
 })
 
 mobs:register_egg("mobs_mc:33wolf", "Wolf", "wolf_inv.png", 0)
-
+]]
 
 
 -- Dog
@@ -153,7 +153,7 @@ mobs:register_mob("mobs_mc:dog", {
 
 -- Wolf by KrupnoPavel
 mobs:register_mob("mobs_mc:wolf", {
-	type = "animal",
+	type = "npc",
 	hp_min = 55,
 	hp_max = 75,
 	passive = false,
@@ -210,6 +210,7 @@ mobs:register_mob("mobs_mc:wolf", {
 		punch_end = 155,
 	},
 	jump = true,
+	attacks_monsters = true,
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
 })
@@ -223,9 +224,9 @@ mobs:alias_mob("esmobs:wolf", "mobs_mc:wolf")
 mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:wolf", "Wolf", "wool_grey.png", 1)
-mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
-
+--mobs:register_egg("mobs_mc:wolf", "Wolf", "wool_grey.png", 1)
+--mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
+mobs:register_egg("mobs_mc:wolf", "Wolf", "wolf_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Wolf loaded")

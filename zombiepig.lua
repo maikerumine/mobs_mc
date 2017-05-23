@@ -8,7 +8,7 @@
 --###################
 --################### ZOMBIE PIGMAN
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:51pigman", {
 	type = "animal",
 	passive = true,
@@ -36,7 +36,7 @@ mobs:register_mob("mobs_mc:51pigman", {
 })
 
 mobs:register_egg("mobs_mc:51pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:pigman", {
@@ -145,8 +145,8 @@ minetest.register_craftitem(":mobs:rotten_flesh", {
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "spawn_egg_zombie_pigman.png")
-
+--mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "spawn_egg_zombie_pigman.png")
+mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Pigmen loaded")

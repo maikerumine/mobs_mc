@@ -39,15 +39,18 @@ mobs:register_egg("mobs_mc:22zombie", "Zombie", "zombie_inv.png", 0)
 local zombie = {
 	type = "monster",
 	hp_min = 20,
-	hp_max = 20,
+	hp_max = 40,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
+	--collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
+    --rotate = -180,
 	visual = "mesh",
-	mesh = "zombie.b3d",
+	--mesh = "zombie.b3d",  new
+	mesh = "mobs_zombie.x",
 	textures = {
-		{"zombie.png"},
+		--{"zombie.png"},
+		{"mobs_zombie.png"},
 	},
-	visual_size = {x=3.5, y=3.5},
+	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "zombie1",

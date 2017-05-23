@@ -75,10 +75,11 @@ mobs:register_mob("mobs_mc:guardian_elder", {
     rotate = 180,
     visual_size = {x=4.5, y=4.5},
     makes_footstep_sound = false,
-    stepheight = 0.1,
+    stepheight = 2.1,
     fly = true,
+	--floats=1,
     fly_in = "default:water_source",
-    fall_speed = -3,
+    fall_speed = -2,
     view_range = 8,
     fall_damage = 1,
     water_damage = 0,
@@ -94,4 +95,4 @@ mobs:register_spawn("mobs_mc:guardian_elder",
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:squid_mean", "Spawn Mean Squid", "spawn_egg_squid.png")
-mobs:register_egg("mobs_mc:guardian", "Guardian", "guardian_inv.png", 0)
+mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "guardian_elder_inv.png", 0)

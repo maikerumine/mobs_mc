@@ -47,7 +47,7 @@ mobs:register_mob("mobs_mc:bat", {
 	hp_min = 30,
 	hp_max = 60,
 	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    collisionbox = {-0.2, -1, -0.2, 0.2, -0.8, 0.2},
     rotate = -180,
 	visual = "mesh",
 	mesh = "bat.b3d",
@@ -55,6 +55,9 @@ mobs:register_mob("mobs_mc:bat", {
 		{"bat.png"},
 	},
 	visual_size = {x=1, y=1},
+		sounds = {
+		random = "mobs_rat",
+	},
 	walk_velocity = 3,
 	run_velocity = 3,
 	jump = true,
@@ -78,7 +81,7 @@ mobs:register_mob("mobs_mc:bat", {
 })
 
 
---mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
+
 mobs:spawn_specific("mobs_mc:bat", {"default:air","default:stone"},{"air"},0, 17, 20, 5000, 2, -100, -2)
 
 

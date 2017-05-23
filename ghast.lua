@@ -54,7 +54,6 @@ mobs:register_mob("mobs_mc:ghast", {
 	},
 	visual_size = {x=4, y=4},
 	blood_texture ="mobs_blood.png",
-	rotate = 270,
 	makes_footstep_sound = true,
 	sounds = {
 		shoot = "mobs_fireball",
@@ -113,7 +112,7 @@ mobs:register_mob("mobs_mc:ghast", {
 
 
 --mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"},{"air"},0, 17, 20, 5000, 2, -3610, -2100)
+mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"},{"air"},0, 17, 20, 8000, 2, -3610, -2100)
 -- fireball (weapon)
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",

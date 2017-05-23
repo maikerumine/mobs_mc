@@ -8,7 +8,7 @@
 --###################
 --################### PARROT
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:1parrot", {
 	type = "animal",
 	passive = true,
@@ -44,64 +44,42 @@ mobs:register_mob("mobs_mc:1parrot", {
 })
 
 mobs:register_egg("mobs_mc:1parrot", "Parrot", "parrot_inv.png", 0)
+]]
 
 
-
-mobs:register_mob("mobs_mc:ghast", {
-	type = "monster",
+mobs:register_mob("mobs_mc:parrot", {
+	type = "npc",
 	pathfinding = true,
 	group_attack = true,
 	hp_max = 90,
-	collisionbox = {-1.45, -1.45, -1.45 ,1.45, 1.45, 1.45},
-	visual_size = {x=3.0, y=3.0},
---	textures = {
---	{"ghast_top.png", "ghast_bottom.png", "ghast_front.png", "ghast_sides.png", "ghast_sides.png", "ghast_sides.png"}
---	},	
-	textures = {
-	{"ghast_white.png", "ghast_white.png", "ghast_front.png", "ghast_white.png", "ghast_white.png", "ghast_white.png"}
-	},
-	visual = "cube",
-	blood_texture ="mobs_blood.png",
-	rotate = 270,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "parrot.b3d",
+	textures = {{"parrot_blue.png"},{"parrot_green.png"},{"parrot_grey.png"},{"parrot_red_blue.png"},{"parrot_yellow_blue.png"}},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
-		shoot = "mobs_fireball",
-		death = "zombiedeath",
-		damage = "ghast_damage",
-		attack = "mobs_fireball",
-		random = "mobs_eerie",
+		random = "Villagerdeny",
 	},
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	damage = 1,
 	armor = 100,
 	drops = {
-		{name = "default:lava_source 1",
-		chance = 3,
-		min = 1,
-		max = 4,},
-		{name = "mobs_mc:ghast_tear",
-		chance = 6,
-		min = 0,
-		max = 1,},
-		{name = "mobs_mc:ghast_head",
-		chance = 50,
-		min = 0,
-		max = 1,},
+
 	},
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
+    	animation = {
+		speed_normal = 50,
+		speed_run = 50,
 		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
+		stand_end = 0,
+		walk_start = 0,
+		walk_end = 130,
+		--run_start = 0,
+		--run_end = 20,
+		--fly_start = 30,
+		--fly_end = 45,
 	},
 	drawtype = "front",
 	water_damage = 10,
@@ -109,69 +87,61 @@ mobs:register_mob("mobs_mc:ghast", {
 	light_damage = 0,
 	fall_damage = 0,
 	view_range = 16,
-	--attack_type = "dogshoot",
-	attack_type = "dogshoot",
-	arrow = "mobs_monster:fireball",
-	shoot_interval = 3.5,
-	shoot_offset = 1,
-		--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
-	--'dogshoot_count_max' number of seconds before switching above modes.
-	dogshoot_switch = 1,
-	dogshoot_count_max =1,
-	passive = false,
+	attack_type = "dogfight",
+	attacks_monsters = true,
 	jump = true,
 	jump_height = 4,
 	floats=1,
 	fly = true,
 	jump_chance = 98,
 	fear_height = 120,	
-})
+	
+		follow = {"farming:seed_wheat", "farming:seed_cotton"},
+	view_range = 25,
 
+	on_rightclick = function(self, clicker)
 
---mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"},{"air"},0, 17, 20, 5000, 2, -3610, -2100)
--- fireball (weapon)
-mobs:register_arrow(":mobs_monster:fireball", {
-	visual = "sprite",
-	visual_size = {x = 0.5, y = 0.5},
-	textures = {"mcl_mobitems_fireball.png"},
-	velocity = 6,
+		if mobs:feed_tame(self, clicker, 8, true, true) then
+			return
+		end
 
-	-- direct hit, no fire... just plenty of pain
-	hit_player = function(self, player)
-		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 8},
-		}, nil)
+		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
 	end,
 
-	hit_mob = function(self, player)
-		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 8},
-		}, nil)
-	end,
+	do_custom = function(self)
 
-	-- node hit, bursts into flame
-	hit_node = function(self, pos, node)
-		mobs:explosion(pos, 1, 1, 0)
-	end
+		if self.child
+		or math.random(1, 25000) > 1 then
+			return
+		end
+
+		local pos = self.object:getpos()
+
+		minetest.add_item(pos, "mobs:egg")
+
+		minetest.sound_play("default_place_node_hard", {
+			pos = pos,
+			gain = 1.0,
+			max_hear_distance = 5,
+		})
+	end,	
+	
+	
 })
 
-minetest.register_craftitem("mobs_mc:ghast_tear", {
-	description = "Ghast Tear",
-	_doc_items_longdesc = "A ghast tear is an item used in potion brewing. It is dropped from dead ghasts.",
-	wield_image = "mcl_mobitems_ghast_tear.png",
-	inventory_image = "mcl_mobitems_ghast_tear.png",
-	groups = { brewitem = 1 },
-	stack_max = 64,
-})
+
+
+mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves", "air"},{"default:dirt_with_rainforest_litter"},20, 7, 20, 5000, 2, -10, 200)
+mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves", "default:dirt_with_rainforest_litter"},{"air"},20, 7, 20, 5000, 2, -10, 200)
+mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves"},{"air"},20, 7, 20, 5000, 2, -10, 200)
+mobs:register_spawn("mobs_mc:parrot", {"default:dirt_with_rainforest_litter"}, 20, 12, 5000, 2, 31000)
+
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
-
+--mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
+mobs:register_egg("mobs_mc:parrot", "Parrot", "parrot_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
-	minetest.log("action", "MC Ghast loaded")
+	minetest.log("action", "MC Parrot loaded")
 end

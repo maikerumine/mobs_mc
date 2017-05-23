@@ -8,7 +8,7 @@
 --###################
 --################### CHICKEN
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:6chicken", {
 	type = "animal",
 	passive = true,
@@ -37,7 +37,7 @@ mobs:register_mob("mobs_mc:6chicken", {
 })
 
 mobs:register_egg("mobs_mc:6chicken", "Chicken", "chicken_inv.png", 0)
-
+]]
 
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
@@ -150,7 +150,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	
 })
 
---mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
 
 
 -- chicken
@@ -224,8 +224,8 @@ minetest.register_craftitem(":mobs:feather", {
 mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
 ]]
 -- spawn eggs
-mobs:register_egg("mobs_mc:chicken", "Chicken", "spawn_egg_chicken.png")
-
+--mobs:register_egg("mobs_mc:chicken", "Chicken", "spawn_egg_chicken.png")
+mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC chicken loaded")

@@ -9,7 +9,7 @@
 --###################
 --################### SKELETON
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:35skeleton", {
 	type = "animal",
 	passive = true,
@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:35skeleton", {
 })
 
 mobs:register_egg("mobs_mc:35skeleton", "Skeleton", "skeleton_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:skeleton", {
@@ -113,78 +113,6 @@ mobs:register_mob("mobs_mc:skeleton", {
 --mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
 mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
 
-
-mobs:register_mob("mobs_mc:skeleton2", {
-	type = "monster",
-	hp_max = 160,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
-	pathfinding = true,
-	group_attack = true,
-	visual = "mesh",
-	mesh = "mobs_skeleton.x",
-	textures = {
-	{"mobs_skeleton2.png"}
-	},
-	makes_footstep_sound = true,
-	sounds = {
-		random = "skeleton1",
-		death = "skeletondeath",
-		damage = "skeletonhurt1",
-	},
-	walk_velocity = 1.2,
-	run_velocity = 2.4,
-	damage = 3,
-	armor = 200,
-	drops = {
-		{name = "mobs:arrow",
-		chance = 1,
-		min = 0,
-		max = 2,},
-		{name = "mobs:bow_wood",
-		chance = 11,
-		min = 1,
-		max = 1,},
-		{name = "bonemeal:bone",
-		chance = 1,
-		min = 0,
-		max = 2,},
-		{name = "mobs_mc:skeleton_head2",
-		chance = 10,
-		min = 0,
-		max = 1,},
-	},
-	animation = {
-		speed_normal = 30,
-		speed_run = 60,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		run_start = 24,
-		run_end = 49,
-		hurt_start = 85,
-		hurt_end = 115,
-		death_start = 117,
-		death_end = 145,
-		shoot_start = 50,
-		shoot_end = 82,
-	},
-	drawtype = "front",
-	water_damage = 1,
-	lava_damage = 0,
-	light_damage = 0,
-	view_range = 16,
-	attack_type = "dogshoot",
-	arrow = "mobs:arrow_entity",
-	shoot_interval = 0.5,
-	shoot_offset = 1,
-	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
-	--'dogshoot_count_max' number of seconds before switching above modes.
-	dogshoot_switch = 1,
-	dogshoot_count_max =6,
-})
---mobs:register_spawn("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, -3000)
-mobs:spawn_specific("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 7, 20, 9000, 2, -4010, -2100)
 
 
 -- leather, feathers, etc.
@@ -368,8 +296,8 @@ minetest.register_craft({
 mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:skeleton", "Skeleton", "spawn_egg_skeleton.png")
-
+--mobs:register_egg("mobs_mc:skeleton", "Skeleton", "spawn_egg_skeleton.png")
+mobs:register_egg("mobs_mc:skeleton", "Skeleton", "skeleton_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Skeleton loaded")

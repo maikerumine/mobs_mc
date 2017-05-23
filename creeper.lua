@@ -10,7 +10,7 @@
 --###################
 --################### CREEPER
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:27creeper", {
 	type = "animal",
 	passive = true,
@@ -39,6 +39,8 @@ mobs:register_mob("mobs_mc:27creeper", {
 })
 
 mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
+]]
+
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
@@ -184,8 +186,8 @@ mobs:spawn_specific("nssm:sandworm", {"default:desert_sand", "default:desert_sto
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:creeper", "Creeper", "spawn_egg_creeper.png")
-
+--mobs:register_egg("mobs_mc:creeper", "Creeper", "spawn_egg_creeper.png")
+mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Creeper loaded")

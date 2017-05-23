@@ -3,7 +3,7 @@
 --###################
 --################### SQUID
 --###################
-
+--[[
 mobs:register_mob("mobs_mc:28squid", {
 	type = "animal",
 	passive = true,
@@ -32,7 +32,7 @@ mobs:register_mob("mobs_mc:28squid", {
 })
 
 mobs:register_egg("mobs_mc:28squid", "Squid", "squid_inv.png", 0)
-
+]]
 
 
 mobs:register_mob("mobs_mc:squid", {
@@ -69,10 +69,11 @@ mobs:register_mob("mobs_mc:squid", {
     rotate = 180,
     visual_size = {x=4.5, y=4.5},
     makes_footstep_sound = false,
-    stepheight = 0.1,
+    stepheight = 1.1,
     fly = true,
+	--floats=1,
     fly_in = "default:water_source",
-    fall_speed = -3,
+    fall_speed = -2,
     view_range = 8,
     fall_damage = 1,
     water_damage = 0,
@@ -89,4 +90,5 @@ mobs:register_spawn("mobs_mc:squid",
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:squid", "Spawn Squid", "spawn_egg_squid.png")
+--mobs:register_egg("mobs_mc:squid", "Spawn Squid", "spawn_egg_squid.png")
+mobs:register_egg("mobs_mc:28squid", "Squid", "squid_inv.png", 0)

@@ -45,7 +45,7 @@ mobs:register_mob("mobs_mc:mooshroom_cow", {
 	runaway = true,
     stepheight = 1.2,
 	hp_max = 28,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    collisionbox = {-0.6, -0.01, -0.6, 0.6, 1.8, 0.6},
     rotate = -180,
 	visual = "mesh",
 	mesh = "mooshroom.b3d",
@@ -197,8 +197,8 @@ minetest.register_craft({
 mobs:alias_mob("mobs:cow", "mobs_mc:cow")
 ]]
 -- spawn egg
-mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom_Cow", "spawn_egg_mooshroom_cow.png")
-
+--mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom_Cow", "spawn_egg_mooshroom_cow.png")
+mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom", "mooshroom_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")
