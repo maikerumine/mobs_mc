@@ -81,7 +81,7 @@ mobs:register_mob("mobs_mc:wither", {
 		chance = 1,
 		min = 99,
 		max = 99},
-		{name = "nssm:sun_sword", chance = 1, min = 1, max = 1},
+		{name = "mobs:mese_meteor", chance = 1, min = 1, max = 1},
     },
 	armor = 60,
 	drawtype = "front",
@@ -95,7 +95,7 @@ mobs:register_mob("mobs_mc:wither", {
 	--arrow = "mobs:roar_of_the_dragon",
 	--arrow = "nssm:roar_of_the_dragon",
 	--arrow = "mobs:fireball",
-	arrow = "nssm:fireball2",
+	arrow = "mobs_mc:fireball",
 	reach = 5,
 	shoot_interval = 0.5,
 	shoot_offset = -1,
@@ -203,7 +203,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 })
 --GOOD LUCK LOL!
 -- fireball (weapon)
-mobs:register_arrow(":mobs_mc:fireball2", {
+mobs:register_arrow(":mobs_mc:fireball", {
 	visual = "sprite",
 	visual_size = {x = 1.5, y = 1.5},
 	--textures = {"mobs_fireball.png"},
