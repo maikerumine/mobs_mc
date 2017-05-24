@@ -389,6 +389,6 @@ mobs:alias_mob("mobs:horse3", "mobs_mc:horse3")
 --mobs:register_egg("mobs_mc:horsearah1", "Tamed Arabic Horse", "mobs_horse_ara_inv.png", 0)
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Horse loaded")
 end

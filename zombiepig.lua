@@ -148,6 +148,6 @@ mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")
 --mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "spawn_egg_zombie_pigman.png")
 mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Pigmen loaded")
 end

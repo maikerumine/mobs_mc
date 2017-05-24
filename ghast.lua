@@ -155,6 +155,6 @@ minetest.register_craftitem("mobs_mc:ghast_tear", {
 --mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
 mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Ghast loaded")
 end

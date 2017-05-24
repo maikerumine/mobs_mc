@@ -227,6 +227,6 @@ mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
 --mobs:register_egg("mobs_mc:chicken", "Chicken", "spawn_egg_chicken.png")
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC chicken loaded")
 end

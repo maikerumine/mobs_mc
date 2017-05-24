@@ -109,7 +109,7 @@ mobs:register_mob("mobs_mc:pig", {
 				min = 1,
 				max = 1,},
 			}
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				local inv = clicker:get_inventory()
 				local stack = inv:get_stack("main", clicker:get_wield_index())
 				stack:take_item()
@@ -278,6 +278,6 @@ mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 --mobs:register_egg("mobs_mc:pig", "Pig", "spawn_egg_pig.png")
 mobs:register_egg("mobs_mc:pig", "Pig", "pig_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Pig loaded")
 end

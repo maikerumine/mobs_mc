@@ -85,7 +85,7 @@ mobs:register_mob("mobs_mc:dog", {
 		if item:get_name() == "mobs:meat_raw" then
 			local hp = self.object:get_hp()
 			if hp + 4 > self.hp_max then return end
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				item:take_item()
 				clicker:set_wielded_item(item)
 			end
@@ -228,6 +228,6 @@ mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 --mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
 mobs:register_egg("mobs_mc:wolf", "Wolf", "wolf_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Wolf loaded")
 end
