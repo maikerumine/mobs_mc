@@ -50,7 +50,8 @@ local function is_ground(pos)
 	return minetest.get_item_group(nn, "crumbly") ~= 0 or
 	minetest.get_item_group(nn, "choppy") ~= 0 or
 	minetest.get_item_group(nn, "cracky") ~= 0  or
-	minetest.get_item_group(nn, "snappy") ~= 0  or
+	--minetest.get_item_group(nn, "snappy") ~= 0  or
+	minetest.get_item_group(nn, "leaves") ~= 0  or
 	minetest.get_item_group(nn, "unbreakable") ~= 0  or
 	minetest.get_item_group(nn, "immortal") ~= 0
 end
@@ -86,9 +87,18 @@ local horse = {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	visual = "mesh",
 	stepheight = 1.1,
-	visual_size = {x=1,y=1},
-	mesh = "mobs_horseh1.x",
+	--visual_size = {x=1,y=1},
+	visual_size = {x=3, y=3},
+	--mesh = "mobs_horseh1.x",
+	mesh = "horse.b3d",
+	rotate = -180,
 	driver = nil,
+		animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
 	v = 0,
 
 	on_rightclick = function(self, clicker)
@@ -196,7 +206,7 @@ local horse = {
 }
 
 --END HORSE
-
+--[[
 -- backup table
 local hbak = horse
 
@@ -222,18 +232,68 @@ local ara = {
 	jmp = 3,
 }
 minetest.register_entity("mobs_mc:horsearah1", merge(ara, horse))
+]]
+
+-- backup table
+local hbak = horse
+
+-- Saddled Horses
+local hrs = {
+	textures = {"horse.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse1.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s1", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse2.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s2", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse3.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s3", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse4.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s4", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse5.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s5", merge(hrs, horse))
+
+local hrs = {
+	textures = {"horse6.png"},
+	jmp = 2,
+}
+minetest.register_entity("mobs_mc:horse_s6", merge(hrs, horse))
 
 
 mobs:register_mob("mobs_mc:horse", {
 	type = "animal",
-	hp_min = 5,
-	hp_max = 10,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-	textures = {
-		{"mobs_horseh.png"},
-	},
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse.png"},
 	visual = "mesh",
-	mesh = "mobs_horse.x",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -249,11 +309,12 @@ mobs:register_mob("mobs_mc:horse", {
 	light_damage = 0,
 	fear_height = 6,
 	animation = {
-		speed_normal = 15,
-		stand_start = 25,		stand_end = 75,
-		walk_start = 75,		walk_end = 100,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
-	follow = "farming:wheat",
+	follow = "default:apple",
 	view_range = 5,
 
 	on_rightclick = function(self, clicker)
@@ -262,21 +323,71 @@ mobs:register_mob("mobs_mc:horse", {
 			clicker:get_inventory():remove_item("main", "mobs:saddle")
 			local pos = self.object:getpos()
 			self.object:remove()
-			minetest.add_entity(pos, "mobs_mc:horseh1")
+			minetest.add_entity(pos, "mobs_mc:horse_s")
+		end
+	end,
+})
+
+mobs:register_mob("mobs_mc:horse1", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse1.png"},
+	visual = "mesh",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
+	makes_footstep_sound = true,
+	walk_velocity = 1,
+	armor = 200,
+	drops = {
+		{name = "mobs:meat_raw",
+		chance = 1,
+		min = 2,
+		max = 3,},
+	},
+	drawtype = "front",
+	water_damage = 1,
+	lava_damage = 5,
+	light_damage = 0,
+	fear_height = 6,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+	follow = "default:apple",
+	view_range = 5,
+
+	on_rightclick = function(self, clicker)
+		local tool = clicker:get_wielded_item()
+		if tool:get_name() == "mobs:saddle" then
+			clicker:get_inventory():remove_item("main", "mobs:saddle")
+			local pos = self.object:getpos()
+			self.object:remove()
+			minetest.add_entity(pos, "mobs_mc:horse_s1")
 		end
 	end,
 })
 
 mobs:register_mob("mobs_mc:horse2", {
 	type = "animal",
-	hp_min = 5,
-	hp_max = 10,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-	textures = {
-		{"mobs_horsepegh.png"},
-	},
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse2.png"},
 	visual = "mesh",
-	mesh = "mobs_horse.x",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -292,11 +403,12 @@ mobs:register_mob("mobs_mc:horse2", {
 	light_damage = 0,
 	fear_height = 6,
 	animation = {
-		speed_normal = 15,
-		stand_start = 25,		stand_end = 75,
-		walk_start = 75,		walk_end = 100,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
-	follow = "farming:wheat",
+	follow = "default:apple",
 	view_range = 5,
 
 	on_rightclick = function(self, clicker)
@@ -305,21 +417,24 @@ mobs:register_mob("mobs_mc:horse2", {
 			clicker:get_inventory():remove_item("main", "mobs:saddle")
 			local pos = self.object:getpos()
 			self.object:remove()
-			minetest.add_entity(pos, "mobs_mc:horsepegh1")
+			minetest.add_entity(pos, "mobs_mc:horse_s2")
 		end
 	end,
 })
 
 mobs:register_mob("mobs_mc:horse3", {
 	type = "animal",
-	hp_min = 5,
-	hp_max = 10,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-	textures = {
-		{"mobs_horsearah.png"},
-	},
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse3.png"},
 	visual = "mesh",
-	mesh = "mobs_horse.x",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -335,11 +450,12 @@ mobs:register_mob("mobs_mc:horse3", {
 	light_damage = 0,
 	fear_height = 6,
 	animation = {
-		speed_normal = 15,
-		stand_start = 25,		stand_end = 75,
-		walk_start = 75,		walk_end = 100,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
-	follow = "farming:wheat",
+	follow = "default:apple",
 	view_range = 5,
 
 	on_rightclick = function(self, clicker)
@@ -348,13 +464,165 @@ mobs:register_mob("mobs_mc:horse3", {
 			clicker:get_inventory():remove_item("main", "mobs:saddle")
 			local pos = self.object:getpos()
 			self.object:remove()
-			minetest.add_entity(pos, "mobs_mc:horsearah1")
+			minetest.add_entity(pos, "mobs_mc:horse_s3")
 		end
 	end,
 })
-mobs:register_spawn("mobs_mc:horse", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass"}, 20, 12, 21000, 1, 12)
-mobs:register_spawn("mobs_mc:horse2", {"default:dirt_with_dry_grass"}, 20, 12, 23000, 1, 31000)
-mobs:register_spawn("mobs_mc:horse3", {"default:desert_sand"}, 20, 8, 17000, 1, 5)
+
+mobs:register_mob("mobs_mc:horse4", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse4.png"},
+	visual = "mesh",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
+	makes_footstep_sound = true,
+	walk_velocity = 1,
+	armor = 200,
+	drops = {
+		{name = "mobs:meat_raw",
+		chance = 1,
+		min = 2,
+		max = 3,},
+	},
+	drawtype = "front",
+	water_damage = 1,
+	lava_damage = 5,
+	light_damage = 0,
+	fear_height = 6,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+	follow = "default:apple",
+	view_range = 5,
+
+	on_rightclick = function(self, clicker)
+		local tool = clicker:get_wielded_item()
+		if tool:get_name() == "mobs:saddle" then
+			clicker:get_inventory():remove_item("main", "mobs:saddle")
+			local pos = self.object:getpos()
+			self.object:remove()
+			minetest.add_entity(pos, "mobs_mc:horse_s4")
+		end
+	end,
+})
+
+mobs:register_mob("mobs_mc:horse5", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse5.png"},
+	visual = "mesh",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
+	makes_footstep_sound = true,
+	walk_velocity = 1,
+	armor = 200,
+	drops = {
+		{name = "mobs:meat_raw",
+		chance = 1,
+		min = 2,
+		max = 3,},
+	},
+	drawtype = "front",
+	water_damage = 1,
+	lava_damage = 5,
+	light_damage = 0,
+	fear_height = 6,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+	follow = "default:apple",
+	view_range = 5,
+
+	on_rightclick = function(self, clicker)
+		local tool = clicker:get_wielded_item()
+		if tool:get_name() == "mobs:saddle" then
+			clicker:get_inventory():remove_item("main", "mobs:saddle")
+			local pos = self.object:getpos()
+			self.object:remove()
+			minetest.add_entity(pos, "mobs_mc:horse_s5")
+		end
+	end,
+})
+
+mobs:register_mob("mobs_mc:horse6", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	textures = {"horse6.png"},
+	visual = "mesh",
+	mesh = "horse.b3d",
+	visual_size = {x=3, y=3},
+	rotate = -180,
+	makes_footstep_sound = true,
+	walk_velocity = 1,
+	armor = 200,
+	drops = {
+		{name = "mobs:meat_raw",
+		chance = 1,
+		min = 2,
+		max = 3,},
+	},
+	drawtype = "front",
+	water_damage = 1,
+	lava_damage = 5,
+	light_damage = 0,
+	fear_height = 6,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+	follow = "default:apple",
+	view_range = 5,
+
+	on_rightclick = function(self, clicker)
+		local tool = clicker:get_wielded_item()
+		if tool:get_name() == "mobs:saddle" then
+			clicker:get_inventory():remove_item("main", "mobs:saddle")
+			local pos = self.object:getpos()
+			self.object:remove()
+			minetest.add_entity(pos, "mobs_mc:horse_s6")
+		end
+	end,
+})
+
+--===========================
+--===========================
+--===========================
+--===========================
+mobs:register_spawn("mobs_mc:horse", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse1", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse2", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse3", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse4", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse5", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse6", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:sand"}, 20, 12, 21000, 1, 12)
+--mobs:register_spawn("mobs_mc:horse2", {"default:dirt_with_dry_grass"}, 20, 12, 23000, 1, 31000)
+--mobs:register_spawn("mobs_mc:horse3", {"default:desert_sand"}, 20, 8, 17000, 1, 5)
 
 
 -- saddle
@@ -379,6 +647,20 @@ mobs:alias_mob("mobs:horse2", "mobs_mc:horse2")
 mobs:alias_mob("mobs:horse3", "mobs_mc:horse3")
 ]]
 -- spawn eggs
+mobs:register_egg("mobs_mc:horse", "Horse Brown", "horse_inv.png", 0)
+mobs:register_egg("mobs_mc:horse_s", "Horse Brown Saddled", "horse_inv.png", 0)
+mobs:register_egg("mobs_mc:horse1", "Horse Black", "horse_inv.png^[colorize:#000000:230", 0)
+mobs:register_egg("mobs_mc:horse_s1", "Horse Black Saddled", "horse_inv.png^[colorize:#000000:230", 0)
+mobs:register_egg("mobs_mc:horse2", "Horse Sienna", "horse_inv.png^[colorize:#FFFF00:130", 0)
+mobs:register_egg("mobs_mc:horse_s2", "Horse Sienna Saddled", "horse_inv.png^[colorize:#FFFF00:130", 0)
+mobs:register_egg("mobs_mc:horse3", "Horse Red Belly", "horse_inv.png^[colorize:#FF0000:130", 0)
+mobs:register_egg("mobs_mc:horse_s3", "Horse Red Belly Saddled", "horse_inv.png^[colorize:#FF0000:130", 0)
+mobs:register_egg("mobs_mc:horse4", "Horse Dark Brown", "horse_inv.png^[colorize:#FFCCDD:130", 0)
+mobs:register_egg("mobs_mc:horse_s4", "Horse Dark Brown Saddled", "horse_inv.png^[colorize:#FFCCDD:130", 0)
+mobs:register_egg("mobs_mc:horse5", "Horse Gray", "horse_inv.png^[colorize:#CCCCCC:130", 0)
+mobs:register_egg("mobs_mc:horse_s5", "Horse Gray Saddled", "horse_inv.png^[colorize:#CCCCCC:130", 0)
+mobs:register_egg("mobs_mc:horse6", "Horse White", "horse_inv.png^[colorize:#FFFFFF:130", 0)
+mobs:register_egg("mobs_mc:horse_s6", "Horse White Saddled", "horse_inv.png^[colorize:#FFFFFF:130", 0)
 -- KPV wild horse spawn eggs
 --mobs:register_egg("mobs_mc:horse", "Brown Horse", "mobs_horse_inv.png", 0)
 --mobs:register_egg("mobs_mc:horse2", "White Horse", "mobs_horse_peg_inv.png", 0)

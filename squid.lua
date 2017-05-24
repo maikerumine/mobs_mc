@@ -47,7 +47,7 @@ mobs:register_mob("mobs_mc:squid", {
     visual = "mesh",
     mesh = "mobs_squid.b3d",
     textures = {
-        {"mobs_squid.png"}
+        {"squid.png"}
     },
     sounds = {
 		damage = "mobs_mc_squid_hurt",

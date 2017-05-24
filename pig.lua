@@ -45,12 +45,13 @@ mobs:register_mob("mobs_mc:pig", {
 	type = "animal",
 	hp_max = 25,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-	
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_pig.x",
+	mesh = "pig.b3d",
 	textures = {
-	{"mobs_pig.png"}
+		{"pig.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
@@ -142,7 +143,7 @@ mobs:register_mob("mobs_mc:pig", {
 				local v = 1.5
 				if math.abs(velo.x) + math.abs(velo.z) < .6 then velo.y = 5 end
 				self.state = "walk"
-				self:set_animation("walk")
+				set_animation(self, "walk")
 				self.object:setyaw(yaw)
 				self.object:setvelocity({x = -math.sin(yaw) * v, y = velo.y, z = math.cos(yaw) * v})
 

@@ -48,10 +48,12 @@ mobs:register_mob("mobs_mc:skeleton", {
 	pathfinding = true,
 	group_attack = true,
 	visual = "mesh",
-	mesh = "mobs_skeleton.x",
+	mesh = "skeleton.b3d",
+	    rotate = -180,
 	textures = {
-	{"mobs_skeleton.png"}
+		{"skeleton.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "skeleton1",

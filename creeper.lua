@@ -48,12 +48,13 @@ mobs:register_mob("mobs_mc:creeper", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
 	pathfinding = true,
 	group_attack = true,
+    rotate = -180,
 	visual = "mesh",
-	visual_size = {x=.75, y=.75, z=.75},
-	mesh = "mobs_creeper.x",
+	mesh = "creeper.b3d",
 	textures = {
-	{"mobs_creeper.png"}
+		{"creeper.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
 	sounds = {
 		attack = "Fuse",
@@ -65,7 +66,31 @@ mobs:register_mob("mobs_mc:creeper", {
 	walk_velocity = 1.5,
 	run_velocity = 3,
 	damage = 2,
-	explosion_radius = 4,
+	attack_type = "explode",
+	
+	
+--	mobs:explosion(pos, radius, fire, smoke)
+	--mobs:explosion(0, 3, 0, 1)
+
+--This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
+
+--    'pos' centre position of explosion
+--    'radius' radius of explosion (typically set to 3)
+--    'fire' should fire appear in explosion (1=yes, 0=no)
+  --  'smoke' should smoke appear in explosion (1=yes, 0=no)
+   -- 'sound' sound played when mob explodes
+	
+	
+	
+	explosion_radius = 3,
+	explosion_fire = 0,
+	--[[
+    'pos' centre position of explosion
+    'radius' radius of explosion (typically set to 3)
+    'fire' should fire appear in explosion (1=yes, 0=no)
+    'smoke' should smoke appear in explosion (1=yes, 0=no)
+    'sound' sound played when mob explodes
+	]]
 	armor = 200,
 	maxdrops = 3,
 	drops = {
@@ -166,7 +191,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	lava_damage = 5,
 	light_damage = 0,
 	view_range = 16,
-	attack_type = "explode",
+	
 	
 	--[[
 		on_die =function(self, pos)
@@ -187,7 +212,7 @@ mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:creeper", "Creeper", "spawn_egg_creeper.png")
-mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
+mobs:register_egg("mobs_mc:creeper", "Creeper", "creeper_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Creeper loaded")

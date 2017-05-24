@@ -48,8 +48,9 @@ mobs:register_mob("mobs_mc:dog", {
 	hp_min = 55,
 	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_wolf.x",
+	mesh = "wolf.b3d",
 	textures = {
 		{"mobs_dog.png"},
 	},
@@ -159,10 +160,11 @@ mobs:register_mob("mobs_mc:wolf", {
 	passive = false,
 	group_attack = true,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
+    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_wolf.x",
+	mesh = "wolf.b3d",
 	textures = {
-		{"mobs_wolf.png"},
+		{"wolf.png"},
 	},
 	makes_footstep_sound = true,
 	sounds = {

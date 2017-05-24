@@ -91,6 +91,7 @@ mobs:register_mob("mobs_mc:wither", {
 	on_rightclick = nil,
 	attack_type = "dogshoot",
 	explosion_radius = 14,
+	explosion_fire = 0,
 	dogshoot_stop = true,
 	--arrow = "mobs:roar_of_the_dragon",
 	--arrow = "nssm:roar_of_the_dragon",
