@@ -49,15 +49,11 @@ mobs:register_mob("mobs_mc:horse", {
 	visual_size = {x=3, y=3},
 	rotate = -180,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.25, 0.4},
-	animation = { 
-		speed_normal = 15,
-		speed_run = 30,
-		stand_start = 25,
-		stand_end = 75,
-		walk_start = 75,
-		walk_end = 100,
-		run_start = 75,
-		run_end = 100,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	textures = {
 		{"horse.png"},
@@ -95,7 +91,7 @@ mobs:register_mob("mobs_mc:horse", {
 			self.max_speed_reverse = 6  --swap due to -180 model
 			self.accel = 6
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 20, z = -2}
+			self.driver_attach_at = {x = 0, y = 7.5, z = 0}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 0.3, y = 0.3}
 		end
