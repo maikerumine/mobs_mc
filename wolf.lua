@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -48,12 +48,13 @@ mobs:register_mob("mobs_mc:dog", {
 	hp_min = 55,
 	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "wolf.b3d",
 	textures = {
 		{"mobs_dog.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		war_cry = "mobs_wolf_attack",
@@ -160,12 +161,13 @@ mobs:register_mob("mobs_mc:wolf", {
 	passive = false,
 	group_attack = true,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "wolf.b3d",
 	textures = {
 		{"wolf.png"},
 	},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		war_cry = "mobs_wolf_attack",
