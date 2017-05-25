@@ -44,6 +44,7 @@ mobs:register_egg("mobs_mc:38spider", "Spider", "spider_inv.png", 0)
 mobs:register_mob("mobs_mc:spider", {
 	type = "monster",
 	passive = false,
+	docile_by_day = true,
 	attack_type = "dogfight",
 	pathfinding = true,
 	damage = 2,
