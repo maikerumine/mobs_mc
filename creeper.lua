@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -68,31 +68,20 @@ mobs:register_mob("mobs_mc:creeper", {
 	damage = 2,
 	attack_type = "explode",
 	
-	
+--	This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
 --	mobs:explosion(pos, radius, fire, smoke)
-	--mobs:explosion(0, 3, 0, 1)
+--	'pos' centre position of explosion
+--	'radius' radius of explosion (typically set to 3)
+--	'fire' should fire appear in explosion (1=yes, 0=no)
+--	'smoke' should smoke appear in explosion (1=yes, 0=no)
+--	'sound' sound played when mob explodes
 
---This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
-
---    'pos' centre position of explosion
---    'radius' radius of explosion (typically set to 3)
---    'fire' should fire appear in explosion (1=yes, 0=no)
-  --  'smoke' should smoke appear in explosion (1=yes, 0=no)
-   -- 'sound' sound played when mob explodes
-	
-	
-	
 	explosion_radius = 3,
 	explosion_fire = 0,
-	--[[
-    'pos' centre position of explosion
-    'radius' radius of explosion (typically set to 3)
-    'fire' should fire appear in explosion (1=yes, 0=no)
-    'smoke' should smoke appear in explosion (1=yes, 0=no)
-    'sound' sound played when mob explodes
-	]]
-	armor = 200,
-	maxdrops = 3,
+	explosion_smoke = 1,
+
+	armor = 80,
+	maxdrops = 2,
 	drops = {
 		{name = "tnt:gunpowder",
 		chance = 3,
@@ -102,7 +91,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		chance = 3,
 		min = 0,
 		max = 1,},
-
 		--[[
 		{name = "jdukebox:disc_1",
 		chance = 30,
@@ -129,7 +117,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		min = 0,
 		max = 1,},
 		]]
-		
 		{name = "mcl_jukebox:record_1",
 		chance = 30,
 		min = 0,
@@ -162,9 +149,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		chance = 50,
 		min = 0,
 		max = 1,},
-
-		
-		
 		{name = "mobs_mc:creeper_head",
 		chance = 50,
 		min = 0,
@@ -191,27 +175,16 @@ mobs:register_mob("mobs_mc:creeper", {
 	lava_damage = 5,
 	light_damage = 0,
 	view_range = 16,
-	
-	
-	--[[
-		on_die =function(self, pos)
-		tnt = minetest.add_entity(self.object:getpos(), ":tnt:boom")
-			ent = tnt:get_luaentity()
-			end
-			]]
 })
+
+
 --mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
 mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -310, 31000)
---[[
-mobs:spawn_specific("nssm:sandworm", {"default:desert_sand", "default:desert_stone"}, {"air"},0, 20, 20, 9000, 2, -31000, 31000)
-]]
-
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:creeper", "Creeper", "spawn_egg_creeper.png")
 mobs:register_egg("mobs_mc:creeper", "Creeper", "creeper_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
