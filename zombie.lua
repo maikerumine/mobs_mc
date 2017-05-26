@@ -110,7 +110,7 @@ local zombie = {
 	lava_damage = 5,
 	-- TODO: Burn mob only when in direct sunlight
 	light_damage = 1,
-	view_range = 40,
+	view_range = 17,
 	attack_type = "dogfight",
 }
 
