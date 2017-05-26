@@ -42,9 +42,9 @@ mobs:register_egg("mobs_mc:2polarbear", "Polarbear", "polarbear_inv.png", 0)
 
 mobs:register_mob("mobs_mc:polarbear", {
 	type = "animal",
-    runaway = true,
+    runaway = false,
     stepheight = 1.2,
-	hp_min = 30,
+	hp_min = 40,
 	hp_max = 60,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
@@ -55,8 +55,12 @@ mobs:register_mob("mobs_mc:polarbear", {
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
-	walk_velocity = 1,
-	armor = 200,
+	damage = 2,
+	walk_velocity = 1.2,
+	run_velocity = 2.4,
+	group_attack = true,
+	attack_type = "dogfight",
+	armor = 80,
 	drops = {
 		{name = "mobs:beef_raw",
 		chance = 1,
@@ -73,7 +77,7 @@ mobs:register_mob("mobs_mc:polarbear", {
 	light_damage = 0,
 	fear_height = 3,
 	sounds = {
-
+		random = "Cowhurt1",
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -106,7 +110,7 @@ mobs:register_mob("mobs_mc:polarbear", {
 	replace_rate = 10,
 	replace_what = {"default:grass_3", "default:grass_4", "default:grass_5", "farming:wheat_8"},
 	replace_with = "air",
-	fear_height = 2,
+
 
 })
 

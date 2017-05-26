@@ -1,10 +1,11 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
+
 
 --###################
 --################### OCELOT - CAT
@@ -52,7 +53,8 @@ mobs:register_mob("mobs_mc:ocelot", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
+	run_velocity = 3,
+	armor = 90,
 	drops = {
 
 	},
@@ -81,18 +83,16 @@ mobs:register_mob("mobs_mc:ocelot", {
 attacks_monsters = true,
 
 })
+
+--spawn
 mobs:register_spawn("mobs_mc:ocelot", {"default:dirt_with_dry__grass"}, 20, 12, 5000, 2, 31000)
-
-
-
 
 -- compatibility
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
 mobs:register_egg("mobs_mc:ocelot", "Ocelot", "cat_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
-	minetest.log("action", "MC Sheep loaded")
+	minetest.log("action", "MC Ocelot loaded")
 end

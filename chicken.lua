@@ -1,10 +1,11 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
+
 --###################
 --################### CHICKEN
 --###################
@@ -78,36 +79,7 @@ mobs:register_mob("mobs_mc:chicken", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	--[[
-	follow = "farming:seed_wheat",
-	view_range = 5,
-	on_rightclick = function(self, clicker)
-		if clicker:get_inventory() then
-			if minetest.registered_items[":mobs:egg"] then
-				clicker:get_inventory():add_item("main", ItemStack(":mobs:egg 1"))
-			end
-		end
-	end,
-	
-	do_custom = function(self)
 
-		if self.child
-		or math.random(1, 5000) > 1 then
-			return
-		end
-
-		local pos = self.object:getpos()
-
-		minetest.add_item(pos, ":mobs:egg")
-
-		minetest.sound_play("default_place_node_hard", {
-			pos = pos,
-			gain = 1.0,
-			max_hear_distance = 5,
-		})
-	end,
-	]]
-	--from mobs_animals
 	follow = {"farming:seed_wheat", "farming:seed_cotton"},
 	view_range = 5,
 
@@ -139,8 +111,6 @@ mobs:register_mob("mobs_mc:chicken", {
 	end,	
 	
 })
-
-
 
 --[[
 mobs:register_mob("mobs_mc:chicken", {
@@ -254,7 +224,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	
 })
 ]]
-mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+
 
 
 -- chicken
@@ -301,7 +271,7 @@ minetest.register_node(":mobs:egg", {
 			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
 		end
 	end,
-	on_use = mobs.shoot_egg
+	on_use = mobs_shoot_egg
 })
 
 -- fried egg
@@ -323,12 +293,15 @@ minetest.register_craftitem(":mobs:feather", {
 	inventory_image = "mobs_feather.png",
 })
 
---[[
+
+--spawn
+mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 7000, 1, 31000)
+
+
 -- compatibility
 mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
-]]
+
 -- spawn eggs
---mobs:register_egg("mobs_mc:chicken", "Chicken", "spawn_egg_chicken.png")
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

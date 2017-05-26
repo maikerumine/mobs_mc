@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -40,20 +40,9 @@ mobs:register_egg("mobs_mc:51pigman", "Zombie Pigman", "zombie_pigman_inv.png", 
 
 
 mobs:register_mob("mobs_mc:pigman", {
-	type = "monster",
-	hp_max = 75,
-	--old zombie mesh code
-	--collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
-	--textures = {
-	--{"mobs_zombie_pigman.png"}
-	--},
-	--visual = "mesh",
-	--mesh = "mobs_zombie.x",
-	
-	--Tried to get a sword in pig hand
-	--http://minetest.fensta.bplaced.net/#page=20
-	--Author: Fedora P 
-	--License: CC BY-SA 3.0
+	type = "npc",
+	hp_min = 30,
+	hp_max = 60,
 	collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
 	visual = "mesh",
 	mesh = "3d_armor_character.b3d",
@@ -69,12 +58,14 @@ mobs:register_mob("mobs_mc:pigman", {
 	armor = 80,
 	pathfinding = true,
 	group_attack = true,
+	passive = false,
+	maxdrops = 2,
 	drops = {
 		{name = "mobs:rotten_flesh",
 		chance = 1,
 		min = 1,
 		max = 1,},
-		{name = "default:gold_ingot",
+		{name = "default:gold_nugget",
 		chance = 13,
 		min = 0,
 		max = 2,},
@@ -90,13 +81,13 @@ mobs:register_mob("mobs_mc:pigman", {
 		chance = 50,
 		min = 0,
 		max = 1,},
-	},
+		},
 		sounds = {
-		random = "Pig2",
-		death = "Pigdeath",
-		damage = "zombiehurt1",
-		attack = "default_punch3",
-	},
+			random = "Pig2",
+			death = "Pigdeath",
+			damage = "zombiehurt1",
+			attack = "default_punch3",
+		},
 	--[[
 	animation = {
 		speed_normal = 24,
@@ -125,13 +116,13 @@ mobs:register_mob("mobs_mc:pigman", {
 	lava_damage = 5,
 	light_damage = 0,
 	fear_height = 3,
-	view_range = 16,
+	view_range = 17,
 	attack_type = "dogfight",
 })
 mobs:register_spawn("mobs_mc:pigman", {"nether:rack"},  17, -1, 5000, 3, -2000)
 mobs:register_spawn("mobs_mc:pigman", {"nether:portal"}, 15, -1, 500, 4, 31000)
-mobs:register_spawn("mobs_mc:pigman", {"default:obsidian"}, 17, -1, 1900, 1, 31000)
-mobs:spawn_specific("mobs_mc:pigman", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 12, 20, 9000, 2, -3510, -2100)
+--mobs:register_spawn("mobs_mc:pigman", {"default:obsidian"}, 17, -1, 1900, 1, 31000)
+mobs:spawn_specific("mobs_mc:pigman", {"default:portal"},{"air"},0, 12, 20, 9000, 2, -31000, 31000)
 
 -- meat rotted
 minetest.register_craftitem(":mobs:rotten_flesh", {
@@ -145,7 +136,6 @@ minetest.register_craftitem(":mobs:rotten_flesh", {
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "spawn_egg_zombie_pigman.png")
 mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

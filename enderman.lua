@@ -6,6 +6,7 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+
 --###################
 --################### ENDERMAN
 --###################
@@ -94,7 +95,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "dogfight",
-	replace_rate = 1,
+	replace_rate = 4,
 	replace_what = {"default:torch","default:sand","default:desert_sand","default:cobble","default:dirt","default:dirt_with_glass","default:dirt_with_dry_grass","default:wood","default:stone","default:sandstone"},
 	replace_with = "air",
 	replace_offset = -1,
@@ -117,14 +118,10 @@ minetest.register_craft({
 
 
 
-
+--spawn
 mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 5, -1, 5000, 4, 31000)
 
-
-
-
 -- spawn eggs
---mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
 mobs:register_egg("mobs_mc:enderman", "Enderman", "enderman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

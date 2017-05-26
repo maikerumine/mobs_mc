@@ -88,10 +88,11 @@ mobs:register_mob("mobs_mc:horse", {
 		if not self.v2 then
 			self.v2 = 0
 			self.max_speed_forward = 2  --swap due to -180 model
-			self.max_speed_reverse = 6  --swap due to -180 model
+			self.max_speed_reverse = 7  --swap due to -180 model
 			self.accel = 6
 			self.terrain_type = 3
 			self.driver_attach_at = {x = 0, y = 7.5, z = 0}
+			self.player_rotation = {x = 0, y = 180, z = 0}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 0.3, y = 0.3}
 		end

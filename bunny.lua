@@ -1,4 +1,10 @@
+--MCmobs v0.4
+--maikerumine
+--made for MC like Survival game
+--License for code WTFPL and otherwise stated in readmes
 
+
+--dofile(minetest.get_modpath("mobs").."/api.lua")
 
 --###################
 --################### RABBIT
@@ -51,7 +57,7 @@ mobs:register_mob("mobs_mc:rabbit", {
 	sounds = {},
 	makes_footstep_sound = false,
 	walk_velocity = 1,
-	run_velocity = 2,
+	run_velocity = 3.7,
 	runaway = true,
 	jump = true,
 	drops = {
@@ -106,10 +112,16 @@ mobs:register_mob("mobs_mc:rabbit", {
 	damage = 5,
 })
 
+--spawn
 mobs:register_spawn("mobs_mc:rabbit",
-	{"default:dirt_with_grass", "ethereal:prairie_dirt"}, 20, 10, 15000, 2, 31000, true)
+	{"default:dirt_with_grass", "ethereal:prairie_dirt", "default:snowblock", "default:sand"}, 20, 10, 15000, 2, 31000, true)
 
---mobs:register_egg("mobs_mc:bunny", S("Bunny"), "mobs_bunny_inv.png", 0)
+--spawnegg
 mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
+
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")
+
+if minetest.setting_get("log_mods") then
+	minetest.log("action", "MC Bunny loaded")
+end

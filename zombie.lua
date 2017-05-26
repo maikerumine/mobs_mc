@@ -2,6 +2,11 @@
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
+
+
+--dofile(minetest.get_modpath("mobs").."/api.lua")
+
+
 --###################
 --################### ZOMBIE
 --###################
@@ -146,9 +151,9 @@ mobs:register_mob("mobs_mc:baby_husk", baby_husk)
 
 -- Spawning
 
-mobs:register_spawn("mobs_mc:zombie", {"group:solid"}, 7, -1, 3000, 4, 31000)
+mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky"}, 7, -1, 3000, 4, 31000)
 -- Baby zombie is 20 times less likely than regular zombies
-mobs:register_spawn("mobs_mc:baby_zombie", {"group:solid"}, 7, -1, 100000, 4, 31000)
+mobs:register_spawn("mobs_mc:baby_zombie", {"group:crumbly", "group:cracky"}, 7, -1, 100000, 4, 31000)
 mobs:register_spawn("mobs_mc:husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 4090, 4, 31000)
 mobs:register_spawn("mobs_mc:baby_husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 100000, 4, 31000)
 

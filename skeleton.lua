@@ -1,10 +1,11 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
+
 
 --###################
 --################### SKELETON
@@ -82,6 +83,13 @@ mobs:register_mob("mobs_mc:skeleton", {
 		min = 0,
 		max = 1,},
 	},
+		animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+	--[[
 	animation = {
 		speed_normal = 30,
 		speed_run = 60,
@@ -98,6 +106,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 		shoot_start = 50,
 		shoot_end = 82,
 	},
+	]]
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
@@ -110,11 +119,8 @@ mobs:register_mob("mobs_mc:skeleton", {
 	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
 	--'dogshoot_count_max' number of seconds before switching above modes.
 	dogshoot_switch = 1,
-	dogshoot_count_max =3,
+	dogshoot_count_max =1.8,
 })
---mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
-
 
 
 -- leather, feathers, etc.
@@ -122,8 +128,6 @@ minetest.register_craftitem(":mobs:feather", {
 	description = "Feather",
 	inventory_image = "mobs_feather.png",
 })
-
-
 
 
 --maikerumines throwing code
@@ -297,8 +301,10 @@ minetest.register_craft({
 -- compatibility
 mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 
+--spawn
+mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
+
 -- spawn eggs
---mobs:register_egg("mobs_mc:skeleton", "Skeleton", "spawn_egg_skeleton.png")
 mobs:register_egg("mobs_mc:skeleton", "Skeleton", "skeleton_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

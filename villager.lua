@@ -52,9 +52,8 @@ mobs:register_mob("mobs_mc:villager", {
 	damage = 2,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	damage = 1,
-		group_attack = true,
-		attack_type = "dogfight",
+	group_attack = true,
+	attack_type = "dogfight",
 	drops = {
 		{name = "default:apple",
 		chance = 10,

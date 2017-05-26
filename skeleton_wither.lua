@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -111,14 +111,13 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
 	--'dogshoot_count_max' number of seconds before switching above modes.
 	dogshoot_switch = 1,
-	dogshoot_count_max =3,
+	dogshoot_count_max =0.5,
 })
---mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+
+--spawn
 mobs:spawn_specific("mobs_mc:witherskeleton", {"default:nitherbrick"},{"air"},0, 6, 20, 9000, 2, -9110, -50)
 
-
 -- spawn eggs
-
 mobs:register_egg("mobs_mc:witherskeleton", "Wither Skeleton", "witherskeleton_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

@@ -1,4 +1,4 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
@@ -195,7 +195,6 @@ minetest.register_craft({
 mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 
 -- spawn egg
---mobs:register_egg("mobs_mc:cow", "Cow", "spawn_egg_cow.png")
 mobs:register_egg("mobs_mc:cow", "Cow", "cow_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

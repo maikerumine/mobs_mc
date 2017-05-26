@@ -1,10 +1,12 @@
---MCmobs v0.2
+--MCmobs v0.4
 --maikerumine
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
+
+
 --###################
 --################### PARROT
 --###################
@@ -51,7 +53,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	type = "npc",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 90,
+	hp_max = 19,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -83,7 +85,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	},
 	drawtype = "front",
 	water_damage = 10,
-	lava_damage = 0,
+	lava_damage = 2,
 	light_damage = 0,
 	fall_damage = 0,
 	view_range = 16,
@@ -95,8 +97,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	fly = true,
 	jump_chance = 98,
 	fear_height = 120,	
-	
-		follow = {"farming:seed_wheat", "farming:seed_cotton"},
+	follow = {"farming:seed_wheat", "farming:seed_cotton"},
 	view_range = 25,
 
 	on_rightclick = function(self, clicker)
@@ -130,16 +131,11 @@ mobs:register_mob("mobs_mc:parrot", {
 })
 
 
-
-mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves", "air"},{"default:dirt_with_rainforest_litter"},20, 7, 20, 5000, 2, -10, 200)
-mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves", "default:dirt_with_rainforest_litter"},{"air"},20, 7, 20, 5000, 2, -10, 200)
-mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves"},{"air"},20, 7, 20, 5000, 2, -10, 200)
+--spawn
+mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves"},{"air"},7, 20, 20, 15000, 2, 15, 20)
 mobs:register_spawn("mobs_mc:parrot", {"default:dirt_with_rainforest_litter"}, 20, 12, 5000, 2, 31000)
 
-
-
 -- spawn eggs
---mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
 mobs:register_egg("mobs_mc:parrot", "Parrot", "parrot_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
