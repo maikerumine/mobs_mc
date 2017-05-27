@@ -95,8 +95,8 @@ mobs:register_mob("mobs_mc:enderman", {
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "dogfight",
-	replace_rate = 4,
-	replace_what = {"default:torch","default:sand","default:desert_sand","default:cobble","default:dirt","default:dirt_with_glass","default:dirt_with_dry_grass","default:wood","default:stone","default:sandstone"},
+	replace_rate = 1,
+	replace_what = {"default:torch","default:cobble","default:wood"},
 	replace_with = "air",
 	replace_offset = -1,
 

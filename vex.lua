@@ -87,6 +87,10 @@ mobs:register_mob("mobs_mc:vex", {
 	fly = true,
 	jump_chance = 15,
 	fear_height = 6,
+		replace_rate = 4,
+	replace_what = {"default:torch","mg_villages:torch"},
+	replace_with = "air",
+	replace_offset = -1,
 
 })
 
