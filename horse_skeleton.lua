@@ -55,8 +55,8 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 	drops = {
 		{name = "bonemeal:bone",
 		chance = 1,
-		min = 2,
-		max = 12,},
+		min = 1,
+		max = 2,},
 	},
 	drawtype = "front",
 	water_damage = 1,

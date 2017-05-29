@@ -109,7 +109,7 @@ local zombie = {
 	drawtype = "front",
 	lava_damage = 5,
 	-- TODO: Burn mob only when in direct sunlight
-	light_damage = 1,
+	light_damage = 2,
 	view_range = 17,
 	attack_type = "dogfight",
 }
@@ -134,6 +134,7 @@ mobs:register_mob("mobs_mc:baby_zombie", baby_zombie)
 local husk = table.copy(zombie)
 husk.textures = {{"mobs_mc_husk.png"}}
 husk.light_damage = 0
+husk.water_damage = 3
 -- TODO: Husks avoid water
 
 mobs:register_mob("mobs_mc:husk", husk)
@@ -151,10 +152,10 @@ mobs:register_mob("mobs_mc:baby_husk", baby_husk)
 
 -- Spawning
 
-mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky"}, 7, -1, 3000, 4, 31000)
+mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky"}, 7, -1, 8000, 4, 31000)
 -- Baby zombie is 20 times less likely than regular zombies
 mobs:register_spawn("mobs_mc:baby_zombie", {"group:crumbly", "group:cracky"}, 7, -1, 100000, 4, 31000)
-mobs:register_spawn("mobs_mc:husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 4090, 4, 31000)
+mobs:register_spawn("mobs_mc:husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 8090, 4, 31000)
 mobs:register_spawn("mobs_mc:baby_husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 100000, 4, 31000)
 
 

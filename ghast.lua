@@ -67,12 +67,12 @@ mobs:register_mob("mobs_mc:ghast", {
 	damage = 1,
 	armor = 100,
 	drops = {
-		{name = "default:lava_source 1",
+		{name = "tnt:gunpowder",
 		chance = 3,
-		min = 1,
-		max = 4,},
+		min = 0,
+		max = 2,},
 		{name = "mobs_mc:ghast_tear",
-		chance = 6,
+		chance = 11,
 		min = 0,
 		max = 1,},
 		{name = "mobs_mc:ghast_head",
@@ -112,7 +112,7 @@ mobs:register_mob("mobs_mc:ghast", {
 
 
 --mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"},{"air"},0, 17, 20, 8000, 2, -3610, -2100)
+mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack"},{"air"},0, 17, 20, 8000, 2, -3610, -2100)
 -- fireball (weapon)
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",

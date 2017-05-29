@@ -41,7 +41,8 @@ mobs:register_egg("mobs_mc:20llama", "llama", "llama_inv.png", 0)
 
 mobs:register_mob("mobs_mc:llama", {
 	type = "animal",
-	hp_max = 25,
+	hp_max = 15,
+	passive = false,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
     rotate = -180,
 	visual = "mesh",
@@ -52,15 +53,25 @@ mobs:register_mob("mobs_mc:llama", {
 	runaway = true,
 	walk_velocity = 1,
 	run_velocity = 4.4,
-	armor = 200,
+	floats = true,
+	armor = 100,
+	damage = 1,
 	drops = {
-		{name = "mobs:pork_raw",
+		{name = "mobs:leather",
 		chance = 1,
-		min = 1,
-		max = 3,},
+		min = 0,
+		max = 2,},
+		{name = "default:chest",
+		chance = 11,
+		min = 0,
+		max = 1,},
+		{name = "carpet3d:red",
+		chance = 7,
+		min = 0,
+		max = 1,},
 	},
 	drawtype = "front",
-	water_damage = 1,
+	water_damage = 0,
 	lava_damage = 5,
 	light_damage = 0,
 	fear_height = 3,
@@ -171,7 +182,7 @@ mobs:register_mob("mobs_mc:llama", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15000, 1, 31000)
+mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15000, 1, 40)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:llama", "llama", "llama_inv.png", 0)

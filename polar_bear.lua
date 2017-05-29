@@ -43,9 +43,10 @@ mobs:register_egg("mobs_mc:2polarbear", "Polarbear", "polarbear_inv.png", 0)
 mobs:register_mob("mobs_mc:polarbear", {
 	type = "animal",
     runaway = false,
+   passive = false,
     stepheight = 1.2,
-	hp_min = 40,
-	hp_max = 60,
+	hp_min = 20,
+	hp_max = 30,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -62,14 +63,15 @@ mobs:register_mob("mobs_mc:polarbear", {
 	attack_type = "dogfight",
 	armor = 80,
 	drops = {
-		{name = "mobs:beef_raw",
-		chance = 1,
+		{name = "fishing:fish_raw",
+		chance = 5,
 		min = 1,
-		max = 3,},
-		{name = "mobs:leather",
-		chance = 1,
-		min = 0,
+		max = 2,},		
+		{name = "fishing:pike_raw",
+		chance = 5,
+		min = 1,
 		max = 2,},
+
 	},
 	drawtype = "front",
 	water_damage = 1,
@@ -105,7 +107,7 @@ mobs:register_mob("mobs_mc:polarbear", {
 	end,
 	]]
 	--from mobs_animals
-	follow = "fishing:clownfish_raw","fishing:fish_raw",
+	follow = "fishing:clownfish_raw","fishing:fish_raw", "fishing:pike_raw", "fishing:shark_raw","fishing:perch_raw","fishing:exoticfish_raw","fishing:bluewhite_raw",
 	view_range = 12,
 	replace_rate = 10,
 	replace_what = {"default:grass_3", "default:grass_4", "default:grass_5", "farming:wheat_8"},
@@ -114,7 +116,7 @@ mobs:register_mob("mobs_mc:polarbear", {
 
 })
 
-mobs:register_spawn("mobs_mc:polarbear", {"default:snowblock", "default:snow"}, 20, 8, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:polarbear", {"default:snowblock"}, 20, 8, 17000, 3, 31000)
 
 
 -- spawn egg

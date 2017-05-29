@@ -53,7 +53,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	type = "npc",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 19,
+	hp_max = 9,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -69,7 +69,10 @@ mobs:register_mob("mobs_mc:parrot", {
 	damage = 1,
 	armor = 100,
 	drops = {
-
+		{name = "mobs:feather",
+		chance = 1,
+		min = 1,
+		max = 2,},
 	},
     	animation = {
 		speed_normal = 50,

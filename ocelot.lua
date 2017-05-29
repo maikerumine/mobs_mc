@@ -85,7 +85,7 @@ attacks_monsters = true,
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:ocelot", {"default:dirt_with_dry__grass"}, 20, 12, 5000, 2, 31000)
+mobs:register_spawn("mobs_mc:ocelot", {"default:dirt_with_dry__grass"}, 20, 12, 15000, 2, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")

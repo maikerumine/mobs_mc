@@ -66,10 +66,14 @@ mobs:register_mob("mobs_mc:evoker", {
 	dogshoot_count_max =1,
 	passive = false,
 	drops = {
-		{name = "default:apple",
-		chance = 10,
+		{name = "default:emerald",
+		chance = 1,
 		min = 1,
-		max = 2,},
+		max = 1,},
+		{name = "mobs_mc:totem",
+		chance = 1,
+		min = 1,
+		max = 1,},
 	},
 	armor = 90,
 	sounds = {
@@ -89,6 +93,10 @@ mobs:register_mob("mobs_mc:evoker", {
 	light_damage = 0,
 	view_range = 13,
 	fear_height = 2,
+	replace_rate = 4,
+	replace_what = {"default:torch","mg_villages:torch", "default:torch_wall","mg_villages:torch_wall"},
+	replace_with = "air",
+	replace_offset = -1,
 
 })
 
@@ -155,17 +163,17 @@ These functions register a spawn algorithm for the mob. Without this function th
 --mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
 --mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
 
-mobs:spawn_specific("mobs_mc:evoker", {"default:acacia_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150)
-mobs:spawn_specific("mobs_mc:evoker", {"default:aspen_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150)
-mobs:spawn_specific("mobs_mc:evoker", {"default:tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150)
-mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150)
-mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150)
+mobs:spawn_specific("mobs_mc:evoker", {"default:acacia_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
+mobs:spawn_specific("mobs_mc:evoker", {"default:aspen_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
+mobs:spawn_specific("mobs_mc:evoker", {"default:tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
+mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
+mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
 
 --mg_villages:torch
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_junglewood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, true)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_acacia_wood"}, {"air"}, 0, 10, 30, 3000, 1, -31000, 150, true)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_pine_wood"}, {"air"}, 0, 10, 30, 3000, 1, -31000, 150, true)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 10, 30, 3000, 1, -31000, 150, true)
+mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_junglewood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
+mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_acacia_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
+mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_pine_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
+mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
 
 
 

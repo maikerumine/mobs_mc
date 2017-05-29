@@ -174,7 +174,7 @@ mobs:register_mob("mobs_mc:pig", {
 
 })
 --TODO re-add carrot and stick
-mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, 20, 12, 5000, 1, 31000)
+mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
 	
 
 -- pork

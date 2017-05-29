@@ -42,13 +42,16 @@ mobs:register_egg("mobs_mc:30vex", "Vex", "vex_inv.png", 0)
 
 mobs:register_mob("mobs_mc:vex", {
 	type = "monster",
-	--pathfinding = 1,
-	--physical = false,
+	pathfinding = 1,
+	passive = false,
+	group_attack = true,
+	attack_type = "dogfight",
+	physical = false,
 	hp_min = 10,
 	hp_max = 15,
 	--collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
-	collisionbox = {-0.2, 0.01, -0.2, 0.2, 0.5, 0.2},  --bat
-    rotate = -180,
+	collisionbox = {-0.2, 0.3, -0.2, 0.2, 0.7, 0.2},  --bat
+	rotate = -180,
 	visual = "mesh",
 	mesh = "vex.b3d",
 	textures = {
@@ -65,8 +68,8 @@ mobs:register_mob("mobs_mc:vex", {
 	drops = {
 		{name = "mobs_mc:totem",
 		chance = 10,
-		min = 1,
-		max = 2,},
+		min = 0,
+		max = 1,},
 	},
 	armor = 160,
 		sounds = {
@@ -83,18 +86,25 @@ mobs:register_mob("mobs_mc:vex", {
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
-	floats=1,
+	--floats=1,
 	fly = true,
 	jump_chance = 15,
-	fear_height = 6,
-		replace_rate = 4,
-	replace_what = {"default:torch","mg_villages:torch"},
+	fear_height = 16,
+	replace_rate = 4,
+	replace_what = {"default:torch","mg_villages:torch", "default:torch_wall","mg_villages:torch_wall"},
 	replace_with = "air",
 	replace_offset = -1,
 
 })
 
-
+minetest.register_craftitem("mobs_mc:totem", {
+	description = "Totem",
+	wield_image = "mcl_mobitems_totem.png",
+	inventory_image = "mcl_mobitems_totem.png",
+	groups = {fleshy=3,dig_immediate=3,flammable=2},
+	stack_max =1,
+	on_use = minetest.item_eat(20),
+})
 
 
 

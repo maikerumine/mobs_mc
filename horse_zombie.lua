@@ -55,8 +55,8 @@ mobs:register_mob("mobs_mc:horsezombie", {
 	drops = {
 		{name = "mobs:rotten_flesh",
 		chance = 1,
-		min = 2,
-		max = 12,},
+		min = 1,
+		max = 1,},
 	},
 	drawtype = "front",
 	water_damage = 1,

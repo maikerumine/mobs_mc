@@ -57,10 +57,10 @@ mobs:register_mob("mobs_mc:horsemule", {
 	walk_velocity = 1,
 	armor = 200,
 	drops = {
-		{name = "mobs:meat_raw",
+		{name = "mobs:leather",
 		chance = 1,
-		min = 2,
-		max = 3,},
+		min = 0,
+		max = 2,},
 	},
 	drawtype = "front",
 	water_damage = 1,

@@ -44,7 +44,7 @@ mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
-	hp_max = 50,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -87,10 +87,7 @@ mobs:register_mob("mobs_mc:creeper", {
 		chance = 3,
 		min = 0,
 		max = 2,},
-		{name = "default:flint_and_steel",
-		chance = 3,
-		min = 0,
-		max = 1,},
+
 		--[[
 		{name = "jdukebox:disc_1",
 		chance = 30,
@@ -179,7 +176,7 @@ mobs:register_mob("mobs_mc:creeper", {
 
 
 --mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")

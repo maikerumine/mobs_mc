@@ -72,6 +72,10 @@ mobs:register_mob("mobs_mc:blaze", {
 		chance = 1,
 		min = 0,
 		max = 1,},
+		{name = "default:glowstone_dust",
+		chance = 3,
+		min = 0,
+		max = 2,},
 	},
 	animation = {
 		stand_start = 1,
@@ -104,7 +108,7 @@ mobs:register_mob("mobs_mc:blaze", {
 
 --mobs:register_spawn("mobs_mc:blaze", {"mcl_core:lava_flowing", "mcl_nether:netherrack","air"}, 30, -1, 5000, 1, -1000)
 mobs:register_spawn("mobs_mc:blaze",
-	{"default:lava_flowing", "default:nitherbrick"}, 20, -1, 5000, 1, -1000, true)
+	{"default:lava_flowing", "default:nitherbrick"}, 10, -1, 5000, 1, -1000, true)
 	
 -- Blaze fireball
 mobs:register_arrow("mobs_mc:blaze_fireball", {
