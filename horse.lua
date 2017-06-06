@@ -62,7 +62,6 @@ mobs:register_mob("mobs_mc:horse", {
 		{"horse3.png"},
 		{"horse4.png"},
 		{"horse5.png"},
-		{"horse6.png"}
 	},
 	fear_height = 3,
 	runaway = true,

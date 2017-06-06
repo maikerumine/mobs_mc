@@ -30,7 +30,6 @@ mobs:register_mob("mobs_mc:28squid", {
 		run_start = 0,		run_end = 50,
 	},
 })
-
 mobs:register_egg("mobs_mc:28squid", "Squid", "squid_inv.png", 0)
 ]]
 
@@ -93,4 +92,4 @@ mobs:alias_mob("mobs:squid", "mobs_mc:squid")
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:squid", "Spawn Squid", "spawn_egg_squid.png")
-mobs:register_egg("mobs_mc:28squid", "Squid", "squid_inv.png", 0)
+mobs:register_egg("mobs_mc:squid", "Squid", "squid_inv.png", 0)

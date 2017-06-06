@@ -83,9 +83,9 @@ mobs:register_mob("mobs_mc:llama", {
 	animation = {
 		speed_normal = 24,
 		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
+		stand_end = 0,
+		walk_start = 0,
+		walk_end = 40,
 		hurt_start = 118,
 		hurt_end = 154,
 		death_start = 154,

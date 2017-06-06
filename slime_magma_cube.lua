@@ -102,6 +102,7 @@ mobs:register_mob("mobs_mc:magmacube", {
 	group_attack = true,
 	hp_max = 95,
 	collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    visual_size = {x=8, y=8},
     rotate = -180,
 	visual = "mesh",
 	mesh = "magmacube.b3d",

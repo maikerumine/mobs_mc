@@ -42,6 +42,7 @@ dofile(path .. "/creeper.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/ender_dragon.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/enderman.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/endermite.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/villager_illusioner.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/ghast.lua") -- maikerumine
 dofile(path .. "/guardian.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/guardian_elder.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i

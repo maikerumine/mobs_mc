@@ -68,9 +68,9 @@ mobs:register_mob("mobs_mc:horsemule", {
 	light_damage = 0,
 	fear_height = 6,
 	animation = {
-		speed_normal = 15,
-		stand_start = 25,		stand_end = 75,
-		walk_start = 75,		walk_end = 100,
+		speed_normal = 25,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
 	},
 	follow = "farming:wheat",
 	view_range = 5,
