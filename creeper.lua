@@ -176,7 +176,7 @@ mobs:register_mob("mobs_mc:creeper", {
 
 
 --mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 1, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"},{"air"},0, 6, 20, 9000, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")

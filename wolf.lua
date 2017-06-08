@@ -206,7 +206,7 @@ mobs:register_mob("mobs_mc:wolf", {
 	step = 0.5,
 	blood_texture = "mobs_blood.png",
 })
-mobs:register_spawn("mobs_mc:wolf", {"default:dirt_with_grass","default:dirt","default:snow", "default:snowblock"}, 20, 0, 19000, 1, 31000)
+mobs:register_spawn("mobs_mc:wolf", {"default:dirt_with_snow","default:podzol", "default:snowblock"}, 20, 0, 19000, 1, 31000)
 
 
 -- compatibility

@@ -83,7 +83,7 @@ mobs:register_mob("mobs_mc:enderman", {
 		run_start = 0,		run_end = 40,
 	},
 	drawtype = "front",
-	water_damage = 1,
+	water_damage = 8,
 	lava_damage = 5,
 	light_damage = 0,
 	view_range = 16,

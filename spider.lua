@@ -96,7 +96,7 @@ mobs:register_mob("mobs_mc:spider", {
 		run_start = 0,		run_end = 40,
 	},
 })
-mobs:register_spawn("mobs_mc:spider", {"default:stone" ,"default:gravel","default:cobble","group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 4, -1, 17000, 2, 3000)
+mobs:register_spawn("mobs_mc:spider", {"default:stone" ,"default:gravel","default:cobble","default:sand", "group:snappy"}, 4, -1, 17000, 2, 3000)
 
 
 -- Cobweb

@@ -116,7 +116,7 @@ mobs:register_mob("mobs_mc:stray", {
 })
 
 --spawn
-mobs:spawn_specific("mobs_mc:stray", {"default:sandstone"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:stray", {"default:sandstone", "default:sand"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:stray", "Stray Skeleton", "stray_inv.png", 0)
