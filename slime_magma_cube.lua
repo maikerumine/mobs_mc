@@ -168,8 +168,8 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 
 
 
-mobs:register_spawn("mobs_mc:magmasmall", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
-mobs:register_spawn("mobs_mc:magmacube", {"nether:rack", "default:lava"}, 7, -1, 5000, 4, 31000)
+mobs:register_spawn("mobs_mc:magmasmall", {"nether:rack", "default:lava"}, 7, -1, 14000, 4, -3000)
+mobs:register_spawn("mobs_mc:magmacube", {"nether:rack", "default:lava"}, 7, -1, 9000, 4, -3000)
 
 -- compatibility
 mobs:alias_mob("mobs_mc:lavasmall", "mobs_mc:magmasmall")

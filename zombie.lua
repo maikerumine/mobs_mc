@@ -114,7 +114,6 @@ local zombie = {
 	attack_type = "dogfight",
 }
 
-
 mobs:register_mob("mobs_mc:zombie", zombie)
 
 -- Baby zombie.

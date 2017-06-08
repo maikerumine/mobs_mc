@@ -38,8 +38,8 @@ mobs:register_mob("mobs_mc:51pigman", {
 mobs:register_egg("mobs_mc:51pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
 ]]
 
-
-mobs:register_mob("mobs_mc:pigman", {
+local pigman = {
+--mobs:register_mob("mobs_mc:pigman", {
 	type = "npc",
 	hp_min = 30,
 	hp_max = 60,
@@ -88,22 +88,7 @@ mobs:register_mob("mobs_mc:pigman", {
 			damage = "zombiehurt1",
 			attack = "default_punch3",
 		},
-	--[[
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
-	},
-	]]
+
 	animation = {
 		speed_normal = 30,		speed_run = 30,
 		stand_start = 0,		stand_end = 79,
@@ -118,9 +103,32 @@ mobs:register_mob("mobs_mc:pigman", {
 	fear_height = 3,
 	view_range = 17,
 	attack_type = "dogfight",
-})
-mobs:register_spawn("mobs_mc:pigman", {"nether:rack"},  17, -1, 5000, 3, -2000)
-mobs:register_spawn("mobs_mc:pigman", {"nether:portal"}, 15, -1, 500, 4, 31000)
+}
+
+mobs:register_mob("mobs_mc:pigman", pigman)
+
+-- Baby pigman.
+-- A smaller and more dangerous variant of the pigman
+
+local baby_pigman = table.copy(pigman)
+baby_pigman.collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.94, 0.25}
+baby_pigman.visual_size = {x=0.5, y=0.5}
+baby_pigman.textures = {{"mobs_zombie_pigman.png"}}
+baby_pigman.walk_velocity = 1.2
+baby_pigman.run_velocity = 2.4
+baby_pigman.light_damage = 0
+
+mobs:register_mob("mobs_mc:baby_pigman", baby_pigman)
+
+-- Baby zombie is 20 times less likely than regular zombies
+mobs:register_spawn("mobs_mc:baby_pigman", {"default:rack", "default:portal"}, 7, -1, 100000, 4, 31000)
+
+
+
+
+
+mobs:register_spawn("mobs_mc:pigman", {"default:rack"},  17, -1, 1000, 3, -2000)
+mobs:register_spawn("mobs_mc:pigman", {"default:portal"}, 15, -1, 500, 4, 31000)
 --mobs:register_spawn("mobs_mc:pigman", {"default:obsidian"}, 17, -1, 1900, 1, 31000)
 mobs:spawn_specific("mobs_mc:pigman", {"default:portal"},{"air"},0, 12, 20, 9000, 2, -31000, 31000)
 

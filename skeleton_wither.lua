@@ -116,8 +116,9 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 })
 
 --spawn
-mobs:spawn_specific("mobs_mc:witherskeleton", {"default:nitherbrick"},{"air"},0, 6, 20, 9000, 2, -9110, -50)
-
+--mobs:spawn_specific("mobs_mc:witherskeleton", {"default:nitherbrick"},{"air"},0, 9, 20, 9000, 2, -9110, -50)
+mobs:register_spawn("mobs_mc:witherskeleton",
+	{"default:nitherbrick"}, 20, -1, 5000, 3, -3000, true)
 -- spawn eggs
 mobs:register_egg("mobs_mc:witherskeleton", "Wither Skeleton", "witherskeleton_inv.png", 0)
 
