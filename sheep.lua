@@ -46,7 +46,8 @@ mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
 --mcsheep
 mobs:register_mob("mobs_mc:sheep", {
 	type = "animal",
-	hp_max = 25,
+	hp_min = 8,
+	hp_max = 8,
 	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
 	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
     rotate = -180,
@@ -60,7 +61,6 @@ mobs:register_mob("mobs_mc:sheep", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "mobs:mutton_raw",
 		chance = 1,
@@ -88,7 +88,7 @@ mobs:register_mob("mobs_mc:sheep", {
 		run_start = 0,		run_end = 40,
 	},
 	follow = "farming:wheat",
-	view_range = 5,
+	view_range = 12,
 	
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()

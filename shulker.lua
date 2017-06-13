@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:34shulker", {
 	passive = false,
     stepheight = 1.2,
 	hp_min = 30,
-	hp_max = 60,
+	hp_max = 30,
 	armor = 150,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
@@ -51,14 +51,14 @@ mobs:register_arrow("mobs_mc:shulkerbullet", {
 	hit_player = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 4},
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
+			damage_groups = {fleshy = 4},
 		}, nil)
 	end,
 

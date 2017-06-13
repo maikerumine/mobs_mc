@@ -43,7 +43,8 @@ mobs:register_egg("mobs_mc:0acow", "Cow", "cow_inv.png", 0)
 
 mobs:register_mob("mobs_mc:cow", {
 	type = "animal",
-	hp_max = 28,
+	hp_min = 10,
+	hp_max = 10,
 	collisionbox = {-0.6, -0.01, -0.6, 0.6, 1.8, 0.6},
     rotate = -180,
 	visual = "mesh",
@@ -54,7 +55,6 @@ mobs:register_mob("mobs_mc:cow", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "mobs:beef_raw",
 		chance = 1,

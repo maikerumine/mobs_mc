@@ -36,16 +36,15 @@ mobs:register_egg("mobs_mc:16guardian", "Guardian", "guardian_inv.png", 0)
 mobs:register_mob("mobs_mc:guardian_elder", {
     type = "monster",
     stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
+	hp_min = 80,
+	hp_max = 80,
     	passive = false,
 	attack_type = "dogfight",
 	pathfinding = true,
-    view_range = 15,
+    view_range = 16,
 	walk_velocity = 2,
 	run_velocity = 4,
-	damage = 2,
+	damage = 8,
 	group_attack = true,
     -- Note: This collision box is pretty generous because they can't be rotated yet, but at least it not confusing for the player.
     -- TODO: Make the hitbox smaller when Minetest supports rotation of collision boxes

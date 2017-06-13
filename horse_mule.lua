@@ -45,8 +45,8 @@ mobs:register_mob("mobs_mc:horsemule", {
 	passive = true,
     runaway = true,
     stepheight = 1.2,
-	hp_min = 22,
-	hp_max = 36,
+	hp_min = 15,
+	hp_max = 30,
     rotate = -180,
 	collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
 	visual = "mesh",
@@ -55,7 +55,6 @@ mobs:register_mob("mobs_mc:horsemule", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "mobs:leather",
 		chance = 1,
@@ -73,7 +72,7 @@ mobs:register_mob("mobs_mc:horsemule", {
 		walk_start = 0,		walk_end = 40,
 	},
 	follow = "farming:wheat",
-	view_range = 5,
+	view_range = 16,
 
 	drops = {
 		{name = "mobs:meat_raw", chance = 1, min = 2, max = 3}

@@ -44,7 +44,8 @@ mobs:register_egg("mobs_mc:37stray", "Stray Skeleton", "stray_inv.png", 0)
 
 mobs:register_mob("mobs_mc:stray", {
 	type = "monster",
-	hp_max = 80,
+	hp_min = 20,
+	hp_max = 20,
 	pathfinding = true,
 	group_attack = true,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
@@ -64,7 +65,6 @@ mobs:register_mob("mobs_mc:stray", {
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	damage = 2,
-	armor = 200,
 	drops = {
 		{name = "mobs:arrow",
 		chance = 1,

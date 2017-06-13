@@ -44,7 +44,8 @@ mobs:register_egg("mobs_mc:36witherskeleton", "Wither Skeleton", "witherskeleton
 
 mobs:register_mob("mobs_mc:witherskeleton", {
 	type = "monster",
-	hp_max = 80,
+	hp_min = 20,
+	hp_max = 20,
 	pathfinding = true,
 	group_attack = true,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
@@ -63,8 +64,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	},
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	damage = 2,
-	armor = 200,
+	damage = 7,
 	drops = {
 		{name = "mobs:arrow",
 		chance = 1,

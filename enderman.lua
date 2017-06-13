@@ -46,7 +46,7 @@ mobs:register_mob("mobs_mc:enderman", {
     runaway = true,
     	pathfinding = 2,
     stepheight = 1.2,
-	hp_min = 30,
+	hp_min = 40,
 	hp_max = 40,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
@@ -64,8 +64,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	},
 	walk_velocity = 0.2,
 	run_velocity = 3.4,
-	damage = 3,
-	armor = 150,
+	damage = 7,
 	drops = {
 		{name = "farorb:farorb",
 		chance = 3,

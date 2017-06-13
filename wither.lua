@@ -44,8 +44,8 @@ mobs:register_egg("mobs_mc:32wither", "Wither", "wither_inv.png", 0)
 
 mobs:register_mob("mobs_mc:wither", {
 	type = "monster",
-	hp_max = 333,
-	hp_min = 333,
+	hp_max = 300,
+	hp_min = 300,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -65,7 +65,6 @@ mobs:register_mob("mobs_mc:wither", {
 		attack = "mese_dragon",
 		distance = 60,
 	},
-	damage = 6,
 	jump = true,
 	jump_height = 10,
 	jump_chance = 98,

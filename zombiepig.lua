@@ -40,9 +40,9 @@ mobs:register_egg("mobs_mc:51pigman", "Zombie Pigman", "zombie_pigman_inv.png", 
 
 local pigman = {
 --mobs:register_mob("mobs_mc:pigman", {
-	type = "npc",
-	hp_min = 30,
-	hp_max = 60,
+	type = "monster",
+	hp_min = 20,
+	hp_max = 20,
 	collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
 	visual = "mesh",
 	mesh = "3d_armor_character.b3d",
@@ -54,7 +54,7 @@ local pigman = {
 	makes_footstep_sound = true,
 	walk_velocity = .8,
 	run_velocity = 2.6,
-	damage = 2,
+	damage = 9,
 	armor = 80,
 	pathfinding = true,
 	group_attack = true,
@@ -101,7 +101,7 @@ local pigman = {
 	lava_damage = 5,
 	light_damage = 0,
 	fear_height = 3,
-	view_range = 17,
+	view_range = 16,
 	attack_type = "dogfight",
 }
 

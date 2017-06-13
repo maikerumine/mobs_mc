@@ -52,8 +52,8 @@ mobs:register_egg("mobs_mc:1parrot", "Parrot", "parrot_inv.png", 0)
 mobs:register_mob("mobs_mc:parrot", {
 	type = "npc",
 	pathfinding = true,
-	group_attack = true,
-	hp_max = 9,
+	hp_min = 6,
+	hp_max = 6,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -66,8 +66,6 @@ mobs:register_mob("mobs_mc:parrot", {
 	},
 	walk_velocity = .8,
 	run_velocity = 2.6,
-	damage = 1,
-	armor = 100,
 	drops = {
 		{name = "mobs:feather",
 		chance = 1,

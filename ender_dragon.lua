@@ -35,8 +35,8 @@ mobs:register_egg("mobs_mc:12enderdragon", "Enderdragon", "enderdragon_inv.png",
 ]]
 mobs:register_mob("mobs_mc:enderdragon", {
 	type = "monster",
-	hp_max = 533,
-	hp_min = 433,
+	hp_max = 200,
+	hp_min = 200,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -56,7 +56,7 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		attack = "mese_dragon",
 		distance = 60,
 	},
-	damage = 16,
+	damage = 10,
 	jump = true,
 	jump_height = 10,
 	jump_chance = 98,
@@ -77,7 +77,6 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		max = 99},
 
     },
-	armor = 60,
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
@@ -213,7 +212,7 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
-			damage_groups = {fleshy = 8},
+			damage_groups = {fleshy = 6},
 		}, nil)
 
 	end,
@@ -222,7 +221,7 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
-			damage_groups = {fleshy = 8},
+			damage_groups = {fleshy = 12},
 		}, nil)
 		
 	end,

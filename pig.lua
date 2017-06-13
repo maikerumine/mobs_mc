@@ -44,7 +44,8 @@ mobs:register_egg("mobs_mc:21apig", "Pig", "pig_inv.png", 0)
 mobs:register_mob("mobs_mc:pig", {
 	type = "animal",
 	runaway = true,
-	hp_max = 25,
+	hp_min = 10,
+	hp_max = 10,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
     rotate = -180,
 	visual = "mesh",
@@ -56,7 +57,6 @@ mobs:register_mob("mobs_mc:pig", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	run_velocity = 3,
-	armor = 100,
 	drops = {
 		{name = "mobs:pork_raw",
 		chance = 1,
@@ -89,7 +89,7 @@ mobs:register_mob("mobs_mc:pig", {
 		look_end = 108,
 	},
 	follow = {"default:apple", "farming:potato", "farming:carrot"},
-	view_range = 5,
+	view_range = 12,
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
