@@ -43,12 +43,16 @@ mobs:register_egg("mobs_mc:6chicken", "Chicken", "chicken_inv.png", 0)
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
 	hp_max = 24,
-    collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
+	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.69, 0.25},
     rotate = -180,
 	visual = "mesh",
 	mesh = "chicken.b3d",
 	textures = {
 		{"chicken.png"},
+	},
+	child_texture = {
+		{"chicken.png", "chicken.png", "chicken.png", "chicken.png",
+		"chicken.png", "chicken.png", "chicken.png", "chicken.png", "chicken.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -85,17 +89,21 @@ mobs:register_mob("mobs_mc:chicken", {
 
 	on_rightclick = function(self, clicker)
 
-		if mobs:feed_tame(self, clicker, 8, true, true) then
-			return
-		end
-
-		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
+		if mobs:feed_tame(self, clicker, 8, true, true) then return end
+		if mobs:protect(self, clicker) then return end
+		if mobs:capture_mob(self, clicker, 30, 50, 80, false, nil) then return end
 	end,
 
-	do_custom = function(self)
+	do_custom = function(self, dtime)
+
+		self.egg_timer = (self.egg_timer or 0) + dtime
+		if self.egg_timer < 10 then
+			return
+		end
+		self.egg_timer = 0
 
 		if self.child
-		or math.random(1, 5000) > 1 then
+		or math.random(1, 100) > 1 then
 			return
 		end
 
@@ -121,14 +129,14 @@ mobs:register_arrow("mobs_mc:egg_entity", {
 	velocity = 6,
 
 	hit_player = function(self, player)
-		player:punch(self.object, 1.0, {
+		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 1},
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
-		player:punch(self.object, 1.0, {
+		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
 			full_punch_interval = 1.0,
 			damage_groups = {fleshy = 1},
 		}, nil)
@@ -136,43 +144,42 @@ mobs:register_arrow("mobs_mc:egg_entity", {
 
 	hit_node = function(self, pos, node)
 
-		local num = math.random(1, 10)
-
-		if num == 1 then
-
-			pos.y = pos.y + 1
-
-			local nod = minetest.get_node_or_nil(pos)
-
-			if not nod
-			or not minetest.registered_nodes[nod.name]
-			or minetest.registered_nodes[nod.name].walkable == true then
-				return
-			end
-
-			local mob = minetest.add_entity(pos, "mobs_mc:chicken")
-			local ent2 = mob:get_luaentity()
-
-			mob:set_properties({
-				textures = ent2.child_texture[1],
-				visual_size = {
-					x = ent2.base_size.x / 2,
-					y = ent2.base_size.y / 2
-				},
-				collisionbox = {
-					ent2.base_colbox[1] / 2,
-					ent2.base_colbox[2] / 2,
-					ent2.base_colbox[3] / 2,
-					ent2.base_colbox[4] / 2,
-					ent2.base_colbox[5] / 2,
-					ent2.base_colbox[6] / 2
-				},
-			})
-
-			ent2.child = true
-			ent2.tamed = true
-			ent2.owner = self.playername
+		if math.random(1, 10) > 1 then
+			return
 		end
+
+		pos.y = pos.y + 1
+
+		local nod = minetest.get_node_or_nil(pos)
+
+		if not nod
+		or not minetest.registered_nodes[nod.name]
+		or minetest.registered_nodes[nod.name].walkable == true then
+			return
+		end
+
+		local mob = minetest.add_entity(pos, "mobs_mc:chicken")
+		local ent2 = mob:get_luaentity()
+
+		mob:set_properties({
+			textures = ent2.child_texture[1],
+			visual_size = {
+				x = ent2.base_size.x / 2,
+				y = ent2.base_size.y / 2
+			},
+			collisionbox = {
+				ent2.base_colbox[1] / 2,
+				ent2.base_colbox[2] / 2,
+				ent2.base_colbox[3] / 2,
+				ent2.base_colbox[4] / 2,
+				ent2.base_colbox[5] / 2,
+				ent2.base_colbox[6] / 2
+			},
+		})
+
+		ent2.child = true
+		ent2.tamed = true
+		ent2.owner = self.playername
 	end
 })
 

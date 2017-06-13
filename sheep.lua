@@ -42,25 +42,48 @@ mobs:register_mob("mobs_mc:24sheep", {
 
 mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
 ]]
+local colors = {
+	-- dyecolor = { woolcolor, textures }
+	white = { "white", { "mobs_sheep.png" } },
+	brown = { "brown", { "mobs_sheep_brown.png" } },
+	grey = { "silver", { "mobs_sheep_grey.png" } },
+	dark_grey = { "grey", { "mobs_sheep_dark_grey.png" } },
+	blue = { "blue", { "mobs_sheep_blue.png" } },
+	lightblue = { "light_blue", { "mobs_sheep_lightblue.png" } },
+	dark_green = { "green", { "mobs_sheep_dark_green.png" } },
+	green = { "lime", { "mobs_sheep_green.png" } },
+	violet = { "purple", { "mobs_sheep_violet.png" } },
+	pink = { "pink", { "mobs_sheep_pink.png" } },
+	yellow = { "yellow", { "mobs_sheep_yellow.png" } },
+	orange = { "orange", { "mobs_sheep_orange.png" } },
+	red = { "red", { "mobs_sheep_red.png" } },
+	cyan  = { "cyan", { "mobs_sheep_cyan.png" } },
+	magenta = { "magenta", { "mobs_sheep_magenta.png" } },
+	black = { "black", { "mobs_sheep_black.png" } },
+}
 
 --mcsheep
 mobs:register_mob("mobs_mc:sheep", {
 	type = "animal",
-	hp_max = 25,
-	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
-	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
-    rotate = -180,
+	hp_min = 8,
+	hp_max = 8,
+	-- FIXME: Should be 1.3 blocks high
+	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.09, 0.45},
+	
 	visual = "mesh",
-	mesh = "sheep.b3d",
+	visual_size = {x=0.6, y=0.6},
+	--mesh = "sheep.b3d",
+	mesh = "mobs_sheep.x",
 	textures = {
-		{"sheep.png"},
+		{"mobs_sheep.png"},--was sheep
 	},
-    gotten_texture = {"sheeps.png"},
-    gotten_mesh = "sheeps.b3d",
-	visual_size = {x=3, y=3},
+    --gotten_texture = {"sheeps.png"},
+    --gotten_mesh = "sheeps.b3d",
+	--visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	armor = 200,
+	--[[
 	drops = {
 		{name = "mobs:mutton_raw",
 		chance = 1,
@@ -71,6 +94,7 @@ mobs:register_mob("mobs_mc:sheep", {
 		min = 1,
 		max = 1,},
 	},
+	]]
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
@@ -82,13 +106,87 @@ mobs:register_mob("mobs_mc:sheep", {
 		damage = "Sheep3",
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 40,		stand_end = 80,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
+		speed_normal = 24,
+		stand_start = 0,
+		stand_end = 23,
+		walk_start = 24,
+		walk_end = 49,
+		hurt_start = 118,
+		hurt_end = 154,
+		death_start = 154,
+		death_end = 179,
+		eat_start = 49,
+		eat_end = 78,
+		look_start = 78,
+		look_end = 108,
 	},
 	follow = "farming:wheat",
 	view_range = 5,
+	
+	replace_rate = 10,
+	replace_what = "default:dirt_with_grass",
+	replace_with = "default:dirt",
+	
+		--Wuzzy code for color keep
+		do_custom = function(self)
+		if not self.initial_color_set then
+			local r = math.random(0,100000)
+			local textures
+			if r <= 81836 then
+				-- 81.836%
+				self.color = colors["white"][1]
+				textures = colors["white"][2]
+				self.base_texture = colors["white"][2]
+			elseif r <= 81836 + 5000 then
+				-- 5%
+				self.color = colors["grey"][1]
+				textures = colors["grey"][2]
+				self.base_texture = colors["grey"][2]
+			elseif r <= 81836 + 5000 + 5000 then
+				-- 5%
+				self.color = colors["dark_grey"][1]
+				textures = colors["dark_grey"][2]
+				self.base_texture = colors["dark_grey"][2]
+			elseif r <= 81836 + 5000 + 5000 + 5000 then
+				-- 5%
+				self.color = colors["black"][1]
+				textures = colors["black"][2]
+				self.base_texture = colors["black"][2]
+			elseif r <= 81836 + 5000 + 5000 + 5000 + 3000 then
+				-- 3%
+				self.color = colors["brown"][1]
+				textures = colors["brown"][2]
+				self.base_texture = colors["brown"][2]
+			else
+				-- 0.164%
+				self.color = colors["pink"][1]
+				textures = colors["pink"][2]
+				self.base_texture = colors["pink"][2]
+			end
+			self.textures = { textures },
+			self.object:set_properties({ textures = textures })
+			self.drops = {
+				{name = "mcl_mobitems:mutton",
+				chance = 1,
+				min = 1,
+				max = 2,},
+				{name = "mcl_wool:"..self.color,
+				chance = 1,
+				min = 1,
+				max = 1,},
+				
+				{name = "mobs:mutton",
+				chance = 1,
+				min = 1,
+				max = 2,},
+				{name = "wool:"..self.color,
+				chance = 1,
+				min = 1,
+				max = 1,},
+			}
+			self.initial_color_set = true
+		end
+	end,
 	
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
@@ -109,7 +207,7 @@ mobs:register_mob("mobs_mc:sheep", {
 					self.food = 0
 					self.naked = false
 					self.object:set_properties({
-						textures = {"sheep.png"},
+						textures = {"mobs_sheep_"..pname..".png"}, --was sheep.png
 					})
 				end
 			end
@@ -126,8 +224,9 @@ mobs:register_mob("mobs_mc:sheep", {
 				minetest.add_item(pos, ItemStack("wool:"..self.color.." "..math.random(1,3)))
 			end
 			self.object:set_properties({
-				textures = {"sheeps.png"},
-				mesh = "sheeps.b3d",
+				textures = {"mobs_sheep_sheared.png"},
+				--textures = {"sheeps.png"},
+				--mesh = "sheeps.b3d",
 			})
 			if not minetest.setting_getbool("creative_mode") then
 				item:add_wear(300)
@@ -135,13 +234,13 @@ mobs:register_mob("mobs_mc:sheep", {
 			end
 		end
 		if minetest.get_item_group(item:get_name(), "dye") == 1 and not self.naked then
-print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
+		print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
 			local name = item:get_name()
 			local pname = name:split(":")[2]
 
 			self.object:set_properties({
 				textures = {"mobs_sheep_"..pname..".png"},
-				mesh = "sheeps.b3d",
+				--mesh = "sheeps.b3d",
 			})
 			self.color = pname
 			self.drops = {
