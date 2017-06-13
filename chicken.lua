@@ -227,7 +227,7 @@ end
 
 -- egg
 minetest.register_node(":mobs:egg", {
-	description = "ChiNken Egg",
+	description = "Egg",
 	tiles = {"mobs_chicken_egg.png"},
 	inventory_image  = "mobs_chicken_egg.png",
 	visual_scale = 0.7,

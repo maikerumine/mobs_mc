@@ -167,7 +167,7 @@ mobs:register_spawn("mobs_mc:horsezombie", {"default:desert_sand"}, 20, 8, 7000,
 mobs:register_spawn("mobs_mc:horsezombie", {"default:cobblestone"}, 5, -1, 17000, 1, 5)
 
 --spawnegg
-mobs:register_egg("mobs_mc:horsezombie", "Horse Zombie", "horsezombie_inv.png", 0)
+mobs:register_egg("mobs_mc:horsezombie", "Zombie Horse", "horsezombie_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Horse Zombie loaded")

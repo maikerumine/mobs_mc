@@ -126,7 +126,7 @@ minetest.register_craftitem(":mobs:feather", {
 --maikerumines throwing code
 --arrow (weapon)
 minetest.register_craftitem(":mobs:arrow", {
-	description = "ESM Arrow",
+	description = "Arrow",
 	inventory_image = "arrow.png",
 })
 
@@ -267,7 +267,7 @@ local throwing_shoot_arrow = function(itemstack, player)
 end
 
 minetest.register_tool(":mobs:bow_wood", {
-	description = "ESM Wood Bow",
+	description = "Bow",
 	inventory_image = "bow_standby.png",
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
