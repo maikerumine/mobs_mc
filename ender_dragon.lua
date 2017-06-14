@@ -35,6 +35,7 @@ mobs:register_egg("mobs_mc:12enderdragon", "Enderdragon", "enderdragon_inv.png",
 ]]
 mobs:register_mob("mobs_mc:enderdragon", {
 	type = "monster",
+<<<<<<< HEAD
 	pathfinding = 1,
 	attacks_animals = true,
 	walk_chance = 88,
@@ -43,6 +44,11 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	--collisionbox = {-0.35, 0.51, -0.35, 0.35, 1.61, 0.35},
 	--collisionbox = {-0.5, 0.5, -0.5, 0.5, 1.2, 0.5},
 	collisionbox = {-0.5, 0.01, -0.5, 0.5, 1.2, 0.5},
+=======
+	hp_max = 200,
+	hp_min = 200,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+>>>>>>> origin/master
     rotate = -180,
 	visual = "mesh",
 	mesh = "enderdragon.b3d",
@@ -59,7 +65,10 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		attack = "mese_dragon",
 		distance = 60,
 	},
+<<<<<<< HEAD
 	physical = true,
+=======
+>>>>>>> origin/master
 	damage = 10,
 	jump = true,
 	jump_height = 14,

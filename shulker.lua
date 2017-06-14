@@ -98,5 +98,9 @@ mobs:spawn_specific("mobs_mc:shulker", {"default:purpur_block"}, {"default:cobbl
 
 
 if minetest.setting_get("log_mods") then
+<<<<<<< HEAD
 	minetest.log("action", "MC Shulkers loaded")
+=======
+	minetest.log("action", "MC Spiders loaded")
+>>>>>>> origin/master
 end

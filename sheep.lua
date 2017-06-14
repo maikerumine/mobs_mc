@@ -70,7 +70,11 @@ mobs:register_mob("mobs_mc:sheep", {
 
 	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
 	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
+<<<<<<< HEAD
     --rotate = -180,
+=======
+    rotate = -180,
+>>>>>>> origin/master
 
 	visual = "mesh",
 	visual_size = {x=0.6, y=0.6},
