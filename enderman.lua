@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:13enderman", {
 mobs:register_egg("mobs_mc:13enderman", "Enderman", "enderman_inv.png", 0)
 ]]
 
-mobs:register_mob("mobs_mc:enderman", {
+mobs:register_mob("mobs_mc:ender_man", {
 	type = "monster",
     runaway = true,
     	pathfinding = 2,
@@ -108,14 +108,18 @@ minetest.register_craft({
 	}
 })
 
-
+-- compatibility
+mobs:alias_mob("mobs_mc:enderman", "mobs_mc:ender_man")
 
 --spawn
-mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 7, -1, 5000, 4, 31000)
+mobs:register_spawn("mobs_mc:ender_man", { "default:sand", "default:desert_sand"}, 7, -1, 9000, 1, 31000)
+mobs:register_spawn("mobs_mc:ender_man", { "default:end_stone"}, 7, -1, 5000, 5, -5000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:enderman", "Enderman", "enderman_inv.png", 0)
+mobs:register_egg("mobs_mc:ender_man", "Ender man", "enderman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
+
 	minetest.log("action", "MC Enderman loaded")
 end
+

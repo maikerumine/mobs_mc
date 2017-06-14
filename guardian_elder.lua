@@ -94,4 +94,6 @@ mobs:register_spawn("mobs_mc:guardian_elder",
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:squid_mean", "Spawn Mean Squid", "spawn_egg_squid.png")
+
 mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "guardian_elder_inv.png", 0)
+

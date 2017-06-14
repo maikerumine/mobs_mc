@@ -45,9 +45,11 @@ mobs:register_mob("mobs_mc:rabbit", {
 	type = "animal",
 	passive = true,
 	reach = 1,
+
 	hp_min = 3,
 	hp_max = 3,
    collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
+
     rotate = -180,
 	visual = "mesh",
 	mesh = "rabbit.b3d",
