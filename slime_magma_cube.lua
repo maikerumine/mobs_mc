@@ -177,7 +177,7 @@ mobs:alias_mob("mobs_mc:lavabig", "mobs_mc:magmacube")
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:magmacube", "Magmacube", "magmacube_inv.png", 0)
+mobs:register_egg("mobs_mc:magmacube", "Magma Cube", "magmacube_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Magma Cube loaded")

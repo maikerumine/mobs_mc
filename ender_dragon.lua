@@ -239,5 +239,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 mobs:spawn_specific("mobs_mc:enderdragon", {"default:bedrock","default:mese"}, {"air"},
 	0, 20, 60, 300, 1, -31000, -5000)
 	
-mobs:register_egg("mobs_mc:enderdragon", "Enderdragon", "enderdragon_inv.png", 0)
+mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "enderdragon_inv.png", 0)
 
