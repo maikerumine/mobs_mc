@@ -40,14 +40,15 @@ mobs:register_mob("mobs_mc:2polarbear", {
 mobs:register_egg("mobs_mc:2polarbear", "Polarbear", "polarbear_inv.png", 0)
 ]]
 
-mobs:register_mob("mobs_mc:polarbear", {
+mobs:register_mob("mobs_mc:polar_bear", {
 	type = "animal",
     runaway = false,
    passive = false,
     stepheight = 1.2,
 	hp_min = 20,
 	hp_max = 30,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    --collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.09, 0.45},
     rotate = -180,
 	visual = "mesh",
 	mesh = "polarbear.b3d",
@@ -116,12 +117,20 @@ mobs:register_mob("mobs_mc:polarbear", {
 
 })
 
-mobs:register_spawn("mobs_mc:polarbear", {"default:snowblock"}, 20, 8, 17000, 3, 31000)
+
+-- compatibility
+mobs:alias_mob("mobs_mc:polarbear", "mobs_mc:polar_bear")
+
+
+mobs:register_spawn("mobs_mc:polar_bear", {"default:snowblock"}, 20, 8, 17000, 3, 31000)
 
 
 -- spawn egg
 
-mobs:register_egg("mobs_mc:polarbear", "Polar Bear", "polarbear_inv.png", 0)
+
+
+mobs:register_egg("mobs_mc:polar_bear", "Polar bear", "polarbear_inv.png", 0)
+
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Polar Bear loaded")
