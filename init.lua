@@ -47,7 +47,7 @@ dofile(path .. "/ghast.lua") -- maikerumine
 dofile(path .. "/guardian.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/guardian_elder.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/iron_golem.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/shulker.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/shulker.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/silver_fish.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/skeleton.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/skeleton_stray.lua") -- Mesh by Morn76 Animation by Pavel_S
@@ -64,6 +64,35 @@ dofile(path .. "/wither.lua") -- Mesh and animation by toby109tt  / https://gith
 
 --Heads
 dofile(path .. "/heads.lua") -- maikerumine
+
+--IN CASE THROWING IS NOT INSTALLED, THIS FIX
+	if not throwing then
+		dofile(minetest.get_modpath("mobs_mc").."/2_extra.lua")
+		minetest.register_alias("throwing:bow_wood", "mobs:bow_wood")
+		minetest.register_alias("throwing:arrow", "mobs:arrow")
+		mobs:alias_mob("throwing:arrow_entity", "mobs:arrow_entity")
+		else
+		minetest.register_alias("_:bow_wood", "throwing:bow_wood")
+		minetest.register_alias("_:arrow", "throwing:arrow")
+		mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
+	end
+
+	if not mcl_throwing then
+		dofile(minetest.get_modpath("mobs_mc").."/2_extra.lua")
+		minetest.register_alias("throwing:bow_wood", "mcl_throwing:bow")
+		minetest.register_alias("throwing:arrow", "mcl_throwing:arrow")
+		mobs:alias_mob("throwing:arrow_entity", "mcl_throwing:arrow_entity")
+	else
+		minetest.register_alias("_:bow", "throwing:bow_wood")
+		minetest.register_alias("_:arrow", "throwing:arrow")
+		mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
+	end
+
+
+
+
+
+
 --NOTES:
 --
 --[[

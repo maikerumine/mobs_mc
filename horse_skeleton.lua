@@ -41,8 +41,8 @@ mobs:register_egg("mobs_mc:54horseskeleton", "Horse Skeleton", "horseskeleton_in
 
 mobs:register_mob("mobs_mc:horseskeleton", {
 	type = "animal",
-	hp_min = 55,
-	hp_max = 70,
+	hp_min = 15,
+	hp_max = 30,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -51,7 +51,6 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "bonemeal:bone",
 		chance = 1,
@@ -74,11 +73,8 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 		damage = "skeletonhurt1",
 	},
 	follow = "farming:wheat",
-	view_range = 5,
-	damage = 2,
-	attack_type = "dogfight",
+	view_range = 16,
 	passive = false,
-	attack_animals = true,
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
@@ -166,7 +162,7 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 mobs:register_spawn("mobs_mc:horseskeleton", {"default:cobblestone"}, 5, -1, 17000, 1, 5)
 
 --spawnegg
-mobs:register_egg("mobs_mc:horseskeleton", "Horse Skeleton", "horseskeleton_inv.png", 0)
+mobs:register_egg("mobs_mc:horseskeleton", "Skeleton Horse", "horseskeleton_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Skeleton Horse loaded")

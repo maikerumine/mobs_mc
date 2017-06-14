@@ -43,7 +43,8 @@ mobs:register_egg("mobs_mc:5ocelot", "Ocelot", "cat_inv.png", 0)
 --mcocelot
 mobs:register_mob("mobs_mc:ocelot", {
 	type = "animal",
-	hp_max = 25,
+	hp_min = 10,
+	hp_max = 10,
 	    --collisionbox = {-0.268, -0.02, -0.268,  0.268, -0.5, 0.268},
 		collisionbox = {-0.3, -0.03, -0.3, 0.3, 0.4, 0.3},
     rotate = -180,
@@ -54,7 +55,6 @@ mobs:register_mob("mobs_mc:ocelot", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	run_velocity = 3,
-	armor = 90,
 	drops = {
 
 	},
@@ -75,11 +75,11 @@ mobs:register_mob("mobs_mc:ocelot", {
 		run_start = 0,		run_end = 40,
 	},
 	follow = "fishing:fish_raw",
-	view_range = 5,
+	view_range = 12,
 	passive = false,
 	attack_type = "dogfight",
 	pathfinding = true,
-	damage = 5,
+	damage = 2,
 attacks_monsters = true,
 
 })

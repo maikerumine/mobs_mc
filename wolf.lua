@@ -45,8 +45,8 @@ mobs:register_egg("mobs_mc:33wolf", "Wolf", "wolf_inv.png", 0)
 mobs:register_mob("mobs_mc:dog", {
 	type = "npc",
 	passive = true,
-	hp_min = 55,
-	hp_max = 75,
+	hp_min = 20,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	rotate = -180,
 	visual = "mesh",
@@ -59,7 +59,7 @@ mobs:register_mob("mobs_mc:dog", {
 	sounds = {
 		war_cry = "mobs_wolf_attack",
 	},
-	view_range = 15,
+	view_range = 16,
 	stepheight = 1.1,
 	owner = "",
 	order = "follow",
@@ -67,9 +67,8 @@ mobs:register_mob("mobs_mc:dog", {
 	walk_velocity = 4,
 	run_velocity = 4,
 	stepheight = 1.1,
-	damage = 3,
+	damage = 4,
 	group_attack = true,
-	armor = 100,
 	attacks_monsters = true,
 	attack_type = "dogfight",
 	drops = {
@@ -150,8 +149,8 @@ mobs:register_mob("mobs_mc:dog", {
 -- Wolf by KrupnoPavel
 mobs:register_mob("mobs_mc:wolf", {
 	type = "npc",
-	hp_min = 55,
-	hp_max = 75,
+	hp_min = 8,
+	hp_max = 8,
 	passive = false,
 	group_attack = true,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
@@ -166,12 +165,11 @@ mobs:register_mob("mobs_mc:wolf", {
 	sounds = {
 		war_cry = "mobs_wolf_attack",
 	},
-	view_range = 7,
+	view_range = 16,
 	walk_velocity = 2,
 	run_velocity = 3,
 	stepheight = 1.1,
-	damage = 3,
-	armor = 200,
+	damage = 4,
 	attack_type = "dogfight",
 	drops = {
 		{name = "mobs:meat_raw",

@@ -42,8 +42,8 @@ mobs:register_mob("mobs_mc:62witch", {
 
 mobs:register_mob("mobs_mc:witch", {
 	type = "monster",
-	hp_min = 35,
-	hp_max = 75,
+	hp_min = 26,
+	hp_max = 26,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -72,7 +72,6 @@ mobs:register_mob("mobs_mc:witch", {
 		min = 1,
 		max = 2,},
 	},
-	armor = 90,
 	sounds = {
 		random = "Villager1",
 		death = "Villagerdead",

@@ -44,7 +44,7 @@ mobs:register_egg("mobs_mc:22zombie", "Zombie", "zombie_inv.png", 0)
 local zombie = {
 	type = "monster",
 	hp_min = 20,
-	hp_max = 40,
+	hp_max = 20,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
 	--collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
     --rotate = -180,

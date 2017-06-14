@@ -41,7 +41,8 @@ mobs:register_egg("mobs_mc:20llama", "llama", "llama_inv.png", 0)
 
 mobs:register_mob("mobs_mc:llama", {
 	type = "animal",
-	hp_max = 15,
+	hp_min = 15,
+	hp_max = 30,
 	passive = false,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
     rotate = -180,
@@ -54,8 +55,6 @@ mobs:register_mob("mobs_mc:llama", {
 	walk_velocity = 1,
 	run_velocity = 4.4,
 	floats = true,
-	armor = 100,
-	damage = 1,
 	drops = {
 		{name = "mobs:leather",
 		chance = 1,
@@ -185,7 +184,7 @@ mobs:register_mob("mobs_mc:llama", {
 mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15000, 1, 40)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:llama", "llama", "llama_inv.png", 0)
+mobs:register_egg("mobs_mc:llama", "Llama", "llama_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Llama loaded")

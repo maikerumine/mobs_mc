@@ -2,7 +2,7 @@
 --maikerumine
 
 minetest.register_node( "mobs_mc:creeper_head", {
-	description = "Creeper Head-W.I.P.",
+	description = "Creeper Head (WIP)",
 	tiles = {
 		"mobs_creeper_top.png",
 		"mobs_creeper_top.png",  --was bottom
@@ -27,7 +27,7 @@ minetest.register_node( "mobs_mc:creeper_head", {
 })
 
 minetest.register_node( "mobs_mc:enderman_head", {
-	description = "Enderman Head-W.I.P.",
+	description = "Enderman Head (WIP)",
 	tiles = {
 		"mobs_endermen_top.png",
 		"mobs_endermen_top.png",
@@ -52,7 +52,7 @@ minetest.register_node( "mobs_mc:enderman_head", {
 })
 
 minetest.register_node( "mobs_mc:ghast_head", {
-	description = "Ghast Head-W.I.P.",
+	description = "Ghast Head (WIP)",
 	tiles = {
 		"ghast_white.png",
 		"ghast_white.png",
@@ -77,7 +77,7 @@ minetest.register_node( "mobs_mc:ghast_head", {
 })
 
 minetest.register_node( "mobs_mc:skeleton_head", {
-	description = "Skeleton Head-W.I.P.",
+	description = "Skeleton Skull (WIP)",
 	tiles = {
 		"mobs_skeleton_top.png",
 		"mobs_skeleton_top.png",
@@ -102,7 +102,7 @@ minetest.register_node( "mobs_mc:skeleton_head", {
 })
 
 minetest.register_node( "mobs_mc:skeleton2_head", {
-	description = "Skeleton2 Head-W.I.P.",
+	description = "Wither Skeleton Skull (WIP)",
 	tiles = {
 		"mobs_skeleton2_top.png",
 		"mobs_skeleton2_top.png",
@@ -127,7 +127,7 @@ minetest.register_node( "mobs_mc:skeleton2_head", {
 })
 
 minetest.register_node( "mobs_mc:spider_head", {
-	description = "Spider Head-W.I.P.",
+	description = "Spider Head (WIP)",
 	tiles = {
 		"mobs_spider_top.png",
 		"mobs_spider_top.png",
@@ -152,7 +152,7 @@ minetest.register_node( "mobs_mc:spider_head", {
 })
 
 minetest.register_node( "mobs_mc:zombie_head", {
-	description = "Zombie Head-W.I.P.",
+	description = "Zombie Head (WIP)",
 	tiles = {
 		"mobs_zombie_top.png",
 		"mobs_zombie_top.png",
@@ -177,7 +177,7 @@ minetest.register_node( "mobs_mc:zombie_head", {
 })
 
 minetest.register_node( "mobs_mc:zombiepig_head", {
-	description = "Zombie Pigmen Head-W.I.P.",
+	description = "Zombie Pigmen Head (WIP)",
 	tiles = {
 		"mobs_zombiepig_top.png",
 		"mobs_zombiepig_top.png",

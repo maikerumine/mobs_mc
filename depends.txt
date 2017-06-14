@@ -1,3 +1,5 @@
 default
 mobs
 tnt
+mcl_throwing?
+throwing?

@@ -35,9 +35,14 @@ mobs:register_egg("mobs_mc:12enderdragon", "Enderdragon", "enderdragon_inv.png",
 ]]
 mobs:register_mob("mobs_mc:enderdragon", {
 	type = "monster",
-	hp_max = 533,
-	hp_min = 433,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	pathfinding = 1,
+	attacks_animals = true,
+	walk_chance = 88,
+	hp_max = 200,
+	hp_min = 200,
+	--collisionbox = {-0.35, 0.51, -0.35, 0.35, 1.61, 0.35},
+	--collisionbox = {-0.5, 0.5, -0.5, 0.5, 1.2, 0.5},
+	collisionbox = {-0.5, 0.01, -0.5, 0.5, 1.2, 0.5},
     rotate = -180,
 	visual = "mesh",
 	mesh = "enderdragon.b3d",
@@ -46,9 +51,7 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
-	view_range = 45,
-	rotate = 270,
-	fear_height = 5,
+	view_range = 35,
 	walk_velocity = 2,
 	run_velocity = 4,
     sounds = {
@@ -56,18 +59,24 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		attack = "mese_dragon",
 		distance = 60,
 	},
-	damage = 16,
+	physical = true,
+	damage = 10,
 	jump = true,
-	jump_height = 10,
-	jump_chance = 98,
+	jump_height = 14,
+	stepheight = 1.2,
+	jump_chance = 100,
 	fear_height = 120,	
 	fly = true,
+	fly_in = {'default:void', "air"},
 	dogshoot_switch = 1,
-	dogshoot_count_max =1,
+	dogshoot_count_max =5,
+	dogshoot_count2_max = 5,
 	passive = false,
+	attack_animals = true,
+	--floats=1,
 	floats=1,
 	drops = {
-		{name = "mobs:mese_meteor",
+		{name = "mobs_mc:dragon_egg",
 		chance = 1,
 		min = 1,
 		max = 1},
@@ -77,20 +86,19 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		max = 99},
 
     },
-	armor = 60,
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,
 	on_rightclick = nil,
 	attack_type = "dogshoot",
-	explosion_radius = 14,
-	dogshoot_stop = true,
+	--explosion_radius = 14,
+	--dogshoot_stop = true,
 	--arrow = "mobs:roar_of_the_dragon",
 	--arrow = "mobs_mc:roar_of_the_dragon",
 	--arrow = "mobs:fireball",
 	arrow = "mobs_mc:fireball2",
-	reach = 5,
+	--reach = 5,
 	shoot_interval = 0.5,
 	shoot_offset = -1,
 	animation = {
@@ -99,58 +107,12 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		walk_start = 0,		walk_end = 20,
 		run_start = 0,		run_end = 20,
 	},
-    	--attacks_monsters = true,
-	--peaceful = false,
-	--group_attack = true,
-	--},
---[[
-	do_custom = function(self)
-		--mobs:midas_ability(self, "default:mese_block", self.run_velocity,2, 3)
-		mobs:midas_ability(self, "default:glass", self.run_velocity,2, 3)
-	end,
+	replace_rate = 1,
+	replace_what = {"default:torch","default:torch_wall", "default:obsidian"},
+	replace_with = "air",
+	replace_offset = -1,
 
-	custom_attack = function(self)
-		if self.timer > 1 then
-			self.timer = 0
-			self.attack_rip = self.attack_rip+1
 
-			local s = self.object:getpos()
-			local p = self.attack:getpos()
-
-			p.y = p.y + 1.5
-			s.y = s.y + 1.5
-
-			if minetest.line_of_sight(p, s) == true then
-				-- play attack sound
-				if self.sounds.attack then
-					minetest.sound_play(self.sounds.attack, {
-						object = self.object,
-						max_hear_distance = self.sounds.distance
-					})
-				end
-				-- punch player
-				self.attack:punch(self.object, 1.0,  {
-					full_punch_interval=1.0,
-					damage_groups = {fleshy=self.damage}
-				}, nil)
-			end
-			if self.attack_rip>=8 then
-				self.attack_rip =0
-				set_animation("punch1")
-				for dx = -17,17 do
-					for dz= -17,17 do
-						local k = {x = s.x+dx, y=s.y+20, z=s.z+dz}
-						local n = minetest.env:get_node(k).name
-						if n=="air" and math.random(1,23)==1 then
-							minetest.env:set_node(k, {name="mobs_mc:mese_meteor"})
-							nodeupdate(k)
-						end
-					end
-				end
-			end
-		end
-	end
-	]]
 })
 
 
@@ -204,7 +166,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 mobs:register_arrow(":mobs_mc:fireball2", {
 	visual = "sprite",
 	visual_size = {x = 1.5, y = 1.5},
-	textures = {"mobs_fireball.png"},
+	textures = {"fire_basic_flame.png"},
 	--textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
 	velocity = 6,
 
@@ -213,7 +175,7 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
-			damage_groups = {fleshy = 8},
+			damage_groups = {fleshy = 6},
 		}, nil)
 
 	end,
@@ -222,22 +184,59 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
-			damage_groups = {fleshy = 8},
+			damage_groups = {fleshy = 12},
 		}, nil)
 		
 	end,
 
 	-- node hit, bursts into flame
 	hit_node = function(self, pos, node)
-		mobs:explosion(pos, 6, 1, 0)
+		mobs:explosion(pos, 3, 1, 1)
 		--from tnt
 		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		
 	end
 })
 
-mobs:spawn_specific("mobs_mc:enderdragon", {"default:bedrock","default:mese"}, {"air"},
-	0, 20, 60, 300, 1, -31000, -5000)
+minetest.register_node("mobs_mc:dragon_egg", {
+	description = "Dragon Egg",
+	tiles = {
+		"mcl_end_dragon_egg.png",
+		"mcl_end_dragon_egg.png",
+		"mcl_end_dragon_egg.png",
+		"mcl_end_dragon_egg.png",
+		"mcl_end_dragon_egg.png",
+		"mcl_end_dragon_egg.png",
+	},
+	drawtype = "nodebox",
+	is_ground_content = false,
+	paramtype = "light",
+	light_source = 1,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, -0.375, 0.375, -0.4375, 0.375},
+			{-0.5, -0.4375, -0.5, 0.5, -0.1875, 0.5},
+			{-0.4375, -0.1875, -0.4375, 0.4375, 0, 0.4375},
+			{-0.375, 0, -0.375, 0.375, 0.125, 0.375},
+			{-0.3125, 0.125, -0.3125, 0.3125, 0.25, 0.3125},
+			{-0.25, 0.25, -0.25, 0.25, 0.3125, 0.25},
+			{-0.1875, 0.3125, -0.1875, 0.1875, 0.375, 0.1875},
+			{-0.125, 0.375, -0.125, 0.125, 0.4375, 0.125},
+			{-0.0625, 0.4375, -0.0625, 0.0625, 0.5, 0.0625},
+		}
+	},
+	selection_box = {
+		type = "regular",
+	},
+	groups = {snappy = 1, falling_node = 1, deco_block = 1, not_in_creative_inventory = 1, dig_by_piston = 1 },
+	sounds = default.node_sound_stone_defaults(),
+	-- TODO: Make dragon egg teleport on punching
+})
+
+
+mobs:spawn_specific("mobs_mc:enderdragon", {"default:obsidian"}, {"default:end_stone"},
+	12, 20, 5, 3, 1, -31000, -5000)
 	
-mobs:register_egg("mobs_mc:enderdragon", "Enderdragon", "enderdragon_inv.png", 0)
+mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "enderdragon_inv.png", 0)
 
