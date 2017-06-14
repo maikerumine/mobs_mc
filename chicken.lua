@@ -51,7 +51,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	mesh = "chicken.b3d",
 	textures = {
 		{"chicken.png"},
-}
+},
 	visual_size = {x=2.2, y=2.2},
 
 	makes_footstep_sound = true,
