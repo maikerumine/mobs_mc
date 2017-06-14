@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:24sheep", {
 	hp_max = 60,
 	armor = 150,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
+    --rotate = -180,  --No michael jackson!
 	visual = "mesh",
 	mesh = "sheep.b3d",
 	textures = {
