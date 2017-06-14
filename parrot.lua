@@ -54,11 +54,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	pathfinding = true,
 	hp_min = 6,
 	hp_max = 6,
-<<<<<<< HEAD
     collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.6, 0.25},
-=======
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
->>>>>>> origin/master
     rotate = -180,
 	visual = "mesh",
 	mesh = "parrot.b3d",
