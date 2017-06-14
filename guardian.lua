@@ -37,20 +37,18 @@ mobs:register_mob("mobs_mc:guardian", {
     type = "monster",
     stepheight = 1.2,
 	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
+	hp_max = 30,
     	passive = false,
 	attack_type = "dogfight",
 	pathfinding = true,
-    view_range = 15,
+    view_range = 16,
 	walk_velocity = 2,
 	run_velocity = 4,
-	damage = 2,
+	damage = 6,
 	group_attack = true,
     -- Note: This collision box is pretty generous because they can't be rotated yet, but at least it not confusing for the player.
     -- TODO: Make the hitbox smaller when Minetest supports rotation of collision boxes
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "guardian.b3d",
 	textures = {

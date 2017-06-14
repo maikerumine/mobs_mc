@@ -61,8 +61,8 @@ mobs:register_mob("mobs_mc:endermite", {
 	lava_damage = 4,
 	light_damage = 0,
 	fear_height = 2,
-	view_range = 18,
-	damage = 1,
+	view_range = 16,
+	damage = 2,
 	on_rightclick = function(self, clicker)
 		mobs:capture_mob(self, clicker, 25, 80, 0, true, nil)
 	end,

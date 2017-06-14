@@ -44,7 +44,8 @@ mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
 	pathfinding = true,
 	group_attack = true,
-	hp_max = 90,
+	hp_min = 10,
+	hp_max = 10,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -64,8 +65,6 @@ mobs:register_mob("mobs_mc:ghast", {
 	},
 	walk_velocity = .8,
 	run_velocity = 2.6,
-	damage = 1,
-	armor = 100,
 	drops = {
 		{name = "tnt:gunpowder",
 		chance = 3,

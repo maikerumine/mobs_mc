@@ -42,22 +42,20 @@ mobs:register_egg("mobs_mc:6chicken", "Chicken", "chicken_inv.png", 0)
 
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
-	hp_max = 24,
-	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.69, 0.25},
+
+	hp_max = 4,
+    collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.7, 0.2},
+
     rotate = -180,
 	visual = "mesh",
 	mesh = "chicken.b3d",
 	textures = {
 		{"chicken.png"},
-	},
-	child_texture = {
-		{"chicken.png", "chicken.png", "chicken.png", "chicken.png",
-		"chicken.png", "chicken.png", "chicken.png", "chicken.png", "chicken.png"},
-	},
-	visual_size = {x=3, y=3},
+}
+	visual_size = {x=2.2, y=2.2},
+
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "mobs:chicken_raw",
 		chance = 1,

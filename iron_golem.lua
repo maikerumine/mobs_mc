@@ -45,8 +45,8 @@ mobs:register_egg("mobs_mc:19iron_golem", "Iron Golem", "iron_golem_inv.png", 0)
 mobs:register_mob("mobs_mc:iron_golem", {
 	type = "npc",
 	passive = true,
-	hp_min = 55,
-	hp_max = 75,
+	hp_min = 100,
+	hp_max = 100,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -59,7 +59,7 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	sounds = {
 		war_cry = "mobs_wolf_attack",
 	},
-	view_range = 15,
+	view_range = 16,
 	stepheight = 1.1,
 	stepheight = 1.2,
 	owner = "",
@@ -68,9 +68,8 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	walk_velocity = 4,
 	run_velocity = 4,
 	stepheight = 1.1,
-	damage = 3,
+	damage = 14,
 	group_attack = true,
-	armor = 100,
 	attacks_monsters = true,
 	attack_type = "dogfight",
 	drops = {

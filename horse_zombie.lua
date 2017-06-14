@@ -41,8 +41,8 @@ mobs:register_egg("mobs_mc:55horsezombie", "Horse Zombie", "horsezombie_inv.png"
 
 mobs:register_mob("mobs_mc:horsezombie", {
 	type = "animal",
-	hp_min = 25,
-	hp_max = 35,
+	hp_min = 15,
+	hp_max = 30,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
@@ -51,7 +51,6 @@ mobs:register_mob("mobs_mc:horsezombie", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
 	drops = {
 		{name = "mobs:rotten_flesh",
 		chance = 1,
@@ -75,7 +74,7 @@ mobs:register_mob("mobs_mc:horsezombie", {
 		walk_start = 0,		walk_end = 40,
 	},
 	follow = "farming:wheat",
-	view_range = 5,
+	view_range = 16,
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present

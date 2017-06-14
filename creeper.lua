@@ -44,6 +44,7 @@ mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
+	hp_min = 20,
 	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
 	pathfinding = true,
@@ -65,7 +66,6 @@ mobs:register_mob("mobs_mc:creeper", {
 	},
 	walk_velocity = 1.5,
 	run_velocity = 3,
-	damage = 2,
 	attack_type = "explode",
 	
 --	This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
@@ -80,7 +80,6 @@ mobs:register_mob("mobs_mc:creeper", {
 	explosion_fire = 0,
 	explosion_smoke = 1,
 
-	armor = 80,
 	maxdrops = 2,
 	drops = {
 		{name = "tnt:gunpowder",

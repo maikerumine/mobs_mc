@@ -44,7 +44,8 @@ mobs:register_egg("mobs_mc:35skeleton", "Skeleton", "skeleton_inv.png", 0)
 
 mobs:register_mob("mobs_mc:skeleton", {
 	type = "monster",
-	hp_max = 80,
+	hp_min = 20,
+	hp_max = 20,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -64,7 +65,6 @@ mobs:register_mob("mobs_mc:skeleton", {
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	damage = 2,
-	armor = 200,
 	drops = {
 		{name = "mobs:arrow",
 		chance = 1,

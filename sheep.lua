@@ -67,9 +67,11 @@ mobs:register_mob("mobs_mc:sheep", {
 	type = "animal",
 	hp_min = 8,
 	hp_max = 8,
-	-- FIXME: Should be 1.3 blocks high
-	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.09, 0.45},
-	
+
+	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
+	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
+    rotate = -180,
+
 	visual = "mesh",
 	visual_size = {x=0.6, y=0.6},
 	--mesh = "sheep.b3d",
@@ -82,8 +84,9 @@ mobs:register_mob("mobs_mc:sheep", {
 	--visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-	armor = 200,
+
 	--[[
+
 	drops = {
 		{name = "mobs:mutton_raw",
 		chance = 1,
@@ -121,7 +124,7 @@ mobs:register_mob("mobs_mc:sheep", {
 		look_end = 108,
 	},
 	follow = "farming:wheat",
-	view_range = 5,
+	view_range = 12,
 	
 	replace_rate = 10,
 	replace_what = "default:dirt_with_grass",

@@ -46,7 +46,7 @@ mobs:register_mob("mobs_mc:ender_man", {
     runaway = true,
     	pathfinding = 2,
     stepheight = 1.2,
-	hp_min = 30,
+	hp_min = 40,
 	hp_max = 40,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
@@ -64,8 +64,7 @@ mobs:register_mob("mobs_mc:ender_man", {
 	},
 	walk_velocity = 0.2,
 	run_velocity = 3.4,
-	damage = 3,
-	armor = 150,
+	damage = 7,
 	drops = {
 		{name = "farorb:farorb",
 		chance = 3,
@@ -120,5 +119,7 @@ mobs:register_spawn("mobs_mc:ender_man", { "default:end_stone"}, 7, -1, 5000, 5,
 mobs:register_egg("mobs_mc:ender_man", "Ender man", "enderman_inv.png", 0)
 
 if minetest.setting_get("log_mods") then
-	minetest.log("action", "MC Ender man loaded")
+
+	minetest.log("action", "MC Enderman loaded")
 end
+
