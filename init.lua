@@ -54,8 +54,7 @@ dofile(path .. "/skeleton_stray.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/skeleton_wither.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/zombie.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/zombiepig.lua") -- Mesh by Morn76 Animation by Pavel_S
-dofile(path .. "/slime_magma_cube.lua") -- Tomas J. Luis
-dofile(path .. "/slimes_green.lua") -- Tomas J. Luis
+dofile(path .. "/slime+magma_cube.lua") -- Wuzzy
 --dofile(path .. "/snowman.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/spider.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 dofile(path .. "/spider_cave.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
