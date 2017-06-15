@@ -35,8 +35,9 @@ mobs:register_mob("mobs_mc:sheep", {
 	visual_size = {x=0.65, y=0.65},
 	mesh = "mobs_sheep.x",
 	textures = {
-		{"mobs_sheep_white.png"},--was sheep
+		{"mobs_mc_sheep_white.png"},--was sheep
 	},
+	gotten_texture = "mobs_mc_sheep_sheared.png",
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
@@ -77,48 +78,42 @@ mobs:register_mob("mobs_mc:sheep", {
 	follow = "farming:wheat",
 	view_range = 12,
 	
-	replace_rate = 10,
+	replace_rate = 20,
 	replace_what = "default:dirt_with_grass",
 	replace_with = "default:dirt",
+	replace_offset = -1,
 	
-		--Wuzzy code for color keep
-		do_custom = function(self)
+	-- Set random color on spawn
+	do_custom = function(self)
 		if not self.initial_color_set then
 			local r = math.random(0,100000)
 			local textures
 			if r <= 81836 then
 				-- 81.836%
 				self.color = colors["white"][1]
-				textures = colors["white"][2]
 				self.base_texture = colors["white"][2]
 			elseif r <= 81836 + 5000 then
 				-- 5%
 				self.color = colors["grey"][1]
-				textures = colors["grey"][2]
 				self.base_texture = colors["grey"][2]
 			elseif r <= 81836 + 5000 + 5000 then
 				-- 5%
 				self.color = colors["dark_grey"][1]
-				textures = colors["dark_grey"][2]
 				self.base_texture = colors["dark_grey"][2]
 			elseif r <= 81836 + 5000 + 5000 + 5000 then
 				-- 5%
 				self.color = colors["black"][1]
-				textures = colors["black"][2]
 				self.base_texture = colors["black"][2]
 			elseif r <= 81836 + 5000 + 5000 + 5000 + 3000 then
 				-- 3%
 				self.color = colors["brown"][1]
-				textures = colors["brown"][2]
 				self.base_texture = colors["brown"][2]
 			else
 				-- 0.164%
 				self.color = colors["pink"][1]
-				textures = colors["pink"][2]
 				self.base_texture = colors["pink"][2]
 			end
-			self.textures = { textures },
-			self.object:set_properties({ textures = textures })
+			self.object:set_properties({ textures = self.base_texture })
 			self.drops = {
 				{name = "mobs_mc:mutton_raw",
 				chance = 1,
@@ -151,10 +146,10 @@ mobs:register_mob("mobs_mc:sheep", {
 				if self.food >= 4 then
 					self.food = 0
 					self.gotten = false
-					self.object:set_properties({
-						textures = colors[self.color][2], --was sheep.png
-					})
 					self.base_texture = colors[self.color][2]
+					self.object:set_properties({
+						textures = self.base_texture, --was sheep.png
+					})
 				end
 			end
 			return
@@ -169,10 +164,12 @@ mobs:register_mob("mobs_mc:sheep", {
 			else
 				minetest.add_item(pos, ItemStack("wool:"..self.color.." "..math.random(1,3)))
 			end
-			self.object:set_properties({
-				textures = {"mobs_mc_sheep_sheared.png"},
-			})
+			-- FIXME: This is a workaround for the fact that Mobs Redo does not have on_replace
+			self.color = "white"
 			self.base_texture = {"mobs_mc_sheep_sheared.png"}
+			self.object:set_properties({
+				textures = self.base_texture,
+			})
 			if not minetest.setting_getbool("creative_mode") then
 				item:add_wear(300)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
@@ -190,11 +187,10 @@ mobs:register_mob("mobs_mc:sheep", {
 			local pname = name:split(":")[2]
 			if colors[pname] then
 
-				self.object:set_properties({
-					textures = colors[pname][2],
-					--mesh = "sheeps.b3d",
-				})
 				self.base_texture = colors[pname][2]
+				self.object:set_properties({
+					textures = self.base_texture,
+				})
 				self.color = pname
 				self.drops = {
 					{name = "mobs_mc:mutton_raw",
