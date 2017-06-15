@@ -44,25 +44,25 @@ mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
 ]]
 local colors = {
 	-- dyecolor = { woolcolor, textures }
-	white = { "white", { "mobs_sheep.png" } },
-	brown = { "brown", { "mobs_sheep_brown.png" } },
-	grey = { "silver", { "mobs_sheep_grey.png" } },
-	dark_grey = { "grey", { "mobs_sheep_dark_grey.png" } },
-	blue = { "blue", { "mobs_sheep_blue.png" } },
-	dark_green = { "green", { "mobs_sheep_dark_green.png" } },
-	green = { "lime", { "mobs_sheep_green.png" } },
-	violet = { "purple", { "mobs_sheep_violet.png" } },
-	pink = { "pink", { "mobs_sheep_pink.png" } },
-	yellow = { "yellow", { "mobs_sheep_yellow.png" } },
-	orange = { "orange", { "mobs_sheep_orange.png" } },
-	red = { "red", { "mobs_sheep_red.png" } },
-	cyan  = { "cyan", { "mobs_sheep_cyan.png" } },
-	magenta = { "magenta", { "mobs_sheep_magenta.png" } },
-	black = { "black", { "mobs_sheep_black.png" } },
+	white = { "white", { "mobs_mc_sheep_white.png" } },
+	brown = { "brown", { "mobs_mc_sheep_brown.png" } },
+	grey = { "silver", { "mobs_mc_sheep_grey.png" } },
+	dark_grey = { "grey", { "mobs_mc_sheep_dark_grey.png" } },
+	blue = { "blue", { "mobs_mc_sheep_blue.png" } },
+	dark_green = { "green", { "mobs_mc_sheep_dark_green.png" } },
+	green = { "lime", { "mobs_mc_sheep_green.png" } },
+	violet = { "purple", { "mobs_mc_sheep_violet.png" } },
+	pink = { "pink", { "mobs_mc_sheep_pink.png" } },
+	yellow = { "yellow", { "mobs_mc_sheep_yellow.png" } },
+	orange = { "orange", { "mobs_mc_sheep_orange.png" } },
+	red = { "red", { "mobs_mc_sheep_red.png" } },
+	cyan  = { "cyan", { "mobs_mc_sheep_cyan.png" } },
+	magenta = { "magenta", { "mobs_mc_sheep_magenta.png" } },
+	black = { "black", { "mobs_mc_sheep_black.png" } },
 }
 
 if minetest.get_modpath("mcl_wool") ~= nil then
-	colors["lightblue"] = { "light_blue", { "mobs_sheep_light_blue.png" } }
+	colors["lightblue"] = { "light_blue", { "mobs_mc_sheep_light_blue.png" } }
 end
 
 --mcsheep
@@ -78,7 +78,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	--mesh = "sheep.b3d",
 	mesh = "mobs_sheep.x",
 	textures = {
-		{"mobs_sheep.png"},--was sheep
+		{"mobs_sheep_white.png"},--was sheep
 	},
     --gotten_texture = {"sheeps.png"},
     --gotten_mesh = "sheeps.b3d",
@@ -202,9 +202,9 @@ mobs:register_mob("mobs_mc:sheep", {
 					self.food = 0
 					self.gotten = false
 					self.object:set_properties({
-						textures = {"mobs_sheep_"..pname..".png"}, --was sheep.png
+						textures = {"mobs_mc_sheep_"..pname..".png"}, --was sheep.png
 					})
-					self.base_texture = {"mobs_sheep_"..pname..".png"}
+					self.base_texture = {"mobs_mc_sheep_"..pname..".png"}
 				end
 			end
 			return
@@ -220,11 +220,11 @@ mobs:register_mob("mobs_mc:sheep", {
 				minetest.add_item(pos, ItemStack("wool:"..self.color.." "..math.random(1,3)))
 			end
 			self.object:set_properties({
-				textures = {"mobs_sheep_sheared.png"},
+				textures = {"mobs_mc_sheep_sheared.png"},
 				--textures = {"sheeps.png"},
 				--mesh = "sheeps.b3d",
 			})
-			self.base_texture = {"mobs_sheep_sheared.png"}
+			self.base_texture = {"mobs_mc_sheep_sheared.png"}
 			if not minetest.setting_getbool("creative_mode") then
 				item:add_wear(300)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
@@ -243,10 +243,10 @@ mobs:register_mob("mobs_mc:sheep", {
 			if colors[pname] then
 
 				self.object:set_properties({
-					textures = {"mobs_sheep_"..pname..".png"},
+					textures = {"mobs_mc_sheep_"..pname..".png"},
 					--mesh = "sheeps.b3d",
 				})
-				self.base_texture = {"mobs_sheep_"..pname..".png"}
+				self.base_texture = {"mobs_mc_sheep_"..pname..".png"}
 				self.color = pname
 				self.drops = {
 					{name = "mobs:mutton_raw",
@@ -268,13 +268,13 @@ mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000,
 --mutton
 minetest.register_craftitem(":mobs:mutton_raw", {
 	description = "Raw Mutton",
-	inventory_image = "mutton_raw.png",
+	inventory_image = "mcl_mobitems_mutton_raw.png",
 	on_use = minetest.item_eat(4),
 })
 
 minetest.register_craftitem(":mobs:mutton_cooked", {
 	description = "Cooked Mutton",
-	inventory_image = "mutton_cooked.png",
+	inventory_image = "mcl_mobitems_mutton_cooked.png",
 	on_use = minetest.item_eat(8),
 })
 
@@ -292,7 +292,7 @@ mobs:alias_mob("mobs:sheep", "mobs_mc:sheep")
 mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
 --mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
-mobs:register_egg("mobs_mc:sheep", "Sheep", "sheep_inv.png", 0)
+mobs:register_egg("mobs_mc:sheep", "Sheep", "mobs_mc_spawn_icon_sheep.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Sheep loaded")
