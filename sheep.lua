@@ -49,7 +49,6 @@ local colors = {
 	grey = { "silver", { "mobs_sheep_grey.png" } },
 	dark_grey = { "grey", { "mobs_sheep_dark_grey.png" } },
 	blue = { "blue", { "mobs_sheep_blue.png" } },
-	lightblue = { "light_blue", { "mobs_sheep_lightblue.png" } },
 	dark_green = { "green", { "mobs_sheep_dark_green.png" } },
 	green = { "lime", { "mobs_sheep_green.png" } },
 	violet = { "purple", { "mobs_sheep_violet.png" } },
@@ -63,7 +62,7 @@ local colors = {
 }
 
 if minetest.get_modpath("mcl_wool") ~= nil then
-	colors["light_blue"] = { "light_blue", { "mobs_sheep_light_blue.png" } }
+	colors["lightblue"] = { "light_blue", { "mobs_sheep_light_blue.png" } }
 end
 
 --mcsheep
@@ -72,10 +71,10 @@ mobs:register_mob("mobs_mc:sheep", {
 	hp_min = 8,
 	hp_max = 8,
 
-	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.2, 0.45},
+	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.29, 0.45},
 
 	visual = "mesh",
-	visual_size = {x=0.6, y=0.7},
+	visual_size = {x=0.65, y=0.65},
 	--mesh = "sheep.b3d",
 	mesh = "mobs_sheep.x",
 	textures = {
