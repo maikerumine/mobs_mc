@@ -68,12 +68,10 @@ mobs:register_mob("mobs_mc:sheep", {
 	hp_min = 8,
 	hp_max = 8,
 
-	collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.5, 0.5},
-	--collisionbox = {-0.5, -1, -0.5, 0.5, 0.3, 0.5},
-    --rotate = -180,
+	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.2, 0.45},
 
 	visual = "mesh",
-	visual_size = {x=0.6, y=0.6},
+	visual_size = {x=0.6, y=0.7},
 	--mesh = "sheep.b3d",
 	mesh = "mobs_sheep.x",
 	textures = {
