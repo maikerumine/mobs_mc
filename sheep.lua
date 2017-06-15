@@ -169,15 +169,6 @@ mobs:register_mob("mobs_mc:sheep", {
 			self.textures = { textures },
 			self.object:set_properties({ textures = textures })
 			self.drops = {
-				{name = "mcl_mobitems:mutton",
-				chance = 1,
-				min = 1,
-				max = 2,},
-				{name = "mcl_wool:"..self.color,
-				chance = 1,
-				min = 1,
-				max = 1,},
-				
 				{name = "mobs:mutton",
 				chance = 1,
 				min = 1,
@@ -200,7 +191,7 @@ mobs:register_mob("mobs_mc:sheep", {
 					clicker:set_wielded_item(item)
 				end
 				self.tamed = true
-			elseif self.naked then
+			elseif self.gotten then
 				if not minetest.setting_getbool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
@@ -208,16 +199,17 @@ mobs:register_mob("mobs_mc:sheep", {
 				self.food = (self.food or 0) + 1
 				if self.food >= 4 then
 					self.food = 0
-					self.naked = false
+					self.gotten = false
 					self.object:set_properties({
 						textures = {"mobs_sheep_"..pname..".png"}, --was sheep.png
 					})
+					self.base_texture = {"mobs_sheep_"..pname..".png"}
 				end
 			end
 			return
 		end
-		if item:get_name() == "mobs:shears" and not self.naked then
-			self.naked = true
+		if item:get_name() == "mobs:shears" and not self.gotten then
+			self.gotten = true
 			local pos = self.object:getpos()
 			minetest.sound_play("shears", {pos = pos})
 			pos.y = pos.y + 0.5
@@ -231,13 +223,20 @@ mobs:register_mob("mobs_mc:sheep", {
 				--textures = {"sheeps.png"},
 				--mesh = "sheeps.b3d",
 			})
+			self.base_texture = {"mobs_sheep_sheared.png"}
 			if not minetest.setting_getbool("creative_mode") then
 				item:add_wear(300)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
+			self.drops = {
+				{name = "mobs:mutton_raw",
+				chance = 1,
+				min = 1,
+				max = 2,},
+			}
 		end
-		if minetest.get_item_group(item:get_name(), "dye") == 1 and not self.naked then
-		print(item:get_name(), minetest.get_item_group(item:get_name(), "dye"))
+		if minetest.get_item_group(item:get_name(), "dye") == 1 and not self.gotten then
+			minetest.log("verbose", "[mobs_mc] " ..item:get_name() .. " " .. minetest.get_item_group(item:get_name(), "dye"))
 			local name = item:get_name()
 			local pname = name:split(":")[2]
 
@@ -245,6 +244,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				textures = {"mobs_sheep_"..pname..".png"},
 				--mesh = "sheeps.b3d",
 			})
+			self.base_texture = {"mobs_sheep_"..pname..".png"}
 			self.color = pname
 			self.drops = {
 				{name = "mobs:mutton_raw",
