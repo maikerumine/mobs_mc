@@ -1,47 +1,5 @@
---MCmobs v0.2
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
---###################
---################### SHEEP
---###################
---[[
-mobs:register_mob("mobs_mc:24sheep", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    --rotate = -180,  --No michael jackson!
-	visual = "mesh",
-	mesh = "sheep.b3d",
-	textures = {
-		{"sheep.png"},
-	},
-    gotten_texture = {"sheeps.png"},
-    gotten_mesh = "sheeps.b3d",
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 40,		stand_end = 80,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
-
-mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
-]]
 local colors = {
 	-- dyecolor = { woolcolor, textures }
 	white = { "white", { "mobs_mc_sheep_white.png" } },
@@ -75,19 +33,12 @@ mobs:register_mob("mobs_mc:sheep", {
 
 	visual = "mesh",
 	visual_size = {x=0.65, y=0.65},
-	--mesh = "sheep.b3d",
 	mesh = "mobs_sheep.x",
 	textures = {
 		{"mobs_sheep_white.png"},--was sheep
 	},
-    --gotten_texture = {"sheeps.png"},
-    --gotten_mesh = "sheeps.b3d",
-	--visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
-
-	--[[
-
 	drops = {
 		{name = "mobs:mutton_raw",
 		chance = 1,
@@ -98,7 +49,6 @@ mobs:register_mob("mobs_mc:sheep", {
 		min = 1,
 		max = 1,},
 	},
-	]]
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
@@ -221,8 +171,6 @@ mobs:register_mob("mobs_mc:sheep", {
 			end
 			self.object:set_properties({
 				textures = {"mobs_mc_sheep_sheared.png"},
-				--textures = {"sheeps.png"},
-				--mesh = "sheeps.b3d",
 			})
 			self.base_texture = {"mobs_mc_sheep_sheared.png"}
 			if not minetest.setting_getbool("creative_mode") then
@@ -285,13 +233,9 @@ minetest.register_craft({
 	cooktime = 5,
 })
 
---[[
 -- compatibility
-mobs:alias_mob("mobs:sheep", "mobs_mc:sheep")
-]]
 mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
---mobs:register_egg("mobs_mc:sheep", "Sheep", "spawn_egg_sheep.png")
 mobs:register_egg("mobs_mc:sheep", "Sheep", "mobs_mc_spawn_icon_sheep.png", 0)
 
 if minetest.setting_get("log_mods") then
