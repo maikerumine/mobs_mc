@@ -202,9 +202,9 @@ mobs:register_mob("mobs_mc:sheep", {
 					self.food = 0
 					self.gotten = false
 					self.object:set_properties({
-						textures = {"mobs_mc_sheep_"..pname..".png"}, --was sheep.png
+						textures = colors[self.color][2], --was sheep.png
 					})
-					self.base_texture = {"mobs_mc_sheep_"..pname..".png"}
+					self.base_texture = colors[self.color][2]
 				end
 			end
 			return
@@ -243,10 +243,10 @@ mobs:register_mob("mobs_mc:sheep", {
 			if colors[pname] then
 
 				self.object:set_properties({
-					textures = {"mobs_mc_sheep_"..pname..".png"},
+					textures = colors[pname][2],
 					--mesh = "sheeps.b3d",
 				})
-				self.base_texture = {"mobs_mc_sheep_"..pname..".png"}
+				self.base_texture = colors[pname][2]
 				self.color = pname
 				self.drops = {
 					{name = "mobs:mutton_raw",
