@@ -170,7 +170,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			self.textures = { textures },
 			self.object:set_properties({ textures = textures })
 			self.drops = {
-				{name = "mobs:mutton_raw",
+				{name = "mobs_mc:mutton_raw",
 				chance = 1,
 				min = 1,
 				max = 2,},
@@ -230,7 +230,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 			self.drops = {
-				{name = "mobs:mutton_raw",
+				{name = "mobs_mc:mutton_raw",
 				chance = 1,
 				min = 1,
 				max = 2,},
@@ -249,7 +249,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				self.base_texture = colors[pname][2]
 				self.color = pname
 				self.drops = {
-					{name = "mobs:mutton_raw",
+					{name = "mobs_mc:mutton_raw",
 					chance = 1,
 					min = 1,
 					max = 2,},
@@ -266,13 +266,13 @@ mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000,
 
 
 --mutton
-minetest.register_craftitem(":mobs:mutton_raw", {
+minetest.register_craftitem("mobs_mc:mutton_raw", {
 	description = "Raw Mutton",
 	inventory_image = "mcl_mobitems_mutton_raw.png",
 	on_use = minetest.item_eat(4),
 })
 
-minetest.register_craftitem(":mobs:mutton_cooked", {
+minetest.register_craftitem("mobs_mc:mutton_cooked", {
 	description = "Cooked Mutton",
 	inventory_image = "mcl_mobitems_mutton_cooked.png",
 	on_use = minetest.item_eat(8),
@@ -280,8 +280,8 @@ minetest.register_craftitem(":mobs:mutton_cooked", {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "mobs:mutton_cooked",
-	recipe = "mobs:mutton_raw",
+	output = "mobs_mc:mutton_cooked",
+	recipe = "mobs_mc:mutton_raw",
 	cooktime = 5,
 })
 
