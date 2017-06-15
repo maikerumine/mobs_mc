@@ -169,7 +169,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			self.textures = { textures },
 			self.object:set_properties({ textures = textures })
 			self.drops = {
-				{name = "mobs:mutton",
+				{name = "mobs:mutton_raw",
 				chance = 1,
 				min = 1,
 				max = 2,},
