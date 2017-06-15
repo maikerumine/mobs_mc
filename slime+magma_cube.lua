@@ -1,6 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-mobs:register_mob("mobs_mc:greensmall", {
+mobs:register_mob("mobs_mc:slime_tiny", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -67,7 +67,7 @@ mobs:register_mob("mobs_mc:greensmall", {
 	fear_height = 12,
 })
 
-mobs:register_mob("mobs_mc:greenmedium", {
+mobs:register_mob("mobs_mc:slime_small", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -128,7 +128,7 @@ mobs:register_mob("mobs_mc:greenmedium", {
 		for i=1,4 do
 			dir = {x=math.cos(angle),y=0,z=math.sin(angle)}
 			posadd = vector.multiply(vector.normalize(dir), 0.6)
-			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:greensmall")
+			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_tiny")
 			slime:setvelocity(dir)
 			slime:setyaw(angle)
 			angle = angle + math.pi/2
@@ -136,7 +136,7 @@ mobs:register_mob("mobs_mc:greenmedium", {
 	end
 })
 
-mobs:register_mob("mobs_mc:greenbig", {
+mobs:register_mob("mobs_mc:slime_big", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -197,7 +197,7 @@ mobs:register_mob("mobs_mc:greenbig", {
 		for i=1,4 do
 			posadd = {x=math.cos(angle),y=0,z=math.sin(angle)}
 			posadd = vector.normalize(posadd)
-			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:greenmedium")
+			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_small")
 			slime:setvelocity(vector.multiply(posadd, 1.5))
 			slime:setyaw(angle)
 			angle = angle + math.pi/2
@@ -205,13 +205,13 @@ mobs:register_mob("mobs_mc:greenbig", {
 	end,
 })
 
-mobs:register_spawn("mobs_mc:greensmall", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:greenmedium", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:greenbig", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_tiny", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_small", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_big", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
 
 
 
-mobs:register_mob("mobs_mc:lavasmall", {
+mobs:register_mob("mobs_mc:magma_cube_tiny", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -268,7 +268,7 @@ mobs:register_mob("mobs_mc:lavasmall", {
 	fear_height = 100000,
 })
 
-mobs:register_mob("mobs_mc:lavamedium", {
+mobs:register_mob("mobs_mc:magma_cube_small", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -334,7 +334,7 @@ mobs:register_mob("mobs_mc:lavamedium", {
 		for i=1,4 do
 			dir = vector.normalize({x=math.cos(angle),y=0,z=math.sin(angle)})
 			posadd = vector.multiply(dir, 0.6)
-			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:lavasmall")
+			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_tiny")
 			mob:setvelocity(dir)
 			mob:setyaw(angle)
 			angle = angle + math.pi/2
@@ -344,7 +344,7 @@ mobs:register_mob("mobs_mc:lavamedium", {
 
 
 
-mobs:register_mob("mobs_mc:lavabig", {
+mobs:register_mob("mobs_mc:magma_cube_big", {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -410,7 +410,7 @@ mobs:register_mob("mobs_mc:lavabig", {
 		for i=1,3 do
 			posadd = {x=math.cos(angle),y=0,z=math.sin(angle)}
 			posadd = vector.normalize(posadd)
-			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:lavamedium")
+			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_small")
 			mob:setvelocity(vector.multiply(posadd, 1.5))
 			mob:setyaw(angle)
 			angle = angle + (math.pi*2) / 3
@@ -428,31 +428,25 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 	stack_max = 64,
 })
 
-mobs:register_spawn("mobs_mc:lavasmall", {"group:stone"}, 15, 0, 5000, 4, -1000)
-mobs:register_spawn("mobs_mc:lavamedium", {"group:stone"}, 15, 0, 5500, 4, -1000)
-mobs:register_spawn("mobs_mc:lavabig", {"group:stone"}, 15, 0, 6000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", {"group:stone"}, 15, 0, 5000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", {"group:stone"}, 15, 0, 5500, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", {"group:stone"}, 15, 0, 6000, 4, -1000)
 
-mobs:register_spawn("mobs_mc:lavasmall", {"mcl_nether:nether_brick"}, 15, 0, 1000, 4, -1000)
-mobs:register_spawn("mobs_mc:lavamedium", {"mcl_nether:nether_brick"}, 15, 0, 1100, 4, -1000)
-mobs:register_spawn("mobs_mc:lavabig", {"mcl_nether:nether_brick"}, 15, 0, 1200, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", {"mcl_nether:nether_brick"}, 15, 0, 1000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", {"mcl_nether:nether_brick"}, 15, 0, 1100, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", {"mcl_nether:nether_brick"}, 15, 0, 1200, 4, -1000)
 
--- compatibility
-mobs:alias_mob("mobs:lavasmall", "mobs_mc:lavasmall")
-mobs:alias_mob("mobs:lavabig", "mobs_mc:lavabig")
-mobs:alias_mob("mobs:greensmall", "mobs_mc:greensmall")
-mobs:alias_mob("mobs:greenmediuml", "mobs_mc:greenmedium")
-mobs:alias_mob("mobs:greenbig", "mobs_mc:greenbig")
-
-mobs:alias_mob("slimes:lavasmall", "mobs_mc:lavasmall")
-mobs:alias_mob("slimes:lavabig", "mobs_mc:lavabig")
-mobs:alias_mob("slimes:greensmall", "mobs_mc:greensmall")
-mobs:alias_mob("slimes:greenmediuml", "mobs_mc:greenmedium")
-mobs:alias_mob("slimes:greenbig", "mobs_mc:greenbig")
-
+-- Compability
+mobs:alias_mob("mobs_mc:greensmall", "mobs_mc:slime_tiny")
+mobs:alias_mob("mobs_mc:greenmedium", "mobs_mc:slime_small")
+mobs:alias_mob("mobs_mc:greenbig", "mobs_mc:slime_big")
+mobs:alias_mob("mobs_mc:lavasmall", "mobs_mc:magma_cube_tiny")
+mobs:alias_mob("mobs_mc:lavamedium", "mobs_mc:magma_cube_small")
+mobs:alias_mob("mobs_mc:lavabig", "mobs_mc:magma_cube_big")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:lavabig", "Magma Cube", "magmacube_inv.png")
-mobs:register_egg("mobs_mc:greenbig", "Slime", "slime_inv.png")
+mobs:register_egg("mobs_mc:magma_cube_big", "Magma Cube", "magmacube_inv.png")
+mobs:register_egg("mobs_mc:slime_big", "Slime", "slime_inv.png")
 
 
 if minetest.setting_get("log_mods") then
