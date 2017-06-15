@@ -62,6 +62,10 @@ local colors = {
 	black = { "black", { "mobs_sheep_black.png" } },
 }
 
+if minetest.get_modpath("mcl_wool") ~= nil then
+	colors["light_blue"] = { "light_blue", { "mobs_sheep_light_blue.png" } }
+end
+
 --mcsheep
 mobs:register_mob("mobs_mc:sheep", {
 	type = "animal",
@@ -237,23 +241,25 @@ mobs:register_mob("mobs_mc:sheep", {
 			minetest.log("verbose", "[mobs_mc] " ..item:get_name() .. " " .. minetest.get_item_group(item:get_name(), "dye"))
 			local name = item:get_name()
 			local pname = name:split(":")[2]
+			if colors[pname] then
 
-			self.object:set_properties({
-				textures = {"mobs_sheep_"..pname..".png"},
-				--mesh = "sheeps.b3d",
-			})
-			self.base_texture = {"mobs_sheep_"..pname..".png"}
-			self.color = pname
-			self.drops = {
-				{name = "mobs:mutton_raw",
-				chance = 1,
-				min = 1,
-				max = 2,},
-				{name = "wool:"..self.color,
-				chance = 1,
-				min = 1,
-				max = 1,},
-			}
+				self.object:set_properties({
+					textures = {"mobs_sheep_"..pname..".png"},
+					--mesh = "sheeps.b3d",
+				})
+				self.base_texture = {"mobs_sheep_"..pname..".png"}
+				self.color = pname
+				self.drops = {
+					{name = "mobs:mutton_raw",
+					chance = 1,
+					min = 1,
+					max = 2,},
+					{name = "wool:"..self.color,
+					chance = 1,
+					min = 1,
+					max = 1,},
+				}
+			end
 		end
 	end,
 })
