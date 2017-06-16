@@ -119,9 +119,65 @@ end
 
 mobs:register_mob("mobs_mc:killer_bunny", killer_bunny)
 
---spawn
-mobs:register_spawn("mobs_mc:rabbit",
-	{"default:dirt_with_grass", "ethereal:prairie_dirt", "default:snowblock", "default:sand"}, 20, 10, 15000, 2, 31000, true)
+-- Mob spawning rules.
+-- Different skins depending on spawn location
+
+local spawn = {
+	name = "mobs_mc:rabbit",
+	chance = 15000,
+	active_object_count = 99,
+	min_light = 0,
+	max_light = minetest.LIGHT_MAX,
+}
+
+local spawn_desert = table.copy(spawn)
+spawn_desert.nodes = {"default:sand", "default:desert_sand"}
+on_spawn = function(self, pos)
+	local ent = self:get_luaentity()
+	texture = "mobs_mc_rabbit_gold.png"
+	ent.base_texture = { "mobs_mc_rabbit_gold.png" }
+	self:set_properties({textures = ent.base_texture})
+end
+mobs:spawn(spawn_desert)
+
+local spawn_snow = table.copy(spawn)
+spawn_snow.nodes = {"default:dirt_with_snow", "default:snow"}
+spawn_snow.on_spawn = function(self, pos)
+	local ent = self:get_luaentity()
+	local texture
+	local r = math.random(1, 100)
+	-- 80% white fur
+	if r <= 80 then
+		texture = "mobs_mc_rabbit_white.png"
+	-- 20% black and white fur
+	else
+		texture = "mobs_mc_rabbit_white_splotched.png"
+	end
+	ent.base_texture = { texture }
+	self:set_properties({textures = ent.base_texture})
+end
+mobs:spawn(spawn_snow)
+
+local spawn_grass = table.copy(spawn)
+spawn_grass.nodes = {"default:dirt_with_grass", "ethereal:prairie_dirt"}
+spawn_grass.on_spawn = function(self, pos)
+	local ent = self:get_luaentity()
+	local texture
+	local r = math.random(1, 100)
+	-- 50% brown fur
+	if r <= 50 then
+		texture = "mobs_mc_rabbit_brown.png"
+	-- 40% salt fur
+	elseif r <= 90 then
+		texture = "mobs_mc_rabbit_salt.png"
+	-- 10% black fur
+	else
+		texture = "mobs_mc_rabbit_black.png"
+	end
+	ent.base_texture = { texture }
+	self:set_properties({textures = ent.base_texture})
+end
+mobs:spawn(spawn_grass)
 
 -- Spawn egg
 mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
