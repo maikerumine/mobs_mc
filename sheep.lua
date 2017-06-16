@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs:mutton_raw",
+		{name = "mobs_mc:mutton_raw",
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -77,11 +77,19 @@ mobs:register_mob("mobs_mc:sheep", {
 	},
 	follow = "farming:wheat",
 	view_range = 12,
-	
+
+	-- Eat grass
 	replace_rate = 20,
-	replace_what = "default:dirt_with_grass",
-	replace_with = "default:dirt",
-	replace_offset = -1,
+	replace_what = {
+		-- “Grass Block”
+		{ "default:dirt_with_grass", "default:dirt", -1 },
+		-- “Tall Grass”
+		{ "default:grass_5", "air", 0 },
+		{ "default:grass_4", "air", 0 },
+		{ "default:grass_3", "air", 0 },
+		{ "default:grass_2", "air", 0 },
+		{ "default:grass_1", "air", 0 },
+	},
 	
 	-- Set random color on spawn
 	do_custom = function(self)
