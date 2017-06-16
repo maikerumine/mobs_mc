@@ -86,11 +86,34 @@ mobs:register_mob("mobs_mc:rabbit", {
 		walk_start = 0,		walk_end = 20,
 		run_start = 0,		run_end = 20,
 	},
-	follow = {"farming:carrot", "farming_plus:carrot_item"},
+	-- Follow (yellow) dangelions, carrots and golden carrots
+	follow = {
+		"flowers:dandelion_yellow", -- Minetest Game
+		"farming:carrot", "farming:carrot_gold", -- Farming Redo
+		"farming_plus:carrot_item", -- Farming Plus
+	},
 	view_range = 8,
+	-- Eat carrots and reduce their growth stage by 1
 	replace_rate = 10,
-	replace_what = {"farming:carrot_7", "farming:carrot_8", "farming_plus:carrot"},
-	replace_with = "air",
+	replace_what = {
+		-- Farming Redo carrots
+		{"farming:carrot_8", "farming:carrot_7", 0},
+		{"farming:carrot_7", "farming:carrot_6", 0},
+		{"farming:carrot_6", "farming:carrot_5", 0},
+		{"farming:carrot_5", "farming:carrot_4", 0},
+		{"farming:carrot_4", "farming:carrot_3", 0},
+		{"farming:carrot_3", "farming:carrot_2", 0},
+		{"farming:carrot_2", "farming:carrot_1", 0},
+		{"farming:carrot_1", "air", 0},
+		-- Farming Plus carrots
+		{"farming_plus:carrot", "farming_plus:carrot_7", 0},
+		{"farming_plus:carrot_6", "farming_plus:carrot_5", 0},
+		{"farming_plus:carrot_5", "farming_plus:carrot_4", 0},
+		{"farming_plus:carrot_4", "farming_plus:carrot_3", 0},
+		{"farming_plus:carrot_3", "farming_plus:carrot_2", 0},
+		{"farming_plus:carrot_2", "farming_plus:carrot_1", 0},
+		{"farming_plus:carrot_1", "air", 0},
+	},
 	on_rightclick = function(self, clicker)
 
 		-- feed or tame
