@@ -79,11 +79,11 @@ mobs:register_mob("mobs_mc:squid", {
     
 })
 
+-- Spawn near the water surface
+
+local water = tonumber(minetest.setting_get("water_level")) or 0
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
---mobs:spawn_specific("mobs_mc:squid", l_spawn_in, l_spawn_near, l_min_light, l_max_light, 30, 5000, 2, -31000, l_max_height )
---mobs:register_spawn("mobs_mc:squid",
---	{"default:water_source"}, 20, 10, 5000, 2, 31000, true)
-mobs:spawn_specific("mobs_mc:squid", {"stairs:water_source"}, {"default:water_source"}, 0, 20, 30, 6000, 3, -31000, -3, true)
+mobs:spawn_specific("mobs_mc:squid", {"default:water_source"}, {"default:water_source"}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
 
 -- compatibility
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")
