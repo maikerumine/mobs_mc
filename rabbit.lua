@@ -48,12 +48,12 @@ mobs:register_mob("mobs_mc:rabbit", {
 
 	hp_min = 3,
 	hp_max = 3,
-   collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
+	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.49, 0.2},
 
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "rabbit.b3d",
-    textures = {
+	textures = {
         {"rabbit.png"},
         {"rabbit1.png"},
         {"rabbit2.png"},
@@ -64,12 +64,13 @@ mobs:register_mob("mobs_mc:rabbit", {
         {"rabbit7.png"},
         {"rabbit8.png"},
         {"rabbit9.png"}
-    },
+	},
 	visual_size = {x=1.5, y=1.5},
 	sounds = {},
 	makes_footstep_sound = false,
 	walk_velocity = 1,
 	run_velocity = 3.7,
+	floats = 1,
 	runaway = true,
 	jump = true,
 	drops = {
