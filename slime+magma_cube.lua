@@ -449,6 +449,6 @@ mobs:register_egg("mobs_mc:magma_cube_big", "Magma Cube", "magmacube_inv.png")
 mobs:register_egg("mobs_mc:slime_big", "Slime", "slime_inv.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Slimes loaded")
 end

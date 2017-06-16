@@ -161,6 +161,6 @@ minetest.register_craftitem("mobs_mc:blaze_powder", {
 
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Blaze loaded")
 end

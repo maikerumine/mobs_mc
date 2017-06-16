@@ -219,6 +219,6 @@ mobs:alias_mob("mobs:villager", "mobs_mc:villager")
 mobs:register_egg("mobs_mc:villager", "Villager", "spawn_egg_villager.png")
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")
 end

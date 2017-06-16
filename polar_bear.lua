@@ -131,6 +131,6 @@ mobs:register_spawn("mobs_mc:polar_bear", {"default:snowblock"}, 20, 8, 17000, 3
 mobs:register_egg("mobs_mc:polar_bear", "Polar bear", "polarbear_inv.png", 0)
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Polar Bear loaded")
 end
