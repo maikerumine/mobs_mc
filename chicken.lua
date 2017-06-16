@@ -34,9 +34,9 @@ mobs:register_mob("mobs_mc:chicken", {
 	lava_damage = 5,
 	light_damage = 0,
 	sounds = {
-		random = "Chicken1",
-		death = "Chickenhurt1",
-		hurt = "Chickenhurt1",
+		random = "mobs_chicken",
+		death = "Chickenhurt1", -- TODO: replace
+		damage = "Chickenhurt1", -- TODO: replace
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -72,10 +72,10 @@ mobs:register_mob("mobs_mc:chicken", {
 
 		minetest.add_item(pos, "mobs_mc:egg")
 
-		minetest.sound_play("default_place_node_hard", {
+		minetest.sound_play("mobs_mc_chicken_lay_egg", {
 			pos = pos,
 			gain = 1.0,
-			max_hear_distance = 5,
+			max_hear_distance = 16,
 		})
 	end,	
 	
