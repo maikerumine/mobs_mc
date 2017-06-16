@@ -151,7 +151,6 @@ mobs:register_mob("mobs_mc:mooshroom_cow", {
 	end,	
 })
 
-mobs:register_spawn("mobs_mc:mooshroom_cow", {"default:mycelium_snow", "default:mycelium"}, 20, 8, 7000, 1, 31000)
 
 --[[
 -- beef
@@ -197,6 +196,7 @@ mobs:alias_mob("mobs:cow", "mobs_mc:cow")
 ]]
 -- spawn egg
 --mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom_Cow", "spawn_egg_mooshroom_cow.png")
+mobs:register_spawn("mobs_mc:mooshroom_cow", {"default:mycelium_snow", "default:mycelium"}, 20, 8, 7000, 1, 31000)
 mobs:register_egg("mobs_mc:mooshroom_cow", "Mooshroom", "mooshroom_inv.png", 0)
 
 if minetest.setting_get("log_mods") then

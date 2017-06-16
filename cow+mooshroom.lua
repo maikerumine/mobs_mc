@@ -1,6 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-mobs:register_mob("mobs_mc:cow", {
+local cow_def = {
 	type = "animal",
 	hp_min = 10,
 	hp_max = 10,
@@ -43,6 +43,9 @@ mobs:register_mob("mobs_mc:cow", {
 	},
 	follow = "farming:wheat",
 	on_rightclick = function(self, clicker)
+		if self.child then
+			return
+		end
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "bucket:bucket_empty" and clicker:get_inventory() then
 			local inv = clicker:get_inventory()
@@ -61,11 +64,72 @@ mobs:register_mob("mobs_mc:cow", {
 	follow = "farming:wheat",
 	view_range = 10,
 	fear_height = 2,
-})
+}
 
+mobs:register_mob("mobs_mc:cow", cow_def)
+
+-- Mooshroom
+local mooshroom_def = table.copy(cow_def)
+
+mooshroom_def.mesh = "mooshroom.b3d"
+mooshroom_def.textures = { {"mooshroom.png"}, }
+mooshroom_def.on_rightclick = function(self, clicker)
+	if self.child then
+		return
+	end
+	local item = clicker:get_wielded_item()
+	-- Use shears to get mushrooms and turn mooshroom into cow
+	if item:get_name() == "mobs:shears" then
+		local pos = self.object:getpos()
+		minetest.sound_play("shears", {pos = pos})
+		minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, "flowers:mushroom_red 5")
+
+		local oldyaw = self.object:getyaw()
+		self.object:remove()
+		local cow = minetest.add_entity(pos, "mobs_mc:cow")
+		cow:setyaw(oldyaw)
+
+		if not minetest.setting_getbool("creative_mode") then
+			item:add_wear(300)
+			clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
+		end
+	-- Use bucket to milk
+	elseif item:get_name() == "bucket:bucket_empty" and clicker:get_inventory() then
+		local inv = clicker:get_inventory()
+		inv:remove_item("main", "bucket:bucket_empty")
+		-- If room, add milk to inventory, otherwise drop as item
+		if inv:room_for_item("main", {name="mobs_mc:milk_bucket"}) then
+			clicker:get_inventory():add_item("main", "mobs_mc:milk_bucket")
+		else
+			local pos = self.object:getpos()
+			pos.y = pos.y + 0.5
+			minetest.add_item(pos, {name = "mobs_mc:milk_bucket"})
+		end
+	-- Use bowl to get mushroom stew (experimental)
+	elseif item:get_name() == "default:bowl" and clicker:get_inventory() then
+		local inv = clicker:get_inventory()
+		inv:remove_item("main", "default:bowl")
+		-- If room, add mushroom stew to inventory, otherwise drop as item
+		if inv:room_for_item("main", {name="mobs_mc:mushroom_stew"}) then
+			clicker:get_inventory():add_item("main", "mobs_mc:mushroom_stew")
+		else
+			local pos = self.object:getpos()
+			pos.y = pos.y + 0.5
+			minetest.add_item(pos, {name = "mobs_mc:mushroom_stew"})
+		end
+	end
+	mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
+end
+mobs:register_mob("mobs_mc:mooshroom", mooshroom_def)
+
+mobs:register_egg("mobs_mc:mooshroom", "Mooshroom", "mooshroom_inv.png", 0)
+
+-- Spawning
 mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 17000, 2, 31000)
+mobs:register_spawn("mobs_mc:mooshroom", {"default:mycelium_snow", "default:mycelium"}, 20, 8, 7000, 1, 31000)
 
 
+-- Craftitems
 -- beef
 minetest.register_craftitem("mobs_mc:beef_raw", {
 	description = "Raw Beef",

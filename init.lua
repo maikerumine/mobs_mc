@@ -13,8 +13,7 @@ local path = minetest.get_modpath("mobs_mc")
 dofile(path .. "/bat.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/bunny.lua") -- Mesh and animation byExeterDad
 dofile(path .. "/chicken.lua") -- Mesh and animation by Pavel_S
-dofile(path .. "/cow.lua") -- Mesh by Morn76 Animation by Pavel_S
-dofile(path .. "/cow_mooshroom.lua") -- Mesh by Morn76 Animation by Pavel_S
+dofile(path .. "/cow+mooshroom.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/horse.lua") -- KrupnoPavel
 dofile(path .. "/horse_mule.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/horse_skeleton.lua") --  Mesh and animation by toby109tt  / https://github.com/22i
