@@ -48,9 +48,9 @@ mobs:register_mob("mobs_mc:cow", {
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.39, 0.45},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "cow.b3d",
+	mesh = "mobs_mc_cow.b3d",
 	textures = {
-		{"cow.png"},
+		{"mobs_mc_cow.png"},
 	},
 	visual_size = {x=2.8, y=2.8},
 	makes_footstep_sound = true,
@@ -110,13 +110,13 @@ mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 17000, 2,
 -- beef
 minetest.register_craftitem("mobs_mc:beef_raw", {
 	description = "Raw Beef",
-	inventory_image = "beef_raw.png",
+	inventory_image = "mcl_mobitems_beef_raw.png",
 	on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("mobs_mc:beef_cooked", {
 	description = "Steak",
-	inventory_image = "beef_cooked.png",
+	inventory_image = "mcl_mobitems_beef_cooked.png",
 	on_use = minetest.item_eat(8),
 })
 
@@ -139,7 +139,7 @@ minetest.register_craftitem("mobs_mc:milk_bucket", {
 mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 
 -- spawn egg
-mobs:register_egg("mobs_mc:cow", "Cow", "cow_inv.png", 0)
+mobs:register_egg("mobs_mc:cow", "Cow", "mobs_mc_spawn_icon_cow.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")
