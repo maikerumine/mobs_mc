@@ -41,10 +41,10 @@ mobs:register_egg("mobs_mc:23rabbit", "Rabbit", "rabbit_inv.png", 0)
 
 -- Bunny by ExeterDad
 
-mobs:register_mob("mobs_mc:rabbit", {
+local rabbit = {
 	type = "animal",
 	passive = true,
-	reach = 1,
+	reach = 2,
 
 	hp_min = 3,
 	hp_max = 3,
@@ -119,14 +119,44 @@ mobs:register_mob("mobs_mc:rabbit", {
 
 		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
 	end,
-})
+}
+
+mobs:register_mob("mobs_mc:rabbit", rabbit)
+
+-- The killer bunny (Only with spawn egg)
+local killer_bunny = table.copy(rabbit)
+killer_bunny.type = "monster"
+killer_bunny.attack_type = "dogfight"
+killer_bunny.specific_attack = { "player", "mobs_mc:wolf", "mobs_mc:dog" }
+killer_bunny.damage = 8
+killer_bunny.passive = false
+-- 8 armor points
+killer_bunny.armor = 50
+killer_bunny.textures = { "mobs_mc_rabbit_caerbannog.png" }
+killer_bunny.view_range = 16
+killer_bunny.replace_rate = nil
+killer_bunny.replace_what = nil
+killer_bunny.on_rightclick = nil
+killer_bunny.run_velocity = 6
+killer_bunny.do_custom = function(self)
+	if not self._killer_bunny_nametag_set then
+		self.nametag = "The Killer Bunny"
+		self._killer_bunny_nametag_set = true
+	end
+end
+
+mobs:register_mob("mobs_mc:killer_bunny", killer_bunny)
 
 --spawn
 mobs:register_spawn("mobs_mc:rabbit",
 	{"default:dirt_with_grass", "ethereal:prairie_dirt", "default:snowblock", "default:sand"}, 20, 10, 15000, 2, 31000, true)
 
---spawnegg
+-- Spawn egg
 mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
+
+-- TODO: Update inventory image
+-- Note: This spawn egg does not exist in Minecraft
+mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "rabbit_inv.png", 0)
 
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")
