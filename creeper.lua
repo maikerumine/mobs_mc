@@ -63,7 +63,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	maxdrops = 2,
 	drops = {
 		{name = "tnt:gunpowder",
-		chance = 3,
+		chance = 1,
 		min = 0,
 		max = 2,},
 
