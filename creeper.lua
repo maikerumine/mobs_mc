@@ -48,7 +48,6 @@ mobs:register_mob("mobs_mc:creeper", {
 	hp_max = 20,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.69, 0.3},
 	pathfinding = 1,
-	group_attack = true,
 	rotate = -180,
 	visual = "mesh",
 	mesh = "creeper.b3d",
@@ -167,6 +166,7 @@ mobs:register_mob("mobs_mc:creeper", {
 		look_end = 108,
 	},
 	drawtype = "front",
+	floats = 1,
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
@@ -175,7 +175,7 @@ mobs:register_mob("mobs_mc:creeper", {
 
 
 --mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:creeper", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"},{"air"},0, 6, 20, 9000, 1, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"},{"air"},0, 7, 20, 9000, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
