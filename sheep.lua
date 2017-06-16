@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs:mutton_raw",
+		{name = "mobs_mc:mutton_raw",
 		chance = 1,
 		min = 1,
 		max = 2,},
