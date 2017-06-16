@@ -28,6 +28,38 @@ mobs:register_mob("mobs_mc:creeper", {
 	explosion_radius = 3,
 	-- TODO: Disable Mobs Redo fire
 
+	-- Force-ignite creeper with flint and steel and explode after 1.5 seconds.
+	-- TODO: Make creeper flash after doing this as well.
+	-- TODO: Test and debug this code.
+	on_rightclick = function(self, clicker)
+		if self._forced_explosion_countdown_timer ~= nil then
+			return
+		end
+		local item = clicker:get_wielded_item()
+		if item:get_name() == "fire:flint_and_steel" then
+			if not minetest.settings:get_bool("creative_mode") then
+				-- Wear tool
+				local wdef = item:get_definition()
+				item:add_wear(1000)
+				-- Tool break sound
+				if itemstack:get_count() == 0 and wdef.sound and wdef.sound.breaks then
+					minetest.sound_play(wdef.sound.breaks, {pos = pt.above, gain = 0.5})
+				end
+				clicker:set_wielded_item(item)
+			end
+			self._forced_explosion_countdown_timer = 1.5
+			minetest.sound_play(self.sounds.attack, {pos = self.object:getpos(), gain = 1, max_hear_distance = 16})
+		end
+	end,
+	do_custom = function(self, dtime)
+		if self._forced_explosion_countdown_timer ~= nil then
+			self._forced_explosion_countdown_timer = self._forced_explosion_countdown_timer - dtime
+			if self._forced_explosion_countdown_timer <= 0 then
+				mobs:explosion(self.object:getpos(), self.explosion_radius, 0, 1, self.sounds.explode)
+				self.object:remove()
+			end
+		end
+	end,
 	maxdrops = 2,
 	drops = {
 		{name = "tnt:gunpowder",
