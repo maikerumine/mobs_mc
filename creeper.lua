@@ -13,14 +13,14 @@ mobs:register_mob("mobs_mc:creeper", {
 		{"creeper.png"},
 	},
 	visual_size = {x=3, y=3},
-	makes_footstep_sound = false,
 	sounds = {
-		attack = "Fuse",
-		death = "Creeperdeath",
-		damage = "Creeper4",
-		war_cry = "Fuse",
-		explode = "explo",
+		attack = "tnt_ignite",
+		death = "Creeperdeath", -- TODO: Replace
+		damage = "Creeper4", -- TODO: Replce
+		war_cry = "tnt_ignite",
+		explode = "tnt_explode",
 	},
+	makes_footstep_sound = true,
 	walk_velocity = 1.5,
 	run_velocity = 3,
 	attack_type = "explode",
