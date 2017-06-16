@@ -126,9 +126,8 @@ mobs:register_spawn("mobs_mc:rabbit",
 -- Spawn egg
 mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
 
--- TODO: Update inventory image
 -- Note: This spawn egg does not exist in Minecraft
-mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "rabbit_inv.png", 0)
+mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "rabbit_inv.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
 
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")
