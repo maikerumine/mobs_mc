@@ -71,7 +71,7 @@ mobs:register_mob("mobs_mc:cow", cow_def)
 -- Mooshroom
 local mooshroom_def = table.copy(cow_def)
 
-mooshroom_def.mesh = "mooshroom.b3d"
+mooshroom_def.mesh = "mobs_mc_mooshroom.b3d"
 mooshroom_def.textures = { {"mooshroom.png"}, }
 mooshroom_def.on_rightclick = function(self, clicker)
 	if self.child then
@@ -122,7 +122,6 @@ mooshroom_def.on_rightclick = function(self, clicker)
 end
 mobs:register_mob("mobs_mc:mooshroom", mooshroom_def)
 
-mobs:register_egg("mobs_mc:mooshroom", "Mooshroom", "mooshroom_inv.png", 0)
 
 -- Spawning
 mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 17000, 2, 31000)
@@ -163,6 +162,7 @@ mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 
 -- spawn egg
 mobs:register_egg("mobs_mc:cow", "Cow", "mobs_mc_spawn_icon_cow.png", 0)
+mobs:register_egg("mobs_mc:mooshroom", "Mooshroom", "mobs_mc_spawn_icon_mooshroom.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")
