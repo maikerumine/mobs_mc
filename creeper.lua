@@ -1,46 +1,4 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
-
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
---###################
---################### CREEPER
---###################
---[[
-mobs:register_mob("mobs_mc:27creeper", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "creeper.b3d",
-	textures = {
-		{"creeper.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
-
-mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
-]]
-
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
@@ -67,17 +25,8 @@ mobs:register_mob("mobs_mc:creeper", {
 	run_velocity = 3,
 	attack_type = "explode",
 	
---	This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
---	mobs:explosion(pos, radius, fire, smoke)
---	'pos' centre position of explosion
---	'radius' radius of explosion (typically set to 3)
---	'fire' should fire appear in explosion (1=yes, 0=no)
---	'smoke' should smoke appear in explosion (1=yes, 0=no)
---	'sound' sound played when mob explodes
-
 	explosion_radius = 3,
-	explosion_fire = 0,
-	explosion_smoke = 1,
+	-- TODO: Disable Mobs Redo fire
 
 	maxdrops = 2,
 	drops = {
@@ -174,7 +123,6 @@ mobs:register_mob("mobs_mc:creeper", {
 })
 
 
---mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
 mobs:spawn_specific("mobs_mc:creeper", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"},{"air"},0, 7, 20, 9000, 1, -310, 31000)
 
 -- compatibility
