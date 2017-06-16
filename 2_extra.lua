@@ -178,6 +178,6 @@ minetest.register_craftitem(":mobs:feather", {
 	inventory_image = "mobs_feather.png",
 })
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")
 end

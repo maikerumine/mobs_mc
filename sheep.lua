@@ -234,6 +234,6 @@ mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
 mobs:register_egg("mobs_mc:sheep", "Sheep", "mobs_mc_spawn_icon_sheep.png", 0)
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Sheep loaded")
 end

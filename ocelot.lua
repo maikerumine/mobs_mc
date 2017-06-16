@@ -93,6 +93,6 @@ mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
 -- spawn eggs
 mobs:register_egg("mobs_mc:ocelot", "Ocelot", "cat_inv.png", 0)
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ocelot loaded")
 end

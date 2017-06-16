@@ -218,6 +218,6 @@ mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 --mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
 mobs:register_egg("mobs_mc:wolf", "Wolf", "wolf_inv.png", 0)
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Wolf loaded")
 end

@@ -126,6 +126,6 @@ mobs:spawn_specific("mobs_mc:skeleton", {"default:dirt_with_grass", "default:dir
 -- spawn eggs
 mobs:register_egg("mobs_mc:skeleton", "Skeleton", "skeleton_inv.png", 0)
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Skeleton loaded")
 end

@@ -134,6 +134,6 @@ mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")
 
-if minetest.settings:get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Bunny loaded")
 end
