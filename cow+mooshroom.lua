@@ -105,10 +105,10 @@ mooshroom_def.on_rightclick = function(self, clicker)
 			pos.y = pos.y + 0.5
 			minetest.add_item(pos, {name = "mobs_mc:milk_bucket"})
 		end
-	-- Use bowl to get mushroom stew (experimental)
-	elseif item:get_name() == "default:bowl" and clicker:get_inventory() then
+	-- Use bowl to get mushroom stew
+	elseif item:get_name() == "mobs_mc:bowl" and clicker:get_inventory() then
 		local inv = clicker:get_inventory()
-		inv:remove_item("main", "default:bowl")
+		inv:remove_item("main", "mobs_mc:bowl")
 		-- If room, add mushroom stew to inventory, otherwise drop as item
 		if inv:room_for_item("main", {name="mobs_mc:mushroom_stew"}) then
 			clicker:get_inventory():add_item("main", "mobs_mc:mushroom_stew")
@@ -147,6 +147,27 @@ minetest.register_craft({
 	output = "mobs_mc:beef_cooked",
 	recipe = "mobs_mc:beef_raw",
 	cooktime = 5,
+})
+
+-- Bowl and mushroom stew
+minetest.register_craftitem("mobs_mc:bowl", {
+	description = "Bowl",
+	inventory_image = "mcl_core_bowl.png",
+})
+
+minetest.register_craft({
+	output = "mobs_mc:bowl",
+	recipe = {
+		{ "group:wood", "", "group:wood" },
+		{ "", "group:wood", "", },
+	}
+})
+
+minetest.register_craftitem("mobs_mc:mushroom_stew", {
+	description = "Mushroom Stew",
+	inventory_image = "farming_mushroom_stew.png",
+	on_use = minetest.item_eat(6, "mobs_mc:bowl"),
+	stack_max = 1,
 })
 
 -- milk
