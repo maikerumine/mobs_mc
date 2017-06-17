@@ -1,89 +1,69 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
-
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
---###################
---################### CREEPER
---###################
---[[
-mobs:register_mob("mobs_mc:27creeper", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "creeper.b3d",
-	textures = {
-		{"creeper.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
-
-mobs:register_egg("mobs_mc:27creeper", "Creeper", "creeper_inv.png", 0)
-]]
-
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
-	pathfinding = true,
-	group_attack = true,
-    rotate = -180,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.69, 0.3},
+	pathfinding = 1,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "creeper.b3d",
 	textures = {
 		{"creeper.png"},
 	},
 	visual_size = {x=3, y=3},
-	makes_footstep_sound = false,
 	sounds = {
-		attack = "Fuse",
-		death = "Creeperdeath",
-		damage = "Creeper4",
-		war_cry = "Fuse",
-		explode = "explo",
+		attack = "tnt_ignite",
+		death = "Creeperdeath", -- TODO: Replace
+		damage = "Creeper4", -- TODO: Replce
+		war_cry = "tnt_ignite",
+		explode = "tnt_explode",
 	},
+	makes_footstep_sound = true,
 	walk_velocity = 1.5,
 	run_velocity = 3,
 	attack_type = "explode",
 	
---	This function generates an explosion which removes nodes in a specific radius and replace them with fire or air. Protection nodes, obsidian and locked chests will not be destroyed although a normal chest will drop it's contents.
---	mobs:explosion(pos, radius, fire, smoke)
---	'pos' centre position of explosion
---	'radius' radius of explosion (typically set to 3)
---	'fire' should fire appear in explosion (1=yes, 0=no)
---	'smoke' should smoke appear in explosion (1=yes, 0=no)
---	'sound' sound played when mob explodes
-
 	explosion_radius = 3,
-	explosion_fire = 0,
-	explosion_smoke = 1,
+	-- TODO: Disable Mobs Redo fire
 
+	-- Force-ignite creeper with flint and steel and explode after 1.5 seconds.
+	-- TODO: Make creeper flash after doing this as well.
+	-- TODO: Test and debug this code.
+	on_rightclick = function(self, clicker)
+		if self._forced_explosion_countdown_timer ~= nil then
+			return
+		end
+		local item = clicker:get_wielded_item()
+		if item:get_name() == "fire:flint_and_steel" then
+			if not minetest.settings:get_bool("creative_mode") then
+				-- Wear tool
+				local wdef = item:get_definition()
+				item:add_wear(1000)
+				-- Tool break sound
+				if itemstack:get_count() == 0 and wdef.sound and wdef.sound.breaks then
+					minetest.sound_play(wdef.sound.breaks, {pos = pt.above, gain = 0.5})
+				end
+				clicker:set_wielded_item(item)
+			end
+			self._forced_explosion_countdown_timer = 1.5
+			minetest.sound_play(self.sounds.attack, {pos = self.object:getpos(), gain = 1, max_hear_distance = 16})
+		end
+	end,
+	do_custom = function(self, dtime)
+		if self._forced_explosion_countdown_timer ~= nil then
+			self._forced_explosion_countdown_timer = self._forced_explosion_countdown_timer - dtime
+			if self._forced_explosion_countdown_timer <= 0 then
+				mobs:explosion(self.object:getpos(), self.explosion_radius, 0, 1, self.sounds.explode)
+				self.object:remove()
+			end
+		end
+	end,
 	maxdrops = 2,
 	drops = {
 		{name = "tnt:gunpowder",
-		chance = 3,
+		chance = 1,
 		min = 0,
 		max = 2,},
 
@@ -114,40 +94,40 @@ mobs:register_mob("mobs_mc:creeper", {
 		max = 1,},
 		]]
 		{name = "mcl_jukebox:record_1",
-		chance = 30,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_2",
-		chance = 40,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_3",
-		chance = 20,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_4",
-		chance = 30,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_5",
-		chance = 30,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_6",
-		chance = 30,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_7",
-		chance = 30,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mcl_jukebox:record_8",
-		chance = 50,
-		min = 0,
+		chance = 1600,
+		min = 1,
 		max = 1,},
 		{name = "mobs_mc:creeper_head",
-		chance = 50,
-		min = 0,
+		chance = 200,
+		min = 1,
 		max = 1,},
 	},
 	animation = {
@@ -167,6 +147,7 @@ mobs:register_mob("mobs_mc:creeper", {
 		look_end = 108,
 	},
 	drawtype = "front",
+	floats = 1,
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
@@ -174,8 +155,7 @@ mobs:register_mob("mobs_mc:creeper", {
 })
 
 
---mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:creeper", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"},{"air"},0, 6, 20, 9000, 1, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky"},{"air"},0, 7, 20, 9000, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
