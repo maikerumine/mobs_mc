@@ -41,8 +41,8 @@ mobs:register_mob("mobs_mc:endermite", {
 	hp_max = 8,
 	armor = 100,
 	group_attack = true,
-    collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.3, 0.2},
-    rotate = -180,
+	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.29, 0.2},
+	rotate = -180,
 	visual = "mesh",
 	mesh = "endermite.b3d",
 	textures = {
@@ -55,12 +55,11 @@ mobs:register_mob("mobs_mc:endermite", {
 	},
 	walk_velocity = 1,
 	run_velocity = 2,
-	runaway = true,
 	jump = true,
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
-	fear_height = 2,
+	fear_height = 4,
 	view_range = 16,
 	damage = 2,
 	on_rightclick = function(self, clicker)
@@ -68,9 +67,6 @@ mobs:register_mob("mobs_mc:endermite", {
 	end,
 
 })
-
-mobs:register_spawn("mobs_mc:endermite", {"default:stone"}, 20, 5, 15000, 2, -3000)
-
 
 mobs:register_egg("mobs_mc:endermite", "Endermite", "endermite_inv.png", 0)
 
