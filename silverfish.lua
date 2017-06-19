@@ -46,9 +46,6 @@ mobs:register_mob("mobs_mc:silverfish", {
 	damage = 1,
 })
 
-mobs:register_spawn("mobs_mc:silverfish",
-	{"default:diorite"}, 20, 10, 15000, 2, 80, true)
-
 mobs:register_egg("mobs_mc:silverfish", "Silverfish", "silverfish_inv.png", 0)
 
 -- Monster egg blocks (Minetest Game)
@@ -109,4 +106,25 @@ if minetest.get_modpath("default") then
 		sounds = default.node_sound_stone_defaults(),
 		after_dig_node = spawn_silverfish,
 	})
+
+	-- Randomly spawn stone monster eggs in the world
+	local mg_name = minetest.get_mapgen_setting("mg_name")
+	local scarcity
+	if mg_name == "v6" then
+		scarcity = 28 * 28 * 28
+	else
+		scarcity = 22 * 22 * 22
+	end
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "mobs_mc:monster_egg_stone",
+		wherein        = "default:stone",
+		clust_scarcity = scarcity,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min          = -31000,
+		y_max          = 31000,
+		biomes         = { "grassland" },
+	})
+
 end
