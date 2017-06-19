@@ -48,7 +48,7 @@ dofile(path .. "/guardian.lua") -- maikerumine Mesh and animation by toby109tt  
 dofile(path .. "/guardian_elder.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/iron_golem.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/shulker.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
-dofile(path .. "/silver_fish.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
+dofile(path .. "/silverfish.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/skeleton.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/skeleton_stray.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/skeleton_wither.lua") -- Mesh by Morn76 Animation by Pavel_S
