@@ -88,6 +88,6 @@ mobs:spawn_specific("mobs_mc:bat", {"default:air","default:stone"},{"air"},0, 17
 mobs:register_egg("mobs_mc:bat", "Bat", "bat_inv.png", 0)
 
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Bat loaded")
 end

@@ -127,7 +127,7 @@ arrows = {
 local throwing_shoot_arrow = function(itemstack, player)
 	for _,arrow in ipairs(arrows) do
 		if player:get_inventory():get_stack("main", player:get_wield_index()+1):get_name() == arrow[1] then
-			if not minetest.settings:get_bool("creative_mode") then
+			if not minetest.setting_getbool("creative_mode") then
 				player:get_inventory():remove_item("main", arrow[1])
 			end
 			local playerpos = player:getpos()
@@ -154,7 +154,7 @@ minetest.register_tool(":mobs:bow_wood", {
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
-			if not minetest.settings:get_bool("creative_mode") then
+			if not minetest.setting_getbool("creative_mode") then
 				itemstack:add_wear(65535/50)
 			end
 		end
@@ -178,6 +178,6 @@ minetest.register_craftitem(":mobs:feather", {
 	inventory_image = "mobs_feather.png",
 })
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC mobs loaded")
 end

@@ -113,6 +113,6 @@ mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 20
 -- spawn eggs
 mobs:register_egg("mobs_mc:vindicator", "Vindicator", "vindicator_inv.png", 0)
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC vindicator loaded")
 end

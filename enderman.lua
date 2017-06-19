@@ -119,7 +119,7 @@ mobs:register_spawn("mobs_mc:ender_man", { "default:end_stone"}, 7, -1, 5000, 5,
 -- spawn eggs
 mobs:register_egg("mobs_mc:ender_man", "Ender man", "enderman_inv.png", 0)
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 
 	minetest.log("action", "MC Enderman loaded")
 end

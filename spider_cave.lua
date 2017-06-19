@@ -145,6 +145,6 @@ minetest.register_craftitem("mobs_mc:spider_eye", {
 --mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
 mobs:register_egg("mobs_mc:cavespider", "Cave Spider", "cave_spider_inv.png", 0)
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Spiders loaded")
 end

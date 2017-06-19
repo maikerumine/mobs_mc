@@ -97,6 +97,6 @@ mobs:spawn_specific("mobs_mc:shulker", {"default:purpur_block"}, {"default:cobbl
 
 
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Shulkers loaded")
 end

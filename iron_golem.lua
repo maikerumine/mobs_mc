@@ -105,6 +105,6 @@ mobs:register_spawn("mobs_mc:iron_golem", {"default:steelblock"}, 20, 0, 19000, 
 mobs:register_egg("mobs_mc:iron_golem", "Iron Golem", "iron_golem_inv.png", 0)
 
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Iron Golem loaded")
 end

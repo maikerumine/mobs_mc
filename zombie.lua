@@ -168,6 +168,6 @@ mobs:register_egg("mobs_mc:husk", "Spawn Husk", "spawn_egg_husk.png") -- TODO: T
 mobs:register_egg("mobs_mc:baby_husk", "Spawn Baby Husk", "spawn_egg_baby_husk.png") -- TODO: To be removed
 mobs:register_egg("mobs_mc:zombie", "Zombie", "zombie_inv.png", 0)
 
-if minetest.settings:get_bool("log_mods") then
+if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Zombie loaded")
 end
