@@ -11,7 +11,7 @@ local path = minetest.get_modpath("mobs_mc")
 
 -- Animals
 dofile(path .. "/bat.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
-dofile(path .. "/bunny.lua") -- Mesh and animation byExeterDad
+dofile(path .. "/rabbit.lua") -- Mesh and animation byExeterDad
 dofile(path .. "/chicken.lua") -- Mesh and animation by Pavel_S
 dofile(path .. "/cow.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/cow_mooshroom.lua") -- Mesh by Morn76 Animation by Pavel_S
