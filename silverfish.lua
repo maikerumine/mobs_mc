@@ -27,6 +27,14 @@ mobs:register_mob("mobs_mc:silverfish", {
 	lava_damage = 4,
 	light_damage = 0,
 	fear_height = 4,
+	replace_what = {
+		{"default:stone", "mobs_mc:monster_egg_stone", -1},
+		{"default:cobble", "mobs_mc:monster_egg_cobble", -1},
+		{"default:mossycobble", "mobs_mc:monster_egg_mossycobble", -1},
+		{"default:stonebrick", "mobs_mc:monster_egg_stonebrick", -1},
+		{"default:stone_block", "mobs_mc:monster_egg_stone_block", -1},
+	},
+	replace_rate = 2,
 	animation = {
 		speed_normal = 25,		speed_run = 50,
 		stand_start = 0,		stand_end = 20,
@@ -43,3 +51,62 @@ mobs:register_spawn("mobs_mc:silverfish",
 
 mobs:register_egg("mobs_mc:silverfish", "Silverfish", "silverfish_inv.png", 0)
 
+-- Monster egg blocks (Minetest Game)
+if minetest.get_modpath("default") then
+	local spawn_silverfish = function(pos, oldnode, oldmetadata, digger)
+		if not minetest.setting_getbool("creative_mode") then
+			minetest.add_entity(pos, "mobs_mc:silverfish")
+		end
+	end
+	minetest.register_node("mobs_mc:monster_egg_stone", {
+		description = "Stone Monster Egg",
+		tiles = {"default_stone.png"},
+		groups = {oddly_breakable_by_hand = 2, spawns_silverfish = 1},
+		drop = '',
+		is_ground_content = true,
+		sounds = default.node_sound_stone_defaults(),
+		after_dig_node = spawn_silverfish,
+	})
+
+	minetest.register_node("mobs_mc:monster_egg_cobble", {
+		description = "Cobblestone Monster Egg",
+		tiles = {"default_cobble.png"},
+		is_ground_content = false,
+		groups = {oddly_breakable_by_hand = 2, spawns_silverfish = 1},
+		drop = '',
+		sounds = default.node_sound_stone_defaults(),
+		after_dig_node = spawn_silverfish,
+	})
+
+	minetest.register_node("mobs_mc:monster_egg_mossycobble", {
+		description = "Mossy Cobblestone Monster Egg",
+		tiles = {"default_mossycobble.png"},
+		is_ground_content = false,
+		groups = {oddly_breakable_by_hand = 2, spawns_silverfish = 1},
+		drop = '',
+		sounds = default.node_sound_stone_defaults(),
+		after_dig_node = spawn_silverfish,
+	})
+
+	minetest.register_node("mobs_mc:monster_egg_stonebrick", {
+		description = "Stone Brick Monster Egg",
+		paramtype2 = "facedir",
+		place_param2 = 0,
+		tiles = {"default_stone_brick.png"},
+		is_ground_content = false,
+		groups = {oddly_breakable_by_hand = 2, spawns_silverfish = 1},
+		drop = '',
+		sounds = default.node_sound_stone_defaults(),
+		after_dig_node = spawn_silverfish,
+	})
+
+	minetest.register_node("mobs_mc:monster_egg_stone_block", {
+		description = "Stone Block Monster Egg",
+		tiles = {"default_stone_block.png"},
+		is_ground_content = false,
+		groups = {oddly_breakable_by_hand = 2, spawns_silverfish = 1},
+		drop = '',
+		sounds = default.node_sound_stone_defaults(),
+		after_dig_node = spawn_silverfish,
+	})
+end
