@@ -14,11 +14,12 @@ mobs:register_mob("mobs_mc:bat", {
 	},
 	visual_size = {x=1, y=1},
 	sounds = {
-		random = "mobs_rat",
+		random = "mobs_rat", -- TODO: This sound is supposed to be very high-pitched and scary
 		distance = 16,
 	},
 	walk_velocity = 3,
 	run_velocity = 3,
+	-- TODO: Hang upside down
 	animation = {
 		speed_normal = 80,		speed_run = 80,
 		stand_start = 0,		stand_end = 40,
