@@ -1,5 +1,7 @@
 --License for code WTFPL and otherwise stated in readmes
 
+local default_walk_chance = 50
+
 -- Wolf
 local wolf = {
 	type = "npc",
@@ -22,6 +24,7 @@ local wolf = {
 	},
 	floats = 1,
 	view_range = 16,
+	walk_chance = default_walk_chance,
 	walk_velocity = 2,
 	run_velocity = 3,
 	stepheight = 1.1,
@@ -98,7 +101,8 @@ dog.hp_max = 20
 -- Tamed wolf texture + red collar
 dog.textures = get_dog_textures("red")
 dog.owner = ""
-dog.order = "follow"
+-- TODO: Start sitting by default
+dog.order = "roam"
 dog.step = 1
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
@@ -128,47 +132,25 @@ dog.on_rightclick = function(self, clicker)
 			end
 		end
 	else
-		if self.owner == "" then
+		-- Toggle sitting order
+
+		if not self.owner or self.owner == "" then
+			-- Huh? This wolf has no owner? Let's fix this! This should never happen.
 			self.owner = clicker:get_player_name()
+		end
+
+		if not self.order or self.order == "" or self.order == "sit" then
+			self.order = "roam"
+			self.walk_chance = default_walk_chance
+			self.jump = true
 		else
-			local formspec = "size[8,4]"
-			formspec = formspec .. "textlist[2.85,0;2.1,0.5;dialog;What can I do for you?]"
-			formspec = formspec .. "button_exit[1,1;2,2;dfollow;follow]"
-			formspec = formspec .. "button_exit[5,1;2,2;dstand;stand]"
-			formspec = formspec .. "button_exit[0,2;4,4;dfandp;follow and protect]"
-			formspec = formspec .. "button_exit[4,2;4,4;dsandp;stand and protect]"
-			formspec = formspec .. "button_exit[1,2;2,2;dgohome; go home]"
-			formspec = formspec .. "button_exit[5,2;2,2;dsethome; sethome]"
-			minetest.show_formspec(clicker:get_player_name(), "order", formspec)
-			minetest.register_on_player_receive_fields(function(clicker, formname, fields)
-				if fields.dfollow then
-					self.order = "follow"
-					self.attacks_monsters = false
-				end
-				if fields.dstand then
-					self.order = "stand"
-					self.attacks_monsters = false
-				end
-				if fields.dfandp then
-					self.order = "follow"
-					self.attacks_monsters = true
-				end
-				if fields.dsandp then
-					self.order = "stand"
-					self.attacks_monsters = true
-				end
-				if fields.dsethome then
-					self.floats = self.object:getpos()
-				end
-				if fields.dgohome then
-					if self.floats then
-						self.order = "stand"
-						self.object:setpos(self.floats)
-					end
-				end
-			end)
+			-- TODO: Add sitting model
+			self.order = "sit"
+			self.walk_chance = 0
+			self.jump = false
 		end
 	end
+		minetest.log("error", self.order)
 end
 
 mobs:register_mob("mobs_mc:dog", dog)
