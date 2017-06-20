@@ -22,6 +22,7 @@ local wolf = {
 		war_cry = "mobs_wolf_attack",
 		distance = 16,
 	},
+	pathfinding = 1,
 	floats = 1,
 	view_range = 16,
 	walk_chance = default_walk_chance,
@@ -55,7 +56,6 @@ local wolf = {
 	},
 	jump = true,
 	attacks_monsters = true,
-	step = 0.5,
 }
 
 mobs:register_mob("mobs_mc:wolf", wolf)
@@ -94,7 +94,6 @@ end
 
 -- Tamed wolf (aka “dog”)
 local dog = table.copy(wolf)
-dog.step = 1
 dog.passive = true
 dog.hp_min = 20
 dog.hp_max = 20
@@ -103,7 +102,6 @@ dog.textures = get_dog_textures("red")
 dog.owner = ""
 -- TODO: Start sitting by default
 dog.order = "roam"
-dog.step = 1
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
 	if item:get_name() == "mobs:meat_raw" then
