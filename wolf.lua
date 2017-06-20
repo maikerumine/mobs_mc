@@ -1,47 +1,6 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
---###################
---################### WOLF
---###################
---[[
-mobs:register_mob("mobs_mc:33wolf", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "wolf.b3d",
-	textures = {
-		{"wolf.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 2,
-	run_velocity = 4,
-	jump = true,
-	animation = {
-		speed_normal = 50,		speed_run = 100,
-		stand_start = 40,		stand_end = 45,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
-
-mobs:register_egg("mobs_mc:33wolf", "Wolf", "wolf_inv.png", 0)
-]]
-
-
--- Dog
+-- Tamed wolf
 mobs:register_mob("mobs_mc:dog", {
 	type = "npc",
 	passive = true,
@@ -205,15 +164,12 @@ mobs:register_mob("mobs_mc:wolf", {
 mobs:register_spawn("mobs_mc:wolf", {"default:dirt_with_snow","default:podzol", "default:snowblock"}, 20, 0, 19000, 1, 31000)
 
 
--- compatibility
+-- Compatibility
 mobs:alias_mob("mobs:wolf", "mobs_mc:wolf")
 mobs:alias_mob("mobs:dog", "mobs_mc:dog")
 mobs:alias_mob("esmobs:wolf", "mobs_mc:wolf")
 mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 
--- spawn eggs
---mobs:register_egg("mobs_mc:wolf", "Wolf", "wool_grey.png", 1)
---mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
 mobs:register_egg("mobs_mc:wolf", "Wolf", "mobs_mc_spawn_icon_wolf.png", 0)
 
 if minetest.setting_get("log_mods") then
