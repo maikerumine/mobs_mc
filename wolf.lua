@@ -113,6 +113,7 @@ dog.textures = get_dog_textures("red")
 dog.owner = ""
 -- TODO: Start sitting by default
 dog.order = "roam"
+dog.owner_loyal = true
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
 	if item:get_name() == "mobs:meat_raw" then
