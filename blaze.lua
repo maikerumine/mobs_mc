@@ -9,37 +9,6 @@
 --###################
 --################### BLAZE
 --###################
---[[
-mobs:register_mob("mobs_mc:3blaze", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "blaze.b3d",
-	textures = {
-		{"blaze.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 100,
-        walk_start = 0,		walk_end = 100,
-		run_start = 0,		run_end = 100,
-	},
-})
-
-mobs:register_egg("mobs_mc:3blaze", "Blaze", "blaze_inv.png", 0)
-
-]]
 
 
 mobs:register_mob("mobs_mc:blaze", {
@@ -141,23 +110,7 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 mobs:register_egg("mobs_mc:blaze", "Blaze", "blaze_inv.png", 0)
 
 
-minetest.register_craftitem("mobs_mc:blaze_rod", {
-	description = "Blaze Rod",
-	_doc_items_longdesc = "This is a crafting component dropped from dead blazes.",
-	wield_image = "mcl_mobitems_blaze_rod.png",
-	inventory_image = "mcl_mobitems_blaze_rod.png",
-	groups = { craftitem = 1 },
-	stack_max = 64,
-})
 
-minetest.register_craftitem("mobs_mc:blaze_powder", {
-	description = "Blaze Powder",
-	_doc_items_longdesc = "This item is mainly used for brewing potions and crafting.",
-	wield_image = "mcl_mobitems_blaze_powder.png",
-	inventory_image = "mcl_mobitems_blaze_powder.png",
-	groups = { brewitem = 1 },
-	stack_max = 64,
-})
 
 
 

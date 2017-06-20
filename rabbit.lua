@@ -186,38 +186,6 @@ mobs:register_egg("mobs_mc:rabbit", "Rabbit", "rabbit_inv.png", 0)
 -- Note: This spawn egg does not exist in Minecraft
 mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "rabbit_inv.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
 
--- Items
-minetest.register_craftitem("mobs_mc:rabbit_raw", {
-	description = "Raw Rabbit",
-	inventory_image = "mcl_mobitems_rabbit_raw.png",
-	on_use = minetest.item_eat(3),
-})
-
-minetest.register_craftitem("mobs_mc:rabbit_cooked", {
-	description = "Cooked Rabbit",
-	inventory_image = "mcl_mobitems_rabbit_cooked.png",
-	on_use = minetest.item_eat(5),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs_mc:rabbit_cooked",
-	recipe = "mobs_mc:rabbit_raw",
-	cooktime = 5,
-})
-
-minetest.register_craftitem("mobs_mc:rabbit_hide", {
-	description = "Rabbit Hide",
-	inventory_image = "mcl_mobitems_rabbit_hide.png"
-})
-
-minetest.register_craft({
-	output = "mobs:leather",
-	recipe = {
-		{ "mobs_mc:rabbit_hide", "mobs_mc:rabbit_hide" },
-		{ "mobs_mc:rabbit_hide", "mobs_mc:rabbit_hide" },
-	}
-})
 
 -- compatibility
 mobs:alias_mob("mobs:bunny", "mobs_mc:rabbit")

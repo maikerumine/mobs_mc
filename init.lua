@@ -5,10 +5,6 @@
 
 local path = minetest.get_modpath("mobs_mc")
 
---Crafts
---dofile(path .. "/1_crafts.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/2_extra.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
-
 -- Animals
 dofile(path .. "/bat.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/rabbit.lua") -- Mesh and animation byExeterDad
@@ -64,9 +60,23 @@ dofile(path .. "/wither.lua") -- Mesh and animation by toby109tt  / https://gith
 --Heads
 dofile(path .. "/heads.lua") -- maikerumine
 
+
+
+--MOB ITEMS SELECTOR SWITCH
+
+--Items
+--dofile(path .. "/1_items_default.lua") -- Selected if using default in subgame
+--dofile(path .. "/2_items_mc2.lua") -- Selected if using mineclone2 subgame
+
+	if not mcl_core then
+		dofile(path .. "/1_items_default.lua")
+	end
+	
+
+
 --IN CASE THROWING IS NOT INSTALLED, THIS FIX
 	if not throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/2_extra.lua")
+		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
 		minetest.register_alias("throwing:bow_wood", "mobs:bow_wood")
 		minetest.register_alias("throwing:arrow", "mobs:arrow")
 		mobs:alias_mob("throwing:arrow_entity", "mobs:arrow_entity")
@@ -77,7 +87,7 @@ dofile(path .. "/heads.lua") -- maikerumine
 	end
 
 	if not mcl_throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/2_extra.lua")
+		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
 		minetest.register_alias("throwing:bow_wood", "mcl_throwing:bow")
 		minetest.register_alias("throwing:arrow", "mcl_throwing:arrow")
 		mobs:alias_mob("throwing:arrow_entity", "mcl_throwing:arrow_entity")

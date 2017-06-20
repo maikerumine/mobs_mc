@@ -10,38 +10,7 @@
 --###################
 --################### SHEEP
 --###################
---[[
-mobs:register_mob("mobs_mc:24sheep", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    --rotate = -180,  --No michael jackson!
-	visual = "mesh",
-	mesh = "sheep.b3d",
-	textures = {
-		{"sheep.png"},
-	},
-    gotten_texture = {"sheeps.png"},
-    gotten_mesh = "sheeps.b3d",
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 40,		stand_end = 80,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
 
-mobs:register_egg("mobs_mc:24sheep", "Sheep", "sheep_inv.png", 0)
-]]
 local colors = {
 	-- dyecolor = { woolcolor, textures }
 	white = { "white", { "mobs_sheep.png" } },
@@ -262,25 +231,6 @@ mobs:register_mob("mobs_mc:sheep", {
 mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
 
 
---mutton
-minetest.register_craftitem(":mobs:mutton_raw", {
-	description = "Raw Mutton",
-	inventory_image = "mutton_raw.png",
-	on_use = minetest.item_eat(4),
-})
-
-minetest.register_craftitem(":mobs:mutton_cooked", {
-	description = "Cooked Mutton",
-	inventory_image = "mutton_cooked.png",
-	on_use = minetest.item_eat(8),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs:mutton_cooked",
-	recipe = "mobs:mutton_raw",
-	cooktime = 5,
-})
 
 --[[
 -- compatibility

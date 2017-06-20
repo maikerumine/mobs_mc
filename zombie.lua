@@ -10,36 +10,7 @@
 --###################
 --################### ZOMBIE
 --###################
---[[
-mobs:register_mob("mobs_mc:22zombie", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "zombie.b3d",
-	textures = {
-		{"zombie.png"},
-	},
-	visual_size = {x=3.5, y=3.5},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 40,		stand_end = 80,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
 
-mobs:register_egg("mobs_mc:22zombie", "Zombie", "zombie_inv.png", 0)
-]]
 
 local zombie = {
 	type = "monster",

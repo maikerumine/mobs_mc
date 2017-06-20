@@ -10,43 +10,7 @@
 --###################
 --################### PARROT
 --###################
---[[
-mobs:register_mob("mobs_mc:1parrot", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 1, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "parrot.b3d",
-	textures = {{"parrot_blue.png"},{"parrot_green.png"},{"parrot_grey.png"},{"parrot_red_blue.png"},{"parrot_yellow_blue.png"}},
-	visual_size = {x=3, y=3},
-	walk_velocity = 1.5,
-	run_velocity = 1.5,
-	jump = false,
-    jump_height = 0,
-    --fly = true,
-    --fly_in = "air",
-    	animation = {
-		speed_normal = 50,
-		speed_run = 50,
-		stand_start = 0,
-		stand_end = 0,
-		walk_start = 0,
-		walk_end = 130,
-		--run_start = 0,
-		--run_end = 20,
-		--fly_start = 30,
-		--fly_end = 45,
-	},
-})
 
-mobs:register_egg("mobs_mc:1parrot", "Parrot", "parrot_inv.png", 0)
-]]
 
 
 mobs:register_mob("mobs_mc:parrot", {

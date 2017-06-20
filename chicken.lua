@@ -9,36 +9,7 @@
 --###################
 --################### CHICKEN
 --###################
---[[
-mobs:register_mob("mobs_mc:6chicken", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "chicken.b3d",
-	textures = {
-		{"chicken.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
 
-mobs:register_egg("mobs_mc:6chicken", "Chicken", "chicken_inv.png", 0)
-]]
 
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
@@ -119,7 +90,6 @@ mobs:register_mob("mobs_mc:chicken", {
 })
 
 -- egg entity
-
 mobs:register_arrow("mobs_mc:egg_entity", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
@@ -230,97 +200,8 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 	return item
 end
 
--- egg
-minetest.register_node(":mobs:egg", {
-	description = "Egg",
-	tiles = {"mobs_chicken_egg.png"},
-	inventory_image  = "mobs_chicken_egg.png",
-	visual_scale = 0.7,
-	drawtype = "plantlike",
-	wield_image = "mobs_chicken_egg.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	groups = {snappy = 2, dig_immediate = 3},
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
-		end
-	end,
-	on_use = mobs_shoot_egg
-})
 
 
--- chicken
-minetest.register_craftitem(":mobs:chicken_raw", {
-	description = "Raw Chicken",
-	inventory_image = "chicken_raw.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craftitem(":mobs:chicken_cooked", {
-	description = "Cooked Chicken",
-	inventory_image = "chicken_cooked.png",
-	on_use = minetest.item_eat(6),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs:chicken_cooked",
-	recipe = "mobs:chicken_raw",
-	cooktime = 5,
-})
-
---[[
--- from mobs_redo
--- egg
-minetest.register_node(":mobs:egg", {
-	description = "Chicken Egg",
-	tiles = {"mobs_chicken_egg.png"},
-	inventory_image  = "mobs_chicken_egg.png",
-	visual_scale = 0.7,
-	drawtype = "plantlike",
-	wield_image = "mobs_chicken_egg.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	groups = {snappy = 2, dig_immediate = 3},
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
-		end
-	end,
-	on_use = mobs_shoot_egg
-})
-]]
--- fried egg
-minetest.register_craftitem(":mobs:chicken_egg_fried", {
-description = "Fried Egg",
-	inventory_image = "mobs_chicken_egg_fried.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craft({
-	type  =  "cooking",
-	recipe  = "mobs:egg",
-	output = "mobs:chicken_egg_fried",
-})
-
--- leather, feathers, etc.
-minetest.register_craftitem(":mobs:feather", {
-	description = "Feather",
-	inventory_image = "mobs_feather.png",
-})
 
 
 --spawn

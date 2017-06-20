@@ -22,7 +22,7 @@ minetest.register_node( "mobs_mc:creeper_head", {
 	visual_scale = 1.0,
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -47,7 +47,7 @@ minetest.register_node( "mobs_mc:enderman_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -72,7 +72,7 @@ minetest.register_node( "mobs_mc:ghast_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -97,7 +97,7 @@ minetest.register_node( "mobs_mc:skeleton_head", {
 	visual_scale = 1.0,
 	is_ground_content = false,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -122,7 +122,7 @@ minetest.register_node( "mobs_mc:skeleton2_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -147,7 +147,7 @@ minetest.register_node( "mobs_mc:spider_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -172,7 +172,7 @@ minetest.register_node( "mobs_mc:zombie_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
@@ -197,7 +197,7 @@ minetest.register_node( "mobs_mc:zombiepig_head", {
 	visual_scale = 1.0,
 	is_ground_content = true,
 	groups = {cracky=2},
-	sounds = default.node_sound_stone_defaults(),
+	--sounds = default.node_sound_stone_defaults(),
 	stack_max = 1,
 })
 
