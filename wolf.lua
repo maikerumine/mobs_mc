@@ -6,7 +6,7 @@ local pr = PseudoRandom(os.time()*10)
 
 -- Wolf
 local wolf = {
-	type = "npc",
+	type = "animal",
 	hp_min = 8,
 	hp_max = 8,
 	passive = false,
@@ -159,7 +159,6 @@ dog.on_rightclick = function(self, clicker)
 			self.jump = false
 		end
 	end
-		minetest.log("error", self.order)
 end
 
 mobs:register_mob("mobs_mc:dog", dog)
