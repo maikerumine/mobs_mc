@@ -25,13 +25,15 @@ Ver.0.3
 Mesh by Morn76
 Animation by Pavel_S
 
+Pig sounds: mobs_pig, mobs_pig_angry
+Pig sounds taken from mobs_animal mod, licensed under MIT License
+Pig textures: From Faithful Vanilla <https://minecraft.curseforge.com/projects/faithful-vanilla>
+
 ===Chicken===
 Mesh and animation by Pavel_S
 
 Meshes : Pig, Cow, Sheep
 Armatures : Pig_Rig, Cow_Rig, Sheep_Rig
-Sounds: mobs_pig, mobs_pig_angry
-Sounds taken from mobs_animal mod, licensed under MIT License
 
 ==Animation==
 Optimized for 24fps.
