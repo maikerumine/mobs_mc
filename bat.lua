@@ -37,8 +37,20 @@ mobs:register_mob("mobs_mc:bat", {
 })
 
 
--- Spawn on solid blocks below Sea level and light level 3
-mobs:spawn_specific("mobs_mc:bat", {"default:stone", "group:cracky", "group:crumbly"},{"air"},0, 3, 20, 5000, 2, -500, -1)
+-- Spawning
+
+--[[ If the game has been launched between the 20th of October and the 3rd of November system time,
+-- the maximum spawn light level is increased. ]]
+local date = os.date("*t")
+local maxlight
+if (date.month == 10 and date.day >= 20) or (date.month == 11 and date.day <= 3) then
+	maxlight = 6
+else
+	maxlight = 3
+end
+
+-- Spawn on solid blocks at or below Sea level and the selected light level
+mobs:spawn_specific("mobs_mc:bat", {"default:stone", "group:cracky", "group:crumbly"},{"air"},0, maxlight, 20, 5000, 2, -500, 0)
 
 
 -- spawn eggs
