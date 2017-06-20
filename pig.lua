@@ -103,8 +103,9 @@ mobs:register_mob("mobs_mc:pig", {
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "mobs:saddle" and self.saddle ~= "yes" then
+			self.base_texture = {"mobs_mc_pig.png^mobs_mc_pig_saddle.png"}
 			self.object:set_properties({
-				textures = {"mobs_mc_pig.png^mobs_mc_pig_saddle.png"},
+				textures = self.base_texture
 			})
 			self.saddle = "yes"
 			self.tamed = true
