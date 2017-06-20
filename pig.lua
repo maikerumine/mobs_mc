@@ -59,10 +59,10 @@ mobs:register_mob("mobs_mc:pig", {
 			self.max_speed_reverse = 4  --swap due to -180 model
 			self.accel = 4
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 7.5, z = 0}
+			self.driver_attach_at = {x = 0.0, y = 6.75, z = 1.5}
 			self.player_rotation = {x = 0, y = 180, z = 0}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
-			self.driver_scale = {x = 0.3, y = 0.3}
+			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
 
 		-- if driver present allow control of horse
