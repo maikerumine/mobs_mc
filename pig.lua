@@ -144,6 +144,11 @@ mobs:register_mob("mobs_mc:pig", {
 				local inv = self.driver:get_inventory()
 				-- 26 uses
 				if wielditem:get_wear() > 63000 then
+					-- Break carrot on a stick
+					local def = wielditem:get_definition()
+					if def.sounds and def.sounds.breaks then
+						minetest.sound_play(def.sounds.breaks, {pos = clicker:getpos(), max_hear_distance = 8, gain = 0.5})
+					end
 					if minetest.get_modpath("fishing") then
 						wielditem = {name = "fishing:pole_wood", count = 1}
 					else
@@ -195,6 +200,7 @@ minetest.register_tool("mobs_mc:carrot_on_a_stick", {
 	description = "Carrot on a Stick",
 	wield_image = "mcl_mobitems_carrot_on_a_stick.png",
 	inventory_image = "mcl_mobitems_carrot_on_a_stick.png",
+	sounds = { breaks = "default_tool_breaks" },
 })
 
 minetest.register_craft({
