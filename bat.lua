@@ -1,53 +1,14 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
-
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
---###################
---################### BAT
---###################
---[[
-mobs:register_mob("mobs_mc:1bat", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "bat.b3d",
-	textures = {
-		{"bat.png"},
-	},
-	visual_size = {x=1, y=1},
-	walk_velocity = 3,
-	run_velocity = 3,
-	jump = true,
-	animation = {
-		speed_normal = 80,		speed_run = 80,
-		stand_start = 0,		stand_end = 40,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
-
-mobs:register_egg("mobs_mc:1bat", "Bat", "bat_inv.png", 0)
-]]
 
 mobs:register_mob("mobs_mc:bat", {
 	type = "animal",
 	passive = true,
-    runaway = true,
-    stepheight = 1.2,
+	runaway = true,
+	stepheight = 1.2,
 	hp_min = 6,
 	hp_max = 6,
-    collisionbox = {-0.2, -1, -0.2, 0.2, -0.8, 0.2},
-    rotate = -180,
+	collisionbox = {-0.2, -1, -0.2, 0.2, -0.8, 0.2},
+	rotate = -180,
 	visual = "mesh",
 	mesh = "bat.b3d",
 	textures = {
