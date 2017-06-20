@@ -170,6 +170,77 @@ mobs:register_mob("mobs_mc:pig", {
 
 mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, minetest.LIGHT_MAX, 9, 15000, 30, 31000)
 	
+<<<<<<< HEAD
+=======
+
+-- pork
+minetest.register_craftitem(":mobs:pork_raw", {
+	description = "Raw Porkchop",
+	inventory_image = "pork_raw.png",
+	on_use = minetest.item_eat(3),
+})
+
+minetest.register_craftitem(":mobs:pork_cooked", {
+	description = "Cooked Porkchop",
+	inventory_image = "pork_cooked.png",
+	on_use = minetest.item_eat(8),
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "mobs:pork_cooked",
+	recipe = "mobs:pork_raw",
+	cooktime = 5,
+})
+
+
+minetest.register_craftitem(":mobs:saddle", {
+	description = "Saddle",
+	inventory_image = "saddle.png",
+})
+
+minetest.register_tool("mobs_mc:carrot_on_a_stick", {
+	description = "Carrot on a Stick",
+	wield_image = "mcl_mobitems_carrot_on_a_stick.png",
+	inventory_image = "mcl_mobitems_carrot_on_a_stick.png",
+	sounds = { breaks = "default_tool_breaks" },
+})
+
+minetest.register_craft({
+	output = "mobs_mc:carrot_on_a_stick",
+	recipe = {
+		{"",            "",            "farming:string"    },
+		{"",            "group:stick", "farming:string" },
+		{"group:stick", "",            "farming:bread" },
+	}
+})
+
+minetest.register_craft({
+	output = "mobs_mc:carrot_on_a_stick",
+	recipe = {
+		{"",            "",            "farming:string"    },
+		{"",            "group:stick", "farming:string" },
+		{"group:stick", "",            "farming:carrot" },
+	}
+})
+
+if minetest.get_modpath("fishing") then
+	minetest.register_craft({
+		type = "shapeless",
+		output = "mobs_mc:carrot_on_a_stick",
+		recipe = {"fishing:pole_wood", "farming:carrot"},
+	})
+end
+
+minetest.register_craft({
+	output = "mobs:saddle",
+	recipe = {
+		{"mobs:leather", "mobs:leather", "mobs:leather"},
+		{"farming:string", "", "farming:string"},
+	{"default:steel_ingot", "", "default:steel_ingot"}
+	},
+})
+>>>>>>> origin/master
 
 
 -- compatibility
