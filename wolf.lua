@@ -2,6 +2,8 @@
 
 local default_walk_chance = 50
 
+local pr = PseudoRandom(os.time()*10)
+
 -- Wolf
 local wolf = {
 	type = "npc",
@@ -37,17 +39,24 @@ local wolf = {
 	lava_damage = 4,
 	light_damage = 0,
 	on_rightclick = function(self, clicker)
+		-- Try to tame wolf
 		local tool = clicker:get_wielded_item()
 		local dog
 		local ent
 		if tool:get_name() == "mobs:meat_raw" then
-			local yaw = self.object:get_yaw()
-			clicker:get_inventory():remove_item("main", "mobs:meat_raw")
-			dog = minetest.add_entity(self.object:getpos(), "mobs_mc:dog")
-			dog:set_yaw(yaw)
-			ent = dog:get_luaentity()
-			ent.owner = clicker:get_player_name()
-			self.object:remove()
+			if not minetest.settings:get_bool("creative_mode") then
+				tool:take_item()
+				clicker:set_wielded_item(tool)
+			end
+			-- 1/3 chance of getting tamed
+			if pr:next(1, 3) == 1 then
+				local yaw = self.object:get_yaw()
+				dog = minetest.add_entity(self.object:getpos(), "mobs_mc:dog")
+				dog:set_yaw(yaw)
+				ent = dog:get_luaentity()
+				ent.owner = clicker:get_player_name()
+				self.object:remove()
+			end
 		end
 	end,
 	animation = {
