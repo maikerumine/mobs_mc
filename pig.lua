@@ -133,7 +133,6 @@ mobs:register_mob("mobs_mc:pig", {
 	end
 
 })
---TODO re-add carrot and stick
 mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, minetest.LIGHT_MAX, 9, 15000, 30, 31000)
 	
 
@@ -163,14 +162,14 @@ minetest.register_craftitem(":mobs:saddle", {
 	inventory_image = "saddle.png",
 })
 
-minetest.register_tool(":mobs:carrotstick", {
+minetest.register_tool("mobs_mc:carrot_on_a_stick", {
 	description = "Carrot on a Stick",
-	inventory_image = "carrot_on_a_stick.png",
-	stack_max = 1,
+	wield_image = "mcl_mobitems_carrot_on_a_stick.png",
+	inventory_image = "mcl_mobitems_carrot_on_a_stick.png",
 })
 
 minetest.register_craft({
-	output = "mobs:carrotstick",
+	output = "mobs_mc:carrot_on_a_stick",
 	recipe = {
 		{"",            "",            "farming:string"    },
 		{"",            "group:stick", "farming:string" },
@@ -179,7 +178,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "mobs:carrotstick",
+	output = "mobs_mc:carrot_on_a_stick",
 	recipe = {
 		{"",            "",            "farming:string"    },
 		{"",            "group:stick", "farming:string" },
@@ -189,7 +188,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "mobs:carrotstick",
+	output = "mobs_mc:carrot_on_a_stick",
 	recipe = {"fishing:pole_wood", "farming:carrot"},
 })
 
