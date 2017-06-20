@@ -1,6 +1,5 @@
 --License for code WTFPL and otherwise stated in readmes
 
-
 -- Wolf
 local wolf = {
 	type = "npc",
@@ -60,25 +59,74 @@ mobs:register_mob("mobs_mc:wolf", wolf)
 
 -- Tamed wolf
 
+local colors = {
+	["black"] = "#000000",
+	["blue"] = "#0000BB",
+	["brown"] = "#663300",
+	["cyan"] = "#01FFD8",
+	["dark_green"] = "#005B00",
+	["grey"] = "#C0C0C0",
+	["dark_grey"] = "#303030",
+	["green"] = "#00FF01",
+	["grey"] = "#5B5B5B",
+	["magenta"] = "#FF05BB",
+	["orange"] = "#FF8401",
+	["pink"] = "#FF65B5",
+	["red"] = "#FF0000",
+	["violet"] = "#5000CC",
+	["white"] = "#FFFFFF",
+	["yellow"] = "#FFFF00",
+}
+if minetest.get_modpath("mcl_dye") then
+	colors["lightblue"] = "#B0B0FF"
+end
+
+local get_dog_textures = function(color)
+	if colors[color] then
+		return {"mobs_mc_wolf_tame.png^(mobs_mc_wolf_collar.png^[colorize:"..colors[color]..":192)"}
+	else
+		return nil
+	end
+end
+
+-- Tamed wolf (aka “dog”)
 local dog = table.copy(wolf)
 dog.step = 1
 dog.passive = true
 dog.hp_min = 20
 dog.hp_max = 20
-dog.textures = {{"mobs_mc_wolf_tame.png^(mobs_mc_wolf_collar.png^[colorize:#A00000:192)"}}
+-- Tamed wolf texture + red collar
+dog.textures = get_dog_textures("red")
 dog.owner = ""
 dog.order = "follow"
 dog.step = 1
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
 	if item:get_name() == "mobs:meat_raw" then
+		-- Feed
 		local hp = self.object:get_hp()
 		if hp + 4 > self.hp_max then return end
-		if not minetest.setting_getbool("creative_mode") then
+		if not minetest.settings:get_bool("creative_mode") then
 			item:take_item()
 			clicker:set_wielded_item(item)
 		end
 		self.object:set_hp(hp+4)
+	elseif minetest.get_item_group(item:get_name(), "dye") == 1 then
+		-- Dye collar
+		local name = item:get_name()
+		local pname = name:split(":")[2]
+
+		local tex = get_dog_textures(pname)
+		if tex then
+			self.base_texture = tex
+			self.object:set_properties({
+				textures = self.base_texture
+			})
+			if not minetest.settings:get_bool("creative_mode") then
+				item:take_item()
+				clicker:set_wielded_item(item)
+			end
+		end
 	else
 		if self.owner == "" then
 			self.owner = clicker:get_player_name()
