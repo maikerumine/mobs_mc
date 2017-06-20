@@ -10,7 +10,7 @@ mobs:register_mob("mobs_mc:pig", {
 	visual = "mesh",
 	mesh = "pig.b3d",
 	textures = {
-		{"pig.png"},
+		{"mobs_mc_pig.png"},
 	},
 	visual_size = {x=2.5, y=2.5},
 	makes_footstep_sound = true,
@@ -104,7 +104,7 @@ mobs:register_mob("mobs_mc:pig", {
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "mobs:saddle" and self.saddle ~= "yes" then
 			self.object:set_properties({
-				textures = {"mobs_pig_with_saddle.png"},
+				textures = {"mobs_mc_pig.png^mobs_mc_pig_saddle.png"},
 			})
 			self.saddle = "yes"
 			self.tamed = true
@@ -232,7 +232,7 @@ minetest.register_craft({
 mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pig", "Pig", "pig_inv.png", 0)
+mobs:register_egg("mobs_mc:pig", "Pig", "mobs_mc_spawn_icon_pig.png", 0)
 
 if minetest.settings:get("log_mods") then
 	minetest.log("action", "MC Pig loaded")
