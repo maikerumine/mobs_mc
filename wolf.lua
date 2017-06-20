@@ -19,22 +19,19 @@ local wolf = {
 	makes_footstep_sound = true,
 	sounds = {
 		war_cry = "mobs_wolf_attack",
+		distance = 16,
 	},
+	floats = 1,
 	view_range = 16,
 	walk_velocity = 2,
 	run_velocity = 3,
 	stepheight = 1.1,
 	damage = 4,
 	attack_type = "dogfight",
-	drops = {
-		{name = "mobs:meat_raw",
-		chance = 1,
-		min = 2,
-		max = 3,},
-	},
+	fear_height = 4,
 	drawtype = "front",
 	water_damage = 0,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
 	on_rightclick = function(self, clicker)
 		tool = clicker:get_wielded_item()
