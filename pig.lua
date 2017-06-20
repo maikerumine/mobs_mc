@@ -24,13 +24,14 @@ mobs:register_mob("mobs_mc:pig", {
 	},
 	drawtype = "front",
 	water_damage = 1,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
-	fear_height = 3,
+	fear_height = 4,
 	sounds = {
 		random = "Pig2",
 		death = "Pigdeath",
 		damage = "Pig2",
+		distance = 16,
 	},
 	animation = {
 		speed_normal = 40,
@@ -48,7 +49,7 @@ mobs:register_mob("mobs_mc:pig", {
 		look_end = 108,
 	},
 	follow = {"default:apple", "farming:potato", "farming:carrot"},
-	view_range = 12,
+	view_range = 5,
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
@@ -133,7 +134,7 @@ mobs:register_mob("mobs_mc:pig", {
 
 })
 --TODO re-add carrot and stick
-mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
+mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, minetest.LIGHT_MAX, 9, 15000, 30, 31000)
 	
 
 -- pork
