@@ -3,11 +3,9 @@
 mobs:register_mob("mobs_mc:bat", {
 	type = "animal",
 	passive = true,
-	runaway = true,
-	stepheight = 1.2,
 	hp_min = 6,
 	hp_max = 6,
-	collisionbox = {-0.2, -1, -0.2, 0.2, -0.8, 0.2},
+	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.89, 0.25},
 	rotate = -180,
 	visual = "mesh",
 	mesh = "bat.b3d",
@@ -15,12 +13,12 @@ mobs:register_mob("mobs_mc:bat", {
 		{"bat.png"},
 	},
 	visual_size = {x=1, y=1},
-		sounds = {
+	sounds = {
 		random = "mobs_rat",
+		distance = 16,
 	},
 	walk_velocity = 3,
 	run_velocity = 3,
-	jump = true,
 	animation = {
 		speed_normal = 80,		speed_run = 80,
 		stand_start = 0,		stand_end = 40,
@@ -28,21 +26,19 @@ mobs:register_mob("mobs_mc:bat", {
 		run_start = 0,		run_end = 40,
 	},
 
-	water_damage = 10,
-	lava_damage = 20,
+	water_damage = 1,
+	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
 	view_range = 16,
 
-	floats=1,
 	fly = true,
-	jump_chance = 98,
-	fear_height = 22,	
+	fly_in = "air",
 })
 
 
-
-mobs:spawn_specific("mobs_mc:bat", {"default:air","default:stone"},{"air"},0, 17, 20, 5000, 2, -100, -2)
+-- Spawn on solid blocks below Sea level and light level 3
+mobs:spawn_specific("mobs_mc:bat", {"default:stone", "group:cracky", "group:crumbly"},{"air"},0, 3, 20, 5000, 2, -500, -1)
 
 
 -- spawn eggs
