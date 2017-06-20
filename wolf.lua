@@ -52,7 +52,7 @@ mobs:register_mob("mobs_mc:dog", {
 	visual = "mesh",
 	mesh = "wolf.b3d",
 	textures = {
-		{"mobs_dog.png"},
+		{"mobs_mc_wolf_tame.png^(mobs_mc_wolf_collar.png^[colorize:#A00000:192)"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -142,7 +142,6 @@ mobs:register_mob("mobs_mc:dog", {
 	},
 	jump = true,
 	step = 1,
-	blood_texture = "mobs_blood.png",
 })
 
 
@@ -158,7 +157,7 @@ mobs:register_mob("mobs_mc:wolf", {
 	visual = "mesh",
 	mesh = "wolf.b3d",
 	textures = {
-		{"wolf.png"},
+		{"mobs_mc_wolf.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -202,7 +201,6 @@ mobs:register_mob("mobs_mc:wolf", {
 	jump = true,
 	attacks_monsters = true,
 	step = 0.5,
-	blood_texture = "mobs_blood.png",
 })
 mobs:register_spawn("mobs_mc:wolf", {"default:dirt_with_snow","default:podzol", "default:snowblock"}, 20, 0, 19000, 1, 31000)
 
@@ -216,7 +214,7 @@ mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 -- spawn eggs
 --mobs:register_egg("mobs_mc:wolf", "Wolf", "wool_grey.png", 1)
 --mobs:register_egg("mobs_mc:dog", "Dog", "wool_brown.png", 1)
-mobs:register_egg("mobs_mc:wolf", "Wolf", "wolf_inv.png", 0)
+mobs:register_egg("mobs_mc:wolf", "Wolf", "mobs_mc_spawn_icon_wolf.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Wolf loaded")
