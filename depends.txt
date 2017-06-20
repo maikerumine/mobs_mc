@@ -3,4 +3,5 @@ mobs
 tnt
 mcl_throwing?
 throwing?
+fishing?
 todo_merge_mc2_items?

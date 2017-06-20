@@ -144,7 +144,11 @@ mobs:register_mob("mobs_mc:pig", {
 				local inv = self.driver:get_inventory()
 				-- 26 uses
 				if wielditem:get_wear() > 63000 then
-					wielditem = {name = "fishing:pole_wood", count = 1}
+					if minetest.get_modpath("fishing") then
+						wielditem = {name = "fishing:pole_wood", count = 1}
+					else
+						wielditem = {name = "default:stick", count = 1}
+					end
 				else
 					wielditem:add_wear(2521)
 				end
@@ -211,12 +215,13 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	type = "shapeless",
-	output = "mobs_mc:carrot_on_a_stick",
-	recipe = {"fishing:pole_wood", "farming:carrot"},
-})
-
+if minetest.get_modpath("fishing") then
+	minetest.register_craft({
+		type = "shapeless",
+		output = "mobs_mc:carrot_on_a_stick",
+		recipe = {"fishing:pole_wood", "farming:carrot"},
+	})
+end
 
 minetest.register_craft({
 	output = "mobs:saddle",
