@@ -28,9 +28,9 @@ mobs:register_mob("mobs_mc:pig", {
 	light_damage = 0,
 	fear_height = 4,
 	sounds = {
-		random = "Pig2",
-		death = "Pigdeath",
-		damage = "Pig2",
+		random = "mobs_pig",
+		death = "mobs_pig_angry",
+		damage = "mobs_pig_angry",
 		distance = 16,
 	},
 	animation = {

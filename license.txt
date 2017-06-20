@@ -30,6 +30,8 @@ Mesh and animation by Pavel_S
 
 Meshes : Pig, Cow, Sheep
 Armatures : Pig_Rig, Cow_Rig, Sheep_Rig
+Sounds: mobs_pig, mobs_pig_angry
+Sounds taken from mobs_animal mod, licensed under MIT License
 
 ==Animation==
 Optimized for 24fps.
