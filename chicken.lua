@@ -209,7 +209,7 @@ mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000
 
 
 -- compatibility
-mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
+--mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
