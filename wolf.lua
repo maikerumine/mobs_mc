@@ -41,8 +41,10 @@ local wolf = {
 		local dog
 		local ent
 		if tool:get_name() == "mobs:meat_raw" then
+			local yaw = self.object:get_yaw()
 			clicker:get_inventory():remove_item("main", "mobs:meat_raw")
 			dog = minetest.add_entity(self.object:getpos(), "mobs_mc:dog")
+			dog:set_yaw(yaw)
 			ent = dog:get_luaentity()
 			ent.owner = clicker:get_player_name()
 			self.object:remove()
