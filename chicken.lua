@@ -1,6 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-<<<<<<< HEAD
+
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -9,8 +9,7 @@
 --###################
 
 
-=======
->>>>>>> parent of 3c1d5d0... hopefully fixed
+
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
 
@@ -203,10 +202,8 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 	return item
 end
 
-<<<<<<< HEAD
 
 
-=======
 -- egg
 minetest.register_craftitem("mobs_mc:egg", {
 	description = "Egg",
@@ -241,7 +238,7 @@ minetest.register_craftitem(":mobs:feather", {
 	description = "Feather",
 	inventory_image = "mobs_feather.png",
 })
->>>>>>> parent of 3c1d5d0... hopefully fixed
+
 
 
 --spawn

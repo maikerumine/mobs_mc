@@ -1,6 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-<<<<<<< HEAD
+
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -9,8 +9,6 @@
 --###################
 
 
-=======
->>>>>>> parent of 3c1d5d0... hopefully fixed
 mobs:register_mob("mobs_mc:polar_bear", {
 	type = "animal",
 	runaway = false,

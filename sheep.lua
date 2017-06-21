@@ -1,6 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-<<<<<<< HEAD
+
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -9,8 +9,7 @@
 --################### SHEEP
 --###################
 
-=======
->>>>>>> parent of 3c1d5d0... hopefully fixed
+
 local colors = {
 	-- dyecolor = { woolcolor, textures }
 	white = { "white", { "mobs_mc_sheep_white.png" } },
@@ -228,8 +227,6 @@ mobs:register_mob("mobs_mc:sheep", {
 mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
 
 
-<<<<<<< HEAD
-=======
 --mutton
 minetest.register_craftitem("mobs_mc:mutton_raw", {
 	description = "Raw Mutton",
@@ -249,7 +246,7 @@ minetest.register_craft({
 	recipe = "mobs_mc:mutton_raw",
 	cooktime = 5,
 })
->>>>>>> parent of 3c1d5d0... hopefully fixed
+
 
 -- compatibility
 mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
