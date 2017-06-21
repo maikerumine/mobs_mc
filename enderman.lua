@@ -12,6 +12,8 @@
 --###################
 
 local pr = PseudoRandom(os.time()*(-334))
+local take_frequency = 10
+local place_frequency = 10
 
 local takable = {
 	-- For entensions
@@ -87,7 +89,7 @@ mobs:register_mob("mobs_mc:enderman", {
 			return
 		end
 		self._take_place_timer = self._take_place_timer + dtime
-		if (self._taken_node == nil or self._taken_node == "") and self._take_place_timer >= 10 then
+		if (self._taken_node == nil or self._taken_node == "") and self._take_place_timer >= take_frequency  then
 			-- Take random node
 			self._take_place_timer = 0
 			local pos = self.object:getpos()
@@ -99,17 +101,29 @@ mobs:register_mob("mobs_mc:enderman", {
 				local dug = minetest.dig_node(take_pos)
 				if dug then
 					self._taken_node = node.name
-					-- TODO: Update enderman model
-					minetest.sound_play(sound, {pos=pos, max_hear_distance = 16})
+					-- TODO: Update enderman model (enderman holding block)
+					local def = minetest.registered_nodes[self._taken_node]
+					if def.sounds and def.sounds.dug then
+						minetest.sound_play(def.sounds.dug, {pos = place_pos, max_hear_distance = 16})
+					end
 				end
 			end
-		elseif self._taken_node ~= nil and self._taken_node ~= "" and self._take_place_timer >= 10 then
+		elseif self._taken_node ~= nil and self._taken_node ~= "" and self._take_place_timer >= place_frequency then
 			-- Place taken node
 			self._take_place_timer = 0
 			local pos = self.object:getpos()
-			-- TODO: Place around enderman
-			minetest.place_node({x=pos.x+1, y=pos.y, z=pos.z}, {name = self._taken_node})
-			self._taken_node = ""
+			local yaw = self.object:get_yaw()
+			-- Place node at looking direction
+			local place_pos = vector.subtract(pos, minetest.facedir_to_dir(minetest.dir_to_facedir(minetest.yaw_to_dir(yaw))))
+			if minetest.get_node(place_pos).name == "air" then
+				-- ... but only if there's a free space
+				minetest.place_node(place_pos, {name = self._taken_node})
+				local def = minetest.registered_nodes[self._taken_node]
+				if def.sounds and def.sounds.place then
+					minetest.sound_play(def.sounds.place, {pos = place_pos, max_hear_distance = 16})
+				end
+				self._taken_node = ""
+			end
 		end
 	end,
 	on_die = function(self, pos)
