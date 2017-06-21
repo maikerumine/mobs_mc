@@ -159,6 +159,6 @@ mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15
 -- spawn eggs
 mobs:register_egg("mobs_mc:llama", "Llama", "llama_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Llama loaded")
 end

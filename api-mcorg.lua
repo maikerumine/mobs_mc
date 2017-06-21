@@ -229,7 +229,7 @@ mobs.default_definition = {
 	end,
 	
 	on_step = function(self, dtime)
-		if self.type == "monster" and minetest.setting_getbool("only_peaceful_mobs") then
+		if self.type == "monster" and minetest.settings:get_bool("only_peaceful_mobs") then
 			self.object:remove()
 		end
 		
@@ -355,7 +355,7 @@ mobs.default_definition = {
 			do_env_damage(self)
 		end
 		
-		if self.type == "monster" and minetest.setting_getbool("enable_damage") then
+		if self.type == "monster" and minetest.settings:get_bool("enable_damage") then
 			for _,player in pairs(minetest.get_connected_players()) do
 				local s = self.object:getpos()
 				local p = player:getpos()
@@ -602,7 +602,7 @@ mobs.default_definition = {
 		self.attack = {player = nil, dist = nil}
 		self.object:setvelocity({x=0, y=self.object:getvelocity().y, z=0})
 		self.object:setyaw(math.random(1, 360)/180*math.pi)
-		if self.type == "monster" and minetest.setting_getbool("only_peaceful_mobs") then
+		if self.type == "monster" and minetest.settings:get_bool("only_peaceful_mobs") then
 			self.object:remove()
 		end
 		self.lifetimer = 600 - dtime_s
@@ -768,7 +768,7 @@ end
 
 mobs.spawning_mobs = {}
 function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_object_count, max_height, spawn_func)
-	if minetest.setting_getbool(string.gsub(name,":","_").."_spawn") ~= false then
+	if minetest.settings:get_bool(string.gsub(name,":","_").."_spawn") ~= false then
 		mobs.spawning_mobs[name] = true
 		minetest.register_abm({
 			nodenames = nodes,
@@ -811,7 +811,7 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 				if mobs:check_player_dist(pos, node) then
 					return
 				end
-				if minetest.setting_getbool("display_mob_spawn") then
+				if minetest.settings:get_bool("display_mob_spawn") then
 					minetest.chat_send_all("[mobs] Add "..name.." at "..minetest.pos_to_string(pos))
 				end
 				minetest.add_entity(pos, name)
@@ -860,7 +860,7 @@ minetest.register_craftitem(mob, {
 		if pointed_thing.above and not minetest.is_protected(pos, placer:get_player_name()) then
 			pos.y = pos.y + 0.5
 			minetest.add_entity(pos, mob)
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:take_item()
 			end
 		end

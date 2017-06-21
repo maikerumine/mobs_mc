@@ -137,6 +137,6 @@ mobs:register_spawn("mobs_mc:horseskeleton", {"default:cobblestone"}, 5, -1, 170
 --spawnegg
 mobs:register_egg("mobs_mc:horseskeleton", "Skeleton Horse", "horseskeleton_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Skeleton Horse loaded")
 end

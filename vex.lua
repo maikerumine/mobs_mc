@@ -74,6 +74,6 @@ mobs:register_mob("mobs_mc:vex", {
 mobs:register_egg("mobs_mc:vex", "Vex", "vex_inv.png", 0)
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Vex loaded")
 end

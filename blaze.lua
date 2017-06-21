@@ -114,6 +114,6 @@ mobs:register_egg("mobs_mc:blaze", "Blaze", "blaze_inv.png", 0)
 
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Blaze loaded")
 end

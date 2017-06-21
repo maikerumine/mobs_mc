@@ -73,6 +73,6 @@ mobs:register_spawn("mobs_mc:cavespider", {"default:mossycobble" ,"default:wood"
 --mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
 mobs:register_egg("mobs_mc:cavespider", "Cave Spider", "cave_spider_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Spiders loaded")
 end

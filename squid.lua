@@ -12,9 +12,8 @@ mobs:register_mob("mobs_mc:squid", {
     hp_min = 10,
     hp_max = 10,
     armor = 100,
-    -- Note: This collision box is pretty generous because they can't be rotated yet, but at least it not confusing for the player.
-    -- TODO: Make the hitbox smaller when Minetest supports rotation of collision boxes
-    collisionbox = {-1.5, 1.3, -1.5, 1.5, 2.3, 1.5},
+    -- FIXME: If the squid is near the floor, it turns black
+    collisionbox = {-0.4, 0.1, -0.4, 0.4, 0.9, 0.4},
     visual = "mesh",
     mesh = "mobs_squid.b3d",
     textures = {
@@ -38,26 +37,26 @@ mobs:register_mob("mobs_mc:squid", {
 		max = 3,},
 	},
     rotate = 180,
-    visual_size = {x=4.5, y=4.5},
+    visual_size = {x=1.5, y=1.5},
     makes_footstep_sound = false,
     stepheight = 1.1,
     fly = true,
-	--floats=1,
     fly_in = "default:water_source",
     fall_speed = -2,
-    view_range = 8,
+    view_range = 16,
     fall_damage = 1,
     water_damage = 0,
     lava_damage = 4,
     light_damage = 0,
+    runaway = true,
     
 })
 
+-- Spawn near the water surface
+
+local water = tonumber(minetest.setting_get("water_level")) or 0
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
---mobs:spawn_specific("mobs_mc:squid", l_spawn_in, l_spawn_near, l_min_light, l_max_light, 30, 5000, 2, -31000, l_max_height )
---mobs:register_spawn("mobs_mc:squid",
---	{"default:water_source"}, 20, 10, 5000, 2, 31000, true)
-mobs:spawn_specific("mobs_mc:squid", {"stairs:water_source"}, {"default:water_source"}, 0, 20, 30, 6000, 3, -31000, -3, true)
+mobs:spawn_specific("mobs_mc:squid", {"default:water_source"}, {"default:water_source"}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
 
 -- compatibility
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")

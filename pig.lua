@@ -178,6 +178,10 @@ mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 -- spawn eggs
 mobs:register_egg("mobs_mc:pig", "Pig", "mobs_mc_spawn_icon_pig.png", 0)
 
+<<<<<<< HEAD
 if minetest.settings:get("log_mods") then
+=======
+if minetest.settings:get_bool("log_mods") then
+>>>>>>> parent of 3c1d5d0... hopefully fixed
 	minetest.log("action", "MC Pig loaded")
 end

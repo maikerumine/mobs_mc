@@ -92,6 +92,6 @@ mobs:spawn_specific("mobs_mc:stray", {"default:sandstone", "default:sand"},{"air
 -- spawn eggs
 mobs:register_egg("mobs_mc:stray", "Stray", "stray_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Stray Skeleton loaded")
 end

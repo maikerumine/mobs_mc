@@ -1,8 +1,6 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+<<<<<<< HEAD
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -11,24 +9,29 @@
 --###################
 
 
+=======
+>>>>>>> parent of 3c1d5d0... hopefully fixed
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
 
+	hp_min = 4,
 	hp_max = 4,
-    collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.7, 0.2},
+	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.69, 0.2},
+	runaway = true,
+	floats = 1,
 
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "chicken.b3d",
 	textures = {
 		{"chicken.png"},
-},
+	},
 	visual_size = {x=2.2, y=2.2},
 
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs:chicken_raw",
+		{name = "mobs_mc:chicken_raw",
 		chance = 1,
 		min = 1,
 		max = 1,},
@@ -42,9 +45,9 @@ mobs:register_mob("mobs_mc:chicken", {
 	lava_damage = 5,
 	light_damage = 0,
 	sounds = {
-		random = "Chicken1",
-		death = "Chickenhurt1",
-		hurt = "Chickenhurt1",
+		random = "mobs_chicken",
+		death = "Chickenhurt1", -- TODO: replace
+		damage = "Chickenhurt1", -- TODO: replace
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -54,7 +57,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	},
 
 	follow = {"farming:seed_wheat", "farming:seed_cotton"},
-	view_range = 5,
+	view_range = 16,
 
 	on_rightclick = function(self, clicker)
 
@@ -78,12 +81,12 @@ mobs:register_mob("mobs_mc:chicken", {
 
 		local pos = self.object:getpos()
 
-		minetest.add_item(pos, "mobs:egg")
+		minetest.add_item(pos, "mobs_mc:egg")
 
-		minetest.sound_play("default_place_node_hard", {
+		minetest.sound_play("mobs_mc_chicken_lay_egg", {
 			pos = pos,
 			gain = 1.0,
-			max_hear_distance = 5,
+			max_hear_distance = 16,
 		})
 	end,	
 	
@@ -200,8 +203,45 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 	return item
 end
 
+<<<<<<< HEAD
 
 
+=======
+-- egg
+minetest.register_craftitem("mobs_mc:egg", {
+	description = "Egg",
+	inventory_image  = "mobs_chicken_egg.png",
+	wield_image = "mobs_chicken_egg.png",
+	on_use = mobs_shoot_egg,
+})
+
+
+-- chicken
+minetest.register_craftitem("mobs_mc:chicken_raw", {
+	description = "Raw Chicken",
+	inventory_image = "chicken_raw.png",
+	on_use = minetest.item_eat(2),
+})
+
+minetest.register_craftitem("mobs_mc:chicken_cooked", {
+	description = "Cooked Chicken",
+	inventory_image = "chicken_cooked.png",
+	on_use = minetest.item_eat(6),
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "mobs:chicken_cooked",
+	recipe = "mobs:chicken_raw",
+	cooktime = 5,
+})
+
+-- leather, feathers, etc.
+minetest.register_craftitem(":mobs:feather", {
+	description = "Feather",
+	inventory_image = "mobs_feather.png",
+})
+>>>>>>> parent of 3c1d5d0... hopefully fixed
 
 
 --spawn
@@ -214,6 +254,6 @@ mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC chicken loaded")
 end
