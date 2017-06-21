@@ -71,12 +71,11 @@ mobs:register_mob("mobs_mc:ender_man", {
 -- compatibility
 mobs:alias_mob("mobs_mc:enderman", "mobs_mc:ender_man")
 
---spawn
-mobs:register_spawn("mobs_mc:ender_man", { "default:sand", "default:desert_sand"}, 7, -1, 9000, 1, 31000)
-mobs:register_spawn("mobs_mc:ender_man", { "default:end_stone"}, 7, -1, 5000, 5, -5000)
+--spawn on solid blocks
+mobs:register_spawn("mobs_mc:ender_man", { "group:crumbly", "group:cracky", "group:solid" }, 7, 0, 9000, 1, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ender_man", "Ender man", "mobs_mc_spawn_icon_enderman.png", 0)
+mobs:register_egg("mobs_mc:ender_man", "Enderman", "mobs_mc_spawn_icon_enderman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 
