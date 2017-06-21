@@ -73,21 +73,6 @@ mobs:register_arrow("mobs_mc:shulkerbullet", {
 	end
 })
 
-minetest.register_craft({
-	output = 'mcl_chests:violet_shulker_box',
-	recipe = {
-		{'mobs_mc:shulker_shell'},
-		{'mcl_chests:chest'},
-		{'mobs_mc:shulker_shell'},
-	}
-})
-
-minetest.register_craftitem("mobs_mc:shulker_shell", {
-	description = "Shulker Shell",
-	inventory_image = "mcl_mobitems_shulker_shell.png",
-	groups = { craftitem = 1 },
-})
-
 
 mobs:register_egg("mobs_mc:shulker", "Shulker", "shulker_inv.png", 0)
 
@@ -97,6 +82,6 @@ mobs:spawn_specific("mobs_mc:shulker", {"default:purpur_block"}, {"default:cobbl
 
 
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Shulkers loaded")
 end

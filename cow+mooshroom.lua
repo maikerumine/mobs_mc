@@ -128,56 +128,6 @@ mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 17000, 2,
 mobs:register_spawn("mobs_mc:mooshroom", {"default:mycelium_snow", "default:mycelium"}, 20, 8, 7000, 1, 31000)
 
 
--- Craftitems
--- beef
-minetest.register_craftitem("mobs_mc:beef_raw", {
-	description = "Raw Beef",
-	inventory_image = "mcl_mobitems_beef_raw.png",
-	on_use = minetest.item_eat(3),
-})
-
-minetest.register_craftitem("mobs_mc:beef_cooked", {
-	description = "Steak",
-	inventory_image = "mcl_mobitems_beef_cooked.png",
-	on_use = minetest.item_eat(8),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs_mc:beef_cooked",
-	recipe = "mobs_mc:beef_raw",
-	cooktime = 5,
-})
-
--- Bowl and mushroom stew
-minetest.register_craftitem("mobs_mc:bowl", {
-	description = "Bowl",
-	inventory_image = "mcl_core_bowl.png",
-})
-
-minetest.register_craft({
-	output = "mobs_mc:bowl",
-	recipe = {
-		{ "group:wood", "", "group:wood" },
-		{ "", "group:wood", "", },
-	}
-})
-
-minetest.register_craftitem("mobs_mc:mushroom_stew", {
-	description = "Mushroom Stew",
-	inventory_image = "farming_mushroom_stew.png",
-	on_use = minetest.item_eat(6, "mobs_mc:bowl"),
-	stack_max = 1,
-})
-
--- milk
-minetest.register_craftitem("mobs_mc:milk_bucket", {
-	description = "Milk",
-	inventory_image = "mobs_bucket_milk.png",
-	on_use = minetest.item_eat(1, "bucket:bucket_empty"),
-	stack_max = 1,
-})
-
 -- compatibility
 mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 

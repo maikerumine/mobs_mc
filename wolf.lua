@@ -4,9 +4,11 @@ local default_walk_chance = 50
 
 local pr = PseudoRandom(os.time()*10)
 
+
 -- Wolf
 local wolf = {
 	type = "animal",
+
 	hp_min = 8,
 	hp_max = 8,
 	passive = false,
@@ -175,6 +177,6 @@ mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 
 mobs:register_egg("mobs_mc:wolf", "Wolf", "mobs_mc_spawn_icon_wolf.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Wolf loaded")
 end

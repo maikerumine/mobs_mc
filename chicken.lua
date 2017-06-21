@@ -1,7 +1,5 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
+
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
@@ -9,55 +7,30 @@
 --###################
 --################### CHICKEN
 --###################
---[[
-mobs:register_mob("mobs_mc:6chicken", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "chicken.b3d",
-	textures = {
-		{"chicken.png"},
-	},
-	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
 
-mobs:register_egg("mobs_mc:6chicken", "Chicken", "chicken_inv.png", 0)
-]]
+
 
 mobs:register_mob("mobs_mc:chicken", {
 	type = "animal",
 
+	hp_min = 4,
 	hp_max = 4,
-    collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.7, 0.2},
+	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.69, 0.2},
+	runaway = true,
+	floats = 1,
 
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "chicken.b3d",
 	textures = {
 		{"chicken.png"},
-},
+	},
 	visual_size = {x=2.2, y=2.2},
 
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs:chicken_raw",
+		{name = "mobs_mc:chicken_raw",
 		chance = 1,
 		min = 1,
 		max = 1,},
@@ -71,9 +44,9 @@ mobs:register_mob("mobs_mc:chicken", {
 	lava_damage = 5,
 	light_damage = 0,
 	sounds = {
-		random = "Chicken1",
-		death = "Chickenhurt1",
-		hurt = "Chickenhurt1",
+		random = "mobs_chicken",
+		death = "Chickenhurt1", -- TODO: replace
+		damage = "Chickenhurt1", -- TODO: replace
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -83,7 +56,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	},
 
 	follow = {"farming:seed_wheat", "farming:seed_cotton"},
-	view_range = 5,
+	view_range = 16,
 
 	on_rightclick = function(self, clicker)
 
@@ -107,19 +80,18 @@ mobs:register_mob("mobs_mc:chicken", {
 
 		local pos = self.object:getpos()
 
-		minetest.add_item(pos, "mobs:egg")
+		minetest.add_item(pos, "mobs_mc:egg")
 
-		minetest.sound_play("default_place_node_hard", {
+		minetest.sound_play("mobs_mc_chicken_lay_egg", {
 			pos = pos,
 			gain = 1.0,
-			max_hear_distance = 5,
+			max_hear_distance = 16,
 		})
 	end,	
 	
 })
 
 -- egg entity
-
 mobs:register_arrow("mobs_mc:egg_entity", {
 	visual = "sprite",
 	visual_size = {x=.5, y=.5},
@@ -230,40 +202,25 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 	return item
 end
 
+
+
 -- egg
-minetest.register_node(":mobs:egg", {
+minetest.register_craftitem("mobs_mc:egg", {
 	description = "Egg",
-	tiles = {"mobs_chicken_egg.png"},
 	inventory_image  = "mobs_chicken_egg.png",
-	visual_scale = 0.7,
-	drawtype = "plantlike",
 	wield_image = "mobs_chicken_egg.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	groups = {snappy = 2, dig_immediate = 3},
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
-		end
-	end,
-	on_use = mobs_shoot_egg
+	on_use = mobs_shoot_egg,
 })
 
 
 -- chicken
-minetest.register_craftitem(":mobs:chicken_raw", {
+minetest.register_craftitem("mobs_mc:chicken_raw", {
 	description = "Raw Chicken",
 	inventory_image = "chicken_raw.png",
 	on_use = minetest.item_eat(2),
 })
 
-minetest.register_craftitem(":mobs:chicken_cooked", {
+minetest.register_craftitem("mobs_mc:chicken_cooked", {
 	description = "Cooked Chicken",
 	inventory_image = "chicken_cooked.png",
 	on_use = minetest.item_eat(6),
@@ -276,46 +233,6 @@ minetest.register_craft({
 	cooktime = 5,
 })
 
---[[
--- from mobs_redo
--- egg
-minetest.register_node(":mobs:egg", {
-	description = "Chicken Egg",
-	tiles = {"mobs_chicken_egg.png"},
-	inventory_image  = "mobs_chicken_egg.png",
-	visual_scale = 0.7,
-	drawtype = "plantlike",
-	wield_image = "mobs_chicken_egg.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	groups = {snappy = 2, dig_immediate = 3},
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
-		end
-	end,
-	on_use = mobs_shoot_egg
-})
-]]
--- fried egg
-minetest.register_craftitem(":mobs:chicken_egg_fried", {
-description = "Fried Egg",
-	inventory_image = "mobs_chicken_egg_fried.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craft({
-	type  =  "cooking",
-	recipe  = "mobs:egg",
-	output = "mobs:chicken_egg_fried",
-})
-
 -- leather, feathers, etc.
 minetest.register_craftitem(":mobs:feather", {
 	description = "Feather",
@@ -323,16 +240,17 @@ minetest.register_craftitem(":mobs:feather", {
 })
 
 
+
 --spawn
 mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000, 3, 31000)
 
 
 -- compatibility
-mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
+--mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC chicken loaded")
 end

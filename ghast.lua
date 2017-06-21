@@ -9,36 +9,7 @@
 --###################
 --################### GHAST
 --###################
---[[
-mobs:register_mob("mobs_mc:15ghast", {
-	type = "animal",
-	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
-	visual = "mesh",
-	mesh = "ghast.b3d",
-	textures = {
-		{"ghast.png"},
-	},
-	visual_size = {x=4, y=4},
-	walk_velocity = 0.6,
-	run_velocity = 2,
-	jump = true,
-	animation = {
-		speed_normal = 25,		speed_run = 25,
-		stand_start = 0,		stand_end = 40,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
-	},
-})
 
-mobs:register_egg("mobs_mc:15ghast", "Ghast", "ghast_inv.png", 0)
-]]
 
 mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
@@ -140,20 +111,13 @@ mobs:register_arrow(":mobs_monster:fireball", {
 	end
 })
 
-minetest.register_craftitem("mobs_mc:ghast_tear", {
-	description = "Ghast Tear",
-	_doc_items_longdesc = "A ghast tear is an item used in potion brewing. It is dropped from dead ghasts.",
-	wield_image = "mcl_mobitems_ghast_tear.png",
-	inventory_image = "mcl_mobitems_ghast_tear.png",
-	groups = { brewitem = 1 },
-	stack_max = 64,
-})
+
 
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
 mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_inv.png", 0)
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ghast loaded")
 end
