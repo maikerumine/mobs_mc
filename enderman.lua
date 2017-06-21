@@ -58,7 +58,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_sandmonster",
+		war_cry = "mobs_sandmonster",
 		death = "green_slime_death",
 		damage = "Creeperdeath",
 	},
