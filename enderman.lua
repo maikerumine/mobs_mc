@@ -16,12 +16,12 @@ local take_frequency = 10
 local place_frequency = 10
 
 local takable = {
-	-- For entensions
-	"enderman_takable",
+	-- Generic handling, useful for entensions
+	"group:enderman_takable",
 
-	-- Generic
-	"sand",
-	"flower",
+	-- Generic nodes
+	"group:sand",
+	"group:flower",
 
 	-- Minetest Game
 	"default:dirt",
