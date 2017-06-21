@@ -14,13 +14,13 @@
 
 mobs:register_mob("mobs_mc:ender_man", {
 	type = "monster",
-    runaway = true,
-    pathfinding = 2,
-    stepheight = 1.2,
+	runaway = true,
+	pathfinding = 2,
+	stepheight = 1.2,
 	hp_min = 40,
 	hp_max = 40,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2.75, 0.35},
-    rotate = -180,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 2.89, 0.3},
+	rotate = -180,
 	visual = "mesh",
 	mesh = "enderman.b3d",
 	textures = {
