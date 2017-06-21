@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:ender_man", {
 	visual = "mesh",
 	mesh = "enderman.b3d",
 	textures = {
-		{"mobs_mc_enderman.png^mobs_mc_enderman_eyes.png"},
+		{"mobs_mc_enderman.png^(mobs_mc_enderman_eyes.png^[makealpha:0,0,0)"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
