@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:ender_man", {
 	visual = "mesh",
 	mesh = "enderman.b3d",
 	textures = {
-		{"enderman.png"},
+		{"mobs_mc_enderman.png^mobs_mc_enderman_eyes.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -76,7 +76,7 @@ mobs:register_spawn("mobs_mc:ender_man", { "default:sand", "default:desert_sand"
 mobs:register_spawn("mobs_mc:ender_man", { "default:end_stone"}, 7, -1, 5000, 5, -5000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ender_man", "Ender man", "enderman_inv.png", 0)
+mobs:register_egg("mobs_mc:ender_man", "Ender man", "mobs_mc_spawn_icon_enderman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 
