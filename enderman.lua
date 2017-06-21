@@ -11,6 +11,33 @@
 --################### ENDERMAN
 --###################
 
+local pr = PseudoRandom(os.time()*(-334))
+
+local takable = {
+	-- For entensions
+	"enderman_takable",
+
+	-- Generic
+	"sand",
+	"flower",
+
+	-- Minetest Game
+	"default:dirt",
+	"default:dirt_with_grass",
+	"default:dirt_with_dry_grass",
+	"default:dirt_with_snow",
+	"default:dirt_with_rainforest_litter",
+	"default:dirt_with_grass_footsteps",
+	"default:cactus",
+	"default:gravel",
+	"default:clay",
+	"flowers:mushroom_red",
+	"flowers:mushroom_brown",
+	"tnt:tnt",
+
+	-- Nether mod
+	"nether:rack",
+}
 
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
@@ -52,6 +79,45 @@ mobs:register_mob("mobs_mc:enderman", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
+	_taken_node = "",
+	do_custom = function(self, dtime)
+		-- Take and put nodes
+		if not self._take_place_timer then
+			self._take_place_timer = 0
+			return
+		end
+		self._take_place_timer = self._take_place_timer + dtime
+		if (self._taken_node == nil or self._taken_node == "") and self._take_place_timer >= 10 then
+			-- Take random node
+			self._take_place_timer = 0
+			local pos = self.object:getpos()
+			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, takable)
+			if #takable_nodes >= 1 then
+				local r = pr:next(1, #takable_nodes)
+				local take_pos = takable_nodes[r]
+				local node = minetest.get_node(take_pos)
+				local dug = minetest.dig_node(take_pos)
+				if dug then
+					self._taken_node = node.name
+					-- TODO: Update enderman model
+					minetest.sound_play(sound, {pos=pos, max_hear_distance = 16})
+				end
+			end
+		elseif self._taken_node ~= nil and self._taken_node ~= "" and self._take_place_timer >= 10 then
+			-- Place taken node
+			self._take_place_timer = 0
+			local pos = self.object:getpos()
+			-- TODO: Place around enderman
+			minetest.place_node({x=pos.x+1, y=pos.y, z=pos.z}, {name = self._taken_node})
+			self._taken_node = ""
+		end
+	end,
+	on_die = function(self, pos)
+		-- Drop carried node on death
+		if self._taken_node ~= nil and self.taken_node ~= "" then
+			minetest.add_item(pos, self.taken_node)
+		end
+	end,
 	drawtype = "front",
 	water_damage = 8,
 	lava_damage = 5,
@@ -59,10 +125,6 @@ mobs:register_mob("mobs_mc:enderman", {
 	view_range = 16,
 	fear_height = 10,
 	attack_type = "dogfight",
-	replace_rate = 1,
-	replace_what = {"default:torch","default:torch_wall", "default:cobble","default:wood"},
-	replace_with = "air",
-	replace_offset = -1,
 
 })
 
