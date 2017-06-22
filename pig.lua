@@ -17,7 +17,7 @@ mobs:register_mob("mobs_mc:pig", {
 	walk_velocity = 1,
 	run_velocity = 3,
 	drops = {
-		{name = "mobs:pork_raw",
+		{name = "mobs_mc:porkchop_raw",
 		chance = 1,
 		min = 1,
 		max = 3,},
@@ -81,7 +81,7 @@ mobs:register_mob("mobs_mc:pig", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, "mobs:saddle")
+			minetest.add_item(pos, "mobs_mc:saddle")
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -102,7 +102,7 @@ mobs:register_mob("mobs_mc:pig", {
 
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
-		if item:get_name() == "mobs:saddle" and self.saddle ~= "yes" then
+		if item:get_name() == "mobs_mc:saddle" and self.saddle ~= "yes" then
 			self.base_texture = {"mobs_mc_pig.png^mobs_mc_pig_saddle.png"}
 			self.object:set_properties({
 				textures = self.base_texture
@@ -110,11 +110,11 @@ mobs:register_mob("mobs_mc:pig", {
 			self.saddle = "yes"
 			self.tamed = true
 			self.drops = {
-				{name = "mobs:pork_raw",
+				{name = "mobs_mc:porkchop_raw",
 				chance = 1,
 				min = 1,
 				max = 3,},
-				{name = "mobs:saddle",
+				{name = "mobs_mc:saddle",
 				chance = 1,
 				min = 1,
 				max = 1,},

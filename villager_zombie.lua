@@ -36,7 +36,7 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 		attack_type = "dogfight",
 	group_attack = true,
 	drops = {
-		{name = "mobs:rotten_flesh",
+		{name = "mobs_mc:rotten_flesh",
 		chance = 1,
 		min = 0,
 		max = 2,},

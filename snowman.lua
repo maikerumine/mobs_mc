@@ -104,22 +104,6 @@ mobs:register_mob("mobs_mc:enderman", {
 
 })
 
-minetest.register_craftitem("mobs_mc:ender_eye", {
-	description = "Ender Eye",
-
-	inventory_image = "mcl_end_ender_eye.png",
-	groups = { craftitem = 1 },
-})
-
-minetest.register_craft({
-	output		= 'mobs_mc:ender_eye',
-	recipe		= {
-		{ 'farorb:farorb', 'mobs_mc:blaze_rod'}
-	}
-})
-
-
-
 
 mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 5, -1, 5000, 4, 31000)
 
