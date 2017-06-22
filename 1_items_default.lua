@@ -356,36 +356,6 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 
 --spider
 
--- Cobweb
-minetest.register_node("mobs_mc:cobweb", {
-	description = "Cobweb",
-	drawtype = "plantlike",
-	visual_scale = 1.1,
-	tiles = {"mobs_cobweb.png"},
-	inventory_image = "mobs_cobweb.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	liquid_viscosity = 11,
-	liquidtype = "source",
-	liquid_alternative_flowing = "mobs_mc:cobweb",
-	liquid_alternative_source = "mobs_mc:cobweb",
-	liquid_renewable = false,
-	liquid_range = 0,
-	walkable = false,
-	groups = {snappy=1,liquid=3},
-	drop = "farming:cotton",
-	sounds = default.node_sound_leaves_defaults(),
-})
-
-minetest.register_craft({
-	output = "mobs_mc:cobweb",
-	recipe = {
-		{"farming:string", "", "farming:string"},
-		{"", "farming:string", ""},
-		{"farming:string", "", "farming:string"},
-	}
-})
-
 minetest.register_craftitem("mobs_mc:spider_eye", {
 	description = "Spider Eye",
 	_doc_items_longdesc = "Spider eyes are used mainly in crafting and brewing. If you're really desperate, you can eat a spider eye for 2 hunger points, but it will poison you.",
