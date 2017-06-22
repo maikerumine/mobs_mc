@@ -15,7 +15,6 @@ mobs:register_mob("mobs_mc:vex", {
 	type = "monster",
 	pathfinding = 1,
 	passive = false,
-	group_attack = true,
 	attack_type = "dogfight",
 	physical = false,
 	hp_min = 14,
@@ -32,9 +31,7 @@ mobs:register_mob("mobs_mc:vex", {
 	view_range = 16,
 	walk_velocity = 3.2,
 	run_velocity = 5.9,
-	group_attack = true,
 	attack_type = "dogfight",
-	armor = 160,
 	sounds = {
 		random = "mobs_rat",
 		death = "green_slime_death",
