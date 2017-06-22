@@ -168,6 +168,67 @@ minetest.register_craft({
 })
 
 -- egg throwing item
+-- egg entity
+mobs:register_arrow("mobs_mc:egg_entity", {
+	visual = "sprite",
+	visual_size = {x=.5, y=.5},
+	textures = {"mobs_chicken_egg.png"},
+	velocity = 6,
+
+	hit_player = function(self, player)
+		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {fleshy = 1},
+		}, nil)
+	end,
+
+	hit_mob = function(self, player)
+		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {fleshy = 1},
+		}, nil)
+	end,
+
+	hit_node = function(self, pos, node)
+
+		if math.random(1, 10) > 1 then
+			return
+		end
+
+		pos.y = pos.y + 1
+
+		local nod = minetest.get_node_or_nil(pos)
+
+		if not nod
+		or not minetest.registered_nodes[nod.name]
+		or minetest.registered_nodes[nod.name].walkable == true then
+			return
+		end
+
+		local mob = minetest.add_entity(pos, "mobs_mc:chicken")
+		local ent2 = mob:get_luaentity()
+
+		mob:set_properties({
+			textures = {"chicken.png"},
+			visual_size = {
+				x = ent2.base_size.x / 2,
+				y = ent2.base_size.y / 2
+			},
+			collisionbox = {
+				ent2.base_colbox[1] / 2,
+				ent2.base_colbox[2] / 2,
+				ent2.base_colbox[3] / 2,
+				ent2.base_colbox[4] / 2,
+				ent2.base_colbox[5] / 2,
+				ent2.base_colbox[6] / 2
+			},
+		})
+
+		ent2.child = true
+		ent2.tamed = true
+		ent2.owner = self.playername
+	end
+})
 
 local egg_GRAVITY = 9
 local egg_VELOCITY = 19
