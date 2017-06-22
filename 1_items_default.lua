@@ -24,6 +24,11 @@ minetest.register_craftitem("mobs_mc:blaze_powder", {
 	inventory_image = "mcl_mobitems_blaze_powder.png",
 })
 
+minetest.register_craft({
+	output = "mobs_mc:blaze_powder 2",
+	recipe = {{ "mobs_mc:blaze_rod" }},
+})
+
 --chicken
 -- egg
 minetest.register_node("mobs_mc:egg", {
