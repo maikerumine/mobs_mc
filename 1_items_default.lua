@@ -42,28 +42,12 @@ minetest.register_craft({
 
 --chicken
 -- egg
-minetest.register_node("mobs_mc:egg", {
+minetest.register_craftitem("mobs_mc:egg", {
 	description = "Egg",
 	tiles = {"mobs_chicken_egg.png"},
 	inventory_image  = "mobs_chicken_egg.png",
-	visual_scale = 0.7,
-	drawtype = "plantlike",
 	wield_image = "mobs_chicken_egg.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	groups = {snappy = 2, dig_immediate = 3},
-	after_place_node = function(pos, placer, itemstack)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs_mc:egg", param2 = 1})
-		end
-	end,
-	on_use = mobs_shoot_egg
+	on_use = mobs_shoot_egg,
 })
 
 
