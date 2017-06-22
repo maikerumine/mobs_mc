@@ -40,8 +40,6 @@ minetest.register_craft({
 	recipe = "mobs_mc:blaze_rod",
 })
 
---chicken
-
 -- chicken
 minetest.register_craftitem("mobs_mc:chicken_raw", {
 	description = "Raw Chicken",

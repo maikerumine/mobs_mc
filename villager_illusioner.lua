@@ -7,7 +7,7 @@ mobs:register_mob("mobs_mc:illusioner", {
 	type = "monster",
 	attack_type = "shoot",
     shoot_interval = 0.5,
-	arrow = "mobs:arrow_entity",
+	arrow = "mobs_mc:arrow_entity",
 	shoot_offset = 1.5,
     stepheight = 1.2,
 	hp_min = 30,

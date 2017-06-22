@@ -37,11 +37,11 @@ mobs:register_mob("mobs_mc:skeleton", {
 	run_velocity = 2.4,
 	damage = 2,
 	drops = {
-		{name = "throwing:arrow",
+		{name = "mobs_mc:arrow",
 		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "throwing:bow_wood",
+		{name = "mobs_mc:bow_wood",
 		chance = 11,
 		min = 1,
 		max = 1,},
@@ -78,7 +78,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	view_range = 16,
 	attack_type = "dogshoot",
 	--arrow = "throwing:arrow_entity",  --was "mobs:arrow_entity"
-	arrow = "mobs:arrow_entity",
+	arrow = "mobs_mc:arrow_entity",
 	shoot_interval = 2.5,
 	shoot_offset = 1,
 	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)

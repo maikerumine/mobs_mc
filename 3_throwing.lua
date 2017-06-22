@@ -6,12 +6,12 @@
 
 --maikerumines throwing code
 --arrow (weapon)
-minetest.register_craftitem(":mobs:arrow", {
+minetest.register_craftitem("mobs_mc:arrow", {
 	description = "Arrow",
-	inventory_image = "arrow.png",
+	inventory_image = "throwing_arrow_2.png",
 })
 
-minetest.register_node(":mobs:arrow_box", {
+minetest.register_node("mobs_mc:arrow_box", {
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
@@ -44,8 +44,7 @@ local THROWING_ARROW_ENTITY={
 	timer=0,
 	visual = "wielditem",
 	visual_size = {x=0.1, y=0.1},
-	textures = {"mobs:arrow_box"},
-	--textures = {"esmobs:arrow.png"},
+	textures = {"mobs_mc:arrow_box"},
 	velocity = 10,
 	lastpos={},
 	collisionbox = {0,0,0,0,0,0},
@@ -66,14 +65,14 @@ minetest.add_particle({
     size = 1,
     collisiondetection = false,
     vertical = false,
-    texture = "arrow_particle.png",
+    texture = "mobs_mc_arrow_particle.png",
 })
 
 	if self.timer>0.2 then
 		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 1.5)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
-				if obj:get_luaentity().name ~= "mobs:arrow_entity" and obj:get_luaentity().name ~= "__builtin:item" then
+				if obj:get_luaentity().name ~= "mobs_mc:arrow_entity" and obj:get_luaentity().name ~= "__builtin:item" then
 					local damage = 3
 					minetest.sound_play("damage", {pos = pos})
 					obj:punch(self.object, 1.0, {
@@ -97,9 +96,7 @@ minetest.add_particle({
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
 			minetest.sound_play("bowhit1", {pos = pos})
-			--minetest.punch_node(pos)  --this crash game when bones for mobs used
-			--minetest.add_item(self.lastpos, 'mobs:arrow')
-			minetest.add_item(self.lastpos, 'throwing:arrow')--make for throwing compatibility
+			minetest.add_item(self.lastpos, 'mobs_mc:arrow')
 			self.object:remove()
 		end
 	end
@@ -107,21 +104,21 @@ minetest.add_particle({
 end
 
 
-minetest.register_entity(":mobs:arrow_entity", THROWING_ARROW_ENTITY)
+minetest.register_entity("mobs_mc:arrow_entity", THROWING_ARROW_ENTITY)
 
 
 minetest.register_craft({
-	output = 'mobs:arrow 4',
+	output = 'mobs_mc:arrow 4',
 	recipe = {
 		{'default:flint'},
-		{'default:stick'},
-		{'mobs:feather'},
+		{'group:stick'},
+		{'mobs_mc:feather'},
 	}
 })
 
 
 arrows = {
-	{"mobs:arrow", "mobs:arrow_entity" },
+	{"mobs_mc:arrow", "mobs_mc:arrow_entity" },
 }
 
 local throwing_shoot_arrow = function(itemstack, player)
@@ -148,10 +145,9 @@ local throwing_shoot_arrow = function(itemstack, player)
 	return false
 end
 
-minetest.register_tool(":mobs:bow_wood", {
+minetest.register_tool("mobs_mc:bow_wood", {
 	description = "Bow",
-	inventory_image = "bow_standby.png",
-    stack_max = 1,
+	inventory_image = "mobs_mc_bow.png",
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 			if not minetest.settings:get_bool("creative_mode") then
@@ -163,11 +159,11 @@ minetest.register_tool(":mobs:bow_wood", {
 })
 
 minetest.register_craft({
-	output = 'mobs:bow_wood',
+	output = 'mobs_mc:bow_wood',
 	recipe = {
-		{'farming:cotton', 'default:stick', ''},
-		{'farming:cotton', '',              'default:stick'},
-		{'farming:cotton', 'default:stick', ''},
+		{'farming:cotton', 'group:stick', ''},
+		{'farming:cotton', '',              'group:stick'},
+		{'farming:cotton', 'group:stick', ''},
 	}
 })
 
@@ -219,6 +215,13 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 
 	return item
 end
+
+-- chicken
+minetest.register_craftitem("mobs_mc:egg", {
+	description = "Egg",
+	inventory_image = "mobs_chicken_egg.png",
+	on_use = mobs_shoot_egg,
+})
 
 --end maikerumine code
 
