@@ -68,7 +68,10 @@ mobs:register_mob("mobs_mc:vex", {
 				if self._damagetimer then
 					self._damagetimer = self._damagetimer - 1
 				end
-				self.object:set_hp(self.object:get_hp()-1)
+				self.object:punch(self.object, 1.0, {
+					full_punch_interval = 1.0,
+					damage_groups = {fleshy = 2},
+				}, nil)
 				self._damagetimer = 1
 			end
 		end
