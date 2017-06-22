@@ -76,7 +76,7 @@ minetest.register_craft({
 -- leather, feathers, etc.
 minetest.register_craftitem("mobs_mc:feather", {
 	description = "Feather",
-	inventory_image = "mobs_feather.png",
+	inventory_image = "mobs_chicken_feather.png",
 })
 
 --cows
@@ -202,7 +202,7 @@ minetest.register_craftitem("mobs_mc:ghast_tear", {
 
 minetest.register_craftitem("mobs_mc:saddle", {
 	description = "Saddle",
-	inventory_image = "saddle.png",
+	inventory_image = "mcl_mobitems_saddle.png",
 	stack_max = 1,
 })
 
@@ -221,14 +221,14 @@ minetest.register_craft({
 -- pork
 minetest.register_craftitem("mobs_mc:porkchop_raw", {
 	description = "Raw Porkchop",
-	inventory_image = "pork_raw.png",
+	inventory_image = "mcl_mobitems_porkchop_raw.png",
 	groups = { food = 2, eatable = 3 },
 	on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("mobs_mc:porkchop_cooked", {
 	description = "Cooked Porkchop",
-	inventory_image = "pork_cooked.png",
+	inventory_image = "mcl_mobitems_porkchop_cooked.png",
 	groups = { food = 2, eatable = 8 },
 	on_use = minetest.item_eat(8),
 })
