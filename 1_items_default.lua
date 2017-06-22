@@ -29,6 +29,17 @@ minetest.register_craft({
 	recipe = {{ "mobs_mc:blaze_rod" }},
 })
 
+-- Make blaze rod furnace-burnable. 1.5 times the burn time of a coal lump
+local coalcraft = minetest.get_craft_result({method="fuel", width=1, items={"default:coal_lump"}})
+local burntime = math.floor(coalcraft.time * 1.5)
+if burntime == 0 then burntime = 60 end
+
+minetest.register_craft({
+	type = "fuel",
+	burntime = burntime,
+	recipe = "mobs_mc:blaze_rod",
+})
+
 --chicken
 -- egg
 minetest.register_node("mobs_mc:egg", {
