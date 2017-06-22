@@ -125,7 +125,7 @@ minetest.register_craft({
 -- leather, feathers, etc.
 minetest.register_craftitem("mobs_mc:feather", {
 	description = "Feather",
-	inventory_image = "mobs_chicken_feather.png",
+	inventory_image = "mcl_mobitems_feather.png",
 })
 
 --cows

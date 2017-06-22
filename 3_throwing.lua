@@ -172,12 +172,6 @@ minetest.register_craft({
 })
 --end maikerumine code
 
--- leather, feathers, etc.
-minetest.register_craftitem(":mobs:feather", {
-	description = "Feather",
-	inventory_image = "mobs_feather.png",
-})
-
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")
 end
