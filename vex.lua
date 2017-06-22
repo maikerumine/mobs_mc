@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:vex", {
 	visual = "mesh",
 	mesh = "vex.b3d",
 	textures = {
-		{"vex.png"},
+		{"mobs_mc_vex.png"},
 	},
 	visual_size = {x=1.25, y=1.25},
 	damage = 9,
@@ -83,7 +83,7 @@ mobs:register_mob("mobs_mc:vex", {
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:vex", "Vex", "vex_inv.png", 0)
+mobs:register_egg("mobs_mc:vex", "Vex", "mobs_mc_spawn_icon_vex_inv.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then
