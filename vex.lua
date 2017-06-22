@@ -43,9 +43,22 @@ mobs:register_mob("mobs_mc:vex", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	-- Take constant damage if the vex' life clock ran out
-	-- (only for vexes summoned by evokers)
 	do_custom = function(self, dtime)
+		-- Glow red while attacking
+		if self.state == "attack" then
+			if self.base_texture[1] ~= "mobs_mc_vex_charging.png" then
+				self.base_texture = {"mobs_mc_vex_charging.png"}
+				self.object:set_properties({textures=self.base_texture})
+			end
+		else
+			if self.base_texture[1] ~= "mobs_mc_vex.png" then
+				self.base_texture = {"mobs_mc_vex.png"}
+				self.object:set_properties({textures=self.base_texture})
+			end
+		end
+
+		-- Take constant damage if the vex' life clock ran out
+		-- (only for vexes summoned by evokers)
 		if self._summoned then
 			if not self._lifetimer then
 				self._lifetimer = 33
