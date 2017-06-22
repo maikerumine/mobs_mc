@@ -15,8 +15,6 @@ minetest.register_craftitem("mobs_mc:blaze_rod", {
 	_doc_items_longdesc = "This is a crafting component dropped from dead blazes.",
 	wield_image = "mcl_mobitems_blaze_rod.png",
 	inventory_image = "mcl_mobitems_blaze_rod.png",
-	groups = { craftitem = 1 },
-	stack_max = 64,
 })
 
 minetest.register_craftitem("mobs_mc:blaze_powder", {
@@ -24,8 +22,6 @@ minetest.register_craftitem("mobs_mc:blaze_powder", {
 	_doc_items_longdesc = "This item is mainly used for brewing potions and crafting.",
 	wield_image = "mcl_mobitems_blaze_powder.png",
 	inventory_image = "mcl_mobitems_blaze_powder.png",
-	groups = { brewitem = 1 },
-	stack_max = 64,
 })
 
 --chicken
@@ -59,12 +55,14 @@ minetest.register_node(":mobs:egg", {
 minetest.register_craftitem(":mobs:chicken_raw", {
 	description = "Raw Chicken",
 	inventory_image = "chicken_raw.png",
+	groups = { food = 2, eatable = 2 },
 	on_use = minetest.item_eat(2),
 })
 
 minetest.register_craftitem(":mobs:chicken_cooked", {
 	description = "Cooked Chicken",
 	inventory_image = "chicken_cooked.png",
+	groups = { food = 2, eatable = 6 },
 	on_use = minetest.item_eat(6),
 })
 
@@ -73,19 +71,6 @@ minetest.register_craft({
 	output = "mobs:chicken_cooked",
 	recipe = "mobs:chicken_raw",
 	cooktime = 5,
-})
-
--- fried egg
-minetest.register_craftitem(":mobs:chicken_egg_fried", {
-description = "Fried Egg",
-	inventory_image = "mobs_chicken_egg_fried.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craft({
-	type  =  "cooking",
-	recipe  = "mobs:egg",
-	output = "mobs:chicken_egg_fried",
 })
 
 -- leather, feathers, etc.
@@ -101,12 +86,14 @@ minetest.register_craftitem(":mobs:feather", {
 minetest.register_craftitem("mobs_mc:beef_raw", {
 	description = "Raw Beef",
 	inventory_image = "mcl_mobitems_beef_raw.png",
+	groups = { food = 2, eatable = 3 },
 	on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("mobs_mc:beef_cooked", {
 	description = "Steak",
 	inventory_image = "mcl_mobitems_beef_cooked.png",
+	groups = { food = 2, eatable = 8 },
 	on_use = minetest.item_eat(8),
 })
 
@@ -134,6 +121,7 @@ minetest.register_craft({
 minetest.register_craftitem("mobs_mc:mushroom_stew", {
 	description = "Mushroom Stew",
 	inventory_image = "farming_mushroom_stew.png",
+	groups = { food = 3, eatable = 6 },
 	on_use = minetest.item_eat(6, "mobs_mc:bowl"),
 	stack_max = 1,
 })
@@ -142,6 +130,7 @@ minetest.register_craftitem("mobs_mc:mushroom_stew", {
 minetest.register_craftitem("mobs_mc:milk_bucket", {
 	description = "Milk",
 	inventory_image = "mobs_bucket_milk.png",
+	groups = { food = 3, eatable = 1 },
 	on_use = minetest.item_eat(1, "bucket:bucket_empty"),
 	stack_max = 1,
 })
@@ -207,7 +196,6 @@ minetest.register_craftitem("mobs_mc:ghast_tear", {
 	wield_image = "mcl_mobitems_ghast_tear.png",
 	inventory_image = "mcl_mobitems_ghast_tear.png",
 	groups = { brewitem = 1 },
-	stack_max = 64,
 })
 
 
@@ -235,12 +223,14 @@ minetest.register_craft({
 minetest.register_craftitem(":mobs:pork_raw", {
 	description = "Raw Porkchop",
 	inventory_image = "pork_raw.png",
+	groups = { food = 2, eatable = 3 },
 	on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem(":mobs:pork_cooked", {
 	description = "Cooked Porkchop",
 	inventory_image = "pork_cooked.png",
+	groups = { food = 2, eatable = 8 },
 	on_use = minetest.item_eat(8),
 })
 
@@ -306,12 +296,14 @@ minetest.register_craft({
 minetest.register_craftitem("mobs_mc:rabbit_raw", {
 	description = "Raw Rabbit",
 	inventory_image = "mcl_mobitems_rabbit_raw.png",
+	groups = { food = 2, eatable = 3 },
 	on_use = minetest.item_eat(3),
 })
 
 minetest.register_craftitem("mobs_mc:rabbit_cooked", {
 	description = "Cooked Rabbit",
 	inventory_image = "mcl_mobitems_rabbit_cooked.png",
+	groups = { food = 2, eatable = 5 },
 	on_use = minetest.item_eat(5),
 })
 
@@ -341,12 +333,14 @@ minetest.register_craft({
 minetest.register_craftitem(":mobs:mutton_raw", {
 	description = "Raw Mutton",
 	inventory_image = "mutton_raw.png",
+	groups = { food = 2, eatable = 4 },
 	on_use = minetest.item_eat(4),
 })
 
 minetest.register_craftitem(":mobs:mutton_cooked", {
 	description = "Cooked Mutton",
 	inventory_image = "mutton_cooked.png",
+	groups = { food = 2, eatable = 8 },
 	on_use = minetest.item_eat(8),
 })
 
@@ -382,7 +376,6 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 	wield_image = "mcl_mobitems_magma_cream.png",
 	inventory_image = "mcl_mobitems_magma_cream.png",
 	groups = { brewitem = 1 },
-	stack_max = 64,
 })
 
 
@@ -423,10 +416,8 @@ minetest.register_craftitem("mobs_mc:spider_eye", {
 	_doc_items_longdesc = "Spider eyes are used mainly in crafting and brewing. If you're really desperate, you can eat a spider eye for 2 hunger points, but it will poison you.",
 	inventory_image = "mcl_mobitems_spider_eye.png",
 	wield_image = "mcl_mobitems_spider_eye.png",
-	on_place = minetest.item_eat(2),
-	on_secondary_use = minetest.item_eat(2),
 	groups = { food = 2, eatable = 2 },
-	stack_max = 64,
+	on_use = minetest.item_eat(2),
 })
 
 --vex
@@ -445,6 +436,7 @@ minetest.register_craftitem("mobs_mc:totem", {
 minetest.register_craftitem(":mobs:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "mobs_rotten_flesh.png",
+	groups = { food = 2, eatable = 4 },
 	on_use = minetest.item_eat(4),
 })
 
