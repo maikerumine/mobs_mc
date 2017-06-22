@@ -209,7 +209,6 @@ mobs:register_arrow("mobs_mc:egg_entity", {
 		local ent2 = mob:get_luaentity()
 
 		mob:set_properties({
-			textures = {"chicken.png"},
 			visual_size = {
 				x = ent2.base_size.x / 2,
 				y = ent2.base_size.y / 2
