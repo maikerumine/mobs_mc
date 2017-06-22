@@ -20,15 +20,14 @@ mobs:register_mob("mobs_mc:vex", {
 	physical = false,
 	hp_min = 14,
 	hp_max = 14,
-	--collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
-	collisionbox = {-0.2, 0.01, -0.2, 0.2, 0.7, 0.2},  --bat
+	collisionbox = {-0.2, 0.2, -0.2, 0.2, 1.0, 0.2},  --bat
 	rotate = -180,
 	visual = "mesh",
 	mesh = "vex.b3d",
 	textures = {
 		{"vex.png"},
 	},
-	visual_size = {x=1.5, y=1.5},
+	visual_size = {x=1.25, y=1.25},
 	makes_footstep_sound = true,
 	damage = 9,
 	view_range = 16,
