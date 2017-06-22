@@ -178,14 +178,14 @@ mobs:register_arrow("mobs_mc:egg_entity", {
 	hit_player = function(self, player)
 		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 1},
+			damage_groups = {},
 		}, nil)
 	end,
 
 	hit_mob = function(self, player)
 		player:punch(minetest.get_player_by_name(self.playername) or self.object, 1.0, {
 			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 1},
+			damage_groups = {},
 		}, nil)
 	end,
 
