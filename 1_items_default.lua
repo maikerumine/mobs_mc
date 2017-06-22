@@ -26,7 +26,7 @@ minetest.register_craftitem("mobs_mc:blaze_powder", {
 
 --chicken
 -- egg
-minetest.register_node(":mobs:egg", {
+minetest.register_node("mobs_mc:egg", {
 	description = "Egg",
 	tiles = {"mobs_chicken_egg.png"},
 	inventory_image  = "mobs_chicken_egg.png",
@@ -44,7 +44,7 @@ minetest.register_node(":mobs:egg", {
 	groups = {snappy = 2, dig_immediate = 3},
 	after_place_node = function(pos, placer, itemstack)
 		if placer:is_player() then
-			minetest.set_node(pos, {name = "mobs:egg", param2 = 1})
+			minetest.set_node(pos, {name = "mobs_mc:egg", param2 = 1})
 		end
 	end,
 	on_use = mobs_shoot_egg
@@ -52,14 +52,14 @@ minetest.register_node(":mobs:egg", {
 
 
 -- chicken
-minetest.register_craftitem(":mobs:chicken_raw", {
+minetest.register_craftitem("mobs_mc:chicken_raw", {
 	description = "Raw Chicken",
 	inventory_image = "chicken_raw.png",
 	groups = { food = 2, eatable = 2 },
 	on_use = minetest.item_eat(2),
 })
 
-minetest.register_craftitem(":mobs:chicken_cooked", {
+minetest.register_craftitem("mobs_mc:chicken_cooked", {
 	description = "Cooked Chicken",
 	inventory_image = "chicken_cooked.png",
 	groups = { food = 2, eatable = 6 },
@@ -68,13 +68,13 @@ minetest.register_craftitem(":mobs:chicken_cooked", {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "mobs:chicken_cooked",
-	recipe = "mobs:chicken_raw",
+	output = "mobs_mc:chicken_cooked",
+	recipe = "mobs_mc:chicken_raw",
 	cooktime = 5,
 })
 
 -- leather, feathers, etc.
-minetest.register_craftitem(":mobs:feather", {
+minetest.register_craftitem("mobs_mc:feather", {
 	description = "Feather",
 	inventory_image = "mobs_feather.png",
 })
@@ -183,13 +183,12 @@ minetest.register_craftitem("mobs_mc:ender_eye", {
 })
 
 minetest.register_craft({
-	output		= 'mobs_mc:ender_eye',
-	recipe		= {
-		{ 'farorb:farorb', 'mobs_mc:blaze_rod'}
-	}
+	type = "shapeless",
+	output = 'mobs_mc:ender_eye',
+	recipe = { 'mobs_mc:blaze_powder', 'mobs_mc:blaze_rod'},
 })
 
---gast
+-- Ghast
 minetest.register_craftitem("mobs_mc:ghast_tear", {
 	description = "Ghast Tear",
 	_doc_items_longdesc = "A ghast tear is an item used in potion brewing. It is dropped from dead ghasts.",
@@ -199,20 +198,20 @@ minetest.register_craftitem("mobs_mc:ghast_tear", {
 })
 
 
---horse
---bits and bobs
+-- Saddle
 
-minetest.register_craftitem(":mobs:saddle", {
+minetest.register_craftitem("mobs_mc:saddle", {
 	description = "Saddle",
 	inventory_image = "saddle.png",
+	stack_max = 1,
 })
 
 minetest.register_craft({
-	output = "mobs:saddle",
+	output = "mobs_mc:saddle",
 	recipe = {
 		{"mobs:leather", "mobs:leather", "mobs:leather"},
 		{"farming:string", "", "farming:string"},
-	{"default:steel_ingot", "", "default:steel_ingot"}
+		{"default:steel_ingot", "", "default:steel_ingot"}
 	},
 })
 
@@ -220,14 +219,14 @@ minetest.register_craft({
 --pig
 
 -- pork
-minetest.register_craftitem(":mobs:pork_raw", {
+minetest.register_craftitem("mobs_mc:porkchop_raw", {
 	description = "Raw Porkchop",
 	inventory_image = "pork_raw.png",
 	groups = { food = 2, eatable = 3 },
 	on_use = minetest.item_eat(3),
 })
 
-minetest.register_craftitem(":mobs:pork_cooked", {
+minetest.register_craftitem("mobs_mc:porkchop_cooked", {
 	description = "Cooked Porkchop",
 	inventory_image = "pork_cooked.png",
 	groups = { food = 2, eatable = 8 },
@@ -236,15 +235,9 @@ minetest.register_craftitem(":mobs:pork_cooked", {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "mobs:pork_cooked",
-	recipe = "mobs:pork_raw",
+	output = "mobs_mc:porkchop_raw",
+	recipe = "mobs_mc:porkchop_cooked",
 	cooktime = 5,
-})
-
-
-minetest.register_craftitem(":mobs:saddle", {
-	description = "Saddle",
-	inventory_image = "saddle.png",
 })
 
 minetest.register_tool("mobs_mc:carrot_on_a_stick", {
@@ -279,15 +272,6 @@ if minetest.get_modpath("fishing") then
 		recipe = {"fishing:pole_wood", "farming:carrot"},
 	})
 end
-
-minetest.register_craft({
-	output = "mobs:saddle",
-	recipe = {
-		{"mobs:leather", "mobs:leather", "mobs:leather"},
-		{"farming:string", "", "farming:string"},
-	{"default:steel_ingot", "", "default:steel_ingot"}
-	},
-})
 
 
 --Rabbit
@@ -330,14 +314,14 @@ minetest.register_craft({
 --sheep
 
 --mutton
-minetest.register_craftitem(":mobs:mutton_raw", {
+minetest.register_craftitem("mobs_mc:mutton_raw", {
 	description = "Raw Mutton",
 	inventory_image = "mutton_raw.png",
 	groups = { food = 2, eatable = 4 },
 	on_use = minetest.item_eat(4),
 })
 
-minetest.register_craftitem(":mobs:mutton_cooked", {
+minetest.register_craftitem("mobs_mc:mutton_cooked", {
 	description = "Cooked Mutton",
 	inventory_image = "mutton_cooked.png",
 	groups = { food = 2, eatable = 8 },
@@ -346,22 +330,13 @@ minetest.register_craftitem(":mobs:mutton_cooked", {
 
 minetest.register_craft({
 	type = "cooking",
-	output = "mobs:mutton_cooked",
-	recipe = "mobs:mutton_raw",
+	output = "mobs_mc:mutton_cooked",
+	recipe = "mobs_mc:mutton_raw",
 	cooktime = 5,
 })
 
 
 --shulker
-
-minetest.register_craft({
-	output = 'mcl_chests:violet_shulker_box',
-	recipe = {
-		{'mobs_mc:shulker_shell'},
-		{'mcl_chests:chest'},
-		{'mobs_mc:shulker_shell'},
-	}
-})
 
 minetest.register_craftitem("mobs_mc:shulker_shell", {
 	description = "Shulker Shell",
@@ -382,7 +357,7 @@ minetest.register_craftitem("mobs_mc:magma_cream", {
 --spider
 
 -- Cobweb
-minetest.register_node(":mobs:cobweb", {
+minetest.register_node("mobs_mc:cobweb", {
 	description = "Cobweb",
 	drawtype = "plantlike",
 	visual_scale = 1.1,
@@ -392,8 +367,8 @@ minetest.register_node(":mobs:cobweb", {
 	sunlight_propagates = true,
 	liquid_viscosity = 11,
 	liquidtype = "source",
-	liquid_alternative_flowing = "mobs:cobweb",
-	liquid_alternative_source = "mobs:cobweb",
+	liquid_alternative_flowing = "mobs_mc:cobweb",
+	liquid_alternative_source = "mobs_mc:cobweb",
 	liquid_renewable = false,
 	liquid_range = 0,
 	walkable = false,
@@ -403,7 +378,7 @@ minetest.register_node(":mobs:cobweb", {
 })
 
 minetest.register_craft({
-	output = "mobs:cobweb",
+	output = "mobs_mc:cobweb",
 	recipe = {
 		{"farming:string", "", "farming:string"},
 		{"", "farming:string", ""},
@@ -433,7 +408,7 @@ minetest.register_craftitem("mobs_mc:totem", {
 --zombie
 
 -- meat rotted
-minetest.register_craftitem(":mobs:rotten_flesh", {
+minetest.register_craftitem("mobs_mc:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "mobs_rotten_flesh.png",
 	groups = { food = 2, eatable = 4 },
