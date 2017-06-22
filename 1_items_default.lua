@@ -70,14 +70,14 @@ minetest.register_node("mobs_mc:egg", {
 -- chicken
 minetest.register_craftitem("mobs_mc:chicken_raw", {
 	description = "Raw Chicken",
-	inventory_image = "chicken_raw.png",
+	inventory_image = "mcl_mobitems_chicken_raw.png",
 	groups = { food = 2, eatable = 2 },
 	on_use = minetest.item_eat(2),
 })
 
 minetest.register_craftitem("mobs_mc:chicken_cooked", {
 	description = "Cooked Chicken",
-	inventory_image = "chicken_cooked.png",
+	inventory_image = "mcl_mobitems_chicken_cooked.png",
 	groups = { food = 2, eatable = 6 },
 	on_use = minetest.item_eat(6),
 })
@@ -332,14 +332,14 @@ minetest.register_craft({
 --mutton
 minetest.register_craftitem("mobs_mc:mutton_raw", {
 	description = "Raw Mutton",
-	inventory_image = "mutton_raw.png",
+	inventory_image = "mcl_mobitems_mutton_raw.png",
 	groups = { food = 2, eatable = 4 },
 	on_use = minetest.item_eat(4),
 })
 
 minetest.register_craftitem("mobs_mc:mutton_cooked", {
 	description = "Cooked Mutton",
-	inventory_image = "mutton_cooked.png",
+	inventory_image = "mcl_mobitems_mutton_cooked.png",
 	groups = { food = 2, eatable = 8 },
 	on_use = minetest.item_eat(8),
 })
