@@ -152,56 +152,6 @@ mobs:register_arrow("mobs_mc:egg_entity", {
 		ent2.owner = self.playername
 	end
 })
-
--- egg throwing item
-
-local egg_GRAVITY = 9
-local egg_VELOCITY = 19
-
--- shoot egg
-local mobs_shoot_egg = function (item, player, pointed_thing)
-
-	local playerpos = player:getpos()
-
-	minetest.sound_play("default_place_node_hard", {
-		pos = playerpos,
-		gain = 1.0,
-		max_hear_distance = 5,
-	})
-
-	local obj = minetest.add_entity({
-		x = playerpos.x,
-		y = playerpos.y +1.5,
-		z = playerpos.z
-	}, "mobs_mc:egg_entity")
-
-	local ent = obj:get_luaentity()
-	local dir = player:get_look_dir()
-
-	ent.velocity = egg_VELOCITY -- needed for api internal timing
-	ent.switch = 1 -- needed so that egg doesn't despawn straight away
-
-	obj:setvelocity({
-		x = dir.x * egg_VELOCITY,
-		y = dir.y * egg_VELOCITY,
-		z = dir.z * egg_VELOCITY
-	})
-
-	obj:setacceleration({
-		x = dir.x * -3,
-		y = -egg_GRAVITY,
-		z = dir.z * -3
-	})
-
-	-- pass player name to egg for chick ownership
-	local ent2 = obj:get_luaentity()
-	ent2.playername = player:get_player_name()
-
-	item:take_item()
-
-	return item
-end
-
 --spawn
 mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000, 3, 31000)
 
