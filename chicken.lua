@@ -34,7 +34,7 @@ mobs:register_mob("mobs_mc:chicken", {
 		chance = 1,
 		min = 1,
 		max = 1,},
-		{name = "mobs:feather",
+		{name = "mobs_mc:feather",
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -201,45 +201,6 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 
 	return item
 end
-
-
-
--- egg
-minetest.register_craftitem("mobs_mc:egg", {
-	description = "Egg",
-	inventory_image  = "mobs_chicken_egg.png",
-	wield_image = "mobs_chicken_egg.png",
-	on_use = mobs_shoot_egg,
-})
-
-
--- chicken
-minetest.register_craftitem("mobs_mc:chicken_raw", {
-	description = "Raw Chicken",
-	inventory_image = "chicken_raw.png",
-	on_use = minetest.item_eat(2),
-})
-
-minetest.register_craftitem("mobs_mc:chicken_cooked", {
-	description = "Cooked Chicken",
-	inventory_image = "chicken_cooked.png",
-	on_use = minetest.item_eat(6),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs:chicken_cooked",
-	recipe = "mobs:chicken_raw",
-	cooktime = 5,
-})
-
--- leather, feathers, etc.
-minetest.register_craftitem(":mobs:feather", {
-	description = "Feather",
-	inventory_image = "mobs_feather.png",
-})
-
-
 
 --spawn
 mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000, 3, 31000)

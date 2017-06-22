@@ -31,7 +31,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	drops = {
-		{name = "mobs:feather",
+		{name = "mobs_mc:feather",
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -86,7 +86,7 @@ mobs:register_mob("mobs_mc:parrot", {
 
 		local pos = self.object:getpos()
 
-		minetest.add_item(pos, "mobs:egg")
+		minetest.add_item(pos, "mobs_mc:egg")
 
 		minetest.sound_play("default_place_node_hard", {
 			pos = pos,

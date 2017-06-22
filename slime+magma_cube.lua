@@ -418,16 +418,6 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 	end
 })
 
--- Crafting items
-minetest.register_craftitem("mobs_mc:magma_cream", {
-	description = "Magma Cream",
-	_doc_items_longdesc = "Magma cream is a crafting component.",
-	wield_image = "mcl_mobitems_magma_cream.png",
-	inventory_image = "mcl_mobitems_magma_cream.png",
-	groups = { brewitem = 1 },
-	stack_max = 64,
-})
-
 mobs:register_spawn("mobs_mc:magma_cube_tiny", {"group:stone"}, 15, 0, 5000, 4, -1000)
 mobs:register_spawn("mobs_mc:magma_cube_small", {"group:stone"}, 15, 0, 5500, 4, -1000)
 mobs:register_spawn("mobs_mc:magma_cube_big", {"group:stone"}, 15, 0, 6000, 4, -1000)

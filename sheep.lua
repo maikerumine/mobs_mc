@@ -227,27 +227,6 @@ mobs:register_mob("mobs_mc:sheep", {
 mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
 
 
---mutton
-minetest.register_craftitem("mobs_mc:mutton_raw", {
-	description = "Raw Mutton",
-	inventory_image = "mcl_mobitems_mutton_raw.png",
-	on_use = minetest.item_eat(4),
-})
-
-minetest.register_craftitem("mobs_mc:mutton_cooked", {
-	description = "Cooked Mutton",
-	inventory_image = "mcl_mobitems_mutton_cooked.png",
-	on_use = minetest.item_eat(8),
-})
-
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs_mc:mutton_cooked",
-	recipe = "mobs_mc:mutton_raw",
-	cooktime = 5,
-})
-
-
 -- compatibility
 mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
