@@ -391,8 +391,9 @@ minetest.register_craftitem("mobs_mc:spider_eye", {
 	_doc_items_longdesc = "Spider eyes are used mainly in crafting and brewing. If you're really desperate, you can eat a spider eye for 2 hunger points, but it will poison you.",
 	inventory_image = "mcl_mobitems_spider_eye.png",
 	wield_image = "mcl_mobitems_spider_eye.png",
-	groups = { food = 2, eatable = 2 },
-	on_use = minetest.item_eat(2),
+	-- Simplified poisonous food
+	groups = { food = 2, eatable = -2 },
+	on_use = minetest.item_eat(-2),
 })
 
 --vex
@@ -411,7 +412,8 @@ minetest.register_craftitem("mobs_mc:totem", {
 minetest.register_craftitem("mobs_mc:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "mobs_rotten_flesh.png",
-	groups = { food = 2, eatable = 4 },
-	on_use = minetest.item_eat(4),
+	-- Simplified poisonous food
+	groups = { food = 2, eatable = -4 },
+	on_use = minetest.item_eat(-4),
 })
 
