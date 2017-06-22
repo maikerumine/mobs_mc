@@ -46,6 +46,23 @@ mobs:register_mob("mobs_mc:vex", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
+	-- Take constant damage if the vex' life clock ran out
+	-- (only for vexes summoned by evokers)
+	do_custom = function(self, dtime)
+		if self._summoned then
+			if not self._lifetimer then
+				self._lifetimer = 33
+			end
+			self._lifetimer = self._lifetimer - dtime
+			if self._lifetimer <= 0 then
+				if self._damagetimer then
+					self._damagetimer = self._damagetimer - 1
+				end
+				self.object:set_hp(self.object:get_hp()-1)
+				self._damagetimer = 1
+			end
+		end
+	end,
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,

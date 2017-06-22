@@ -9,7 +9,7 @@
 --################### EVOKER
 --###################
 
-
+local pr = PseudoRandom(os.time()*666)
 
 mobs:register_mob("mobs_mc:evoker", {
 	type = "monster",
@@ -35,16 +35,19 @@ mobs:register_mob("mobs_mc:evoker", {
 	attack_type = "dogfight",
 	-- Summon vexes
 	custom_attack = function(self, to_attack)
-		local r = math.random(2,4)
+		local r = pr:next(2,4)
 		local basepos = self.object:getpos()
 		basepos.y = basepos.y + 1
 		for i=1, r do
-			local spawnpos = vector.add(basepos, minetest.yaw_to_dir(math.random(0,360)))
+			local spawnpos = vector.add(basepos, minetest.yaw_to_dir(pr:next(0,360)))
 			local vex = minetest.add_entity(spawnpos, "mobs_mc:vex")
-			vex:get_luaentity()._summoned = true
+			local ent = vex:get_luaentity()
+			-- Mark vexes as summoned and start their life clock (they take damage it reaches 0)
+			ent._summoned = true
+			ent._lifetimer = pr:next(33, 108)
 		end
 	end,
-	shoot_interval = 5,
+	shoot_interval = 15,
 	passive = false,
 	drops = {
 		{name = "default:emerald",
