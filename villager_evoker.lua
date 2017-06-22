@@ -13,7 +13,7 @@
 
 mobs:register_mob("mobs_mc:evoker", {
 	type = "monster",
-	physical = false,
+	physical = true,
 	pathfinding = 1,
 	hp_min = 35,
 	hp_max = 75,
@@ -32,14 +32,19 @@ mobs:register_mob("mobs_mc:evoker", {
 	run_velocity = 1.4,
 	damage = 1,
 	group_attack = true,
-	attack_type = "shoot",
-	arrow = "mobs_mc:vexarrow",
-	shoot_interval = 3.5,
-	shoot_offset = 1,
-		--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
-	--'dogshoot_count_max' number of seconds before switching above modes.
-	dogshoot_switch = 1,
-	dogshoot_count_max =1,
+	attack_type = "dogfight",
+	-- Summon vexes
+	custom_attack = function(self, to_attack)
+		local r = math.random(2,4)
+		local basepos = self.object:getpos()
+		basepos.y = basepos.y + 1
+		for i=1, r do
+			local spawnpos = vector.add(basepos, minetest.yaw_to_dir(math.random(0,360)))
+			local vex = minetest.add_entity(spawnpos, "mobs_mc:vex")
+			vex:get_luaentity()._summoned = true
+		end
+	end,
+	shoot_interval = 5,
 	passive = false,
 	drops = {
 		{name = "default:emerald",
@@ -84,44 +89,6 @@ mobs:register_mob("mobs_mc:evoker", {
 
 })
 
--- fireball (weapon)
-mobs:register_arrow(":mobs_mc:vexarrow", {
-	visual = "sprite",
-	visual_size = {x = 0.5, y = 0.5},
-	textures = {"vex_inv.png"},
-	velocity = 6,
-	tail = 1,    --'tail' when set to 1 adds a trail or tail to mob arrows
-    tail_texture = "vex_inv.png",   --'tail_texture' texture string used for above effect
-    tail_size = {x = 100, y = 100},    --'tail_size' has size for above texture (defaults to between 5 and 10)
-    expire = 0.45,    --'expire' contains float value for how long tail appears for (defaults to 0.25)
-	glow = 7,
-	drop = "mobs_mc:vex",
-
-	-- direct hit, no fire... just plenty of pain
-	hit_player = function(self, player)
-			--vexspawn = minetest.add_entity(self.object:getpos(), "mobs_mc:vex")
-			--ent = vexspawn:get_luaentity()
-		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
-		}, nil)
-	end,
-
-	hit_mob = function(self, player)
-		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
-			damage_groups = {fleshy = 2},
-		}, nil)
-	end,
-
-	-- node hit, spawn vex
-	hit_node = function(self, pos, node)
-		--mobs:explosion(pos, 0, 0, 0)
-		vexspawn = minetest.add_entity(self.object:getpos(), "mobs_mc:vex")
-			--ent = vexspawn:get_luaentity()
-			--drop = "mobs_mc:vex"
-	end
-})
 --[[
 mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 
