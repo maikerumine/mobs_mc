@@ -7,7 +7,7 @@ local path = minetest.get_modpath("mobs_mc")
 
 mobs_mc = {}
 
-dofile(path .. "/3_gameconfig.lua")
+dofile(path .. "/0_gameconfig.lua")
 
 --MOB ITEMS SELECTOR SWITCH
 
