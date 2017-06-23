@@ -51,7 +51,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs_mc:mutton_raw",
+		{name = mobs_mc.items.mutton_raw,
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -85,7 +85,7 @@ mobs:register_mob("mobs_mc:sheep", {
 		look_start = 78,
 		look_end = 108,
 	},
-	follow = "farming:wheat",
+	follow = mobs_mc.follow.sheep,
 	view_range = 12,
 
 	-- Eat grass
@@ -133,7 +133,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			end
 			self.object:set_properties({ textures = self.base_texture })
 			self.drops = {
-				{name = "mobs_mc:mutton_raw",
+				{name = mobs_mc.items.mutton_raw,
 				chance = 1,
 				min = 1,
 				max = 2,},
@@ -148,7 +148,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
-		if item:get_name() == "farming:wheat" then
+		if item:get_name() == mobs_mc.items.wheat then
 			if not self.tamed then
 				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
@@ -172,7 +172,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			end
 			return
 		end
-		if item:get_name() == "mobs:shears" and not self.gotten then
+		if item:get_name() == mobs_mc.items.shears and not self.gotten then
 			self.gotten = true
 			local pos = self.object:getpos()
 			minetest.sound_play("shears", {pos = pos})
@@ -193,7 +193,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 			self.drops = {
-				{name = "mobs_mc:mutton_raw",
+				{name = mobs_mc.items.mutton_raw,
 				chance = 1,
 				min = 1,
 				max = 2,},
@@ -211,7 +211,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				})
 				self.color = pname
 				self.drops = {
-					{name = "mobs_mc:mutton_raw",
+					{name = mobs_mc.items.mutton_raw,
 					chance = 1,
 					min = 1,
 					max = 2,},

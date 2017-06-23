@@ -42,10 +42,14 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	attacks_monsters = true,
 	attack_type = "dogfight",
 	drops = {
-		{name = "default:steel_block",
+		{name = mobs_mc.items.iron_ingot,
 		chance = 1,
-		min = 2,
-		max = 3,},
+		min = 3,
+		max = 5,},
+		{name = mobs_mc.items.poppy,
+		chance = 1,
+		min = 0,
+		max = 2,},
 	},
 	drawtype = "front",
 	water_damage = 0,
@@ -63,11 +67,6 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	step = 1,
 	blood_texture = "default_steelblock.png",
 })
-
-
-mobs:register_spawn("mobs_mc:iron_golem", {"default:steelblock"}, 20, 0, 19000, 1, 31000)
-
-
 
 
 -- spawn eggs

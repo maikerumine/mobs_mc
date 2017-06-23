@@ -33,7 +33,7 @@ mobs:register_mob("mobs_mc:shulker", {
 	run_velocity = 0.0000000001,
 	jump = false,
 	drops = {
-	{name = "mobs_mc:shulker_shell",
+	{name = mobs_mc.items.shulker_shell,
 	chance = 3,
 	min = 1,
 	max = 1,},

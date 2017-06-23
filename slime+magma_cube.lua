@@ -27,11 +27,7 @@ mobs:register_mob("mobs_mc:slime_tiny", {
 	armor = 100,
 	drops = {
 		-- slimeball
-		{name = "mesecons_materials:glue",
-		chance = 1,
-		min = 0,
-		max = 2,},
-		{name = "default:papyrus",
+		{name = mobs_mc.items.slimeball,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -296,7 +292,7 @@ mobs:register_mob("mobs_mc:magma_cube_small", {
 	reach = 2.75,
 	armor = 70,
 	drops = {
-		{name = "mobs_mc:magma_cream",
+		{name = mobs_mc.items.magma_cream,
 		chance = 4,
 		min = 1,
 		max = 1,},
@@ -372,7 +368,7 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 	reach = 3,
 	armor = 40,
 	drops = {
-		{name = "mobs_mc:magma_cream",
+		{name = mobs_mc.items.magma_cream,
 		chance = 4,
 		min = 1,
 		max = 1,},

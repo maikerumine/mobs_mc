@@ -31,7 +31,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	drops = {
-		{name = "mobs_mc:feather",
+		{name = mobs_mc.items.feather,
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -62,10 +62,10 @@ mobs:register_mob("mobs_mc:parrot", {
 	floats=1,
 	physical = true,
 	fly = true,
-	fly_in = {'default:void', "air"},
+	fly_in = {"air"},
 	jump_chance = 98,
 	fear_height = 120,	
-	follow = {"farming:seed_wheat", "farming:seed_cotton"},
+	follow = mobs_mc.follow.parrot,
 	view_range = 25,
 
 	on_rightclick = function(self, clicker)
@@ -77,25 +77,6 @@ mobs:register_mob("mobs_mc:parrot", {
 		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
 	end,
 
-	do_custom = function(self)
-
-		if self.child
-		or math.random(1, 25000) > 1 then
-			return
-		end
-
-		local pos = self.object:getpos()
-
-		minetest.add_item(pos, "mobs_mc:egg")
-
-		minetest.sound_play("default_place_node_hard", {
-			pos = pos,
-			gain = 1.0,
-			max_hear_distance = 5,
-		})
-	end,	
-	
-	
 })
 
 

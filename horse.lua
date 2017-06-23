@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:horse", {
 	fly = false,
 	walk_chance = 60,
 	view_range = 16,
-	follow = {"default:apple"},
+	follow = mobs_mc.follow.horse,
 	passive = true,
 	hp_min = 15,
 	hp_max = 30,
@@ -50,7 +50,7 @@ mobs:register_mob("mobs_mc:horse", {
 	water_damage = 1,
 	makes_footstep_sound = true,
 	drops = {
-		{name = "mobs:leather",
+		{name = mobs_mc.items.leather,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -87,7 +87,7 @@ mobs:register_mob("mobs_mc:horse", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, "mobs_mc:saddle")
+			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -116,21 +116,21 @@ mobs:register_mob("mobs_mc:horse", {
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
 				-- add saddle back to inventory
-				if inv:room_for_item("main", "mobs_mc:saddle") then
-					inv:add_item("main", "mobs_mc:saddle")
+				if inv:room_for_item("main", mobs_mc.items.saddle) then
+					inv:add_item("main", mobs_mc.items.saddle)
 				else
-					minetest.add_item(clicker.getpos(), "mobs_mc:saddle")
+					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
 				end
 
 			-- attach player to horse
 			elseif not self.driver
-			and clicker:get_wielded_item():get_name() == "mobs_mc:saddle" then
+			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 
 				-- take saddle from inventory
-				inv:remove_item("main", "mobs_mc:saddle")
+				inv:remove_item("main", mobs_mc.items.saddle)
 			end
 		end
 
@@ -142,7 +142,7 @@ mobs:register_mob("mobs_mc:horse", {
 
 --===========================
 --Spawn Function
-mobs:register_spawn("mobs_mc:horse", {"default:dirt_with_dry_grass","es:strange_grass","es:aiden_grass", "default:desert_sand"}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse", {mobs_mc.items.grass_block}, 20, 12, 21000, 1, 12)
 
 
 -- compatibility

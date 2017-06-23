@@ -50,11 +50,11 @@ mobs:register_mob("mobs_mc:evoker", {
 	shoot_interval = 15,
 	passive = false,
 	drops = {
-		{name = "default:emerald",
+		{name = mobs_mc.items.emerald,
 		chance = 1,
-		min = 1,
+		min = 0,
 		max = 1,},
-		{name = "mobs_mc:totem",
+		{name = mobs_mc.items.totem,
 		chance = 1,
 		min = 1,
 		max = 1,},
@@ -85,10 +85,6 @@ mobs:register_mob("mobs_mc:evoker", {
 	light_damage = 0,
 	view_range = 13,
 	fear_height = 2,
-	replace_rate = 4,
-	replace_what = {"default:torch","mg_villages:torch", "default:torch_wall","mg_villages:torch_wall"},
-	replace_with = "air",
-	replace_offset = -1,
 
 })
 

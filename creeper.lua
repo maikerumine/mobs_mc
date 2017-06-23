@@ -48,7 +48,7 @@ mobs:register_mob("mobs_mc:creeper", {
 			return
 		end
 		local item = clicker:get_wielded_item()
-		if item:get_name() == "fire:flint_and_steel" then
+		if item:get_name() == mobs_mc.items.flint_and_steel then
 			if not minetest.settings:get_bool("creative_mode") then
 				-- Wear tool
 				local wdef = item:get_definition()
@@ -74,11 +74,12 @@ mobs:register_mob("mobs_mc:creeper", {
 	end,
 	maxdrops = 2,
 	drops = {
-		{name = "tnt:gunpowder",
+		{name = mobs_mc.items.gunpowder,
 		chance = 1,
 		min = 0,
 		max = 2,},
 
+		-- FIXME: Music disc drops
 		--[[
 		{name = "jdukebox:disc_1",
 		chance = 30,

@@ -43,21 +43,21 @@ local zombie = {
 	--jump_height = 3,
 	group_attack = true,
 	drops = {
-		{name = "mobs_mc:rotten_flesh",
+		{name = mobs_mc.items.rotten_flesh,
 		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "default:iron_ingot",
+		{name = mobs_mc.items.iron_ingot,
 		-- approximation to 8.5%
 		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "farming:carrot",
+		{name = mobs_mc.items.carrot,
 		-- approximation to 8.5%
 		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "farming:potato",
+		{name = mobs_mc.items.potato,
 		-- approximation to 8.5%
 		chance = 11,
 		min = 1,

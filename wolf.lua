@@ -4,6 +4,13 @@ local default_walk_chance = 50
 
 local pr = PseudoRandom(os.time()*10)
 
+local is_flesh = function(itemstring)
+	return itemstring == mobs_mc.items.rabbit_raw or
+	itemstring == mobs_mc.items.mutton_raw or
+	itemstring == mobs_mc.items.beef_raw or
+	itemstring == mobs_mc.items.chicken_raw or
+	itemstring == mobs_mc.items.rotten_flesh
+end
 
 -- Wolf
 local wolf = {
@@ -45,7 +52,7 @@ local wolf = {
 		local tool = clicker:get_wielded_item()
 		local dog
 		local ent
-		if tool:get_name() == "mobs:meat_raw" then
+		if is_flesh(tool:get_name()) then
 			if not minetest.settings:get_bool("creative_mode") then
 				tool:take_item()
 				clicker:set_wielded_item(tool)
@@ -118,7 +125,7 @@ dog.order = "roam"
 dog.owner_loyal = true
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
-	if item:get_name() == "mobs:meat_raw" then
+	if is_flesh(tool:get_name()) then
 		-- Feed
 		local hp = self.object:get_hp()
 		if hp + 4 > self.hp_max then return end

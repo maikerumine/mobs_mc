@@ -15,11 +15,11 @@ local cow_def = {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs_mc:beef_raw",
+		{name = mobs_mc.items.beef_raw,
 		chance = 1,
 		min = 1,
 		max = 3,},
-		{name = "mobs:leather",
+		{name = mobs_mc.items.leather,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -47,21 +47,21 @@ local cow_def = {
 			return
 		end
 		local item = clicker:get_wielded_item()
-		if item:get_name() == "bucket:bucket_empty" and clicker:get_inventory() then
+		if item:get_name() == mobs_mc.items.bucket and clicker:get_inventory() then
 			local inv = clicker:get_inventory()
-			inv:remove_item("main", "bucket:bucket_empty")
+			inv:remove_item("main", mobs_mc.items.bucket)
 			-- if room add bucket of milk to inventory, otherwise drop as item
-			if inv:room_for_item("main", {name="mobs_mc:milk_bucket"}) then
-				clicker:get_inventory():add_item("main", "mobs_mc:milk_bucket")
+			if inv:room_for_item("main", {name=mobs_mc.items.milk}) then
+				clicker:get_inventory():add_item("main", mobs_mc.items.milk)
 			else
 				local pos = self.object:getpos()
 				pos.y = pos.y + 0.5
-				minetest.add_item(pos, {name = "mobs_mc:milk_bucket"})
+				minetest.add_item(pos, {name = mobs_mc.items.milk})
 			end
 		end
 		mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
 	end,
-	follow = "farming:wheat",
+	follow = mobs_mc.items.wheat,
 	view_range = 10,
 	fear_height = 2,
 }
@@ -82,7 +82,7 @@ mooshroom_def.on_rightclick = function(self, clicker)
 	if item:get_name() == "mobs:shears" then
 		local pos = self.object:getpos()
 		minetest.sound_play("shears", {pos = pos})
-		minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, "flowers:mushroom_red 5")
+		minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, mobs_mc.items.mushroom_red .. " 5")
 
 		local oldyaw = self.object:getyaw()
 		self.object:remove()
@@ -94,28 +94,28 @@ mooshroom_def.on_rightclick = function(self, clicker)
 			clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 		end
 	-- Use bucket to milk
-	elseif item:get_name() == "bucket:bucket_empty" and clicker:get_inventory() then
+	elseif item:get_name() == mobs_mc.items.bucket and clicker:get_inventory() then
 		local inv = clicker:get_inventory()
-		inv:remove_item("main", "bucket:bucket_empty")
+		inv:remove_item("main", mobs_mc.items.bucket)
 		-- If room, add milk to inventory, otherwise drop as item
-		if inv:room_for_item("main", {name="mobs_mc:milk_bucket"}) then
-			clicker:get_inventory():add_item("main", "mobs_mc:milk_bucket")
+		if inv:room_for_item("main", {name=mobs_mc.items.milk}) then
+			clicker:get_inventory():add_item("main", mobs_mc.items.milk)
 		else
 			local pos = self.object:getpos()
 			pos.y = pos.y + 0.5
-			minetest.add_item(pos, {name = "mobs_mc:milk_bucket"})
+			minetest.add_item(pos, {name = mobs_mc.items.milk})
 		end
 	-- Use bowl to get mushroom stew
-	elseif item:get_name() == "mobs_mc:bowl" and clicker:get_inventory() then
+	elseif item:get_name() == mobs_mc.items.bowl and clicker:get_inventory() then
 		local inv = clicker:get_inventory()
-		inv:remove_item("main", "mobs_mc:bowl")
+		inv:remove_item("main", mobs_mc.items.bowl)
 		-- If room, add mushroom stew to inventory, otherwise drop as item
-		if inv:room_for_item("main", {name="mobs_mc:mushroom_stew"}) then
-			clicker:get_inventory():add_item("main", "mobs_mc:mushroom_stew")
+		if inv:room_for_item("main", {name=mobs_mc.items.mushroom_stew}) then
+			clicker:get_inventory():add_item("main", mobs_mc.items.mushroom_stew)
 		else
 			local pos = self.object:getpos()
 			pos.y = pos.y + 0.5
-			minetest.add_item(pos, {name = "mobs_mc:mushroom_stew"})
+			minetest.add_item(pos, {name = mobs_mc.items.mushroom_stew})
 		end
 	end
 	mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
@@ -124,8 +124,8 @@ mobs:register_mob("mobs_mc:mooshroom", mooshroom_def)
 
 
 -- Spawning
-mobs:register_spawn("mobs_mc:cow", {"default:dirt_with_grass"}, 20, 8, 17000, 2, 31000)
-mobs:register_spawn("mobs_mc:mooshroom", {"default:mycelium_snow", "default:mycelium"}, 20, 8, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:cow", {mobs_mc.items.grass_block}, 20, 8, 17000, 2, 31000)
+mobs:register_spawn("mobs_mc:mooshroom", {mobs_mc.items.mycelium}, 20, 8, 7000, 1, 31000)
 
 
 -- compatibility

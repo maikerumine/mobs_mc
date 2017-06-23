@@ -17,7 +17,7 @@ mobs:register_mob("mobs_mc:pig", {
 	walk_velocity = 1,
 	run_velocity = 3,
 	drops = {
-		{name = "mobs_mc:porkchop_raw",
+		{name = mobs_mc.items.porkchop_raw,
 		chance = 1,
 		min = 1,
 		max = 3,},
@@ -48,7 +48,7 @@ mobs:register_mob("mobs_mc:pig", {
 		look_start = 78,
 		look_end = 108,
 	},
-	follow = {"default:apple", "farming:potato", "farming:carrot", "mobs_mc:carrot_on_a_stick"},
+	follow = mobs_mc.follow.pig,
 	view_range = 5,
 	do_custom = function(self, dtime)
 
@@ -81,7 +81,7 @@ mobs:register_mob("mobs_mc:pig", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, "mobs_mc:saddle")
+			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -94,7 +94,7 @@ mobs:register_mob("mobs_mc:pig", {
 
 		local wielditem = clicker:get_wielded_item()
 		-- Feed pig
-		if wielditem:get_name() ~= "mobs_mc:carrot_on_a_stick" then
+		if wielditem:get_name() ~= mobs_mc.items.carrot_on_a_stick then
 			if mobs:feed_tame(self, clicker, 1, true, true) then
 				return
 			end
@@ -102,7 +102,7 @@ mobs:register_mob("mobs_mc:pig", {
 
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
-		if item:get_name() == "mobs_mc:saddle" and self.saddle ~= "yes" then
+		if item:get_name() == mobs_mc.items.saddle and self.saddle ~= "yes" then
 			self.base_texture = {"mobs_mc_pig.png^mobs_mc_pig_saddle.png"}
 			self.object:set_properties({
 				textures = self.base_texture
@@ -110,11 +110,11 @@ mobs:register_mob("mobs_mc:pig", {
 			self.saddle = "yes"
 			self.tamed = true
 			self.drops = {
-				{name = "mobs_mc:porkchop_raw",
+				{name = mobs_mc.items.porkchop_raw,
 				chance = 1,
 				min = 1,
 				max = 3,},
-				{name = "mobs_mc:saddle",
+				{name = mobs_mc.items.saddle,
 				chance = 1,
 				min = 1,
 				max = 1,},
@@ -135,7 +135,7 @@ mobs:register_mob("mobs_mc:pig", {
 			mobs.detach(clicker, {x=1, y=0, z=0})
 			return
 
-		elseif not self.driver and self.saddle == "yes" and wielditem:get_name() == "mobs_mc:carrot_on_a_stick" then
+		elseif not self.driver and self.saddle == "yes" and wielditem:get_name() == mobs_mc.items.carrot_on_a_stick then
 			-- Ride pig if it has a saddle and player uses a carrot on a stick
 
 			mobs.attach(self, clicker)
@@ -150,11 +150,7 @@ mobs:register_mob("mobs_mc:pig", {
 					if def.sounds and def.sounds.breaks then
 						minetest.sound_play(def.sounds.breaks, {pos = clicker:getpos(), max_hear_distance = 8, gain = 0.5})
 					end
-					if minetest.get_modpath("fishing") then
-						wielditem = {name = "fishing:pole_wood", count = 1}
-					else
-						wielditem = {name = "default:stick", count = 1}
-					end
+					wielditem = {name = mobs_mc.items.fishing_rod, count = 1}
 				else
 					wielditem:add_wear(2521)
 				end
@@ -168,7 +164,7 @@ mobs:register_mob("mobs_mc:pig", {
 	end,
 })
 
-mobs:register_spawn("mobs_mc:pig", {"default:dirt_with_grass"}, minetest.LIGHT_MAX, 9, 15000, 30, 31000)
+mobs:register_spawn("mobs_mc:pig", {mobs_mc.items.grass_block}, minetest.LIGHT_MAX, 9, 15000, 30, 31000)
 	
 
 

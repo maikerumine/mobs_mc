@@ -29,8 +29,8 @@ local rabbit = {
 	runaway = true,
 	jump = true,
 	drops = {
-		{name = "mobs_mc:rabbit_raw", chance = 1, min = 0, max = 1},
-		{name = "mobs_mc:rabbit_hide", chance = 1, min = 0, max = 1},
+		{name = mobs_mc.items.rabbit_raw, chance = 1, min = 0, max = 1},
+		{name = mobs_mc.items.rabbit_hide, chance = 1, min = 0, max = 1},
 	},
 	water_damage = 1,
 	lava_damage = 4,
@@ -43,11 +43,7 @@ local rabbit = {
 		run_start = 0,		run_end = 20,
 	},
 	-- Follow (yellow) dangelions, carrots and golden carrots
-	follow = {
-		"flowers:dandelion_yellow", -- Minetest Game
-		"farming:carrot", "farming:carrot_gold", -- Farming Redo
-		"farming_plus:carrot_item", -- Farming Plus
-	},
+	follow = mobs_mc.follow.rabbit,
 	view_range = 8,
 	-- Eat carrots and reduce their growth stage by 1
 	replace_rate = 10,

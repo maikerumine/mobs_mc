@@ -252,6 +252,7 @@ if c("saddle") then
 		inventory_image = "mcl_mobitems_saddle.png",
 		stack_max = 1,
 	})
+end
 
 if c("saddle") and c("lether") and c("string") and c("iron_ingot") then
 	minetest.register_craft({
@@ -459,3 +460,4 @@ if c("rotten_flesh") then
 		on_use = minetest.item_eat(-4),
 	})
 end
+

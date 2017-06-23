@@ -32,12 +32,12 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	attack_type = "dogfight",
 	drops = {
 		-- 3/4 chance to drop raw fish (poor approximation)
-		{name = "fishing:fish_raw",
+		{name = mobs_mc.items.fish_raw,
 		chance = 2,
 		min = 0,
 		max = 2,},		
 		-- 1/4 to drop raw salmon
-		{name = "fishing:pike_raw",
+		{name = mobs_mc.items.salmon_raw,
 		chance = 4,
 		min = 0,
 		max = 2,},

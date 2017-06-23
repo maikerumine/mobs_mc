@@ -25,7 +25,7 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "bonemeal:bone",
+		{name = mobs_mc.items.bone,
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -45,7 +45,7 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 		death = "skeletondeath",
 		damage = "skeletonhurt1",
 	},
-	follow = "farming:wheat",
+	follow = mobs_mc.follow.horse,
 	view_range = 16,
 	passive = false,
 	do_custom = function(self, dtime)
@@ -79,7 +79,7 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, "mobs_mc:saddle")
+			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -108,21 +108,21 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
 				-- add saddle back to inventory
-				if inv:room_for_item("main", "mobs_mc:saddle") then
-					inv:add_item("main", "mobs_mc:saddle")
+				if inv:room_for_item("main", mobs_mc.items.saddle) then
+					inv:add_item("main", mobs_mc.items.saddle)
 				else
-					minetest.add_item(clicker.getpos(), "mobs_mc:saddle")
+					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
 				end
 
 			-- attach player to horse
 			elseif not self.driver
-			and clicker:get_wielded_item():get_name() == "mobs_mc:saddle" then
+			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 
 				-- take saddle from inventory
-				inv:remove_item("main", "mobs_mc:saddle")
+				inv:remove_item("main", mobs_mc.items.saddle)
 			end
 		end
 

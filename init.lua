@@ -9,15 +9,10 @@ if not minetest.get_modpath("mobs_mc_gameconfig") then
 	mobs_mc = {}
 end
 
-dofile(path .. "/0_gameconfig.lua")
-
 --MOB ITEMS SELECTOR SWITCH
-
+dofile(path .. "/0_gameconfig.lua")
 --Items
-
-if not minetest.get_modpath("mobs_mc_gameconfig") then
-	dofile(path .. "/1_items_default.lua")
-end
+dofile(path .. "/1_items_default.lua")
 
 --IN CASE THROWING IS NOT INSTALLED, THIS FIXES IT
 if not minetest.get_modpath("throwing") then

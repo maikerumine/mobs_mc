@@ -76,16 +76,11 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	--floats=1,
 	floats=1,
 	drops = {
-		{name = "mobs_mc:dragon_egg",
+		{name = mobs_mc.items.dragon_egg,
 		chance = 1,
 		min = 1,
 		max = 1},
-		{name = "default:mese_crystal",
-		chance = 1,
-		min = 99,
-		max = 99},
-
-    },
+	},
 	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
@@ -107,12 +102,6 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		walk_start = 0,		walk_end = 20,
 		run_start = 0,		run_end = 20,
 	},
-	replace_rate = 1,
-	replace_what = {"default:torch","default:torch_wall", "default:obsidian"},
-	replace_with = "air",
-	replace_offset = -1,
-
-
 })
 
 
@@ -198,9 +187,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-
-mobs:spawn_specific("mobs_mc:enderdragon", {"default:obsidian"}, {"default:end_stone"},
-	12, 20, 5, 3, 1, -31000, -5000)
-	
 mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "enderdragon_inv.png", 0)
 

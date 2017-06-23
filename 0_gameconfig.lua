@@ -23,7 +23,7 @@ mobs_mc.items = {
 	beef_cooked = "mobs_mc:beef_cooked",
 	bowl = "mobs_mc:bowl",
 	mushroom_stew = "mobs_mc:mushroom_stew",
-	milk_bucket = "mobs_mc:milk_bucket",
+	milk = "mobs_mc:milk_bucket",
 	dragon_egg = "mobs_mc:dragon_egg",
 	egg = "mobs_mc:egg",
 	ender_eye  = "mobs_mc:ender_eye",
@@ -55,15 +55,49 @@ mobs_mc.items = {
 	bucket = "bucket:bucket_empty",
 	grass_block = "default:dirt_with_grass",
 	string = "farming:string",
-	stick = "group:stick",
+	stick = "default:stick",
 	flint = "default:flint",
 	iron_ingot = "default:steel_ingot",
-	-- TODO
+	fire = "fire:basic_flame",
+	gunpowder = "tnt:gunpowder",
+	flint_and_steel = "fire:flint_and_steel",
+	water_source = "default:water_source",
+	black_dye = "dye:black",
+	poppy = "flowers:rose",
+	dandelion = "flowers:dandelion_yellow",
+	coal = "default:coal_lump",
+	emerald = "default:diamond",
+	iron_axe = "default:axe_steel",
+	gold_sword = "default:sword_mese",
+	gold_nugget = "default:gold_lump",
+	glowstone_dust = "default:mese_crystal_fragment",
+	redstone = "default:mese_crystal_fragment",
+	glass_bottle = "vessels:glass_bottle",
+	sugar = "default:papyrus",
+
+	-- Other
+	nether_brick_block = "nether:brick",
+	mycelium = "ethereal:mushroom_dirt",
+	carrot = "farming:carrot",
+	golden_carrot = "farming:carrot_gold",
+	fishing_rod = "fishing:pole_wood",
+	fish_raw = "fishing:fish_raw",
+	salmon_raw = "fishing:pike_raw",
+	bone = "bonemeal:bone",
+	slimeball = "mesecons_materials:glue",
+
+	-- TODO: Add actual ender pearl
+	ender_pearl = "farorb:farorb",
 }
 
 -- Tables for attracting, feeding and breeding mobs
 mobs_mc.follow = {
+	sheep = { mobs_mc.items.wheat },
 	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
+	horse = { "default:apple", mobs_mc.items.wheat }, -- TODO
+	pig = {"default:apple", "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick},
+	rabbit = { mobs_mc.items.dandelion, mobs_mc.items.carrot, mobs_mc.items.carrot_gold, "farming_plus:carrot_item", },
+
 	-- TODO
 }
 

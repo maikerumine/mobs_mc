@@ -31,7 +31,7 @@ mobs:register_mob("mobs_mc:squid", {
 		run_end = 60,
 	},
     drops = {
-		{name = "dye:black",
+		{name = mobs_mc.items.black_dye,
 		chance = 1,
 		min = 1,
 		max = 3,},
@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:squid", {
     makes_footstep_sound = false,
     stepheight = 1.1,
     fly = true,
-    fly_in = "default:water_source",
+    fly_in = mobs_mc.items.water_source,
     fall_speed = -2,
     view_range = 16,
     fall_damage = 1,
@@ -56,7 +56,7 @@ mobs:register_mob("mobs_mc:squid", {
 
 local water = tonumber(minetest.setting_get("water_level")) or 0
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_mc:squid", {"default:water_source"}, {"default:water_source"}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
+mobs:spawn_specific("mobs_mc:squid", {mobs_mc.items.water_source}, {mobs_mc.items.water_source}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
 
 -- compatibility
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")
