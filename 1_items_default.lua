@@ -107,6 +107,12 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "fuel",
+	recipe = "mobs_mc:bowl",
+	burntime = 5,
+})
+
 minetest.register_craftitem("mobs_mc:mushroom_stew", {
 	description = "Mushroom Stew",
 	inventory_image = "farming_mushroom_stew.png",
