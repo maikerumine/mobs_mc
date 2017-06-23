@@ -63,7 +63,7 @@ mobs:register_mob("mobs_mc:enderman", {
 			-- Take random node
 			self._take_place_timer = 0
 			local pos = self.object:getpos()
-			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, mcl_core.enderman_takable)
+			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, mobs_mc.enderman_takable)
 			if #takable_nodes >= 1 then
 				local r = pr:next(1, #takable_nodes)
 				local take_pos = takable_nodes[r]
