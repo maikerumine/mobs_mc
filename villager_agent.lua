@@ -208,9 +208,6 @@ mobs:register_mob("mobs_mc:villager", {
 	
 	]]
 })
---mobs:register_spawn("mobs_mc:villager", {"default:gravel"}, 20, 8, 50, 8, 31000)
-mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, 20, 8, 500, 2, 31000)
-
 
 -- compatibility
 mobs:alias_mob("mobs:villager", "mobs_mc:villager")

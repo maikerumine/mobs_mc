@@ -105,11 +105,6 @@ mobs:register_mob("mobs_mc:enderman", {
 })
 
 
-mobs:register_spawn("mobs_mc:enderman", { "default:sand", "default:desert_sand"}, 5, -1, 5000, 4, 31000)
-
-
-
-
 -- spawn eggs
 mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
 
