@@ -10,6 +10,11 @@ with name "mobs_mc_gameconfig". ]]
 
 
 -- Standard items
+
+-- If true, mobs_mc adds the monster egg nodes (needs default mod).
+-- Set to false in your gameconfig mod if you create your own monster egg nodes.
+mobs_mc.create_monster_egg_nodes = true
+
 mobs_mc.items = {}
 
 mobs_mc.items = {
