@@ -102,6 +102,49 @@ mobs_mc.follow = {
 	-- TODO
 }
 
+-- Contents for replace_what
+mobs_mc.replace = {
+	-- Rabbits reduce carrot growth stage by 1
+	rabbit = {
+		-- Farming Redo carrots
+		{"farming:carrot_8", "farming:carrot_7", 0},
+		{"farming:carrot_7", "farming:carrot_6", 0},
+		{"farming:carrot_6", "farming:carrot_5", 0},
+		{"farming:carrot_5", "farming:carrot_4", 0},
+		{"farming:carrot_4", "farming:carrot_3", 0},
+		{"farming:carrot_3", "farming:carrot_2", 0},
+		{"farming:carrot_2", "farming:carrot_1", 0},
+		{"farming:carrot_1", "air", 0},
+		-- Farming Plus carrots
+		{"farming_plus:carrot", "farming_plus:carrot_7", 0},
+		{"farming_plus:carrot_6", "farming_plus:carrot_5", 0},
+		{"farming_plus:carrot_5", "farming_plus:carrot_4", 0},
+		{"farming_plus:carrot_4", "farming_plus:carrot_3", 0},
+		{"farming_plus:carrot_3", "farming_plus:carrot_2", 0},
+		{"farming_plus:carrot_2", "farming_plus:carrot_1", 0},
+		{"farming_plus:carrot_1", "air", 0},
+	},
+	-- Sheep eat grass
+	sheep = {
+		-- Grass Block
+		{ "default:dirt_with_grass", "default:dirt", -1 },
+		-- “Tall Grass”
+		{ "default:grass_5", "air", 0 },
+		{ "default:grass_4", "air", 0 },
+		{ "default:grass_3", "air", 0 },
+		{ "default:grass_2", "air", 0 },
+		{ "default:grass_1", "air", 0 },
+	},
+	-- Silverfish populate stone, etc. with monster eggs
+	silverfish = {
+		{"default:stone", "mobs_mc:monster_egg_stone", -1},
+		{"default:cobble", "mobs_mc:monster_egg_cobble", -1},
+		{"default:mossycobble", "mobs_mc:monster_egg_mossycobble", -1},
+		{"default:stonebrick", "mobs_mc:monster_egg_stonebrick", -1},
+		{"default:stone_block", "mobs_mc:monster_egg_stone_block", -1},
+	},
+}
+
 -- List of nodes which endermen can take
 mobs_mc.enderman_takable = {
 	-- Generic handling, useful for entensions
@@ -131,16 +174,16 @@ mobs_mc.enderman_takable = {
 
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
-	if mobs_mc.override.items then
-		for k, v in pairs(mobs_mc.override.items) do
-			mobs_mc.items[k] = v
+	local tables = {"items", "follow", "replace"}
+	for t=1, #tables do
+		local tbl = tables[t]
+		if mobs_mc.override[tbl] then
+			for k, v in pairs(mobs_mc.override[tbl]) do
+				mobs_mc[tbl][k] = v
+			end
 		end
 	end
-	if mobs_mc.override.follow then
-		for k, v in pairs(mobs_mc.override.follow) do
-			mobs_mc.follow[k] = v
-		end
-	end
+
 	if mobs_mc.override.enderman_takable then
 		mobs_mc.enderman_takable = mobs_mc.override.enderman_takable
 	end

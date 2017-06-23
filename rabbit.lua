@@ -47,25 +47,7 @@ local rabbit = {
 	view_range = 8,
 	-- Eat carrots and reduce their growth stage by 1
 	replace_rate = 10,
-	replace_what = {
-		-- Farming Redo carrots
-		{"farming:carrot_8", "farming:carrot_7", 0},
-		{"farming:carrot_7", "farming:carrot_6", 0},
-		{"farming:carrot_6", "farming:carrot_5", 0},
-		{"farming:carrot_5", "farming:carrot_4", 0},
-		{"farming:carrot_4", "farming:carrot_3", 0},
-		{"farming:carrot_3", "farming:carrot_2", 0},
-		{"farming:carrot_2", "farming:carrot_1", 0},
-		{"farming:carrot_1", "air", 0},
-		-- Farming Plus carrots
-		{"farming_plus:carrot", "farming_plus:carrot_7", 0},
-		{"farming_plus:carrot_6", "farming_plus:carrot_5", 0},
-		{"farming_plus:carrot_5", "farming_plus:carrot_4", 0},
-		{"farming_plus:carrot_4", "farming_plus:carrot_3", 0},
-		{"farming_plus:carrot_3", "farming_plus:carrot_2", 0},
-		{"farming_plus:carrot_2", "farming_plus:carrot_1", 0},
-		{"farming_plus:carrot_1", "air", 0},
-	},
+	replace_what = mobs_mc.replace.rabbit,
 	on_rightclick = function(self, clicker)
 
 		-- feed or tame

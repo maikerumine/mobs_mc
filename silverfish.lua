@@ -27,13 +27,7 @@ mobs:register_mob("mobs_mc:silverfish", {
 	lava_damage = 4,
 	light_damage = 0,
 	fear_height = 4,
-	replace_what = {
-		{"default:stone", "mobs_mc:monster_egg_stone", -1},
-		{"default:cobble", "mobs_mc:monster_egg_cobble", -1},
-		{"default:mossycobble", "mobs_mc:monster_egg_mossycobble", -1},
-		{"default:stonebrick", "mobs_mc:monster_egg_stonebrick", -1},
-		{"default:stone_block", "mobs_mc:monster_egg_stone_block", -1},
-	},
+	replace_what = mobs_mc.replace_silverfish,
 	replace_rate = 2,
 	animation = {
 		speed_normal = 25,		speed_run = 50,

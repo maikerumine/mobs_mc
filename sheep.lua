@@ -90,17 +90,8 @@ mobs:register_mob("mobs_mc:sheep", {
 
 	-- Eat grass
 	replace_rate = 20,
-	replace_what = {
-		-- “Grass Block”
-		{ "default:dirt_with_grass", "default:dirt", -1 },
-		-- “Tall Grass”
-		{ "default:grass_5", "air", 0 },
-		{ "default:grass_4", "air", 0 },
-		{ "default:grass_3", "air", 0 },
-		{ "default:grass_2", "air", 0 },
-		{ "default:grass_1", "air", 0 },
-	},
-	
+	replace_what = mobs_mc.replace.sheep,
+
 	-- Set random color on spawn
 	do_custom = function(self)
 		if not self.initial_color_set then
