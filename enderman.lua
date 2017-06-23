@@ -15,32 +15,6 @@ local pr = PseudoRandom(os.time()*(-334))
 local take_frequency = 10
 local place_frequency = 10
 
-local takable = {
-	-- Generic handling, useful for entensions
-	"group:enderman_takable",
-
-	-- Generic nodes
-	"group:sand",
-	"group:flower",
-
-	-- Minetest Game
-	"default:dirt",
-	"default:dirt_with_grass",
-	"default:dirt_with_dry_grass",
-	"default:dirt_with_snow",
-	"default:dirt_with_rainforest_litter",
-	"default:dirt_with_grass_footsteps",
-	"default:cactus",
-	"default:gravel",
-	"default:clay",
-	"flowers:mushroom_red",
-	"flowers:mushroom_brown",
-	"tnt:tnt",
-
-	-- Nether mod
-	"nether:rack",
-}
-
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
 	runaway = true,
@@ -89,7 +63,7 @@ mobs:register_mob("mobs_mc:enderman", {
 			-- Take random node
 			self._take_place_timer = 0
 			local pos = self.object:getpos()
-			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, takable)
+			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, mcl_core.enderman_takable)
 			if #takable_nodes >= 1 then
 				local r = pr:next(1, #takable_nodes)
 				local take_pos = takable_nodes[r]

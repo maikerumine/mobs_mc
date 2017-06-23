@@ -101,7 +101,32 @@ mobs_mc.follow = {
 	-- TODO
 }
 
+-- List of nodes which endermen can take
+mobs_mc.enderman_takable = {
+	-- Generic handling, useful for entensions
+	"group:enderman_takable",
 
+	-- Generic nodes
+	"group:sand",
+	"group:flower",
+
+	-- Minetest Game
+	"default:dirt",
+	"default:dirt_with_grass",
+	"default:dirt_with_dry_grass",
+	"default:dirt_with_snow",
+	"default:dirt_with_rainforest_litter",
+	"default:dirt_with_grass_footsteps",
+	"default:cactus",
+	"default:gravel",
+	"default:clay",
+	"flowers:mushroom_red",
+	"flowers:mushroom_brown",
+	"tnt:tnt",
+
+	-- Nether mod
+	"nether:rack",
+}
 
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
@@ -115,6 +140,8 @@ if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
 			mobs_mc.follow[k] = v
 		end
 	end
+	if mobs_mc.override.enderman_takable then
+		mobs_mc.enderman_takable = mobs_mc.override.enderman_takable
+	end
 end
-
 
