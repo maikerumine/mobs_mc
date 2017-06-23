@@ -7,17 +7,8 @@
 --maikerumines throwing code
 --arrow (weapon)
 
-local c
-if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override and mobs_mc.override.items then
-	c = function(id)
-		return mobs_mc.override.items[id] == nil
-	end
-else
-	-- No items are overwritten, so always return true
-	c = function(id)
-		return true
-	end
-end
+local c = mobs_mc.is_item_variable_overridden
+
 if c("arrow") then
 	minetest.register_craftitem("mobs_mc:arrow", {
 		description = "Arrow",

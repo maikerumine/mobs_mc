@@ -7,18 +7,7 @@
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --THIS IS THE MASTER ITEM LIST TO USE WITH DEFAULT
 
--- This function checks if the item ID has been overwritten and returns true if it is unchanged
-local c
-if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override and mobs_mc.override.items then
-	c = function(id)
-		return mobs_mc.overrmobs_mc.override.items[id] == nil
-	end
-else
-	-- No items are overwritten, so always return true
-	c = function(id)
-		return true
-	end
-end
+local c = mobs_mc.is_item_variable_overridden
 
 -- Blaze
 if c("blaze_rod") then
