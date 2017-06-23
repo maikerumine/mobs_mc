@@ -41,7 +41,7 @@ local cow_def = {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	follow = "farming:wheat",
+	follow = mobs_mc.follow.cow,
 	on_rightclick = function(self, clicker)
 		if self.child then
 			return
@@ -79,7 +79,7 @@ mooshroom_def.on_rightclick = function(self, clicker)
 	end
 	local item = clicker:get_wielded_item()
 	-- Use shears to get mushrooms and turn mooshroom into cow
-	if item:get_name() == "mobs:shears" then
+	if item:get_name() == mobs_mc.items.shears then
 		local pos = self.object:getpos()
 		minetest.sound_play("shears", {pos = pos})
 		minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, mobs_mc.items.mushroom_red .. " 5")

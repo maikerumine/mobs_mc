@@ -93,6 +93,7 @@ mobs_mc.items = {
 -- Tables for attracting, feeding and breeding mobs
 mobs_mc.follow = {
 	sheep = { mobs_mc.items.wheat },
+	cow = { mobs_mc.items.wheat },
 	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
 	horse = { "default:apple", mobs_mc.items.wheat }, -- TODO
 	pig = {"default:apple", "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick},
