@@ -4,9 +4,9 @@ of hardcoding the itemstring.
 This way, external mods are enabled to replace the itemstrings to provide
 their own items and subgame integration is made much simpler.
 
-For instance, subgames could add a mod which overrides
-mobs_mc.items_dirt_with_grass and set the used node to the subgame's equivalent
-of dirt with grass. ]]
+An item IDs is supposed to be overwritten by adding
+mobs_mc.override.items["example:item"] in a subgame mod
+with name "mobs_mc_gameconfig". ]]
 
 
 -- Standard items
@@ -57,9 +57,27 @@ mobs_mc.items.string = "farming:string"
 mobs_mc.items.stick = "group:stick"
 mobs_mc.items.flint = "default:flint"
 mobs_mc.items.iron_ingot = "default:steel_ingot"
-
+-- TODO
 
 -- Tables for attracting, feeding and breeding mobs
 mobs_mc.follow = {}
 mobs_mc.follow.chicken = { "farming:seed_wheat", "farming:seed_cotton" }
+-- TODO
+
+
+
+-- Item name overrides from mobs_mc_gameconfig (if present)
+if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
+	if mobs_mc.override.items then
+		for k, v in pairs(mobs_mc.override.items) do
+			mobs_mc.items[k] = v
+		end
+	end
+	if mobs_mc.override.follow then
+		for k, v in pairs(mobs_mc.override.follow) do
+			mobs_mc.follow[k] = v
+		end
+	end
+end
+
 

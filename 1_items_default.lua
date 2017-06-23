@@ -7,27 +7,35 @@
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --THIS IS THE MASTER ITEM LIST TO USE WITH DEFAULT
 
-
+local function c(id)
+	return string.sub(mobs_mc.items[id], 1, 8) == "mobs_mc:"
+end
 
 --blaze
-minetest.register_craftitem("mobs_mc:blaze_rod", {
-	description = "Blaze Rod",
-	_doc_items_longdesc = "This is a crafting component dropped from dead blazes.",
-	wield_image = "mcl_mobitems_blaze_rod.png",
-	inventory_image = "mcl_mobitems_blaze_rod.png",
-})
+if c("blaze_rod") then
+	minetest.register_craftitem("mobs_mc:blaze_rod", {
+		description = "Blaze Rod",
+		_doc_items_longdesc = "This is a crafting component dropped from dead blazes.",
+		wield_image = "mcl_mobitems_blaze_rod.png",
+		inventory_image = "mcl_mobitems_blaze_rod.png",
+	})
+end
 
-minetest.register_craftitem("mobs_mc:blaze_powder", {
-	description = "Blaze Powder",
-	_doc_items_longdesc = "This item is mainly used for brewing potions and crafting.",
-	wield_image = "mcl_mobitems_blaze_powder.png",
-	inventory_image = "mcl_mobitems_blaze_powder.png",
-})
+if c("blaze_powder") then
+	minetest.register_craftitem("mobs_mc:blaze_powder", {
+		description = "Blaze Powder",
+		_doc_items_longdesc = "This item is mainly used for brewing potions and crafting.",
+		wield_image = "mcl_mobitems_blaze_powder.png",
+		inventory_image = "mcl_mobitems_blaze_powder.png",
+	})
+end
 
-minetest.register_craft({
-	output = "mobs_mc:blaze_powder 2",
-	recipe = {{ "mobs_mc:blaze_rod" }},
-})
+if c("blaze_rod") and c("blaze_powder") then
+	minetest.register_craft({
+		output = "mobs_mc:blaze_powder 2",
+		recipe = {{ "mobs_mc:blaze_rod" }},
+	})
+end
 
 -- Make blaze rod furnace-burnable. 1.5 times the burn time of a coal lump
 local coalcraft, burntime
@@ -48,32 +56,39 @@ minetest.register_craft({
 })
 
 -- chicken
-minetest.register_craftitem("mobs_mc:chicken_raw", {
-	description = "Raw Chicken",
-	inventory_image = "mcl_mobitems_chicken_raw.png",
-	groups = { food = 2, eatable = 2 },
-	on_use = minetest.item_eat(2),
-})
+if c("chicken_raw") then
+	minetest.register_craftitem("mobs_mc:chicken_raw", {
+		description = "Raw Chicken",
+		inventory_image = "mcl_mobitems_chicken_raw.png",
+		groups = { food = 2, eatable = 2 },
+		on_use = minetest.item_eat(2),
+	})
+end
 
-minetest.register_craftitem("mobs_mc:chicken_cooked", {
-	description = "Cooked Chicken",
-	inventory_image = "mcl_mobitems_chicken_cooked.png",
-	groups = { food = 2, eatable = 6 },
-	on_use = minetest.item_eat(6),
-})
+if c("chicken_cooked") then
+	minetest.register_craftitem("mobs_mc:chicken_cooked", {
+		description = "Cooked Chicken",
+		inventory_image = "mcl_mobitems_chicken_cooked.png",
+		groups = { food = 2, eatable = 6 },
+		on_use = minetest.item_eat(6),
+	})
+end
 
-minetest.register_craft({
-	type = "cooking",
-	output = "mobs_mc:chicken_cooked",
-	recipe = "mobs_mc:chicken_raw",
-	cooktime = 5,
-})
+if c("chicken_raw") and c("chicken_cooked") then
+	minetest.register_craft({
+		type = "cooking",
+		output = "mobs_mc:chicken_cooked",
+		recipe = "mobs_mc:chicken_raw",
+		cooktime = 5,
+	})
+end
 
--- leather, feathers, etc.
-minetest.register_craftitem("mobs_mc:feather", {
-	description = "Feather",
-	inventory_image = "mcl_mobitems_feather.png",
-})
+if c("feather") then
+	minetest.register_craftitem("mobs_mc:feather", {
+		description = "Feather",
+		inventory_image = "mcl_mobitems_feather.png",
+	})
+end
 
 --cows
 
