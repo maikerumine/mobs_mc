@@ -87,7 +87,9 @@ mobs_mc.items = {
 	golden_carrot = "farming:carrot_gold",
 	fishing_rod = "fishing:pole_wood",
 	fish_raw = "fishing:fish_raw",
-	salmon_raw = "fishing:pike_raw",
+	salmon_raw = "fishing:carp_raw",
+	clownfish_raw = "fishing:clownfish_raw",
+	pufferfish_raw = "fishing:pike_raw",
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
 
@@ -103,8 +105,7 @@ mobs_mc.follow = {
 	horse = { "default:apple", mobs_mc.items.wheat }, -- TODO
 	pig = {"default:apple", "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick},
 	rabbit = { mobs_mc.items.dandelion, mobs_mc.items.carrot, mobs_mc.items.carrot_gold, "farming_plus:carrot_item", },
-
-	-- TODO
+	ocelot = { mobs_mc.items.fish_raw, mobs_mc.items.salmon_raw, mobs_mc.items.clownfish_raw, mobs_mc.items.pufferfish_raw, },
 }
 
 -- Contents for replace_what

@@ -65,7 +65,6 @@ mobs:register_mob("mobs_mc:parrot", {
 	fly_in = {"air"},
 	jump_chance = 98,
 	fear_height = 120,	
-	follow = mobs_mc.follow.parrot,
 	view_range = 25,
 
 	on_rightclick = function(self, clicker)
