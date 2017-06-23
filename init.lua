@@ -75,7 +75,7 @@ dofile(path .. "/heads.lua") -- maikerumine
 
 --IN CASE THROWING IS NOT INSTALLED, THIS FIX
 	if not throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
+		dofile(minetest.get_modpath("mobs_mc").."/2_throwing.lua")
 		minetest.register_alias("throwing:bow_wood", "mobs:bow_wood")
 		minetest.register_alias("throwing:arrow", "mobs:arrow")
 		mobs:alias_mob("throwing:arrow_entity", "mobs:arrow_entity")
@@ -86,7 +86,7 @@ dofile(path .. "/heads.lua") -- maikerumine
 	end
 
 	if not mcl_throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
+		dofile(minetest.get_modpath("mobs_mc").."/2_throwing.lua")
 		minetest.register_alias("throwing:bow_wood", "mcl_throwing:bow")
 		minetest.register_alias("throwing:arrow", "mcl_throwing:arrow")
 		mobs:alias_mob("throwing:arrow_entity", "mcl_throwing:arrow_entity")
