@@ -30,9 +30,16 @@ minetest.register_craft({
 })
 
 -- Make blaze rod furnace-burnable. 1.5 times the burn time of a coal lump
-local coalcraft = minetest.get_craft_result({method="fuel", width=1, items={"default:coal_lump"}})
-local burntime = math.floor(coalcraft.time * 1.5)
-if burntime == 0 then burntime = 60 end
+local coalcraft, burntime
+if minetest.get_modpath("default") then
+	coalcraft = minetest.get_craft_result({method="fuel", width=1, items={"default:coal_lump"}})
+end
+if coalcraft then
+	burntime = math.floor(coalcraft.time * 1.5)
+end
+if burntime == nil or burntime == 0 then
+	burntime = 60
+end
 
 minetest.register_craft({
 	type = "fuel",
@@ -130,7 +137,10 @@ minetest.register_craftitem("mobs_mc:milk_bucket", {
 	stack_max = 1,
 })
 
-
+local dragon_egg_sounds
+if minetest.get_modpath("default") then
+	dragon_egg_sounds = default.node_sound_stone_defaults()
+end
 
 --ender dragon
 minetest.register_node("mobs_mc:dragon_egg", {
@@ -165,7 +175,7 @@ minetest.register_node("mobs_mc:dragon_egg", {
 		type = "regular",
 	},
 	groups = {snappy = 1, falling_node = 1, deco_block = 1, not_in_creative_inventory = 1, dig_by_piston = 1 },
-	sounds = default.node_sound_stone_defaults(),
+	sounds = dragon_egg_sounds,
 	-- TODO: Make dragon egg teleport on punching
 })
 
