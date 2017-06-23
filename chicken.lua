@@ -92,7 +92,7 @@ mobs:register_mob("mobs_mc:chicken", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:chicken", {mobs_mc.items.dirt_with_grass}, 20, 8, 17000, 3, 31000)
+mobs:register_spawn("mobs_mc:chicken", {mobs_mc.items.grass_block}, 20, 8, 17000, 3, 31000)
 
 
 -- compatibility

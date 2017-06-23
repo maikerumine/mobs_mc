@@ -110,9 +110,9 @@ minetest.register_entity("mobs_mc:arrow_entity", THROWING_ARROW_ENTITY)
 minetest.register_craft({
 	output = 'mobs_mc:arrow 4',
 	recipe = {
-		{'default:flint'},
-		{'group:stick'},
-		{'mobs_mc:feather'},
+		{mobs_mc.items.flint},
+		{mobs_mc.items.stick},
+		{mobs_mc.items.feather},
 	}
 })
 
@@ -161,9 +161,9 @@ minetest.register_tool("mobs_mc:bow_wood", {
 minetest.register_craft({
 	output = 'mobs_mc:bow_wood',
 	recipe = {
-		{'farming:cotton', 'group:stick', ''},
-		{'farming:cotton', '',              'group:stick'},
-		{'farming:cotton', 'group:stick', ''},
+		{mobs_mc.items.string, mobs_mc.items.stick, ''},
+		{mobs_mc.items.string, '', mobs_mc.items.stick},
+		{mobs_mc.items.string, mobs_mc.items.stick, ''},
 	}
 })
 

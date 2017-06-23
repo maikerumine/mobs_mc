@@ -7,10 +7,7 @@ local path = minetest.get_modpath("mobs_mc")
 
 mobs_mc = {}
 
---Mob heads
-dofile(path .. "/heads.lua") -- maikerumine
-
-
+dofile(path .. "/3_gameconfig.lua")
 
 --MOB ITEMS SELECTOR SWITCH
 
@@ -43,9 +40,8 @@ else
 	mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
 end
 
-dofile(path .. "/3_gameconfig.lua")
-
-
+--Mob heads
+dofile(path .. "/heads.lua") -- maikerumine
 
 -- Animals
 dofile(path .. "/bat.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
