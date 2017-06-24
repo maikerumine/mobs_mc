@@ -39,6 +39,7 @@ local ocelot = {
 	run_velocity = 3,
 	drawtype = "front",
 	floats = 1,
+	runaway = true,
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
@@ -95,6 +96,7 @@ cat.owner = ""
 cat.order = "roam" -- "sit" or "roam"
 cat.owner_loyal = true
 cat.tamed = true
+cat.runaway = false,
 cat.on_rightclick = function(self, clicker)
 	if mobs:feed_tame(self, clicker, 1, true, false) then
 		return
