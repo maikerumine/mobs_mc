@@ -40,20 +40,11 @@ mobs:register_mob("mobs_mc:spider", {
 	view_range = 16,
 	floats = 0,
 	group_attack = true,
-		replace_rate = 5,
-	replace_what = {"default:torch"},
-	replace_with = "air",
-	replace_offset = -1,
 	peaceful = false,
     drops = {
-		{name = "farming:string",
-		chance = 1, min = 1, max = 5,},
-		{name = "mobs_mc:spider_eye",
-		chance = 1, min = 0, max = 1,},
-		{name = "mobs_mc:spider_head",
-		chance = 50,
-		min = 0,
-		max = 1,},
+		{name = mobs_mc.items.string, chance = 1, min = 0, max = 2,},
+		{name = mobs_mc.items.spider_eye, chance = 3, min = 1, max = 1,},
+		{name = "mobs_mc:spider_head", chance = 200, min = 1, max = 1,},
 	},
 	water_damage = 5,
 	lava_damage = 50,
@@ -66,7 +57,7 @@ mobs:register_mob("mobs_mc:spider", {
 		run_start = 0,		run_end = 40,
 	},
 })
-mobs:register_spawn("mobs_mc:spider", {"default:stone" ,"default:gravel","default:cobble","default:sand", "group:snappy"}, 4, -1, 17000, 2, 3000)
+mobs:register_spawn("mobs_mc:spider", mobs_mc.spawn.solid, 7, 0, 9500, 2, 3000)
 
 
 -- compatibility

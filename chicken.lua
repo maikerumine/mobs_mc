@@ -30,11 +30,11 @@ mobs:register_mob("mobs_mc:chicken", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
-		{name = "mobs_mc:chicken_raw",
+		{name = mobs_mc.items.chicken_raw,
 		chance = 1,
 		min = 1,
 		max = 1,},
-		{name = "mobs_mc:feather",
+		{name = mobs_mc.items.feather,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -55,7 +55,7 @@ mobs:register_mob("mobs_mc:chicken", {
 		run_start = 0,		run_end = 40,
 	},
 
-	follow = {"farming:seed_wheat", "farming:seed_cotton"},
+	follow = mobs_mc.follow.chicken,
 	view_range = 16,
 
 	on_rightclick = function(self, clicker)
@@ -80,7 +80,7 @@ mobs:register_mob("mobs_mc:chicken", {
 
 		local pos = self.object:getpos()
 
-		minetest.add_item(pos, "mobs_mc:egg")
+		minetest.add_item(pos, mobs_mc.items.egg)
 
 		minetest.sound_play("mobs_mc_chicken_lay_egg", {
 			pos = pos,
@@ -92,11 +92,7 @@ mobs:register_mob("mobs_mc:chicken", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:chicken", {"default:dirt_with_grass"}, 20, 8, 17000, 3, 31000)
-
-
--- compatibility
---mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
+mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 7000, 3, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)

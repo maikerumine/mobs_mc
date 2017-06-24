@@ -36,7 +36,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	pathfinding = 1,
 	group_attack = true,
 	drops = {
-		{name = "mobs_mc:blaze_rod",
+		{name = mobs_mc.items.blaze_rod,
 		chance = 1,
 		min = 0,
 		max = 1,},
@@ -70,9 +70,7 @@ mobs:register_mob("mobs_mc:blaze", {
     fear_height = 120,
 })
 
---mobs:register_spawn("mobs_mc:blaze", {"mcl_core:lava_flowing", "mcl_nether:netherrack","air"}, 30, -1, 5000, 1, -1000)
-mobs:register_spawn("mobs_mc:blaze",
-	{"default:nitherbrick"}, 20, -1, 5000, 1, -1000, true)
+mobs:register_spawn("mobs_mc:blaze", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 5000, 1, -1000, true)
 	
 -- Blaze fireball
 mobs:register_arrow("mobs_mc:blaze_fireball", {
@@ -100,7 +98,7 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 	hit_node = function(self, pos, node)
 		local pos_above = {x=pos.x, y=pos.y+1, z=pos.z}
 		if minetest.registered_nodes[minetest.get_node(pos_above).name].buildable_to then
-			minetest.set_node(pos_above, {name="default:basic_flame"})
+			minetest.set_node(pos_above, {name=mobs_mc.items.fire})
 		end
 	end
 })

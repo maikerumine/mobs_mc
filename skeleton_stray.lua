@@ -37,15 +37,15 @@ mobs:register_mob("mobs_mc:stray", {
 	run_velocity = 2.4,
 	damage = 2,
 	drops = {
-		{name = "mobs_mc:arrow",
+		{name = mobs_mc.items.arrow,
 		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "mobs_mc:bow_wood",
+		{name = mobs_mc.items.bow,
 		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "bonemeal:bone",
+		{name = mobs_mc.items.bone,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -87,7 +87,7 @@ mobs:register_mob("mobs_mc:stray", {
 })
 
 --spawn
-mobs:spawn_specific("mobs_mc:stray", {"default:sandstone", "default:sand"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 9000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:stray", "Stray", "stray_inv.png", 0)

@@ -31,7 +31,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	drops = {
-		{name = "mobs_mc:feather",
+		{name = mobs_mc.items.feather,
 		chance = 1,
 		min = 1,
 		max = 2,},
@@ -62,10 +62,9 @@ mobs:register_mob("mobs_mc:parrot", {
 	floats=1,
 	physical = true,
 	fly = true,
-	fly_in = {'default:void', "air"},
+	fly_in = {"air"},
 	jump_chance = 98,
 	fear_height = 120,	
-	follow = {"farming:seed_wheat", "farming:seed_cotton"},
 	view_range = 25,
 
 	on_rightclick = function(self, clicker)
@@ -77,31 +76,12 @@ mobs:register_mob("mobs_mc:parrot", {
 		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
 	end,
 
-	do_custom = function(self)
-
-		if self.child
-		or math.random(1, 25000) > 1 then
-			return
-		end
-
-		local pos = self.object:getpos()
-
-		minetest.add_item(pos, "mobs_mc:egg")
-
-		minetest.sound_play("default_place_node_hard", {
-			pos = pos,
-			gain = 1.0,
-			max_hear_distance = 5,
-		})
-	end,	
-	
-	
 })
 
 
 --spawn
-mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves"},{"air"},7, 20, 20, 15000, 2, 15, 20)
-mobs:register_spawn("mobs_mc:parrot", {"default:dirt_with_rainforest_litter"}, 20, 12, 5000, 2, 31000)
+-- TODO: Increase spawn chance if polished
+mobs:spawn_specific("mobs_mc:parrot", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX+1, 20, 20000, 2, 15, 20)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:parrot", "Parrot", "parrot_inv.png", 0)

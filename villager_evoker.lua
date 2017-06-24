@@ -50,11 +50,11 @@ mobs:register_mob("mobs_mc:evoker", {
 	shoot_interval = 15,
 	passive = false,
 	drops = {
-		{name = "default:emerald",
+		{name = mobs_mc.items.emerald,
 		chance = 1,
-		min = 1,
+		min = 0,
 		max = 1,},
-		{name = "mobs_mc:totem",
+		{name = mobs_mc.items.totem,
 		chance = 1,
 		min = 1,
 		max = 1,},
@@ -85,52 +85,8 @@ mobs:register_mob("mobs_mc:evoker", {
 	light_damage = 0,
 	view_range = 13,
 	fear_height = 2,
-	replace_rate = 4,
-	replace_what = {"default:torch","mg_villages:torch", "default:torch_wall","mg_villages:torch_wall"},
-	replace_with = "air",
-	replace_offset = -1,
 
 })
-
---[[
-mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
-
-These functions register a spawn algorithm for the mob. Without this function the call the mobs won't spawn.
-
-    'name' is the name of the animal/monster
-    'nodes' is a list of nodenames on that the animal/monster can spawn on top of
-    'neighbors' is a list of nodenames on that the animal/monster will spawn beside (default is {"air"} for mobs:register_spawn)
-    'max_light' is the maximum of light
-    'min_light' is the minimum of light
-    'interval' is same as in register_abm() (default is 30 for mobs:register_spawn)
-    'chance' is same as in register_abm()
-    'active_object_count' mob is only spawned if active_object_count_wider of ABM is <= this
-    'min_height' is the minimum height the mob can spawn
-    'max_height' is the maximum height the mob can spawn
-    'day_toggle' true for day spawning, false for night or nil for anytime
-    'on_spawn' is a custom function which runs after mob has spawned and gives self and pos values.]]
-
---mobs:register_spawn("mobs_mc:evoker", {"mg_villages:road"}, 20, 8, 500, 2, 31000)
---mobs:spawn_specific("mobs_mc:evoker", {"default:acacia_tree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
---mobs:spawn_specific("mobs_mc:evoker", {"default:aspen_tree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
---mobs:spawn_specific("mobs_mc:evoker", {"default:tree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
---mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
---mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:ladder_wood"}, 0, 20, 60, 300, 1, -31000, 150)
-
-mobs:spawn_specific("mobs_mc:evoker", {"default:acacia_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:aspen_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-
---mg_villages:torch
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_junglewood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_acacia_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_pine_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-
-
-
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:evoker", "Evoker", "evoker_inv.png", 0)

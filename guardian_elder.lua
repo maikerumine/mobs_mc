@@ -37,7 +37,8 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 		run_start = 0,		run_end = 20,
 	},
     drops = {
-		{name = "dye:black",
+		-- TODO: Implement correct drops
+		{name = mobs_mc.items.black_dye,
 		chance = 1,
 		min = 1,
 		max = 3,},
@@ -48,7 +49,7 @@ mobs:register_mob("mobs_mc:guardian_elder", {
     stepheight = 2.1,
     fly = true,
 	--floats=1,
-    fly_in = "default:water_source",
+    fly_in = mobs_mc.items.water_source,
     fall_speed = -2,
     view_range = 8,
     fall_damage = 1,
@@ -58,13 +59,8 @@ mobs:register_mob("mobs_mc:guardian_elder", {
     
 })
 
---name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
---mobs:spawn_specific("mobs_mc:squid", l_spawn_in, l_spawn_near, l_min_light, l_max_light, 30, 5000, 2, -31000, l_max_height )
-mobs:register_spawn("mobs_mc:guardian_elder",
-	{"default:water_source"}, 20, -1, 5000, 2, -1000, true)
+mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:squid_mean", "Spawn Mean Squid", "spawn_egg_squid.png")
-
 mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "guardian_elder_inv.png", 0)
 

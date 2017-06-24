@@ -27,11 +27,7 @@ mobs:register_mob("mobs_mc:slime_tiny", {
 	armor = 100,
 	drops = {
 		-- slimeball
-		{name = "mesecons_materials:glue",
-		chance = 1,
-		min = 0,
-		max = 2,},
-		{name = "default:papyrus",
+		{name = mobs_mc.items.slimeball,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -205,9 +201,9 @@ mobs:register_mob("mobs_mc:slime_big", {
 	end,
 })
 
-mobs:register_spawn("mobs_mc:slime_tiny", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_small", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_big", {"default:water_flowing", "group:cracky"}, 15, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
 
 
 
@@ -296,7 +292,7 @@ mobs:register_mob("mobs_mc:magma_cube_small", {
 	reach = 2.75,
 	armor = 70,
 	drops = {
-		{name = "mobs_mc:magma_cream",
+		{name = mobs_mc.items.magma_cream,
 		chance = 4,
 		min = 1,
 		max = 1,},
@@ -372,7 +368,7 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 	reach = 3,
 	armor = 40,
 	drops = {
-		{name = "mobs_mc:magma_cream",
+		{name = mobs_mc.items.magma_cream,
 		chance = 4,
 		min = 1,
 		max = 1,},
@@ -418,13 +414,13 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 	end
 })
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", {"group:stone"}, 15, 0, 5000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", {"group:stone"}, 15, 0, 5500, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", {"group:stone"}, 15, 0, 6000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5500, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 6000, 4, -1000)
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", {"mcl_nether:nether_brick"}, 15, 0, 1000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", {"mcl_nether:nether_brick"}, 15, 0, 1100, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", {"mcl_nether:nether_brick"}, 15, 0, 1200, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1100, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1200, 4, -1000)
 
 -- Compability
 mobs:alias_mob("mobs_mc:greensmall", "mobs_mc:slime_tiny")

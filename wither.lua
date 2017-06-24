@@ -162,9 +162,5 @@ mobs:register_arrow(":mobs_mc:fireball", {
 --Spawn egg
 mobs:register_egg("mobs_mc:wither", "Wither", "wither_inv.png", 0)
 
---Spawn 
-mobs:spawn_specific("mobs_mc:wither", {"default:bedrock"}, {"air"},
-	0, 5, 60, 13000, 1, -31000, -50)
-	
 --Compatibility
 mobs:alias_mob("nssm:mese_dragon", "mobs_mc:wither")	

@@ -15,32 +15,6 @@ local pr = PseudoRandom(os.time()*(-334))
 local take_frequency = 10
 local place_frequency = 10
 
-local takable = {
-	-- Generic handling, useful for entensions
-	"group:enderman_takable",
-
-	-- Generic nodes
-	"group:sand",
-	"group:flower",
-
-	-- Minetest Game
-	"default:dirt",
-	"default:dirt_with_grass",
-	"default:dirt_with_dry_grass",
-	"default:dirt_with_snow",
-	"default:dirt_with_rainforest_litter",
-	"default:dirt_with_grass_footsteps",
-	"default:cactus",
-	"default:gravel",
-	"default:clay",
-	"flowers:mushroom_red",
-	"flowers:mushroom_brown",
-	"tnt:tnt",
-
-	-- Nether mod
-	"nether:rack",
-}
-
 mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
 	runaway = true,
@@ -66,12 +40,8 @@ mobs:register_mob("mobs_mc:enderman", {
 	run_velocity = 3.4,
 	damage = 7,
 	drops = {
-		{name = "farorb:farorb",
-		chance = 3,
-		min = 0,
-		max = 1,},
-		{name = "mobs_mc:enderman_head",
-		chance = 50,
+		{name = mobs_mc.items.ender_pearl,
+		chance = 1,
 		min = 0,
 		max = 1,},
 	},
@@ -93,7 +63,7 @@ mobs:register_mob("mobs_mc:enderman", {
 			-- Take random node
 			self._take_place_timer = 0
 			local pos = self.object:getpos()
-			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, takable)
+			local takable_nodes = minetest.find_nodes_in_area({x=pos.x-2, y=pos.y-1, z=pos.z-2}, {x=pos.x+2, y=pos.y+1, z=pos.z+2}, mobs_mc.enderman_takable)
 			if #takable_nodes >= 1 then
 				local r = pr:next(1, #takable_nodes)
 				local take_pos = takable_nodes[r]
@@ -175,7 +145,7 @@ mobs:register_mob("mobs_mc:enderman", {
 
 
 --spawn on solid blocks
-mobs:register_spawn("mobs_mc:enderman", { "group:crumbly", "group:cracky", "group:solid" }, 7, 0, 9000, 1, 31000)
+mobs:register_spawn("mobs_mc:enderman", mobs_mc.spawn.solid, 7, 0, 9000, -31000, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:enderman", "Enderman", "mobs_mc_spawn_icon_enderman.png", 0)

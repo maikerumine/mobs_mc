@@ -37,16 +37,12 @@ mobs:register_mob("mobs_mc:ghast", {
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	drops = {
-		{name = "tnt:gunpowder",
-		chance = 3,
+		{name = mobs_mc.items.gunpowder,
+		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "mobs_mc:ghast_tear",
-		chance = 11,
-		min = 0,
-		max = 1,},
-		{name = "mobs_mc:ghast_head",
-		chance = 50,
+		{name = mobs_mc.items.ghast_tear,
+		chance = 1,
 		min = 0,
 		max = 1,},
 	},
@@ -82,7 +78,7 @@ mobs:register_mob("mobs_mc:ghast", {
 
 
 --mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-mobs:spawn_specific("mobs_mc:ghast", {"default:flowing_lava", "nether:rack"},{"air"},0, 17, 20, 8000, 2, -3610, -2100)
+mobs:spawn_specific("mobs_mc:ghast", mobs_mc.spawn.nether, {"air"},0, minetest.LIGHT_MAX+1, 20, 8000, 2, -3610, -2100)
 -- fireball (weapon)
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",

@@ -27,9 +27,6 @@ mobs:register_mob("mobs_mc:ocelot", {
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	run_velocity = 3,
-	drops = {
-
-	},
 	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
@@ -46,7 +43,7 @@ mobs:register_mob("mobs_mc:ocelot", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	follow = "fishing:fish_raw",
+	follow = mobs_mc.follow.ocelot,
 	view_range = 12,
 	passive = false,
 	attack_type = "dogfight",
@@ -57,7 +54,8 @@ attacks_monsters = true,
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:ocelot", {"default:dirt_with_dry__grass"}, 20, 12, 15000, 2, 31000)
+-- TODO: Increase spawn chance if polished
+mobs:register_spawn("mobs_mc:ocelot", mobs_mc.spawn.jungle, minetest.LIGHT_MAX+1, 0, 20000, 2, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")

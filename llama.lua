@@ -29,18 +29,10 @@ mobs:register_mob("mobs_mc:llama", {
 	run_velocity = 4.4,
 	floats = true,
 	drops = {
-		{name = "mobs:leather",
+		{name = mobs_mc.items.leather,
 		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "default:chest",
-		chance = 11,
-		min = 0,
-		max = 1,},
-		{name = "carpet3d:red",
-		chance = 7,
-		min = 0,
-		max = 1,},
 	},
 	drawtype = "front",
 	water_damage = 0,
@@ -67,7 +59,7 @@ mobs:register_mob("mobs_mc:llama", {
 		look_start = 78,
 		look_end = 108,
 	},
-	follow = {"default:apple", "farming:potato", "farming:carrot"},
+	follow = mobs_mc.items.horse,
 	view_range = 5,
 	do_custom = function(self, dtime)
 
@@ -100,7 +92,7 @@ mobs:register_mob("mobs_mc:llama", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, "mobs_mc:saddle")
+			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -129,21 +121,21 @@ mobs:register_mob("mobs_mc:llama", {
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
 				-- add saddle back to inventory
-				if inv:room_for_item("main", "mobs_mc:saddle") then
-					inv:add_item("main", "mobs_mc:saddle")
+				if inv:room_for_item("main", mobs_mc.items.saddle) then
+					inv:add_item("main", mobs_mc.items.saddle)
 				else
-					minetest.add_item(clicker.getpos(), "mobs_mc:saddle")
+					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
 				end
 
 			-- attach player to horse
 			elseif not self.driver
-			and clicker:get_wielded_item():get_name() == "mobs_mc:saddle" then
+			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 
 				-- take saddle from inventory
-				inv:remove_item("main", "mobs_mc:saddle")
+				inv:remove_item("main", mobs_mc.items.saddle)
 			end
 		end
 
@@ -154,7 +146,7 @@ mobs:register_mob("mobs_mc:llama", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15000, 1, 40)
+mobs:register_spawn("mobs_mc:llama", mobs_mc.spawn.savanna, minetest.LIGHT_MAX+1, 0, 15000, 1, 40)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:llama", "Llama", "llama_inv.png", 0)

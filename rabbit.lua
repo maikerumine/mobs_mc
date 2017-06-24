@@ -29,8 +29,8 @@ local rabbit = {
 	runaway = true,
 	jump = true,
 	drops = {
-		{name = "mobs_mc:rabbit_raw", chance = 1, min = 0, max = 1},
-		{name = "mobs_mc:rabbit_hide", chance = 1, min = 0, max = 1},
+		{name = mobs_mc.items.rabbit_raw, chance = 1, min = 0, max = 1},
+		{name = mobs_mc.items.rabbit_hide, chance = 1, min = 0, max = 1},
 	},
 	water_damage = 1,
 	lava_damage = 4,
@@ -43,33 +43,11 @@ local rabbit = {
 		run_start = 0,		run_end = 20,
 	},
 	-- Follow (yellow) dangelions, carrots and golden carrots
-	follow = {
-		"flowers:dandelion_yellow", -- Minetest Game
-		"farming:carrot", "farming:carrot_gold", -- Farming Redo
-		"farming_plus:carrot_item", -- Farming Plus
-	},
+	follow = mobs_mc.follow.rabbit,
 	view_range = 8,
 	-- Eat carrots and reduce their growth stage by 1
 	replace_rate = 10,
-	replace_what = {
-		-- Farming Redo carrots
-		{"farming:carrot_8", "farming:carrot_7", 0},
-		{"farming:carrot_7", "farming:carrot_6", 0},
-		{"farming:carrot_6", "farming:carrot_5", 0},
-		{"farming:carrot_5", "farming:carrot_4", 0},
-		{"farming:carrot_4", "farming:carrot_3", 0},
-		{"farming:carrot_3", "farming:carrot_2", 0},
-		{"farming:carrot_2", "farming:carrot_1", 0},
-		{"farming:carrot_1", "air", 0},
-		-- Farming Plus carrots
-		{"farming_plus:carrot", "farming_plus:carrot_7", 0},
-		{"farming_plus:carrot_6", "farming_plus:carrot_5", 0},
-		{"farming_plus:carrot_5", "farming_plus:carrot_4", 0},
-		{"farming_plus:carrot_4", "farming_plus:carrot_3", 0},
-		{"farming_plus:carrot_3", "farming_plus:carrot_2", 0},
-		{"farming_plus:carrot_2", "farming_plus:carrot_1", 0},
-		{"farming_plus:carrot_1", "air", 0},
-	},
+	replace_what = mobs_mc.replace.rabbit,
 	on_rightclick = function(self, clicker)
 
 		-- feed or tame
@@ -125,14 +103,14 @@ mobs:register_mob("mobs_mc:killer_bunny", killer_bunny)
 
 local spawn = {
 	name = "mobs_mc:rabbit",
-	chance = 15000,
+	chance = 5000,
 	active_object_count = 99,
 	min_light = 0,
-	max_light = minetest.LIGHT_MAX,
+	max_light = minetest.LIGHT_MAX+1,
 }
 
 local spawn_desert = table.copy(spawn)
-spawn_desert.nodes = {"default:sand", "default:desert_sand"}
+spawn_desert.nodes = mobs_mc.spawn.desert
 on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	texture = "mobs_mc_rabbit_gold.png"
@@ -142,7 +120,7 @@ end
 mobs:spawn(spawn_desert)
 
 local spawn_snow = table.copy(spawn)
-spawn_snow.nodes = {"default:dirt_with_snow", "default:snow"}
+spawn_snow.nodes = mobs_mc.spawn.snow
 spawn_snow.on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	local texture
@@ -160,7 +138,7 @@ end
 mobs:spawn(spawn_snow)
 
 local spawn_grass = table.copy(spawn)
-spawn_grass.nodes = {"default:dirt_with_grass", "ethereal:prairie_dirt"}
+spawn_grass.nodes = mobs_mc.spawn.grassland
 spawn_grass.on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	local texture

@@ -39,11 +39,15 @@ mobs:register_mob("mobs_mc:witch", {
 	--'dogshoot_count_max' number of seconds before switching above modes.
 	dogshoot_switch = 1,
 	dogshoot_count_max =1.8,
+	max_drops = 3,
 	drops = {
-		{name = "default:apple",
-		chance = 10,
-		min = 1,
-		max = 2,},
+		{name = mobs_mc.items.glass_bottle, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.glowstone_dust, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.gunpowder, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.redstone, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.spider_eye, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.sugar, chance = 8, min = 0, max = 2,},
+		{name = mobs_mc.items.stick, chance = 4, min = 0, max = 2,},
 	},
 	sounds = {
 		random = "Villager1",
@@ -103,15 +107,7 @@ mobs:register_arrow(":mobs:potion_arrow", {
 	end
 })
 
-
-mobs:register_spawn("mobs_mc:witch", {"default:dirt_with_rainforest_litter"}, 20, 8, 9500, 2, 31000)
-
-
--- compatibility
-
-
 -- spawn eggs
---mobs:register_egg("mobs_mc:witch", "Villager", "spawn_egg_villager.png")
 mobs:register_egg("mobs_mc:witch", "Witch", "witch_inv.png", 0)
 
 if minetest.settings:get_bool("log_mods") then

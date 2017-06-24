@@ -18,6 +18,11 @@ Credits:
 [maikerumine](https://github.com/maikerumine) Coding behaviour, spawning, drops, and misc.
 [wuzzy2](https://github.com/Wuzzy2) Zombies, Husks, Item textures, and code.
 
+## Subgame integration
+Want to include this mod in your subgame? Read `gameconfig.md`.
+
+## List of mobs
+
 <img src="http://i.imgur.com/sDrPv0I.png">
 
 Blaze

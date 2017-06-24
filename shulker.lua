@@ -33,7 +33,7 @@ mobs:register_mob("mobs_mc:shulker", {
 	run_velocity = 0.0000000001,
 	jump = false,
 	drops = {
-	{name = "mobs_mc:shulker_shell",
+	{name = mobs_mc.items.shulker_shell,
 	chance = 3,
 	min = 1,
 	max = 1,},
@@ -76,8 +76,7 @@ mobs:register_arrow("mobs_mc:shulkerbullet", {
 
 mobs:register_egg("mobs_mc:shulker", "Shulker", "shulker_inv.png", 0)
 
-mobs:spawn_specific("mobs_mc:shulker", {"default:purpur_block"}, {"default:cobble"},
-	0, 20, 5, 3, 1, -31000, -5000)
+mobs:spawn_specific("mobs_mc:shulker", mobs_mc.spawn.end_city, 0, minetest.LIGHT_MAX+1, 5, 3, 1, -31000, -5000)
 
 
 

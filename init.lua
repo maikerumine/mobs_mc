@@ -5,6 +5,53 @@
 
 local path = minetest.get_modpath("mobs_mc")
 
+if not minetest.get_modpath("mobs_mc_gameconfig") then
+	mobs_mc = {}
+end
+
+-- This function checks if the item ID has been overwritten and returns true if it is unchanged
+if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override and mobs_mc.override.items then
+	mobs_mc.is_item_variable_overridden = function(id)
+		return mobs_mc.override.items[id] == nil
+	end
+else
+	-- No items are overwritten, so always return true
+	mobs_mc.is_item_variable_overridden = function(id)
+		return true
+	end
+end
+
+--MOB ITEMS SELECTOR SWITCH
+dofile(path .. "/0_gameconfig.lua")
+--Items
+dofile(path .. "/1_items_default.lua")
+
+--IN CASE THROWING IS NOT INSTALLED, THIS FIXES IT
+if not minetest.get_modpath("throwing") then
+	dofile(minetest.get_modpath("mobs_mc").."/2_throwing.lua")
+	minetest.register_alias("throwing:bow_wood", "mobs:bow_wood")
+	minetest.register_alias("throwing:arrow", "mobs:arrow")
+	mobs:alias_mob("throwing:arrow_entity", "mobs:arrow_entity")
+else
+	minetest.register_alias("_:bow_wood", "throwing:bow_wood")
+	minetest.register_alias("_:arrow", "throwing:arrow")
+	mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
+end
+
+if not minetest.get_modpath("mcl_throwing") then
+	dofile(minetest.get_modpath("mobs_mc").."/2_throwing.lua")
+	minetest.register_alias("throwing:bow_wood", "mcl_throwing:bow")
+	minetest.register_alias("throwing:arrow", "mcl_throwing:arrow")
+	mobs:alias_mob("throwing:arrow_entity", "mcl_throwing:arrow_entity")
+else
+	minetest.register_alias("_:bow", "throwing:bow_wood")
+	minetest.register_alias("_:arrow", "throwing:arrow")
+	mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
+end
+
+--Mob heads
+dofile(path .. "/heads.lua") -- maikerumine
+
 -- Animals
 dofile(path .. "/bat.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/rabbit.lua") -- Mesh and animation byExeterDad
@@ -55,52 +102,6 @@ dofile(path .. "/spider.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 li
 dofile(path .. "/spider_cave.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 dofile(path .. "/vex.lua") -- KrupnoPavel
 dofile(path .. "/wither.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
-
---Heads
-dofile(path .. "/heads.lua") -- maikerumine
-
-
-
---MOB ITEMS SELECTOR SWITCH
-
---Items
---dofile(path .. "/1_items_default.lua") -- Selected if using default in subgame
---dofile(path .. "/2_items_mc2.lua") -- Selected if using mineclone2 subgame
-
-	if not mcl_core then
-		dofile(path .. "/1_items_default.lua")
-	end
-	
-
-
---IN CASE THROWING IS NOT INSTALLED, THIS FIX
-	if not throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
-		minetest.register_alias("throwing:bow_wood", "mobs:bow_wood")
-		minetest.register_alias("throwing:arrow", "mobs:arrow")
-		mobs:alias_mob("throwing:arrow_entity", "mobs:arrow_entity")
-		else
-		minetest.register_alias("_:bow_wood", "throwing:bow_wood")
-		minetest.register_alias("_:arrow", "throwing:arrow")
-		mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
-	end
-
-	if not mcl_throwing then
-		dofile(minetest.get_modpath("mobs_mc").."/3_throwing.lua")
-		minetest.register_alias("throwing:bow_wood", "mcl_throwing:bow")
-		minetest.register_alias("throwing:arrow", "mcl_throwing:arrow")
-		mobs:alias_mob("throwing:arrow_entity", "mcl_throwing:arrow_entity")
-	else
-		minetest.register_alias("_:bow", "throwing:bow_wood")
-		minetest.register_alias("_:arrow", "throwing:arrow")
-		mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
-	end
-
-
-
-
-
-
 --NOTES:
 --
 --[[

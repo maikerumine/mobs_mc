@@ -33,16 +33,15 @@ mobs:register_mob("mobs_mc:vindicator", {
 	group_attack = true,
 	attack_type = "dogfight",
 	drops = {
-		{name = "default:emerald",
+		{name = mobs_mc.items.emerald,
 		chance = 1,
-		min = 1,
-		max = 1,},
-		{name = "default:axe_steel",
-		chance = 11,
 		min = 0,
 		max = 1,},
+		{name = mobs_mc.items.iron_axe,
+		chance = 11,
+		min = 1,
+		max = 1,},
 	},
-	armor = 90,
 	sounds = {
 		random = "Villager1",
 		death = "Villagerdead",
@@ -69,19 +68,6 @@ mobs:register_mob("mobs_mc:vindicator", {
 	fear_height = 3,
 
 })
-
---mobs:register_spawn("mobs_mc:vindicator", {"mg_villages:road"}, 20, 8, 500, 2, 31000)
-mobs:spawn_specific("mobs_mc:evoker", {"default:acacia_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:aspen_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:jungletree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-mobs:spawn_specific("mobs_mc:evoker", {"default:pine_tree"}, {"default:glass"}, 0, 20, 60, 1300, 1, -31000, 150,false)
-
---mg_villages:torch
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_junglewood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_acacia_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_pine_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
-mobs:spawn_specific("mobs_mc:evoker", {"stairs:slab_aspen_wood"}, {"air"}, 0, 20, 30, 3000, 1, -31000, 150, false)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:vindicator", "Vindicator", "vindicator_inv.png", 0)

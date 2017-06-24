@@ -44,24 +44,20 @@ local pigman = {
 	passive = false,
 	maxdrops = 2,
 	drops = {
-		{name = "mobs_mc:rotten_flesh",
+		{name = mobs_mc.items.rotten_flesh,
 		chance = 1,
 		min = 1,
 		max = 1,},
-		{name = "default:gold_nugget",
+		{name = mobs_mc.items.gold_nugget,
 		chance = 13,
 		min = 0,
 		max = 2,},
-		{name = "default:sword_gold",
-		chance = 8,
-		min = 1,
-		max = 1,},
-		{name = "default:sword_mese",
+		{name = mobs_mc.items.gold_sword,
 		chance = 8,
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombiepig_head",
-		chance = 50,
+		chance = 200,
 		min = 0,
 		max = 1,},
 		},
@@ -104,17 +100,11 @@ baby_pigman.light_damage = 0
 mobs:register_mob("mobs_mc:baby_pigman", baby_pigman)
 
 -- Baby zombie is 20 times less likely than regular zombies
-mobs:register_spawn("mobs_mc:baby_pigman", {"default:rack", "default:portal"}, 7, -1, 100000, 4, 31000)
+mobs:register_spawn("mobs_mc:baby_pigman", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 100000, 4, 31000)
 
-
-
-
-
-mobs:register_spawn("mobs_mc:pigman", {"default:rack"},  17, -1, 1000, 3, -2000)
-mobs:register_spawn("mobs_mc:pigman", {"default:portal"}, 15, -1, 500, 4, 31000)
---mobs:register_spawn("mobs_mc:pigman", {"default:obsidian"}, 17, -1, 1900, 1, 31000)
-mobs:spawn_specific("mobs_mc:pigman", {"default:portal"},{"air"},0, 12, 20, 9000, 2, -31000, 31000)
-
+mobs:register_spawn("mobs_mc:pigman", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 6000, 3, -2000)
+mobs:register_spawn("mobs_mc:pigman", mobs_mc.spawn.nether_portal, minetest.LIGHT_MAX+1, 0, 500, 4, 31000)
+mobs:spawn_specific("mobs_mc:pigman", mobs_mc.spawn.nether_portal, {"air"},0, minetest.LIGHT_MAX+1, 20, 9000, 2, -31000, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")

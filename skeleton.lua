@@ -37,15 +37,15 @@ mobs:register_mob("mobs_mc:skeleton", {
 	run_velocity = 2.4,
 	damage = 2,
 	drops = {
-		{name = "mobs_mc:arrow",
+		{name = mobs_mc.items.arrow,
 		chance = 1,
 		min = 0,
 		max = 2,},
-		{name = "mobs_mc:bow_wood",
+		{name = mobs_mc.items.bow,
 		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "bonemeal:bone",
+		{name = mobs_mc.items.bone,
 		chance = 1,
 		min = 0,
 		max = 2,},
@@ -92,7 +92,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 
 --spawn
-mobs:spawn_specific("mobs_mc:skeleton", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"},0, 7, 20, 7000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:skeleton", "Skeleton", "skeleton_inv.png", 0)

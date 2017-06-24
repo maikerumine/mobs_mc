@@ -32,12 +32,12 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	attack_type = "dogfight",
 	drops = {
 		-- 3/4 chance to drop raw fish (poor approximation)
-		{name = "fishing:fish_raw",
+		{name = mobs_mc.items.fish_raw,
 		chance = 2,
 		min = 0,
 		max = 2,},		
 		-- 1/4 to drop raw salmon
-		{name = "fishing:pike_raw",
+		{name = mobs_mc.items.salmon_raw,
 		chance = 4,
 		min = 0,
 		max = 2,},
@@ -67,7 +67,7 @@ mobs:register_mob("mobs_mc:polar_bear", {
 mobs:alias_mob("mobs_mc:polarbear", "mobs_mc:polar_bear")
 
 
-mobs:register_spawn("mobs_mc:polar_bear", {"default:snowblock"}, 20, 8, 17000, 3, 31000)
+mobs:register_spawn("mobs_mc:polar_bear", mobs_mc.spawn.snow, minetest.LIGHT_MAX+1, 0, 7000, 3, 31000)
 
 
 -- spawn egg
