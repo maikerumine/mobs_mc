@@ -126,9 +126,13 @@ mobs_mc.follow = {
 	cow = { mobs_mc.items.wheat },
 	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
 	horse = { "default:apple", mobs_mc.items.wheat }, -- TODO
-	pig = {"default:apple", "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick},
+	pig = { "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick,
+		"default:apple", -- Minetest Game extra
+	},
 	rabbit = { mobs_mc.items.dandelion, mobs_mc.items.carrot, mobs_mc.items.carrot_gold, "farming_plus:carrot_item", },
-	ocelot = { mobs_mc.items.fish_raw, mobs_mc.items.salmon_raw, mobs_mc.items.clownfish_raw, mobs_mc.items.pufferfish_raw, },
+	ocelot = { mobs_mc.items.fish_raw, mobs_mc.items.salmon_raw, mobs_mc.items.clownfish_raw, mobs_mc.items.pufferfish_raw,
+		mobs_mc.items.chicken_raw, -- Minetest Game extra
+	},
 }
 
 -- Contents for replace_what
