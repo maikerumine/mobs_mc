@@ -67,7 +67,7 @@ mobs:register_mob("mobs_mc:polar_bear", {
 mobs:alias_mob("mobs_mc:polarbear", "mobs_mc:polar_bear")
 
 
-mobs:register_spawn("mobs_mc:polar_bear", {"default:snowblock"}, 20, 8, 17000, 3, 31000)
+mobs:register_spawn("mobs_mc:polar_bear", mobs_mc.spawn.snow, minetest.LIGHT_MAX, 0, 17000, 3, 31000)
 
 
 -- spawn egg

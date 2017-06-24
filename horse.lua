@@ -142,7 +142,7 @@ mobs:register_mob("mobs_mc:horse", {
 
 --===========================
 --Spawn Function
-mobs:register_spawn("mobs_mc:horse", {mobs_mc.items.grass_block}, 20, 12, 21000, 1, 12)
+mobs:register_spawn("mobs_mc:horse", mobs_mc.spawn.grassland_savanna, minetest.LIGHT_MAX, 0, 21000, 1, 12)
 
 
 -- compatibility

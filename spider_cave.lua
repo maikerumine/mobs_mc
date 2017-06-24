@@ -57,8 +57,6 @@ mobs:register_mob("mobs_mc:cavespider", {
 		run_start = 0,		run_end = 40,
 	},
 })
-mobs:register_spawn("mobs_mc:cavespider", {"default:mossycobble" ,"default:wood","default:cobble"}, 4, -1, 17000, 2, -35)
-
 
 -- spawn eggs
 --mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)

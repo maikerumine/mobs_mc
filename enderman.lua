@@ -145,7 +145,7 @@ mobs:register_mob("mobs_mc:enderman", {
 
 
 --spawn on solid blocks
-mobs:register_spawn("mobs_mc:enderman", { "group:crumbly", "group:cracky", "group:solid" }, 7, 0, 9000, 1, 31000)
+mobs:register_spawn("mobs_mc:enderman", mobs_mc.spawn.solid, 7, 0, 9000, -31000, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:enderman", "Enderman", "mobs_mc_spawn_icon_enderman.png", 0)

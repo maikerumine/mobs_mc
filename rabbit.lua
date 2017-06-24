@@ -110,7 +110,7 @@ local spawn = {
 }
 
 local spawn_desert = table.copy(spawn)
-spawn_desert.nodes = {"default:sand", "default:desert_sand"}
+spawn_desert.nodes = mobs_mc.spawn.desert
 on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	texture = "mobs_mc_rabbit_gold.png"
@@ -120,7 +120,7 @@ end
 mobs:spawn(spawn_desert)
 
 local spawn_snow = table.copy(spawn)
-spawn_snow.nodes = {"default:dirt_with_snow", "default:snow"}
+spawn_snow.nodes = mobs_mc.spawn.snow
 spawn_snow.on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	local texture
@@ -138,7 +138,7 @@ end
 mobs:spawn(spawn_snow)
 
 local spawn_grass = table.copy(spawn)
-spawn_grass.nodes = {"default:dirt_with_grass", "ethereal:prairie_dirt"}
+spawn_grass.nodes = mobs_mc.spawn.grassland
 spawn_grass.on_spawn = function(self, pos)
 	local ent = self:get_luaentity()
 	local texture

@@ -131,9 +131,6 @@ mobs:register_mob("mobs_mc:horseskeleton", {
 	end
 })
 
---spawn
-mobs:register_spawn("mobs_mc:horseskeleton", {"default:cobblestone"}, 5, -1, 17000, 1, 5)
-
 --spawnegg
 mobs:register_egg("mobs_mc:horseskeleton", "Skeleton Horse", "horseskeleton_inv.png", 0)
 

@@ -130,8 +130,5 @@ mobs:register_mob("mobs_mc:horsemule", {
 	end
 })
 
---spawn
-mobs:register_spawn("mobs_mc:horsemule", {"default:desert_sand"}, 20, 8, 17000, 1, 23)
-
 --spawnegg
 mobs:register_egg("mobs_mc:horsemule", "Mule", "mule_inv.png", 0)

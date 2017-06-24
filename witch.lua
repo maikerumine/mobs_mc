@@ -107,15 +107,7 @@ mobs:register_arrow(":mobs:potion_arrow", {
 	end
 })
 
-
-mobs:register_spawn("mobs_mc:witch", {"default:dirt_with_rainforest_litter"}, 20, 8, 9500, 2, 31000)
-
-
--- compatibility
-
-
 -- spawn eggs
---mobs:register_egg("mobs_mc:witch", "Villager", "spawn_egg_villager.png")
 mobs:register_egg("mobs_mc:witch", "Witch", "witch_inv.png", 0)
 
 if minetest.settings:get_bool("log_mods") then

@@ -132,12 +132,6 @@ mobs:register_mob("mobs_mc:horsezombie", {
 
 })
 
-
---spawn
-mobs:register_spawn("mobs_mc:horsezombie", {"default:dirt_with_dry_grass"}, 20, 12, 23000, 1, 31000)
-mobs:register_spawn("mobs_mc:horsezombie", {"default:desert_sand"}, 20, 8, 7000, 1, 5)
-mobs:register_spawn("mobs_mc:horsezombie", {"default:cobblestone"}, 5, -1, 17000, 1, 5)
-
 --spawnegg
 mobs:register_egg("mobs_mc:horsezombie", "Zombie Horse", "horsezombie_inv.png", 0)
 

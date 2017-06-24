@@ -80,8 +80,8 @@ mobs:register_mob("mobs_mc:parrot", {
 
 
 --spawn
-mobs:spawn_specific("mobs_mc:parrot", {"default:jungleleaves"},{"air"},7, 20, 20, 15000, 2, 15, 20)
-mobs:register_spawn("mobs_mc:parrot", {"default:dirt_with_rainforest_litter"}, 20, 12, 5000, 2, 31000)
+mobs:spawn_specific("mobs_mc:parrot", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX, 20, 15000, 2, 15, 20)
+mobs:register_spawn("mobs_mc:parrot", {"default:dirt_with_rainforest_litter"}, minetest.LIGHT_MAX, 0, 5000, 2, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:parrot", "Parrot", "parrot_inv.png", 0)

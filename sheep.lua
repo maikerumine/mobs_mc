@@ -210,7 +210,7 @@ mobs:register_mob("mobs_mc:sheep", {
 		end
 	end,
 })
-mobs:register_spawn("mobs_mc:sheep", {"default:dirt_with_grass"}, 20, 12, 15000, 3, 31000)
+mobs:register_spawn("mobs_mc:sheep", mobs_mc.spawn.grassland, minetest.LIGHT_MAX, 0, 15000, 3, 31000)
 
 
 -- compatibility

@@ -54,7 +54,7 @@ attacks_monsters = true,
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:ocelot", {"default:dirt_with_rainforest_litter"}, 20, 12, 15000, 2, 31000)
+mobs:register_spawn("mobs_mc:ocelot", mobs_mc.spawn.jungle, minetest.LIGHT_MAX, 0, 15000, 2, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")

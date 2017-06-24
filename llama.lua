@@ -146,7 +146,7 @@ mobs:register_mob("mobs_mc:llama", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:llama", {"default:dirt_with_dry_grass"}, 20, 12, 15000, 1, 40)
+mobs:register_spawn("mobs_mc:llama", mobs_mc.spawn.savanna, minetest.LIGHT_MAX, 0, 15000, 1, 40)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:llama", "Llama", "llama_inv.png", 0)

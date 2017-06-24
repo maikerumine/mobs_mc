@@ -58,9 +58,7 @@ mobs:register_mob("mobs_mc:guardian", {
     
 })
 
---name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:register_spawn("mobs_mc:guardian", {mobs_mc.items_water_source}, 20, -1, 5000, 2, -1000, true)
+mobs:register_spawn("mobs_mc:guardian", mobs_mc.spawn.water, minetest.LIGHT_MAX, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:squid_mean", "Spawn Mean Squid", "spawn_egg_squid.png")
 mobs:register_egg("mobs_mc:guardian", "Guardian", "guardian_inv.png", 0)

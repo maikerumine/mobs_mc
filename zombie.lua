@@ -122,11 +122,11 @@ mobs:register_mob("mobs_mc:baby_husk", baby_husk)
 
 -- Spawning
 
-mobs:register_spawn("mobs_mc:zombie", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"}, 7, -1, 8000, 4, 31000)
+mobs:register_spawn("mobs_mc:zombie", mobs_mc.spawn.solid, 7, 0, 8000, 4, 31000)
 -- Baby zombie is 20 times less likely than regular zombies
-mobs:register_spawn("mobs_mc:baby_zombie", {"default:dirt_with_grass", "default:dirt_with_dry_grass","default:stone","default:dirt","default:coarse_dirt", "default:sand"}, 7, -1, 100000, 4, 31000)
-mobs:register_spawn("mobs_mc:husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 8090, 4, 31000)
-mobs:register_spawn("mobs_mc:baby_husk", {"default:sand", "default:redsand", "default:sandstone", "default:redsandstone"}, 7, -1, 100000, 4, 31000)
+mobs:register_spawn("mobs_mc:baby_zombie", mobs_mc.spawn.solid, 7, 0, 100000, 4, 31000)
+mobs:register_spawn("mobs_mc:husk", mobs_mc.spawn.desert, 7, 0, 8090, 4, 31000)
+mobs:register_spawn("mobs_mc:baby_husk", mobs_mc.spawn.desert, 7, 0, 100000, 4, 31000)
 
 
 -- Compatibility

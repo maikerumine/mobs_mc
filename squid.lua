@@ -56,7 +56,7 @@ mobs:register_mob("mobs_mc:squid", {
 
 local water = tonumber(minetest.setting_get("water_level")) or 0
 --name, nodes, neighbours, minlight, maxlight, interval, chance, active_object_count, min_height, max_height
-mobs:spawn_specific("mobs_mc:squid", {mobs_mc.items.water_source}, {mobs_mc.items.water_source}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
+mobs:spawn_specific("mobs_mc:squid", mobs_mc.spawn.water, {mobs_mc.items.water_source}, 0, minetest.LIGHT_MAX, 30, 6000, 3, water-16, water)
 
 -- compatibility
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")

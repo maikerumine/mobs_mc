@@ -168,7 +168,7 @@ mobs:register_mob("mobs_mc:creeper", {
 })
 
 
-mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky"},{"air"},0, 7, 20, 9000, 1, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", mobs_mc.spawn.solid, {"air"},0, 7, 20, 9000, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")

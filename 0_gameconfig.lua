@@ -96,6 +96,10 @@ mobs_mc.items = {
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
 
+	nether_portal = "nether:portal",
+	netherrack = "nether:rack",
+	nether_brick_block = "nether:brick",
+
 	-- Wool (Minecraft color scheme)
 	wool_white = "wool:white",
 	wool_light_grey = "wool:grey",
@@ -194,6 +198,27 @@ mobs_mc.enderman_takable = {
 
 	-- Nether mod
 	"nether:rack",
+}
+
+-- List of nodes on which mobs can spawn
+mobs_mc.spawn = {
+	solid = { "group:cracky", "group:crumbly", }, -- spawn on "solid" nodes (this is mostly just guessing)
+
+	grassland = { mobs_mc.items.grass_block, "ethereal:prairie_dirt" },
+	savanna = { "default:dirt_with_dry_grass" },
+	grassland_savanna = { mobs_mc.items.grass_block, "default:dirt_with_dry_grass" },
+	desert = { "default:desert_sand" },
+	jungle = { "default:dirt_with_rainforest_litter", "default:jungleleaves" },
+	snow = { "default:snow", "default:snowblock", "default:dirt_with_snow" },
+	end_city = { "default:cobble" },
+	wolf = { mobs_mc.items.grass_block, "default:dirt_with_rainforest_litter", "default:dirt", "default:dirt_with_snow", "default:snow", "default:snowblock" },
+
+	-- These probably don't need overrides
+	mushroom_island = { mobs_mc.items.mycelium },
+	nether_fortress = { mobs_mc.items.nether_brick_block },
+	nether = { mobs_mc.items.netherrack },
+	nether_portal = { mobs_mc.items.nether_portal },
+	water = { mobs_mc.items.water_source },
 }
 
 -- Item name overrides from mobs_mc_gameconfig (if present)
