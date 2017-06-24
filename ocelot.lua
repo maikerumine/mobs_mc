@@ -63,6 +63,9 @@ local ocelot = {
 	attack_animals = true,
 	specific_attack = { "mobs_mc:chicken" },
 	on_rightclick = function(self, clicker)
+		if self.child then
+			return
+		end
 		-- Try to tame ocelot
 		local item = clicker:get_wielded_item()
 		if is_food(item:get_name()) then
@@ -98,6 +101,9 @@ cat.owner_loyal = true
 cat.tamed = true
 cat.runaway = false
 cat.on_rightclick = function(self, clicker)
+	if self.child then
+		return
+	end
 	if mobs:feed_tame(self, clicker, 1, true, false) then
 		return
 	end
