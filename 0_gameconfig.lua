@@ -18,7 +18,7 @@ mobs_mc.create_monster_egg_nodes = true
 mobs_mc.items = {}
 
 mobs_mc.items = {
-	-- mobs_mc
+	-- Items defined in mobs_mc
 	blaze_rod = "mobs_mc:blaze_rod",
 	blaze_powder = "mobs_mc:blaze_powder",
 	chicken_raw = "mobs_mc:chicken_raw",
@@ -51,6 +51,7 @@ mobs_mc.items = {
 	arrow = "mobs_mc:arrow",
 	bow = "mobs_mc:bow_wood",
 
+	-- External items
 	-- Mobs Redo
 	leather = "mobs:leather",
 	shears = "mobs:shears",
