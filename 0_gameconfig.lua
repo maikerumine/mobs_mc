@@ -95,6 +95,24 @@ mobs_mc.items = {
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
+
+	-- Wool (Minecraft color scheme)
+	wool_white = "wool:white",
+	wool_light_grey = "wool:grey",
+	wool_grey = "wool:dark_grey",
+	wool_blue = "wool:blue",
+	wool_lime = "wool:green",
+	wool_green = "wool:dark_green",
+	wool_purple = "wool:violet",
+	wool_pink = "wool:pink",
+	wool_yellow = "wool:yellow",
+	wool_orange = "wool:orange",
+	wool_brown = "wool:brown",
+	wool_red = "wool:red",
+	wool_cyan = "wool:cyan",
+	wool_magenta = "wool:magenta",
+	wool_black = "wool:black",
+	-- Light blue intentionally missing
 }
 
 -- Tables for attracting, feeding and breeding mobs
