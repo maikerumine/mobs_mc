@@ -5,11 +5,11 @@ local default_walk_chance = 50
 local pr = PseudoRandom(os.time()*10)
 
 local is_flesh = function(itemstring)
-	return itemstring == mobs_mc.items.rabbit_raw or
+	return (itemstring == mobs_mc.items.rabbit_raw or
 	itemstring == mobs_mc.items.mutton_raw or
 	itemstring == mobs_mc.items.beef_raw or
 	itemstring == mobs_mc.items.chicken_raw or
-	itemstring == mobs_mc.items.rotten_flesh
+	itemstring == mobs_mc.items.rotten_flesh)
 end
 
 -- Wolf
@@ -82,27 +82,26 @@ mobs:register_mob("mobs_mc:wolf", wolf)
 
 -- Tamed wolf
 
+-- Collar colors
 local colors = {
-	["black"] = "#000000",
-	["blue"] = "#0000BB",
-	["brown"] = "#663300",
-	["cyan"] = "#01FFD8",
-	["dark_green"] = "#005B00",
-	["grey"] = "#C0C0C0",
-	["dark_grey"] = "#303030",
-	["green"] = "#00FF01",
-	["grey"] = "#5B5B5B",
-	["magenta"] = "#FF05BB",
-	["orange"] = "#FF8401",
-	["pink"] = "#FF65B5",
-	["red"] = "#FF0000",
-	["violet"] = "#5000CC",
-	["white"] = "#FFFFFF",
-	["yellow"] = "#FFFF00",
+	["unicolor_black"] = "#000000",
+	["unicolor_blue"] = "#0000BB",
+	["unicolor_dark_orange"] = "#663300", -- brown
+	["unicolor_cyan"] = "#01FFD8",
+	["unicolor_dark_green"] = "#005B00",
+	["unicolor_grey"] = "#C0C0C0",
+	["unicolor_darkgrey"] = "#303030",
+	["unicolor_green"] = "#00FF01",
+	["unicolor_red_violet"] = "#FF05BB", -- magenta
+	["unicolor_orange"] = "#FF8401",
+	["unicolor_light_red"] = "#FF65B5", -- pink
+	["unicolor_red"] = "#FF0000",
+	["unicolor_violet"] = "#5000CC",
+	["unicolor_white"] = "#FFFFFF",
+	["unicolor_yellow"] = "#FFFF00",
+
+	["unicolor_light_blue"] = "#B0B0FF",
 }
-if minetest.get_modpath("mcl_dye") then
-	colors["lightblue"] = "#B0B0FF"
-end
 
 local get_dog_textures = function(color)
 	if colors[color] then
@@ -118,14 +117,14 @@ dog.passive = true
 dog.hp_min = 20
 dog.hp_max = 20
 -- Tamed wolf texture + red collar
-dog.textures = get_dog_textures("red")
+dog.textures = get_dog_textures("unicolor_red")
 dog.owner = ""
 -- TODO: Start sitting by default
 dog.order = "roam"
 dog.owner_loyal = true
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
-	if is_flesh(tool:get_name()) then
+	if is_flesh(item:get_name()) then
 		-- Feed
 		local hp = self.object:get_hp()
 		if hp + 4 > self.hp_max then return end
@@ -134,20 +133,25 @@ dog.on_rightclick = function(self, clicker)
 			clicker:set_wielded_item(item)
 		end
 		self.object:set_hp(hp+4)
+		return
 	elseif minetest.get_item_group(item:get_name(), "dye") == 1 then
-		-- Dye collar
-		local name = item:get_name()
-		local pname = name:split(":")[2]
-
-		local tex = get_dog_textures(pname)
-		if tex then
-			self.base_texture = tex
-			self.object:set_properties({
-				textures = self.base_texture
-			})
-			if not minetest.settings:get_bool("creative_mode") then
-				item:take_item()
-				clicker:set_wielded_item(item)
+		-- Dye (if possible)
+		for group, _ in pairs(colors) do
+			-- Check if color is supported
+			if minetest.get_item_group(item:get_name(), group) == 1 then
+				-- Dye collar
+				local tex = get_dog_textures(group)
+				if tex then
+					self.base_texture = tex
+					self.object:set_properties({
+						textures = self.base_texture
+					})
+					if not minetest.settings:get_bool("creative_mode") then
+						item:take_item()
+						clicker:set_wielded_item(item)
+					end
+					break
+				end
 			end
 		end
 	else
