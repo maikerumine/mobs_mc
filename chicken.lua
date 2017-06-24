@@ -92,7 +92,7 @@ mobs:register_mob("mobs_mc:chicken", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX, 9, 17000, 3, 31000)
+mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 17000, 3, 31000)
 
 
 -- compatibility

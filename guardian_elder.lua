@@ -59,7 +59,7 @@ mobs:register_mob("mobs_mc:guardian_elder", {
     
 })
 
-mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX, 0, 5000, 2, -1000, true)
+mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "guardian_elder_inv.png", 0)

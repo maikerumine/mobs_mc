@@ -201,9 +201,9 @@ mobs:register_mob("mobs_mc:slime_big", {
 	end,
 })
 
-mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
 
 
 
@@ -414,13 +414,13 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 	end
 })
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX, 0, 5000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX, 0, 5500, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether, minetest.LIGHT_MAX, 0, 6000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5500, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 6000, 4, -1000)
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX, 0, 1000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX, 0, 1100, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX, 0, 1200, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1100, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1200, 4, -1000)
 
 -- Compability
 mobs:alias_mob("mobs_mc:greensmall", "mobs_mc:slime_tiny")

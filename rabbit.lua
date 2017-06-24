@@ -106,7 +106,7 @@ local spawn = {
 	chance = 15000,
 	active_object_count = 99,
 	min_light = 0,
-	max_light = minetest.LIGHT_MAX,
+	max_light = minetest.LIGHT_MAX+1,
 }
 
 local spawn_desert = table.copy(spawn)

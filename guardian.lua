@@ -58,7 +58,7 @@ mobs:register_mob("mobs_mc:guardian", {
     
 })
 
-mobs:register_spawn("mobs_mc:guardian", mobs_mc.spawn.water, minetest.LIGHT_MAX, 0, 5000, 2, -1000, true)
+mobs:register_spawn("mobs_mc:guardian", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:guardian", "Guardian", "guardian_inv.png", 0)

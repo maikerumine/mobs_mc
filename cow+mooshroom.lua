@@ -124,8 +124,8 @@ mobs:register_mob("mobs_mc:mooshroom", mooshroom_def)
 
 
 -- Spawning
-mobs:register_spawn("mobs_mc:cow", mobs_mc.spawn.grassland, minetest.LIGHT_MAX, 9, 17000, 2, 31000)
-mobs:register_spawn("mobs_mc:mooshroom", mobs_mc.spawn.mushroom_island, minetest.LIGHT_MAX, 9, 7000, 1, 31000)
+mobs:register_spawn("mobs_mc:cow", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 17000, 20, 31000)
+mobs:register_spawn("mobs_mc:mooshroom", mobs_mc.spawn.mushroom_island, minetest.LIGHT_MAX+1, 9, 7000, 10, 31000)
 
 
 -- compatibility
