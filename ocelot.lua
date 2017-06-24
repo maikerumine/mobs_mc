@@ -3,16 +3,10 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
 --###################
---################### OCELOT - CAT
+--################### OCELOT AND CAT
 --###################
 
-
---mcocelot
 mobs:register_mob("mobs_mc:ocelot", {
 	type = "animal",
 	hp_min = 10,
@@ -20,8 +14,8 @@ mobs:register_mob("mobs_mc:ocelot", {
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 0.69, 0.3},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "cat.b3d",
-	textures = {{"cat.png"},{"cat1.png"},{"cat2.png"},{"cat3.png"},{"cat4.png"}},
+	mesh = "mobs_mc_cat.b3d",
+	textures = {"mobs_mc_cat_ocelot.png"},
 	visual_size = {x=2.0, y=2.0},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
@@ -60,7 +54,7 @@ mobs:register_spawn("mobs_mc:ocelot", mobs_mc.spawn.jungle, minetest.LIGHT_MAX+1
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ocelot", "Ocelot", "cat_inv.png", 0)
+mobs:register_egg("mobs_mc:ocelot", "Ocelot", "mobs_mc_spawn_icon_cat.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ocelot loaded")
