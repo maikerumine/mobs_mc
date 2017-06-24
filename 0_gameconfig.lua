@@ -223,7 +223,7 @@ mobs_mc.spawn = {
 
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
-	local tables = {"items", "follow", "replace"}
+	local tables = {"items", "follow", "replace", "solid"}
 	for t=1, #tables do
 		local tbl = tables[t]
 		if mobs_mc.override[tbl] then
