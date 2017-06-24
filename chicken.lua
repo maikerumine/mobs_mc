@@ -92,11 +92,7 @@ mobs:register_mob("mobs_mc:chicken", {
 })
 
 --spawn
-mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 17000, 3, 31000)
-
-
--- compatibility
---mobs:alias_mob("mobs:chicken", "mobs_mc:chicken")
+mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 7000, 3, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
