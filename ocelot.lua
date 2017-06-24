@@ -96,7 +96,7 @@ cat.owner = ""
 cat.order = "roam" -- "sit" or "roam"
 cat.owner_loyal = true
 cat.tamed = true
-cat.runaway = false,
+cat.runaway = false
 cat.on_rightclick = function(self, clicker)
 	if mobs:feed_tame(self, clicker, 1, true, false) then
 		return
@@ -126,10 +126,63 @@ end
 
 mobs:register_mob("mobs_mc:cat", cat)
 
+local base_spawn_chance = 5000
 
--- Spawn
--- TODO: Increase spawn chance if polished
-mobs:register_spawn("mobs_mc:ocelot", mobs_mc.spawn.jungle, minetest.LIGHT_MAX+1, 0, 20000, 2, 31000)
+-- Spawn ocelot
+mobs:spawn({
+	name = "mobs_mc:ocelot",
+	nodes = mobs_mc.spawn.jungle,
+	light_max = minetest.LIGHT_MAX+1,
+	light_min = 0,
+	chance = math.ceil(base_spawn_chance * 1.5), -- emulates 1/3 spawn failure rate
+	active_object_count = 12,
+	min_height = 1, -- Right above ocean level
+	max_height = 31000,
+	on_spawn = function(self, pos)
+		--[[ Note: Minecraft has a 1/3 spawn failure rate.
+		In this mod it is emulated by reducing the spawn rate accordingly (see above). ]]
+
+		-- 1/7 chance to spawn 2 ocelot kittens
+		if pr:next(1,7) == 1 then
+			-- Turn object into a child
+			local make_child = function(object)
+				local ent = object:get_luaentity()
+				object:set_properties({
+					visual_size = { x = ent.base_size.x/2, y = ent.base_size.y/2 },
+					collisionbox = {
+						ent.base_colbox[1]/2,
+						ent.base_colbox[2]/2,
+						ent.base_colbox[3]/2,
+						ent.base_colbox[4]/2,
+						ent.base_colbox[5]/2,
+						ent.base_colbox[6]/2,
+					}
+				})
+				ent.child = true
+			end
+
+			-- Possible spawn offsets, two of these will get selected
+			local k = 0.7
+			local offsets = {
+				{ x=k, y=0, z=0 },
+				{ x=-k, y=0, z=0 },
+				{ x=0, y=0, z=k },
+				{ x=0, y=0, z=-k },
+				{ x=k, y=0, z=k },
+				{ x=k, y=0, z=-k },
+				{ x=-k, y=0, z=k },
+				{ x=-k, y=0, z=-k },
+			}
+			for i=1, 2 do
+				local o = pr:next(1, #offsets)
+				local offset = offsets[o]
+				local child_pos = vector.add(pos, offsets[o])
+				table.remove(offsets, o)
+				make_child(minetest.add_entity(child_pos, "mobs_mc:ocelot"))
+			end
+		end
+	end,
+})
 
 -- compatibility
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
