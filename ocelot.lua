@@ -10,7 +10,6 @@
 local pr = PseudoRandom(os.time()*12)
 
 local default_walk_chance = 70
-local cat_textures = {{"mobs_mc_cat_black.png"}, {"mobs_mc_cat_red.png"}, {"mobs_mc_cat_siamese.png"}}
 
 -- Returns true if the item is food (taming) for the cat/ocelot
 local is_food = function(itemstring)
@@ -78,8 +77,6 @@ local ocelot = {
 				local ent = cat:get_luaentity()
 				ent.owner = clicker:get_player_name()
 				ent.tamed = true
-				ent.base_texture = cat_textures[pr:next(1, #cat_textures)]
-				cat:set_properties({textures = ent.base_texture})
 				self.object:remove()
 			end
 		end
@@ -93,7 +90,7 @@ mobs:register_mob("mobs_mc:ocelot", ocelot)
 
 -- Cat
 local cat = table.copy(ocelot)
-cat.textures = cat_textures
+cat.textures = {{"mobs_mc_cat_black.png"}, {"mobs_mc_cat_red.png"}, {"mobs_mc_cat_siamese.png"}}
 cat.owner = ""
 cat.order = "roam" -- "sit" or "roam"
 cat.owner_loyal = true
@@ -136,6 +133,7 @@ mobs:register_spawn("mobs_mc:ocelot", mobs_mc.spawn.jungle, minetest.LIGHT_MAX+1
 mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
 
 -- spawn eggs
+-- FIXME: The spawn icon shows a cat texture, not an ocelot texture
 mobs:register_egg("mobs_mc:ocelot", "Ocelot", "mobs_mc_spawn_icon_cat.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
