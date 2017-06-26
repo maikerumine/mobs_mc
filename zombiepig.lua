@@ -18,7 +18,7 @@ local pigman = {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "zombie_pigman.b3d",
+	mesh = "mobs_mc_zombie_pigman.b3d",
     textures = {{"zombie_pigman.png"}},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,

@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:parrot", {
     collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.6, 0.25},
     rotate = -180,
 	visual = "mesh",
-	mesh = "parrot.b3d",
+	mesh = "mobs_mc_parrot.b3d",
 	textures = {{"parrot_blue.png"},{"parrot_green.png"},{"parrot_grey.png"},{"parrot_red_blue.png"},{"parrot_yellow_blue.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

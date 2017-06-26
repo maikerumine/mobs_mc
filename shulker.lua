@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:shulker", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "shulker.b3d",
+	mesh = "mobs_mc_shulker.b3d",
     textures = {{"shulker.png"},{"shulker1.png"},{"shulker2.png"},{"shulker3.png"},{"shulker4.png"},{"shulker5.png"},{"shulker6.png"},{"shulker7.png"},{"shulker8.png"},{"shulker9.png"},{"shulker10.png"},{"shulker11.png"},{"shulker12.png"},{"shulker13.png"},{"shulker14.png"},{"shulker15.png"},{"shulker16.png"},},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.0000000001,

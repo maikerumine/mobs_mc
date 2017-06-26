@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:witch", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "witch.b3d",
+	mesh = "mobs_mc_witch.b3d",
 	textures = {
 		{"witch.png"},
 	},

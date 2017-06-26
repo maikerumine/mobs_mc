@@ -22,7 +22,7 @@ mobs:register_mob("mobs_mc:stray", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "strayskeleton.b3d",
+	mesh = "mobs_mc_skeleton_stray.b3d",
 	textures = {
 		{"stray.png"},
 	},

@@ -8,7 +8,7 @@ mobs:register_mob("mobs_mc:bat", {
 	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.89, 0.25},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "bat.b3d",
+	mesh = "mobs_mc_bat.b3d",
 	textures = {
 		{"bat.png"},
 	},

@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	pathfinding = 1,
 	rotate = -180,
 	visual = "mesh",
-	mesh = "creeper.b3d",
+	mesh = "mobs_mc_creeper.b3d",
 	textures = {
 		{"creeper.png"},
 	},

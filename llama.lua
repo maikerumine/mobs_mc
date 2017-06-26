@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:llama", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
     rotate = -180,
 	visual = "mesh",
-	mesh = "llama.b3d",
+	mesh = "mobs_mc_llama.b3d",
     textures = {{"llama.png"},{"llama1.png"},{"llama2.png"},{"llama3.png"},{"llama4.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

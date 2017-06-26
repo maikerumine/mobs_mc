@@ -16,7 +16,7 @@ mobs:register_mob("mobs_mc:illusioner", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "illusioner.b3d",
+	mesh = "mobs_mc_illusioner.b3d",
     textures = {
         --{"illusionist.png"},
         {"illusionist.png^illusionist1.png"},

@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:cavespider", {
 	collisionbox = {-0.9, -0.01, -0.7, 0.7, 0.6, 0.7},
     rotate = -180,
 	visual = "mesh",
-	mesh = "spider.b3d",
+	mesh = "mobs_mc_spider.b3d",
 	textures = {
 		{"cave_spider.png"},
 	},

@@ -46,7 +46,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	collisionbox = {-0.4, -2.4, -0.4, 0.4, 1.8, 0.4},
 	
 	visual = "mesh",
-	mesh = "mobs_sand_monster.b3d",
+	mesh = "mobs_mc_snowman.b3d",
 	textures = {
 	{"mobs_endermen.png"}
 	},

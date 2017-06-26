@@ -15,7 +15,7 @@ mobs:register_mob("mobs_mc:squid", {
     -- FIXME: If the squid is near the floor, it turns black
     collisionbox = {-0.4, 0.1, -0.4, 0.4, 0.9, 0.4},
     visual = "mesh",
-    mesh = "mobs_squid.b3d",
+    mesh = "mobs_mc_squid.b3d",
     textures = {
         {"squid.png"}
     },

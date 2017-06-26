@@ -25,7 +25,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 2.89, 0.3},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "enderman.b3d",
+	mesh = "mobs_mc_enderman.b3d",
 	textures = {
 		{"mobs_mc_enderman.png^(mobs_mc_enderman_eyes.png^[makealpha:0,0,0)"},
 	},

@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:guardian", {
     -- TODO: Make the hitbox smaller when Minetest supports rotation of collision boxes
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
 	visual = "mesh",
-	mesh = "guardian.b3d",
+	mesh = "mobs_mc_guardian.b3d",
 	textures = {
 		{"guardian.png"},
 	},

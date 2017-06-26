@@ -8,7 +8,7 @@ mobs:register_mob("mobs_mc:pig", {
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 0.865, 0.45},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "pig.b3d",
+	mesh = "mobs_mc_pig.b3d",
 	textures = {
 		{"mobs_mc_pig.png"},
 	},

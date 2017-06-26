@@ -23,7 +23,7 @@ mobs:register_mob("mobs_mc:horsemule", {
     rotate = -180,
 	collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
 	visual = "mesh",
-	mesh = "mule.b3d",
+	mesh = "mobs_mc_mule.b3d",
     textures = {{"mule.png"},{"mule1.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

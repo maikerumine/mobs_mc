@@ -45,7 +45,7 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	collisionbox = {-0.5, 0.01, -0.5, 0.5, 1.2, 0.5},
     rotate = -180,
 	visual = "mesh",
-	mesh = "enderdragon.b3d",
+	mesh = "mobs_mc_ender_dragon.b3d",
 	textures = {
 		{"enderdragon.png"},
 	},

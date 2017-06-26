@@ -20,7 +20,7 @@ local zombie = {
 	--collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
     --rotate = -180,
 	visual = "mesh",
-	--mesh = "zombie.b3d",  new
+	-- TODO: Switch to AMC zombie texture
 	mesh = "mobs_zombie.x",
 	textures = {
 		--{"zombie.png"},

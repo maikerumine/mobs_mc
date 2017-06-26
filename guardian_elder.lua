@@ -22,7 +22,7 @@ mobs:register_mob("mobs_mc:guardian_elder", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "guardian.b3d",
+	mesh = "mobs_mc_guardian.b3d",
 	textures = {
 		{"guardian_elder.png"},
 	},
