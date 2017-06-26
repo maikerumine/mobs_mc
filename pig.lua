@@ -81,7 +81,6 @@ mobs:register_mob("mobs_mc:pig", {
 		-- drop saddle when horse is killed while riding
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
