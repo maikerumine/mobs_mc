@@ -65,7 +65,6 @@ local pigman = {
 			random = "Pig2",
 			death = "Pigdeath",
 			damage = "zombiehurt1",
-			attack = "default_punch3",
 		},
 
 	animation = {
