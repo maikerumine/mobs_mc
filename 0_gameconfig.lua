@@ -207,7 +207,7 @@ mobs_mc.enderman_takable = {
 
 -- List of nodes on which mobs can spawn
 mobs_mc.spawn = {
-	solid = { "group:cracky", "group:crumbly", }, -- spawn on "solid" nodes (this is mostly just guessing)
+	solid = { "group:cracky", "group:crumbly", "group:shovely", "group:pickaxey" }, -- spawn on "solid" nodes (this is mostly just guessing)
 
 	grassland = { mobs_mc.items.grass_block, "ethereal:prairie_dirt" },
 	savanna = { "default:dirt_with_dry_grass" },
