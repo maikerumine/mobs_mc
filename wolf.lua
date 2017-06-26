@@ -122,6 +122,8 @@ dog.owner = ""
 -- TODO: Start sitting by default
 dog.order = "roam"
 dog.owner_loyal = true
+-- Automatically teleport dog to owner
+dog.do_custom = mobs_mc.make_owner_teleport_function(12)
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
 	if is_flesh(item:get_name()) then

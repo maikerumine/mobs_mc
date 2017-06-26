@@ -48,6 +48,8 @@ else
 	minetest.register_alias("_:arrow", "throwing:arrow")
 	mobs:alias_mob("_:arrow_entity", "throwing:arrow_entity")
 end
+-- Shared functions
+dofile(path .. "/3_shared.lua")
 
 --Mob heads
 dofile(path .. "/heads.lua") -- maikerumine
