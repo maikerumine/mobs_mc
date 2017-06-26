@@ -12,7 +12,7 @@ mobs:register_mob("mobs_mc:silverfish", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 0.44, 0.4},
 	rotate = -180,
 	visual = "mesh",
-	mesh = "silverfish.b3d",
+	mesh = "mobs_mc_silverfish.b3d",
 	textures = {
 		{"silverfish.png"},
 	},

@@ -19,7 +19,7 @@ mobs:register_mob("mobs_mc:vindicator", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
     rotate = -180,
 	visual = "mesh",
-	mesh = "vindicator.b3d",
+	mesh = "mobs_mc_vindicator.b3d",
     textures = {
         {"vindicator.png^vindicator1.png"},
         --{"vindicator2.png^vindicator1.png"},

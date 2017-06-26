@@ -18,7 +18,7 @@ mobs:register_mob("mobs_mc:villager", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "villager.b3d",
+	mesh = "mobs_mc_villager.b3d",
     textures = {{"villager.png"},{"villager1.png"},{"villager2.png"},{"villager3.png"},},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

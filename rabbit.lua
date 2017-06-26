@@ -11,7 +11,7 @@ local rabbit = {
 
 	rotate = -180,
 	visual = "mesh",
-	mesh = "rabbit.b3d",
+	mesh = "mobs_mc_rabbit.b3d",
 	textures = {
         {"mobs_mc_rabbit_brown.png"},
         {"mobs_mc_rabbit_gold.png"},

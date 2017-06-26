@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	pathfinding = true,
 	group_attack = true,
 	visual = "mesh",
-	mesh = "skeleton.b3d",
+	mesh = "mobs_mc_skeleton.b3d",
 	    rotate = -180,
 	textures = {
 		{"skeleton.png"},

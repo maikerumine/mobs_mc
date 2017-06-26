@@ -43,6 +43,7 @@ mobs:register_mob("mobs_mc:sheep", {
 
 	visual = "mesh",
 	visual_size = {x=0.65, y=0.65},
+	-- TODO: Switch to AMC sheep mesh
 	mesh = "mobs_sheep.x",
 	textures = {
 		{"mobs_mc_sheep_white.png"},--was sheep
@@ -169,6 +170,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			minetest.add_item(pos, ItemStack(colors[self.color][1].." "..math.random(1,3)))
 			-- FIXME: This is a workaround for the fact that Mobs Redo does not have on_replace
 			self.color = "unicolor_white"
+			-- TODO: Use new mesh for sheared sheep (AMC)
 			self.base_texture = {"mobs_mc_sheep_sheared.png"}
 			self.object:set_properties({
 				textures = self.base_texture,

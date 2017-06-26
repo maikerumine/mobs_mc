@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:chicken", {
 
 	rotate = -180,
 	visual = "mesh",
-	mesh = "chicken.b3d",
+	mesh = "mobs_mc_chicken.b3d",
 	textures = {
 		{"chicken.png"},
 	},

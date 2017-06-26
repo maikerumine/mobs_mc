@@ -22,7 +22,7 @@ mobs:register_mob("mobs_mc:vex", {
 	collisionbox = {-0.2, 0.2, -0.2, 0.2, 1.0, 0.2},  --bat
 	rotate = -180,
 	visual = "mesh",
-	mesh = "vex.b3d",
+	mesh = "mobs_mc_vex.b3d",
 	textures = {
 		{"mobs_mc_vex.png"},
 	},

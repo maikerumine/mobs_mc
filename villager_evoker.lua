@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:evoker", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
     rotate = -180,
 	visual = "mesh",
-	mesh = "evoker.b3d",
+	mesh = "mobs_mc_evoker.b3d",
     textures = {
         {"evoker.png"},
         --{"evoker1.png"},

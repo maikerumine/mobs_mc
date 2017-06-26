@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:63agent", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "agent.b3d",
+	mesh = "mobs_mc_agent.b3d",
 	textures = {
 		{"agent.png"},
 	},

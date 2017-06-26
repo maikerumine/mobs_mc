@@ -19,7 +19,7 @@ mobs:register_mob("mobs_mc:horseskeleton", {
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
     rotate = -180,
 	visual = "mesh",
-	mesh = "horse.b3d",
+	mesh = "mobs_mc_horse.b3d",
     textures = {{"horseskeleton.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
