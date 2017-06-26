@@ -65,7 +65,7 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	},
 	jump = true,
 	step = 1,
-	blood_texture = "default_steelblock.png",
+	blood_amount = 0,
 })
 
 
