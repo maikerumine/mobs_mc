@@ -32,7 +32,6 @@ local zombie = {
 		random = "zombie1",
 		death = "zombiedeath",
 		damage = "zombiehurt1",
-		attack = "default_punch3",
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
