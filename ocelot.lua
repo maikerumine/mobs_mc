@@ -101,6 +101,8 @@ cat.order = "roam" -- "sit" or "roam"
 cat.owner_loyal = true
 cat.tamed = true
 cat.runaway = false
+-- Automatically teleport cat to owner
+cat.do_custom = mobs_mc.make_owner_teleport_function(12)
 cat.on_rightclick = function(self, clicker)
 	if self.child then
 		return
