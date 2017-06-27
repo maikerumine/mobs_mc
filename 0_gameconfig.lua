@@ -80,6 +80,8 @@ mobs_mc.items = {
 	redstone = "default:mese_crystal_fragment",
 	glass_bottle = "vessels:glass_bottle",
 	sugar = "default:papyrus",
+	wheat = "farming:wheat",
+	hay_bale = "farming:straw",
 
 	-- Other
 	nether_brick_block = "nether:brick",
@@ -93,6 +95,7 @@ mobs_mc.items = {
 	pufferfish_raw = "fishing:pike_raw",
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
+	golden_apple = "default:apple",
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
@@ -125,7 +128,7 @@ mobs_mc.follow = {
 	sheep = { mobs_mc.items.wheat },
 	cow = { mobs_mc.items.wheat },
 	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
-	horse = { "default:apple", mobs_mc.items.wheat }, -- TODO
+	horse = { "default:apple", mobs_mc.items.sugar, mobs_mc.items.wheat, mobs_mc.items.hay_bale, mobs_mc.items.golden_apple, mobs_mc.items.golden_carrot }, -- TODO
 	pig = { "farming:potato", mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick,
 		"default:apple", -- Minetest Game extra
 	},

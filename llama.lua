@@ -17,8 +17,8 @@ mobs:register_mob("mobs_mc:llama", {
 	hp_min = 15,
 	hp_max = 30,
 	passive = false,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
-    rotate = -180,
+	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.86, 0.45},
+	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_llama.b3d",
 	textures = {{"mobs_mc_llama.png"},{"mobs_mc_llama_brown.png"},{"mobs_mc_llama_creamy.png"},{"mobs_mc_llama_white.png"},{"mobs_mc_llama_gray.png"}},
@@ -27,7 +27,7 @@ mobs:register_mob("mobs_mc:llama", {
 	runaway = true,
 	walk_velocity = 1,
 	run_velocity = 4.4,
-	floats = true,
+	floats = 1,
 	drops = {
 		{name = mobs_mc.items.leather,
 		chance = 1,
@@ -36,13 +36,14 @@ mobs:register_mob("mobs_mc:llama", {
 	},
 	drawtype = "front",
 	water_damage = 0,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
-	fear_height = 3,
+	fear_height = 4,
 	sounds = {
-		random = "Sheep3",
-		death = "Sheep3",
+		random = "mobs_sheep",
+		death = "mobs_sheep",
 		damage = "mobs_sheep",
+		distance = 16,
 	},
 	animation = {
 		speed_normal = 24,
@@ -60,7 +61,7 @@ mobs:register_mob("mobs_mc:llama", {
 		look_end = 108,
 	},
 	follow = mobs_mc.items.horse,
-	view_range = 5,
+	view_range = 16,
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
@@ -106,7 +107,7 @@ mobs:register_mob("mobs_mc:llama", {
 		end
 
 		-- feed, tame or heal horse
-		if mobs:feed_tame(self, clicker, 10, true, true) then
+		if mobs:feed_tame(self, clicker, 1, true, true) then
 			return
 		end
 
