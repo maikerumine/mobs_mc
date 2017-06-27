@@ -107,7 +107,7 @@ mobs:register_mob("mobs_mc:llama", {
 		end
 
 		-- feed, tame or heal horse
-		if mobs:feed_tame(self, clicker, 10, true, true) then
+		if mobs:feed_tame(self, clicker, 1, true, true) then
 			return
 		end
 
