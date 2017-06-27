@@ -17,9 +17,9 @@ local horse = {
 	type = "animal",
 	visual = "mesh",
 	mesh = "mobs_mc_horse.b3d",
-	visual_size = {x=3, y=3},
+	visual_size = {x=3.0, y=3.0},
 	rotate = -180,
-	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.25, 0.4},
+	collisionbox = {-0.69825, -0.01, -0.69825, 0.69825, 1.59, 0.69825},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
 		stand_start = 0,		stand_end = 0,
