@@ -27,12 +27,12 @@ local horse = {
 		run_start = 0,		run_end = 40,
 	},
 	textures = {
-		{"horse.png"},
-		{"horse1.png"},
-		{"horse2.png"},
-		{"horse3.png"},
-		{"horse4.png"},
-		{"horse5.png"},
+		{"mobs_mc_horse_brown.png"},
+		{"mobs_mc_horse_darkbrown.png"},
+		{"mobs_mc_horse_white.png"},
+		{"mobs_mc_horse_gray.png"},
+		{"mobs_mc_horse_black.png"},
+		{"mobs_mc_horse_chestnut.png"},
 	},
 	fear_height = 4,
 	fly = false,
@@ -140,7 +140,7 @@ mobs:register_mob("mobs_mc:horse", horse)
 
 -- Skeleton horse
 local skeleton_horse = table.copy(horse)
-skeleton_horse.textures = {{"horseskeleton.png"}}
+skeleton_horse.textures = {{"mobs_mc_horse_skeleton.png"}}
 skeleton_horse.drops = {
 	{name = mobs_mc.items.bone,
 	chance = 1,
@@ -156,7 +156,7 @@ mobs:register_mob("mobs_mc:skeleton_horse", skeleton_horse)
 
 -- Zombie horse
 local zombie_horse = table.copy(horse)
-zombie_horse.textures = {{"horsezombie.png"}}
+zombie_horse.textures = {{"mobs_mc_horse_zombie.png"}}
 zombie_horse.drops = {
 	{name = mobs_mc.items.rotten_flesh,
 	chance = 1,
@@ -173,7 +173,7 @@ mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 -- Mule
 local mule = table.copy(horse)
 mule.mesh = "mobs_mc_mule.b3d"
-mule.textures = {{"mule.png"},{"mule1.png"}}
+mule.textures = {{"mobs_mc_mule.png"}}
 mule.animation = {
 	speed_normal = 25,
 	stand_start = 0, stand_end = 0,
@@ -191,10 +191,10 @@ mobs:register_spawn("mobs_mc:horse", mobs_mc.spawn.grassland_savanna, minetest.L
 mobs:alias_mob("mobs:horse", "mobs_mc:horse")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:horse", "Horse", "horse_inv.png", 0)
-mobs:register_egg("mobs_mc:skeleton_horse", "Skeleton Horse", "horseskeleton_inv.png", 0)
-mobs:register_egg("mobs_mc:zombie_horse", "Zombie Horse", "horsezombie_inv.png", 0)
-mobs:register_egg("mobs_mc:mule", "Mule", "mule_inv.png", 0)
+mobs:register_egg("mobs_mc:horse", "Horse", "mobs_mc_spawn_icon_horse.png", 0)
+mobs:register_egg("mobs_mc:skeleton_horse", "Skeleton Horse", "mobs_mc_spawn_icon_horse_skeleton.png", 0)
+mobs:register_egg("mobs_mc:zombie_horse", "Zombie Horse", "mobs_mc_spawn_icon_horse_zombie.png", 0)
+mobs:register_egg("mobs_mc:mule", "Mule", "mobs_mc_spawn_icon_mule.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then
