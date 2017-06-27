@@ -62,10 +62,10 @@ local horse = {
 			self.max_speed_reverse = 7  --swap due to -180 model
 			self.accel = 6
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 7.5, z = 0}
+			self.driver_attach_at = {x = 0, y = 7.5, z = 1.75}
 			self.player_rotation = {x = 0, y = 180, z = 0}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
-			self.driver_scale = {x = 0.3, y = 0.3}
+			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
 
 		-- if driver present allow control of horse
@@ -98,7 +98,7 @@ local horse = {
 		end
 
 		-- feed, tame or heal horse
-		if mobs:feed_tame(self, clicker, 10, true, true) then
+		if mobs:feed_tame(self, clicker, 1, true, true) then
 			return
 		end
 
