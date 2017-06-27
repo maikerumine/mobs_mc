@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:stray", {
 	visual = "mesh",
 	mesh = "mobs_mc_skeleton_stray.b3d",
 	textures = {
-		{"stray.png"},
+		{"mobs_mc_stray.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -90,7 +90,7 @@ mobs:register_mob("mobs_mc:stray", {
 mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 9000, 2, -110, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:stray", "Stray", "stray_inv.png", 0)
+mobs:register_egg("mobs_mc:stray", "Stray", "mobs_mc_spawn_icon_stray.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Stray Skeleton loaded")

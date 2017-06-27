@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	visual = "mesh",
 	mesh = "mobs_mc_polar_bear.b3d",
 	textures = {
-		{"polarbear.png"},
+		{"mobs_mc_polarbear.png"},
 	},
 	visual_size = {x=3.0, y=3.0},
 	makes_footstep_sound = true,
@@ -74,7 +74,7 @@ mobs:register_spawn("mobs_mc:polar_bear", mobs_mc.spawn.snow, minetest.LIGHT_MAX
 
 
 
-mobs:register_egg("mobs_mc:polar_bear", "Polar Bear", "polarbear_inv.png", 0)
+mobs:register_egg("mobs_mc:polar_bear", "Polar Bear", "mobs_mc_spawn_icon_polarbear.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

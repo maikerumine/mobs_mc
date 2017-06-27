@@ -20,7 +20,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	visual = "mesh",
 	mesh = "mobs_mc_blaze.b3d",
 	textures = {
-		{"blaze.png"},
+		{"mobs_mc_blaze.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -104,8 +104,7 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 })
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:blaze", "Spawn Blaze", "spawn_egg_blaze.png")
-mobs:register_egg("mobs_mc:blaze", "Blaze", "blaze_inv.png", 0)
+mobs:register_egg("mobs_mc:blaze", "Blaze", "mobs_mc_spawn_icon_blaze.png", 0)
 
 
 

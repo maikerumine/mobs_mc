@@ -22,12 +22,9 @@ mobs:register_mob("mobs_mc:parrot", {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_parrot.b3d",
-	textures = {{"parrot_blue.png"},{"parrot_green.png"},{"parrot_grey.png"},{"parrot_red_blue.png"},{"parrot_yellow_blue.png"}},
+	textures = {{"mobs_mc_parrot_blue.png"},{"mobs_mc_parrot_green.png"},{"mobs_mc_parrot_grey.png"},{"mobs_mc_parrot_red_blue.png"},{"mobs_mc_parrot_yellow_blue.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
-	sounds = {
-		random = "Villagerdeny",
-	},
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	drops = {
@@ -84,7 +81,7 @@ mobs:register_mob("mobs_mc:parrot", {
 mobs:spawn_specific("mobs_mc:parrot", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX+1, 20, 20000, 2, 15, 20)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:parrot", "Parrot", "parrot_inv.png", 0)
+mobs:register_egg("mobs_mc:parrot", "Parrot", "mobs_mc_spawn_icon_parrot.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Parrot loaded")

@@ -17,7 +17,7 @@ mobs:register_mob("mobs_mc:squid", {
     visual = "mesh",
     mesh = "mobs_mc_squid.b3d",
     textures = {
-        {"squid.png"}
+        {"mobs_mc_squid.png"}
     },
     sounds = {
 		damage = "mobs_mc_squid_hurt",
@@ -62,5 +62,4 @@ mobs:spawn_specific("mobs_mc:squid", mobs_mc.spawn.water, {mobs_mc.items.water_s
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:squid", "Spawn Squid", "spawn_egg_squid.png")
-mobs:register_egg("mobs_mc:squid", "Squid", "squid_inv.png", 0)
+mobs:register_egg("mobs_mc:squid", "Squid", "mobs_mc_spawn_icon_squid.png", 0)

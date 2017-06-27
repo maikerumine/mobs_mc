@@ -19,7 +19,12 @@ mobs:register_mob("mobs_mc:villager", {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_villager.b3d",
-    textures = {{"villager.png"},{"villager1.png"},{"villager2.png"},{"villager3.png"},},
+	textures = {
+		{"mobs_mc_villager.png"},
+		{"mobs_mc_villager_farmer.png"},
+		{"mobs_mc_villager_priest.png"},
+		{"mobs_mc_villager_librarian.png"},
+	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 2,
@@ -172,7 +177,7 @@ mobs:register_mob("mobs_mc:villager", {
 mobs:alias_mob("mobs:villager", "mobs_mc:villager")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:villager", "Villager", "villager_inv.png", 0)
+mobs:register_egg("mobs_mc:villager", "Villager", "mobs_mc_spawn_icon_villager.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")

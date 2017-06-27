@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:spider", {
 	visual = "mesh",
 	mesh = "mobs_mc_spider.b3d",
 	textures = {
-		{"spider.png"},
+		{"mobs_mc_spider.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
@@ -65,8 +65,7 @@ mobs:alias_mob("mobs:spider", "mobs_mc:spider")
 mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
-mobs:register_egg("mobs_mc:spider", "Spider", "spider_inv.png", 0)
+mobs:register_egg("mobs_mc:spider", "Spider", "mobs_mc_spawn_icon_spider.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Spiders loaded")

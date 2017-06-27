@@ -23,7 +23,7 @@ mobs:register_mob("mobs_mc:63agent", {
 	visual = "mesh",
 	mesh = "mobs_mc_agent.b3d",
 	textures = {
-		{"agent.png"},
+		{"mobs_mc_agent.png"},
 	},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,
@@ -37,7 +37,7 @@ mobs:register_mob("mobs_mc:63agent", {
 	},
 })
 
-mobs:register_egg("mobs_mc:63agent", "Agent", "agent_inv.png", 0)
+mobs:register_egg("mobs_mc:63agent", "Agent", "mobs_mc_spawn_icon_agent.png", 0)
 
 
 

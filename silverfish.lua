@@ -14,7 +14,7 @@ mobs:register_mob("mobs_mc:silverfish", {
 	visual = "mesh",
 	mesh = "mobs_mc_silverfish.b3d",
 	textures = {
-		{"silverfish.png"},
+		{"mobs_mc_silverfish.png"},
 	},
 	pathfinding = 1,
 	visual_size = {x=3, y=3},
@@ -40,7 +40,7 @@ mobs:register_mob("mobs_mc:silverfish", {
 	damage = 1,
 })
 
-mobs:register_egg("mobs_mc:silverfish", "Silverfish", "silverfish_inv.png", 0)
+mobs:register_egg("mobs_mc:silverfish", "Silverfish", "mobs_mc_spawn_icon_silverfish.png", 0)
 
 -- Monster egg blocks (Minetest Game)
 if minetest.get_modpath("default") and mobs_mc.create_monster_egg_nodes then

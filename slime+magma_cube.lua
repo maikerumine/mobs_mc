@@ -431,8 +431,8 @@ mobs:alias_mob("mobs_mc:lavamedium", "mobs_mc:magma_cube_small")
 mobs:alias_mob("mobs_mc:lavabig", "mobs_mc:magma_cube_big")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:magma_cube_big", "Magma Cube", "magmacube_inv.png")
-mobs:register_egg("mobs_mc:slime_big", "Slime", "slime_inv.png")
+mobs:register_egg("mobs_mc:magma_cube_big", "Magma Cube", "mobs_mc_spawn_icon_magmacube.png")
+mobs:register_egg("mobs_mc:slime_big", "Slime", "mobs_mc_spawn_icon_slime.png")
 
 
 if minetest.settings:get_bool("log_mods") then

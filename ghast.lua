@@ -22,10 +22,9 @@ mobs:register_mob("mobs_mc:ghast", {
 	visual = "mesh",
 	mesh = "mobs_mc_ghast.b3d",
 	textures = {
-		{"ghast.png"},
+		{"mobs_mc_ghast.png"},
 	},
 	visual_size = {x=4, y=4},
-	blood_texture ="mobs_blood.png",
 	makes_footstep_sound = true,
 	sounds = {
 		shoot = "mobs_fireball",
@@ -111,8 +110,7 @@ mobs:register_arrow(":mobs_monster:fireball", {
 
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_front.png")
-mobs:register_egg("mobs_mc:ghast", "Ghast", "ghast_inv.png", 0)
+mobs:register_egg("mobs_mc:ghast", "Ghast", "mobs_mc_spawn_icon_ghast.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ghast loaded")

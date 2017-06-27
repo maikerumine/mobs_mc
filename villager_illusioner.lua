@@ -17,10 +17,9 @@ mobs:register_mob("mobs_mc:illusioner", {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_illusioner.b3d",
-    textures = {
-        --{"illusionist.png"},
-        {"illusionist.png^illusionist1.png"},
-    },
+	textures = {
+		{"mobs_mc_illusionist.png^mobs_mc_illusionist_bow.png"},
+	},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,
 	run_velocity = 2,
@@ -43,7 +42,7 @@ mobs:register_mob("mobs_mc:illusioner", {
 	},
 })
 
-mobs:register_egg("mobs_mc:illusioner", "Illusioner", "illusioner_inv.png", 0)
+mobs:register_egg("mobs_mc:illusioner", "Illusioner", "mobs_mc_spawn_icon_illusioner.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Illusioner loaded")

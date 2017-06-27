@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:wither", {
 	visual = "mesh",
 	mesh = "mobs_mc_wither.b3d",
 	textures = {
-		{"wither.png"},
+		{"mobs_mc_wither.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -82,8 +82,7 @@ mobs:register_mob("mobs_mc:wither", {
 mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
-	--textures = {"transparent.png"},
-	textures = {"mese_egg.png"},
+	textures = {"blank.png"},
 	velocity = 10,
 
 	on_step = function(self, dtime)
@@ -128,7 +127,6 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 mobs:register_arrow(":mobs_mc:fireball", {
 	visual = "sprite",
 	visual_size = {x = 1.5, y = 1.5},
-	--textures = {"mobs_fireball.png"},
 	textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
 	velocity = 6,
 
@@ -160,7 +158,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 	end
 })
 --Spawn egg
-mobs:register_egg("mobs_mc:wither", "Wither", "wither_inv.png", 0)
+mobs:register_egg("mobs_mc:wither", "Wither", "mobs_mc_spawn_icon_wither.png", 0)
 
 --Compatibility
 mobs:alias_mob("nssm:mese_dragon", "mobs_mc:wither")	

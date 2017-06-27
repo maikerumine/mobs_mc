@@ -132,11 +132,8 @@ mobs:register_spawn("mobs_mc:baby_husk", mobs_mc.spawn.desert, 7, 0, 65000, 4, 3
 mobs:alias_mob("mobs:zombie", "mobs_mc:zombie")
 
 -- Spawn eggs
-mobs:register_egg("mobs_mc:zombie", "Spawn Zombie", "spawn_egg_zombie.png")
-mobs:register_egg("mobs_mc:baby_zombie", "Spawn Baby Zombie", "spawn_egg_baby_zombie.png") -- TODO: To be removed
-mobs:register_egg("mobs_mc:husk", "Spawn Husk", "spawn_egg_husk.png") -- TODO: To be removed
-mobs:register_egg("mobs_mc:baby_husk", "Spawn Baby Husk", "spawn_egg_baby_husk.png") -- TODO: To be removed
-mobs:register_egg("mobs_mc:zombie", "Zombie", "zombie_inv.png", 0)
+mobs:register_egg("mobs_mc:husk", "Husk", "spawn_egg_husk.png", 0) -- TODO: Replace spawn icon
+mobs:register_egg("mobs_mc:zombie", "Zombie", "mobs_mc_spawn_icon_zombie.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Zombie loaded")

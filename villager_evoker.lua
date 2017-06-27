@@ -22,8 +22,8 @@ mobs:register_mob("mobs_mc:evoker", {
 	visual = "mesh",
 	mesh = "mobs_mc_evoker.b3d",
     textures = {
-        {"evoker.png"},
-        --{"evoker1.png"},
+        {"mobs_mc_evoker_base.png"},
+	-- TODO: Attack glow
     },
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -89,7 +89,7 @@ mobs:register_mob("mobs_mc:evoker", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:evoker", "Evoker", "evoker_inv.png", 0)
+mobs:register_egg("mobs_mc:evoker", "Evoker", "mobs_mc_spawn_icon_evoker.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then
