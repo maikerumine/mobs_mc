@@ -27,7 +27,7 @@ local spider = {
 	visual = "mesh",
 	mesh = "mobs_mc_spider.b3d",
 	textures = {
-		{"mobs_mc_spider.png"},
+		{"mobs_mc_spider.png^(mobs_mc_spider_eyes.png^[makealpha:0,0,0)"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
@@ -62,7 +62,7 @@ mobs:register_mob("mobs_mc:spider", spider)
 
 -- Cave spider
 local cave_spider = table.copy(spider)
-cave_spider.textures = { {"mobs_mc_cave_spider.png"} }
+cave_spider.textures = { {"mobs_mc_cave_spider.png^(mobs_mc_spider_eyes.png^[makealpha:0,0,0)"} }
 -- TODO: Poison damage
 -- TODO: Revert damage to 2
 cave_spider.damage = 3 -- damage increased to undo non-existing poison
