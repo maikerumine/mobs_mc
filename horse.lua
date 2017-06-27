@@ -170,21 +170,46 @@ zombie_horse.sounds = {
 }
 mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 
--- Mule
-local mule = table.copy(horse)
-mule.mesh = "mobs_mc_mule.b3d"
-mule.textures = {{"mobs_mc_mule.png"}}
-mule.animation = {
+-- Donkey
+local d = 0.86 -- donkey scale
+local donkey = table.copy(horse)
+donkey.mesh = "mobs_mc_mule.b3d"
+donkey.textures = {{"mobs_mc_horse_creamy.png"}}
+donkey.animation = {
 	speed_normal = 25,
 	stand_start = 0, stand_end = 0,
 	walk_start = 0, walk_end = 40,
 }
-mobs:register_mob("mobs_mc:mule", mule)
+donkey.visual_size = { x=horse.visual_size.x*d, y=horse.visual_size.y*d }
+donkey.collisionbox = {
+	horse.collisionbox[1] * d,
+	horse.collisionbox[2] * d,
+	horse.collisionbox[3] * d,
+	horse.collisionbox[4] * d,
+	horse.collisionbox[5] * d,
+	horse.collisionbox[6] * d,
+}
+mobs:register_mob("mobs_mc:donkey", donkey)
 
+-- Mule
+local m = 0.94
+local mule = table.copy(donkey)
+mule.textures = {{"mobs_mc_mule.png"}}
+mule.visual_size = { x=horse.visual_size.x*m, y=horse.visual_size.y*m }
+mule.collisionbox = {
+	horse.collisionbox[1] * m,
+	horse.collisionbox[2] * m,
+	horse.collisionbox[3] * m,
+	horse.collisionbox[4] * m,
+	horse.collisionbox[5] * m,
+	horse.collisionbox[6] * m,
+}
+mobs:register_mob("mobs_mc:mule", mule)
 
 --===========================
 --Spawn Function
-mobs:register_spawn("mobs_mc:horse", mobs_mc.spawn.grassland_savanna, minetest.LIGHT_MAX+1, 0, 15000, 1, 12)
+mobs:register_spawn("mobs_mc:horse", mobs_mc.spawn.grassland_savanna, minetest.LIGHT_MAX+1, 0, 15000, 12, 31000)
+mobs:register_spawn("mobs_mc:donkey", mobs_mc.spawn.grassland_savanna, minetest.LIGHT_MAX+1, 0, 15000, 12, 31000)
 
 
 -- compatibility
@@ -194,6 +219,7 @@ mobs:alias_mob("mobs:horse", "mobs_mc:horse")
 mobs:register_egg("mobs_mc:horse", "Horse", "mobs_mc_spawn_icon_horse.png", 0)
 mobs:register_egg("mobs_mc:skeleton_horse", "Skeleton Horse", "mobs_mc_spawn_icon_horse_skeleton.png", 0)
 mobs:register_egg("mobs_mc:zombie_horse", "Zombie Horse", "mobs_mc_spawn_icon_horse_zombie.png", 0)
+mobs:register_egg("mobs_mc:donkey", "Donkey", "mobs_mc_spawn_icon_donkey.png", 0)
 mobs:register_egg("mobs_mc:mule", "Mule", "mobs_mc_spawn_icon_mule.png", 0)
 
 
