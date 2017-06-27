@@ -1,138 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
-mobs:register_mob("mobs_mc:slime_tiny", {
-	type = "monster",
-	pathfinding = 1,
-	group_attack = true,
-	hp_min = 1,
-	hp_max = 1,
-	collisionbox = {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3},
-	visual_size = {x=0.6, y=0.6},
-	textures = {
-	{"green_slime_top.png", "green_slime_bottom.png", "green_slime_front.png", "green_slime_sides.png", "green_slime_sides.png", "green_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
-	blood_texture ="green_slime_blood.png",
-	rotate = 270,
-	makes_footstep_sound = true,
-	sounds = {
-		jump = "green_slime_jump",
-		death = "green_slime_death",
-		damage = "green_slime_damage",
-		attack = "green_slime_attack",
-	},
-	damage = 0,
-	reach = 2.5,
-	armor = 100,
-	drops = {
-		-- slimeball
-		{name = mobs_mc.items.slimeball,
-		chance = 1,
-		min = 0,
-		max = 2,},
-	},
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
-	},
-	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 4,
-	light_damage = 0,
-	fall_damage = 0,
-	view_range = 16,
-	attack_type = "dogfight",
-	passive = false,
-	jump = true,
-	walk_velocity = 0.7,
-	run_velocity = 0.7,
-	walk_chance = 0,
-	jump_height = 3,
-	jump_chance = 98,
-	fear_height = 12,
-})
-
-mobs:register_mob("mobs_mc:slime_small", {
-	type = "monster",
-	pathfinding = 1,
-	group_attack = true,
-	hp_min = 4,
-	hp_max = 4,
-	collisionbox = {-0.6, -0.6, -0.6, 0.6, 0.6, 0.6},
-	visual_size = {x=1.2, y=1.2},
-	textures = {
-	{"green_slime_top.png", "green_slime_bottom.png", "green_slime_front.png", "green_slime_sides.png", "green_slime_sides.png", "green_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
-	blood_texture ="green_slime_blood.png",
-	rotate = 270,
-	makes_footstep_sound = true,
-	sounds = {
-		jump = "green_slime_jump",
-		death = "green_slime_death",
-		damage = "green_slime_damage",
-		attack = "green_slime_attack",
-	},
-	damage = 2,
-	reach = 2.75,
-	armor = 100,
-	drops = {},
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
-	},
-	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 4,
-	light_damage = 0,
-	fall_damage = 0,
-	view_range = 16,
-	attack_type = "dogfight",
-	passive = false,
-	jump = true,
-	walk_chance = 0,
-	walk_velocity = 1.3,
-	run_velocity = 1.3,
-	jump_height = 4.3,
-	jump_chance = 100,
-	fear_height = 60,
-	on_die = function(self, pos)
-		local angle, posadd, dir
-		angle = math.random(0, math.pi*2)
-		for i=1,4 do
-			dir = {x=math.cos(angle),y=0,z=math.sin(angle)}
-			posadd = vector.multiply(vector.normalize(dir), 0.6)
-			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_tiny")
-			slime:setvelocity(dir)
-			slime:setyaw(angle)
-			angle = angle + math.pi/2
-		end
-	end
-})
-
-mobs:register_mob("mobs_mc:slime_big", {
+local slime_big = {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -199,7 +67,54 @@ mobs:register_mob("mobs_mc:slime_big", {
 			angle = angle + math.pi/2
 		end
 	end,
-})
+}
+mobs:register_mob("mobs_mc:slime_big", slime_big)
+
+local slime_small = table.copy(slime_big)
+slime_small.hp_min = 4
+slime_small.hp_max = 4
+slime_small.collisionbox = {-0.6, -0.6, -0.6, 0.6, 0.6, 0.6}
+slime_small.visual_size = {x=1.2, y=1.2}
+slime_small.damage = 3
+slime_small.reach = 2.75
+slime_small.walk_velocity = 1.3
+slime_small.run_velocity = 1.3
+slime_small.jump_height = 4.3
+slime_small.on_die = function(self, pos)
+	local angle, posadd, dir
+	angle = math.random(0, math.pi*2)
+	for i=1,4 do
+		dir = {x=math.cos(angle),y=0,z=math.sin(angle)}
+		posadd = vector.multiply(vector.normalize(dir), 0.6)
+		local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_tiny")
+		slime:setvelocity(dir)
+		slime:setyaw(angle)
+		angle = angle + math.pi/2
+	end
+end
+mobs:register_mob("mobs_mc:slime_small", slime_small)
+
+local slime_tiny = table.copy(slime_big)
+slime_tiny.hp_min = 1
+slime_tiny.hp_max = 1
+slime_tiny.collisionbox = {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3}
+slime_tiny.visual_size = {x=0.6, y=0.6}
+slime_tiny.damage = 0
+slime_tiny.reach = 2.5
+slime_tiny.drops = {
+	-- slimeball
+	{name = mobs_mc.items.slimeball,
+	chance = 1,
+	min = 0,
+	max = 2,},
+}
+slime_tiny.walk_velocity = 0.7
+slime_tiny.run_velocity = 0.7
+slime_tiny.jump_height = 3
+slime_tiny.on_die = nil
+
+mobs:register_mob("mobs_mc:slime_tiny", slime_tiny)
+
 
 mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
 mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
