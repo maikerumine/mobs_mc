@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	visual = "mesh",
 	mesh = "mobs_mc_wither_skeleton.b3d",
 	textures = {
-		{"witherskeleton.png"},
+		{"mobs_mc_witherskeleton.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -85,7 +85,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 --spawn
 mobs:register_spawn("mobs_mc:witherskeleton", mobs_mc.spawn.nether_fortress, 7, 0, 5000, 3, -3000, true)
 -- spawn eggs
-mobs:register_egg("mobs_mc:witherskeleton", "Wither Skeleton", "witherskeleton_inv.png", 0)
+mobs:register_egg("mobs_mc:witherskeleton", "Wither Skeleton", "mobs_mc_spawn_icon_witherskeleton.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Wither Skeleton loaded")

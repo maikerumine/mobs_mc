@@ -21,8 +21,8 @@ mobs:register_mob("mobs_mc:llama", {
 	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_llama.b3d",
-    textures = {{"llama.png"},{"llama1.png"},{"llama2.png"},{"llama3.png"},{"llama4.png"}},
-	visual_size = {x=2.4, y=2.4},
+	textures = {{"mobs_mc_llama.png"},{"mobs_mc_llama_brown.png"},{"mobs_mc_llama_creamy.png"},{"mobs_mc_llama_white.png"},{"mobs_mc_llama_gray.png"}},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	runaway = true,
 	walk_velocity = 1,
@@ -150,7 +150,7 @@ mobs:register_mob("mobs_mc:llama", {
 mobs:register_spawn("mobs_mc:llama", mobs_mc.spawn.savanna, minetest.LIGHT_MAX+1, 0, 15000, 1, 40)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:llama", "Llama", "llama_inv.png", 0)
+mobs:register_egg("mobs_mc:llama", "Llama", "mobs_mc_spawn_icon_llama.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Llama loaded")

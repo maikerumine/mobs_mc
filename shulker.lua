@@ -27,7 +27,8 @@ mobs:register_mob("mobs_mc:shulker", {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_shulker.b3d",
-    textures = {{"shulker.png"},{"shulker1.png"},{"shulker2.png"},{"shulker3.png"},{"shulker4.png"},{"shulker5.png"},{"shulker6.png"},{"shulker7.png"},{"shulker8.png"},{"shulker9.png"},{"shulker10.png"},{"shulker11.png"},{"shulker12.png"},{"shulker13.png"},{"shulker14.png"},{"shulker15.png"},{"shulker16.png"},},
+	textures = { "mobs_mc_shulker_purple.png", },
+	-- TODO: Make shulker dye-able
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.0000000001,
 	run_velocity = 0.0000000001,
@@ -74,7 +75,7 @@ mobs:register_arrow("mobs_mc:shulkerbullet", {
 })
 
 
-mobs:register_egg("mobs_mc:shulker", "Shulker", "shulker_inv.png", 0)
+mobs:register_egg("mobs_mc:shulker", "Shulker", "mobs_mc_spawn_icon_shulker.png", 0)
 
 mobs:spawn_specific("mobs_mc:shulker", mobs_mc.spawn.end_city, 0, minetest.LIGHT_MAX+1, 5, 3, 1, -31000, -5000)
 

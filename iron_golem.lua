@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	visual = "mesh",
 	mesh = "mobs_mc_iron_golem.b3d",
 	textures = {
-		{"iron_golem.png"},
+		{"mobs_mc_iron_golem.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -70,7 +70,7 @@ mobs:register_mob("mobs_mc:iron_golem", {
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:iron_golem", "Iron Golem", "iron_golem_inv.png", 0)
+mobs:register_egg("mobs_mc:iron_golem", "Iron Golem", "mobs_mc_spawn_icon_iron_golem.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

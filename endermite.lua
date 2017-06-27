@@ -14,7 +14,7 @@ mobs:register_mob("mobs_mc:endermite", {
 	visual = "mesh",
 	mesh = "mobs_mc_endermite.b3d",
 	textures = {
-		{"endermite.png"},
+		{"mobs_mc_endermite.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = false,
@@ -36,4 +36,4 @@ mobs:register_mob("mobs_mc:endermite", {
 
 })
 
-mobs:register_egg("mobs_mc:endermite", "Endermite", "endermite_inv.png", 0)
+mobs:register_egg("mobs_mc:endermite", "Endermite", "mobs_mc_spawn_icon_endermite.png", 0)

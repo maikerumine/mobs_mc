@@ -22,7 +22,7 @@ mobs:register_mob("mobs_mc:witch", {
 	visual = "mesh",
 	mesh = "mobs_mc_witch.b3d",
 	textures = {
-		{"witch.png"},
+		{"mobs_mc_witch.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -108,7 +108,7 @@ mobs:register_arrow(":mobs:potion_arrow", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:witch", "Witch", "witch_inv.png", 0)
+mobs:register_egg("mobs_mc:witch", "Witch", "mobs_mc_spawn_icon_witch.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")

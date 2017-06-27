@@ -19,14 +19,14 @@ mobs:register_mob("mobs_mc:villager_zombie", {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_villager_zombie.b3d",
-    textures = {
-        {"zombie_butcher.png"},
-        {"zombie_farmer.png"},
-        {"zombie_librarian.png"},
-        {"zombie_priest.png"},
-        {"zombie_smith.png"},
-        {"zombie_villager.png"}
-    },
+	textures = {
+		{"mobs_mc_zombie_butcher.png"},
+		{"mobs_mc_zombie_farmer.png"},
+		{"mobs_mc_zombie_librarian.png"},
+		{"mobs_mc_zombie_priest.png"},
+		{"mobs_mc_zombie_smith.png"},
+		{"mobs_mc_zombie_villager.png"}
+	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 2,
@@ -86,8 +86,7 @@ mobs:register_spawn("mobs_mc:villager_zombie", {"mg_villages:road"}, 7, -1, 4090
 
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:villager", "Villager", "spawn_egg_villager.png")
-mobs:register_egg("mobs_mc:villager_zombie", "Zombie Villager", "zvillager_inv.png", 0)
+mobs:register_egg("mobs_mc:villager_zombie", "Zombie Villager", "mobs_mc_spawn_icon_zombie_villager.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs Zombie Villager loaded")

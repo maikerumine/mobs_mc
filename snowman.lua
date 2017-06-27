@@ -48,7 +48,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	visual = "mesh",
 	mesh = "mobs_mc_snowman.b3d",
 	textures = {
-	{"mobs_endermen.png"}
+	{"mobs_mc_snowman.png"}
 	},
 	visual_size = {x=1.2, y=2.5},
 	makes_footstep_sound = true,
@@ -106,7 +106,7 @@ mobs:register_mob("mobs_mc:enderman", {
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:enderman", "Enderman", "spawn_egg_overlay.png")
+mobs:register_egg("mobs_mc:snowman", "Snow Golem", "mobs_mc_spawn_icon_snowman.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

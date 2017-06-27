@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 	visual = "mesh",
 	mesh = "mobs_mc_guardian.b3d",
 	textures = {
-		{"guardian_elder.png"},
+		{"mobs_mc_guardian_elder.png"},
 	},
 	visual_size = {x=4, y=4},
     sounds = {
@@ -62,5 +62,5 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "guardian_elder_inv.png", 0)
+mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "mobs_mc_spawn_icon_guardian_elder.png", 0)
 
