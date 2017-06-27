@@ -12,7 +12,8 @@
 
 
 -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
-mobs:register_mob("mobs_mc:spider", {
+
+local spider = {
 	type = "monster",
 	passive = false,
 	docile_by_day = true,
@@ -46,8 +47,8 @@ mobs:register_mob("mobs_mc:spider", {
 		{name = "mobs_mc:spider_head", chance = 200, min = 1, max = 1,},
 	},
 	specific_attack = { "player", "mobs_mc:iron_golem" },
-	water_damage = 5,
-	lava_damage = 50,
+	water_damage = 0,
+	lava_damage = 4,
 	light_damage = 0,
 	fear_height = 4,
 	animation = {
@@ -56,7 +57,20 @@ mobs:register_mob("mobs_mc:spider", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-})
+}
+mobs:register_mob("mobs_mc:spider", spider)
+
+
+local cave_spider = table.copy(spider)
+cave_spider.textures = { {"mobs_mc_cave_spider.png"} }
+cave_spider.damage = 2
+cave_spider.hp_min = 1
+cave_spider.hp_max = 12
+cave_spider.collisionbox = {-0.35, -0.01, -0.35, 0.35, 0.49, 0.35}
+cave_spider.visual_size = {x=1.66666, y=1.5}
+mobs:register_mob("mobs_mc:cave_spider", cave_spider)
+
+
 mobs:register_spawn("mobs_mc:spider", mobs_mc.spawn.solid, 7, 0, 9500, 2, 3000)
 
 
@@ -66,6 +80,7 @@ mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:spider", "Spider", "mobs_mc_spawn_icon_spider.png", 0)
+mobs:register_egg("mobs_mc:cave_spider", "Cave Spider", "mobs_mc_spawn_icon_cave_spider.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Spiders loaded")
