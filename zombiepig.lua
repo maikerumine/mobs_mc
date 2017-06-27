@@ -19,21 +19,13 @@ local pigman = {
     rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_zombie_pigman.b3d",
-    textures = {{"zombie_pigman.png"}},
+	textures = {{"mobs_mc_zombie_pigman.png"}},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,
 	run_velocity = 2,
 	jump = true,
 	hp_min = 20,
 	hp_max = 20,
-	--collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
-	--visual = "mesh",
-	--mesh = "3d_armor_character.b3d",
-	--textures = {{"mobs_zombie_pigman.png",
-	--		"3d_armor_trans.png",
-	--			minetest.registered_items["default:sword_mese"].inventory_image,
-	--		}},
-
 	makes_footstep_sound = true,
 	walk_velocity = .8,
 	run_velocity = 2.6,
@@ -91,7 +83,7 @@ mobs:register_mob("mobs_mc:pigman", pigman)
 local baby_pigman = table.copy(pigman)
 baby_pigman.collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.94, 0.25}
 baby_pigman.visual_size = {x=0.5, y=0.5}
-baby_pigman.textures = {{"mobs_zombie_pigman.png"}}
+baby_pigman.textures = {{"mobs_mc_zombie_pigman.png"}}
 baby_pigman.walk_velocity = 1.2
 baby_pigman.run_velocity = 2.4
 baby_pigman.light_damage = 0
@@ -109,7 +101,7 @@ mobs:spawn_specific("mobs_mc:pigman", mobs_mc.spawn.nether_portal, {"air"},0, mi
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "zombie_pigman_inv.png", 0)
+mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "mobs_mc_spawn_icon_zombie_pigman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Pigmen loaded")

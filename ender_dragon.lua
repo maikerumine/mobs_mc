@@ -47,7 +47,7 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	visual = "mesh",
 	mesh = "mobs_mc_ender_dragon.b3d",
 	textures = {
-		{"enderdragon.png"},
+		{"mobs_mc_enderdragon.png"},
 	},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
@@ -187,5 +187,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "enderdragon_inv.png", 0)
+mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "mobs_mc_spawn_icon_enderdragon.png", 0)
 

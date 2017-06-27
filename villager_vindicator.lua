@@ -21,8 +21,8 @@ mobs:register_mob("mobs_mc:vindicator", {
 	visual = "mesh",
 	mesh = "mobs_mc_vindicator.b3d",
     textures = {
-        {"vindicator.png^vindicator1.png"},
-        --{"vindicator2.png^vindicator1.png"},
+        {"mobs_mc_vindicator_base.png^mobs_mc_vindicator_axe.png"},
+	-- TODO: Glow when attacking (mobs_mc_vindicator.png)
     },
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -70,7 +70,7 @@ mobs:register_mob("mobs_mc:vindicator", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:vindicator", "Vindicator", "vindicator_inv.png", 0)
+mobs:register_egg("mobs_mc:vindicator", "Vindicator", "mobs_mc_spawn_icon_vindicator.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC vindicator loaded")

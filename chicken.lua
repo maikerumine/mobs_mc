@@ -23,7 +23,7 @@ mobs:register_mob("mobs_mc:chicken", {
 	visual = "mesh",
 	mesh = "mobs_mc_chicken.b3d",
 	textures = {
-		{"chicken.png"},
+		{"mobs_mc_chicken.png"},
 	},
 	visual_size = {x=2.2, y=2.2},
 
@@ -95,7 +95,7 @@ mobs:register_mob("mobs_mc:chicken", {
 mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 7000, 3, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:chicken", "Chicken", "chicken_inv.png", 0)
+mobs:register_egg("mobs_mc:chicken", "Chicken", "mobs_mc_spawn_icon_chicken.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC chicken loaded")

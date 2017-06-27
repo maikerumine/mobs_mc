@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:cavespider", {
 	visual = "mesh",
 	mesh = "mobs_mc_spider.b3d",
 	textures = {
-		{"cave_spider.png"},
+		{"mobs_mc_cave_spider.png"},
 	},
 	visual_size = {x=2, y=2},
 	makes_footstep_sound = false,
@@ -59,8 +59,7 @@ mobs:register_mob("mobs_mc:cavespider", {
 })
 
 -- spawn eggs
---mobs:register_egg("mobs_mc:spider", "Spider", "mobs_cobweb.png", 1)
-mobs:register_egg("mobs_mc:cavespider", "Cave Spider", "cave_spider_inv.png", 0)
+mobs:register_egg("mobs_mc:cavespider", "Cave Spider", "mobs_mc_spawn_icon_cave_spider.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Spiders loaded")

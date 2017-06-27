@@ -24,7 +24,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	mesh = "mobs_mc_skeleton.b3d",
 	    rotate = -180,
 	textures = {
-		{"skeleton.png"},
+		{"mobs_mc_skeleton.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
@@ -95,7 +95,7 @@ mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"},0, 7, 20, 7000, 2, -110, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:skeleton", "Skeleton", "skeleton_inv.png", 0)
+mobs:register_egg("mobs_mc:skeleton", "Skeleton", "mobs_mc_spawn_icon_skeleton.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Skeleton loaded")

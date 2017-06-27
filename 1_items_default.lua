@@ -443,7 +443,7 @@ end
 if c("rotten_flesh") then
 	minetest.register_craftitem("mobs_mc:rotten_flesh", {
 		description = "Rotten Flesh",
-		inventory_image = "mobs_rotten_flesh.png",
+		inventory_image = "mcl_mobitems_rotten_flesh.png",
 		-- Simplified poisonous food
 		groups = { food = 2, eatable = -4 },
 		on_use = minetest.item_eat(-4),

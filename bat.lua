@@ -10,7 +10,7 @@ mobs:register_mob("mobs_mc:bat", {
 	visual = "mesh",
 	mesh = "mobs_mc_bat.b3d",
 	textures = {
-		{"bat.png"},
+		{"mobs_mc_bat.png"},
 	},
 	visual_size = {x=1, y=1},
 	sounds = {
@@ -55,7 +55,7 @@ mobs:spawn_specific("mobs_mc:bat", mobs_mc.spawn.solid,{"air"},0, maxlight, 20, 
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:bat", "Bat", "bat_inv.png", 0)
+mobs:register_egg("mobs_mc:bat", "Bat", "mobs_mc_spawn_icon_bat.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then
