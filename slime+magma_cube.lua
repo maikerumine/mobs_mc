@@ -7,15 +7,12 @@ local slime_big = {
 	group_attack = true,
 	hp_min = 16,
 	hp_max = 16,
-	collisionbox = {-1.02, -1.02, -1.02, 1.02, 1.02, 1.02},
-	visual_size = {x=2.04, y=2.04},
-	textures = {
-	{"green_slime_top.png", "green_slime_bottom.png", "green_slime_front.png", "green_slime_sides.png", "green_slime_sides.png", "green_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
+	collisionbox = {-1.02, -0.01, -1.02, 1.02, 2.03, 1.02},
+	visual_size = {x=12.5, y=12.5},
+	textures = {{"mobs_mc_slime.png"}},
+	visual = "mesh",
+	mesh = "mobs_mc_slime.b3d",
 	blood_texture ="green_slime_blood.png",
-	rotate = 270,
 	makes_footstep_sound = true,
 	sounds = {
 		jump = "green_slime_jump",
@@ -27,6 +24,7 @@ local slime_big = {
 	reach = 3,
 	armor = 100,
 	drops = {},
+	-- TODO: Fix animations
 	animation = {
 		speed_normal = 24,
 		speed_run = 48,
@@ -74,8 +72,8 @@ mobs:register_mob("mobs_mc:slime_big", slime_big)
 local slime_small = table.copy(slime_big)
 slime_small.hp_min = 4
 slime_small.hp_max = 4
-slime_small.collisionbox = {-0.51, -0.51, -0.51, 0.51, 0.51, 0.51}
-slime_small.visual_size = {x=1.02, y=1.02}
+slime_small.collisionbox = {-0.51, -0.01, -0.51, 0.51, 1.00, 0.51}
+slime_small.visual_size = {x=6.25, y=6.25}
 slime_small.damage = 3
 slime_small.reach = 2.75
 slime_small.walk_velocity = 1.3
@@ -98,8 +96,8 @@ mobs:register_mob("mobs_mc:slime_small", slime_small)
 local slime_tiny = table.copy(slime_big)
 slime_tiny.hp_min = 1
 slime_tiny.hp_max = 1
-slime_tiny.collisionbox = {-0.2505, -0.2505, -0.2505, 0.2505, 0.2505, 0.2505}
-slime_tiny.visual_size = {x=0.51, y=0.51}
+slime_tiny.collisionbox = {-0.2505, -0.01, -0.2505, 0.2505, 0.50, 0.2505}
+slime_tiny.visual_size = {x=3.125, y=3.125}
 slime_tiny.damage = 0
 slime_tiny.reach = 2.5
 slime_tiny.drops = {
@@ -127,15 +125,12 @@ local magma_cube_big = {
 	type = "monster",
 	hp_min = 16,
 	hp_max = 16,
-	collisionbox = {-1.02, -1.02, -1.02, 1.02, 1.02, 1.02},
-	visual_size = {x=2.04, y=2.04},
-	textures = {
-	{"lava_slime_top.png", "lava_slime_bottom.png", "lava_slime_front.png", "lava_slime_sides.png", "lava_slime_sides.png", "lava_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
-	blood_texture ="lava_slime_blood.png",
-	rotate = 270,
+	collisionbox = {-1.02, -0.01, -1.02, 1.02, 2.03, 1.02},
+	visual_size = {x=12.5, y=12.5},
+	textures = {{ "mobs_mc_magmacube.png" }},
+	visual = "mesh",
+	mesh = "mobs_mc_magma_cube.b3d",
+	blood_texture = "lava_slime_blood.png",
 	makes_footstep_sound = true,
 	sounds = {
 		jump = "green_slime_jump",
@@ -154,6 +149,7 @@ local magma_cube_big = {
 		min = 1,
 		max = 1,},
 	},
+	-- TODO: Fix animations
 	animation = {
 		speed_normal = 24,
 		speed_run = 48,
@@ -199,8 +195,8 @@ mobs:register_mob("mobs_mc:magma_cube_big", magma_cube_big)
 local magma_cube_small = table.copy(magma_cube_big)
 magma_cube_small.hp_min = 4
 magma_cube_small.hp_max = 4
-magma_cube_small.collisionbox = {-0.51, -0.51, -0.51, 0.51, 0.51, 0.51}
-magma_cube_small.visual_size = {x=1.02, y=1.02}
+magma_cube_small.collisionbox = {-0.51, -0.01, -0.51, 0.51, 1.00, 0.51}
+magma_cube_small.visual_size = {x=6.25, y=6.25}
 magma_cube_small.damage = 3
 magma_cube_small.reach = 2.75
 magma_cube_small.walk_velocity = .8
@@ -226,8 +222,8 @@ mobs:register_mob("mobs_mc:magma_cube_small", magma_cube_small)
 local magma_cube_tiny = table.copy(magma_cube_big)
 magma_cube_tiny.hp_min = 1
 magma_cube_tiny.hp_max = 1
-magma_cube_tiny.collisionbox = {-0.2505, -0.2505, -0.2505, 0.2505, 0.2505, 0.2505}
-magma_cube_tiny.visual_size = {x=0.51, y=0.51}
+magma_cube_tiny.collisionbox = {-0.2505, -0.01, -0.2505, 0.2505, 0.50, 0.2505}
+magma_cube_tiny.visual_size = {x=3.125, y=3.125}
 magma_cube_tiny.walk_velocity = 1.02
 magma_cube_tiny.run_velocity = 1.02
 magma_cube_tiny.jump_height = 4
