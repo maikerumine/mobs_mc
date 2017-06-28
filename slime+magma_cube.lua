@@ -1,5 +1,6 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- Slime
 local slime_big = {
 	type = "monster",
 	pathfinding = 1,
@@ -121,141 +122,8 @@ mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_M
 mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
 
 
-
-mobs:register_mob("mobs_mc:magma_cube_tiny", {
-	type = "monster",
-	pathfinding = 1,
-	group_attack = true,
-	hp_min = 1,
-	hp_max = 1,
-	collisionbox = {-0.2505, -0.2505, -0.2505, 0.2505, 0.2505, 0.2505},
-	visual_size = {x=0.51, y=0.51},
-	textures = {
-	{"lava_slime_top.png", "lava_slime_bottom.png", "lava_slime_front.png", "lava_slime_sides.png", "lava_slime_sides.png", "lava_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
-	blood_texture ="lava_slime_blood.png",
-	rotate = 270,
-	makes_footstep_sound = true,
-	sounds = {
-		jump = "green_slime_jump",
-		death = "green_slime_death",
-		damage = "green_slime_damage",
-		attack = "green_slime_attack",
-	},
-	walk_velocity = 1.02,
-	run_velocity = 1.02,
-	damage = 3,
-	reach = 2.5,
-	armor = 85,
-	drops = {},
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
-	},
-	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 0,
-	light_damage = 0,
-	fall_damage = 0,
-	view_range = 16,
-	attack_type = "dogfight",
-	passive = false,
-	jump = true,
-	jump_height = 4,
-	walk_chance = 0,
-	jump_chance = 80,
-	fear_height = 100000,
-})
-
-mobs:register_mob("mobs_mc:magma_cube_small", {
-	type = "monster",
-	pathfinding = 1,
-	group_attack = true,
-	hp_min = 4,
-	hp_max = 4,
-	collisionbox = {-0.51, -0.51, -0.51, 0.51, 0.51, 0.51},
-	visual_size = {x=1.01, y=1.01},
-	textures = {
-	{"lava_slime_top.png", "lava_slime_bottom.png", "lava_slime_front.png", "lava_slime_sides.png", "lava_slime_sides.png", "lava_slime_sides.png"}
-	},
-	-- TODO: Replace with mesh with animations
-	visual = "cube",
-	blood_texture ="lava_slime_blood.png",
-	rotate = 270,
-	makes_footstep_sound = true,
-	sounds = {
-		jump = "green_slime_jump",
-		death = "green_slime_death",
-		damage = "green_slime_damage",
-		attack = "green_slime_attack",
-	},
-	walk_velocity = .8,
-	run_velocity = 2.6,
-	damage = 4,
-	reach = 2.75,
-	armor = 70,
-	drops = {
-		{name = mobs_mc.items.magma_cream,
-		chance = 4,
-		min = 1,
-		max = 1,},
-	},
-	animation = {
-		speed_normal = 24,
-		speed_run = 48,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 47,
-		run_start = 48,
-		run_end = 62,
-		hurt_start = 64,
-		hurt_end = 86,
-		death_start = 88,
-		death_end = 118,
-	},
-	drawtype = "front",
-	water_damage = 0,
-	lava_damage = 0,
-	light_damage = 0,
-	fall_damage = 0,
-	view_range = 16,
-	attack_type = "dogfight",
-	passive = false,
-	jump = true,
-	jump_height = 4,
-	walk_chance = 0,
-	jump_chance = 98,
-	fear_height = 100000,
-	on_die = function(self, pos)
-		local angle, posadd, dir
-		angle = math.random(0, math.pi*2)
-		for i=1,4 do
-			dir = vector.normalize({x=math.cos(angle),y=0,z=math.sin(angle)})
-			posadd = vector.multiply(dir, 0.6)
-			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_tiny")
-			mob:setvelocity(dir)
-			mob:setyaw(angle)
-			angle = angle + math.pi/2
-		end
-	end
-})
-
-
-
-mobs:register_mob("mobs_mc:magma_cube_big", {
+-- Magma cube
+local magma_cube_big = {
 	type = "monster",
 	pathfinding = 1,
 	group_attack = true,
@@ -326,8 +194,54 @@ mobs:register_mob("mobs_mc:magma_cube_big", {
 			mob:setyaw(angle)
 			angle = angle + (math.pi*2) / 3
 		end
+	end,
+}
+mobs:register_mob("mobs_mc:magma_cube_big", magma_cube_big)
+
+local magma_cube_small = table.copy(magma_cube_big)
+magma_cube_small.hp_min = 4
+magma_cube_small.hp_max = 4
+magma_cube_small.collisionbox = {-0.51, -0.51, -0.51, 0.51, 0.51, 0.51}
+magma_cube_small.visual_size = {x=1.02, y=1.02}
+magma_cube_small.damage = 3
+magma_cube_small.reach = 2.75
+magma_cube_small.walk_velocity = .8
+magma_cube_small.run_velocity = 2.6
+magma_cube_small.jump_height = 6
+magma_cube_small.damage = 4
+magma_cube_small.reach = 2.75
+magma_cube_small.armor = 70
+magma_cube_small.on_die = function(self, pos)
+	local angle, posadd, dir
+	angle = math.random(0, math.pi*2)
+	for i=1,4 do
+		dir = vector.normalize({x=math.cos(angle),y=0,z=math.sin(angle)})
+		posadd = vector.multiply(dir, 0.6)
+		local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_tiny")
+		mob:setvelocity(dir)
+		mob:setyaw(angle)
+		angle = angle + math.pi/2
 	end
-})
+end
+mobs:register_mob("mobs_mc:magma_cube_small", magma_cube_small)
+
+local magma_cube_tiny = table.copy(magma_cube_big)
+magma_cube_tiny.hp_min = 1
+magma_cube_tiny.hp_max = 1
+magma_cube_tiny.collisionbox = {-0.2505, -0.2505, -0.2505, 0.2505, 0.2505, 0.2505}
+magma_cube_tiny.visual_size = {x=0.51, y=0.51}
+magma_cube_tiny.walk_velocity = 1.02
+magma_cube_tiny.run_velocity = 1.02
+magma_cube_tiny.jump_height = 4
+magma_cube_tiny.damage = 3
+magma_cube_tiny.reach = 2.5
+magma_cube_tiny.armor = 85
+magma_cube_tiny.drops = {}
+magma_cube_tiny.on_die = nil
+
+mobs:register_mob("mobs_mc:magma_cube_tiny", magma_cube_tiny)
+
+
 
 mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5000, 4, -1000)
 mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5500, 4, -1000)
