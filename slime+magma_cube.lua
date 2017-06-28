@@ -7,8 +7,8 @@ local slime_big = {
 	group_attack = true,
 	hp_min = 16,
 	hp_max = 16,
-	collisionbox = {-1.2, -1.2, -1.2, 1.2, 1.2, 1.2},
-	visual_size = {x=2.4, y=2.4},
+	collisionbox = {-1.02, -1.02, -1.02, 1.02, 1.02, 1.02},
+	visual_size = {x=2.04, y=2.04},
 	textures = {
 	{"green_slime_top.png", "green_slime_bottom.png", "green_slime_front.png", "green_slime_sides.png", "green_slime_sides.png", "green_slime_sides.png"}
 	},
@@ -74,8 +74,8 @@ mobs:register_mob("mobs_mc:slime_big", slime_big)
 local slime_small = table.copy(slime_big)
 slime_small.hp_min = 4
 slime_small.hp_max = 4
-slime_small.collisionbox = {-0.6, -0.6, -0.6, 0.6, 0.6, 0.6}
-slime_small.visual_size = {x=1.2, y=1.2}
+slime_small.collisionbox = {-0.51, -0.51, -0.51, 0.51, 0.51, 0.51}
+slime_small.visual_size = {x=1.02, y=1.02}
 slime_small.damage = 3
 slime_small.reach = 2.75
 slime_small.walk_velocity = 1.3
@@ -98,8 +98,8 @@ mobs:register_mob("mobs_mc:slime_small", slime_small)
 local slime_tiny = table.copy(slime_big)
 slime_tiny.hp_min = 1
 slime_tiny.hp_max = 1
-slime_tiny.collisionbox = {-0.3, -0.3, -0.3, 0.3, 0.3, 0.3}
-slime_tiny.visual_size = {x=0.6, y=0.6}
+slime_tiny.collisionbox = {-0.2505, -0.2505, -0.2505, 0.2505, 0.2505, 0.2505}
+slime_tiny.visual_size = {x=0.51, y=0.51}
 slime_tiny.damage = 0
 slime_tiny.reach = 2.5
 slime_tiny.drops = {
