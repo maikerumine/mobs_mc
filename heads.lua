@@ -54,12 +54,12 @@ minetest.register_node( "mobs_mc:enderman_head", {
 minetest.register_node( "mobs_mc:ghast_head", {
 	description = "Ghast Head (WIP)",
 	tiles = {
-		"ghast_white.png",
-		"ghast_white.png",
-		"ghast_white.png",
-		"ghast_white.png",
-		"ghast_white.png",
-		"mobs_ghast_front.png"
+		"mobs_mc_ghast_white.png",
+		"mobs_mc_ghast_white.png",
+		"mobs_mc_ghast_white.png",
+		"mobs_mc_ghast_white.png",
+		"mobs_mc_ghast_white.png",
+		"mobs_mc_ghast_front.png"
 	},
 	paramtype2 = "facedir",
 			node_box = {

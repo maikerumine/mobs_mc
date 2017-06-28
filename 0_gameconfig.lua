@@ -217,10 +217,10 @@ mobs_mc.spawn = {
 	grassland = { mobs_mc.items.grass_block, "ethereal:prairie_dirt" },
 	savanna = { "default:dirt_with_dry_grass" },
 	grassland_savanna = { mobs_mc.items.grass_block, "default:dirt_with_dry_grass" },
-	desert = { "default:desert_sand" },
+	desert = { "default:desert_sand", "group:sand" },
 	jungle = { "default:dirt_with_rainforest_litter", "default:jungleleaves" },
 	snow = { "default:snow", "default:snowblock", "default:dirt_with_snow" },
-	end_city = { "default:cobble" },
+	end_city = { "default:cobble", "mcl_end:end_stone"},
 	wolf = { mobs_mc.items.grass_block, "default:dirt_with_rainforest_litter", "default:dirt", "default:dirt_with_snow", "default:snow", "default:snowblock" },
 
 	-- These probably don't need overrides
