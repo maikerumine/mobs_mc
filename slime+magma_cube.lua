@@ -62,7 +62,7 @@ local slime_big = {
 			posadd = vector.normalize(posadd)
 			local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_small")
 			slime:setvelocity(vector.multiply(posadd, 1.5))
-			slime:setyaw(angle)
+			slime:setyaw(angle-math.pi/2)
 			angle = angle + math.pi/2
 		end
 	end,
@@ -87,7 +87,7 @@ slime_small.on_die = function(self, pos)
 		posadd = vector.multiply(vector.normalize(dir), 0.6)
 		local slime = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:slime_tiny")
 		slime:setvelocity(dir)
-		slime:setyaw(angle)
+		slime:setyaw(angle-math.pi/2)
 		angle = angle + math.pi/2
 	end
 end
@@ -185,7 +185,7 @@ local magma_cube_big = {
 			posadd = vector.normalize(posadd)
 			local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_small")
 			mob:setvelocity(vector.multiply(posadd, 1.5))
-			mob:setyaw(angle)
+			mob:setyaw(angle-math.pi/2)
 			angle = angle + (math.pi*2) / 3
 		end
 	end,
@@ -213,7 +213,7 @@ magma_cube_small.on_die = function(self, pos)
 		posadd = vector.multiply(dir, 0.6)
 		local mob = minetest.add_entity(vector.add(pos, posadd), "mobs_mc:magma_cube_tiny")
 		mob:setvelocity(dir)
-		mob:setyaw(angle)
+		mob:setyaw(angle-math.pi/2)
 		angle = angle + math.pi/2
 	end
 end
