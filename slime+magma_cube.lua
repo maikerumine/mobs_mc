@@ -125,8 +125,6 @@ mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX
 -- Magma cube
 local magma_cube_big = {
 	type = "monster",
-	pathfinding = 1,
-	group_attack = true,
 	hp_min = 16,
 	hp_max = 16,
 	collisionbox = {-1.02, -1.02, -1.02, 1.02, 1.02, 1.02},
