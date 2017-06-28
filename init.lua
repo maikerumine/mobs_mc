@@ -98,7 +98,6 @@ dofile(path .. "/zombiepig.lua") -- Mesh by Morn76 Animation by Pavel_S
 dofile(path .. "/slime+magma_cube.lua") -- Wuzzy
 --dofile(path .. "/snowman.lua") -- maikerumine Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/spider.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
-dofile(path .. "/spider_cave.lua") -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 dofile(path .. "/vex.lua") -- KrupnoPavel
 dofile(path .. "/wither.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 --NOTES:
