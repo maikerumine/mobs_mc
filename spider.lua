@@ -55,6 +55,7 @@ local spider = {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
+	blood_amount = 0,
 }
 mobs:register_mob("mobs_mc:spider", spider)
 
