@@ -52,9 +52,9 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	view_range = 35,
 	walk_velocity = 2,
 	run_velocity = 4,
-    sounds = {
-		shoot_attack = "mesed",
-		attack = "mese_dragon",
+	sounds = {
+		shoot_attack = "mobs_mc_ender_dragon_shoot",
+		attack = "mobs_mc_ender_dragon_attack",
 		distance = 60,
 	},
 	physical = true,

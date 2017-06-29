@@ -29,10 +29,9 @@ mobs:register_mob("mobs_mc:wither", {
 	walk_velocity = 2,
 	run_velocity = 4,
 	stepheight = 1.2,
-    sounds = {
-		shoot_attack = "mesed",
-		attack = "mese_dragon",
-		distance = 60,
+	sounds = {
+		shoot_attack = "mobs_mc_ender_dragon_shoot",
+		attack = "mobs_mc_ender_dragon_attack",
 	},
 	jump = true,
 	jump_height = 10,
