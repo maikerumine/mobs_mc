@@ -22,8 +22,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	textures = {
 		{"mobs_mc_blaze.png"},
 	},
-	visual_size = {x=1, y=1},
-	makes_footstep_sound = true,
+	visual_size = {x=3, y=3},
 	sounds = {
 		random = "blaze_breath",
 		death = "blaze_died",
@@ -57,7 +56,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	fall_damage = 0,
 	light_damage = 0,
 	view_range = 16,
-	attack_type = "shoot",
+	attack_type = "dogshoot",
 	arrow = "mobs_mc:blaze_fireball",
 	shoot_interval = 3.5,
 	passive = false,
