@@ -6,7 +6,6 @@ mobs:register_mob("mobs_mc:bat", {
 	hp_min = 6,
 	hp_max = 6,
 	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.89, 0.25},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_bat.b3d",
 	textures = {

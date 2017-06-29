@@ -22,7 +22,6 @@ mobs:register_mob("mobs_mc:skeleton", {
 	group_attack = true,
 	visual = "mesh",
 	mesh = "mobs_mc_skeleton.b3d",
-	    rotate = -180,
 	textures = {
 		{"mobs_mc_skeleton.png"},
 	},

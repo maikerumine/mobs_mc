@@ -20,9 +20,8 @@ mobs:register_mob("mobs_mc:stray", {
 	pathfinding = 1,
 	group_attack = true,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.98, 0.3},
-    rotate = -180,
 	visual = "mesh",
-	mesh = "mobs_mc_skeleton_stray.b3d",
+	mesh = "mobs_mc_stray.b3d",
 	textures = {
 		{"mobs_mc_stray.png"},
 	},

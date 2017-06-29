@@ -21,7 +21,6 @@ local wolf = {
 	passive = false,
 	group_attack = true,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 0.84, 0.3},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_wolf.b3d",
 	textures = {

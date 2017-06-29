@@ -20,7 +20,6 @@ mobs:register_mob("mobs_mc:vex", {
 	hp_min = 14,
 	hp_max = 14,
 	collisionbox = {-0.2, 0.2, -0.2, 0.2, 1.0, 0.2},  --bat
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_vex.b3d",
 	textures = {

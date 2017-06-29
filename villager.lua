@@ -16,7 +16,6 @@ mobs:register_mob("mobs_mc:villager", {
 	hp_min = 20,
 	hp_max = 20,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_villager.b3d",
 	textures = {

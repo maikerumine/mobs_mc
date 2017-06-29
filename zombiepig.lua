@@ -17,7 +17,6 @@ local pigman = {
 	hp_max = 20,
 	armor = 90,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_zombie_pigman.b3d",
 	textures = {{"mobs_mc_zombie_pigman.png"}},

@@ -23,7 +23,6 @@ local spider = {
 	hp_min = 16,
 	hp_max = 16,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 0.89, 0.7},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_spider.b3d",
 	textures = {

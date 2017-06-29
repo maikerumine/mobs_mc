@@ -18,7 +18,6 @@ mobs:register_mob("mobs_mc:llama", {
 	hp_max = 30,
 	passive = false,
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.86, 0.45},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_llama.b3d",
 	textures = {{"mobs_mc_llama.png"},{"mobs_mc_llama_brown.png"},{"mobs_mc_llama_creamy.png"},{"mobs_mc_llama_white.png"},{"mobs_mc_llama_gray.png"}},
@@ -67,14 +66,13 @@ mobs:register_mob("mobs_mc:llama", {
 		-- set needed values if not already present
 		if not self.v2 then
 			self.v2 = 0
-			self.max_speed_forward = 2  --swap due to -180 model
-			self.max_speed_reverse = 4  --swap due to -180 model
+			self.max_speed_forward = 4
+			self.max_speed_reverse = 2
 			self.accel = 4
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 7.5, z = 0}
-			self.player_rotation = {x = 0, y = 180, z = 0}
+			self.driver_attach_at = {x = 0, y = 7.5, z = -1.5}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
-			self.driver_scale = {x = 0.3, y = 0.3}
+			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
 
 		-- if driver present allow control of horse
@@ -90,10 +88,8 @@ mobs:register_mob("mobs_mc:llama", {
 
 	on_die = function(self, pos)
 
-		-- drop saddle when horse is killed while riding
-		-- also detach from horse properly
+		-- detach from llama properly
 		if self.driver then
-			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -121,22 +117,11 @@ mobs:register_mob("mobs_mc:llama", {
 
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
-				-- add saddle back to inventory
-				if inv:room_for_item("main", mobs_mc.items.saddle) then
-					inv:add_item("main", mobs_mc.items.saddle)
-				else
-					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
-				end
-
-			-- attach player to horse
-			elseif not self.driver
-			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
+			-- attach player to llama
+			elseif not self.driver then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
-
-				-- take saddle from inventory
-				inv:remove_item("main", mobs_mc.items.saddle)
 			end
 		end
 

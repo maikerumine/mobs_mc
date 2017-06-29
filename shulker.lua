@@ -23,7 +23,6 @@ mobs:register_mob("mobs_mc:shulker", {
 	hp_max = 30,
 	armor = 150,
 	collisionbox = {-0.5, -0.01, -0.5, 0.5, 0.99, 0.5},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_shulker.b3d",
 	textures = { "mobs_mc_shulker_purple.png", },

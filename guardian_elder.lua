@@ -16,7 +16,6 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 	run_velocity = 4,
 	damage = 8,
 	collisionbox = {-0.99875, 0.5, -0.99875, 0.99875, 2.4975, 0.99875},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_guardian.b3d",
 	textures = {
@@ -40,13 +39,12 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 		min = 1,
 		max = 3,},
 	},
-    rotate = 180,
 	fly = true,
 	fly_in = mobs_mc.items.water_source,
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
-    
+	view_range = 16,
 })
 
 mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)

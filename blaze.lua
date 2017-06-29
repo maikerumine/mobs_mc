@@ -16,13 +16,13 @@ mobs:register_mob("mobs_mc:blaze", {
 	hp_min = 20,
 	hp_max = 20,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.79, 0.3},
-    rotate = -180,
+	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_blaze.b3d",
 	textures = {
 		{"mobs_mc_blaze.png"},
 	},
-	visual_size = {x=3, y=3},
+	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "blaze_breath",

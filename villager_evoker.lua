@@ -18,7 +18,6 @@ mobs:register_mob("mobs_mc:evoker", {
 	hp_min = 24,
 	hp_max = 24,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_evoker.b3d",
 	textures = {

@@ -10,7 +10,6 @@ mobs:register_mob("mobs_mc:endermite", {
 	armor = 100,
 	group_attack = true,
 	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.29, 0.2},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_endermite.b3d",
 	textures = {
