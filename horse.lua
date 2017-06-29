@@ -18,7 +18,6 @@ local horse = {
 	visual = "mesh",
 	mesh = "mobs_mc_horse.b3d",
 	visual_size = {x=3.0, y=3.0},
-	rotate = -180,
 	collisionbox = {-0.69825, -0.01, -0.69825, 0.69825, 1.59, 0.69825},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -58,12 +57,11 @@ local horse = {
 		-- set needed values if not already present
 		if not self.v2 then
 			self.v2 = 0
-			self.max_speed_forward = 2  --swap due to -180 model
-			self.max_speed_reverse = 7  --swap due to -180 model
+			self.max_speed_forward = 7
+			self.max_speed_reverse = 2
 			self.accel = 6
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 7.5, z = 1.75}
-			self.player_rotation = {x = 0, y = 180, z = 0}
+			self.driver_attach_at = {x = 0, y = 7.5, z = -1.75}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
@@ -173,7 +171,7 @@ mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 -- Donkey
 local d = 0.86 -- donkey scale
 local donkey = table.copy(horse)
-donkey.mesh = "mobs_mc_mule.b3d"
+donkey.mesh = "mobs_mc_horse.b3d"
 donkey.textures = {{"mobs_mc_horse_creamy.png"}}
 donkey.animation = {
 	speed_normal = 25,
