@@ -17,7 +17,6 @@ mobs:register_mob("mobs_mc:vindicator", {
 	hp_min = 35,
 	hp_max = 75,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_vindicator.b3d",
     textures = {

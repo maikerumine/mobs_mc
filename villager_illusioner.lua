@@ -14,7 +14,6 @@ mobs:register_mob("mobs_mc:illusioner", {
 	hp_max = 60,
 	armor = 150,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_illusioner.b3d",
 	textures = {

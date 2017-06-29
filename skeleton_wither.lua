@@ -20,7 +20,6 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	pathfinding = true,
 	group_attack = true,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_wither_skeleton.b3d",
 	textures = {

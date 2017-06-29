@@ -17,7 +17,6 @@ mobs:register_mob("mobs_mc:wither", {
 	hp_max = 300,
 	hp_min = 300,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_wither.b3d",
 	textures = {
