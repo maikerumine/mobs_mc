@@ -53,6 +53,7 @@ mobs:register_mob("mobs_mc:squid", {
     light_damage = 0,
     runaway = true,
     fear_height = 4,
+    blood_texture = "mobs_mc_squid_blood.png",
 })
 
 -- Spawn near the water surface

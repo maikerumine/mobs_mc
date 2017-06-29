@@ -70,6 +70,7 @@ mobs:register_mob("mobs_mc:ghast", {
 	fly_in = {"air"},
 	jump_chance = 98,
 	fear_height = 120,	
+	blood_amount = 0,
 })
 
 

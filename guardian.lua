@@ -45,6 +45,7 @@ mobs:register_mob("mobs_mc:guardian", {
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
+	blood_amount = 0,
 })
 
 mobs:register_spawn("mobs_mc:guardian", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
