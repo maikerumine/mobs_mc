@@ -96,7 +96,7 @@ mobs:register_spawn("mobs_mc:baby_pigman", mobs_mc.spawn.nether, minetest.LIGHT_
 --mobs:register_spawn("mobs_mc:pigman", {"nether:rack"},  17, -1, 5000, 3, -2000)
 mobs:register_spawn("mobs_mc:pigman", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 6000, 3, -2000)
 mobs:register_spawn("mobs_mc:pigman", mobs_mc.spawn.nether_portal, minetest.LIGHT_MAX+1, 0, 500, 4, 31000)
-mobs:spawn_specific("mobs_mc:pigman", mobs_mc.spawn.nether_portal, {"air"},0, minetest.LIGHT_MAX+1, 20, 9000, 2, -31000, 31000)
+mobs:spawn_specific("mobs_mc:pigman", mobs_mc.spawn.nether_portal, {"air", "mcl_portals:nether_air"},0, minetest.LIGHT_MAX+1, 7, 9000, 2, -31000, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")

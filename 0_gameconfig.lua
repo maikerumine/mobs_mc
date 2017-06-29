@@ -225,10 +225,10 @@ mobs_mc.spawn = {
 
 	-- These probably don't need overrides
 	mushroom_island = { mobs_mc.items.mycelium, "mcl_core:mycelium" },
-	nether_fortress = { mobs_mc.items.nether_brick_block, "mcl_nether:nether_brick" },
-	nether = { mobs_mc.items.netherrack, "mcl_nether:netherrack" },
+	nether_fortress = { mobs_mc.items.nether_brick_block, "mcl_nether:nether_brick", "mcl_portals:nether_air"  },
+	nether = { mobs_mc.items.netherrack, "mcl_nether:netherrack", "mcl_portals:nether_air" },
 	nether_portal = { mobs_mc.items.nether_portal, "mcl_portals:portal" },
-	water = { mobs_mc.items.water_source, "mcl_core:water_source" },
+	water = { mobs_mc.items.water_source, "mcl_core:water_source", "default:water_source" },
 }
 
 -- Item name overrides from mobs_mc_gameconfig (if present)
