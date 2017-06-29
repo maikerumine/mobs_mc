@@ -25,10 +25,9 @@ mobs:register_mob("mobs_mc:blaze", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
-		random = "blaze_breath",
-		death = "blaze_died",
-		damage = "blaze_hurt1",
-		attack = "default_punch3",
+		random = "mobs_mc_blaze_breath",
+		death = "mobs_mc_blaze_died",
+		damage = "mobs_mc_blaze_hurt",
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
