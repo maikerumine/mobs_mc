@@ -10,7 +10,15 @@
 --################### HORSE
 --###################
 
-
+local horse_extra_texture = function(base, saddle, chest)
+	if saddle then
+		base = base .. "^mobs_mc_horse_saddle.png"
+	end
+	if chest then
+		base = base .. "^mobs_mc_horse_chest.png"
+	end
+	return base
+end
 
 -- Horse
 local horse = {
@@ -117,6 +125,11 @@ local horse = {
 					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
 				end
 
+				-- Update texture
+				local tex = horse_extra_texture(self._naked_texture, false)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
 			-- attach player to horse
 			elseif not self.driver
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
@@ -126,6 +139,16 @@ local horse = {
 
 				-- take saddle from inventory
 				inv:remove_item("main", mobs_mc.items.saddle)
+
+				-- Update texture
+				if not self._naked_texture then
+					-- Base horse texture without chest or saddle
+					self._naked_texture = self.base_texture[1]
+				end
+				local tex = horse_extra_texture(self._naked_texture, true)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
 			end
 		end
 
