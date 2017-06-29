@@ -83,7 +83,8 @@ mobs:register_mob("mobs_mc:witch", {
 mobs:register_arrow(":mobs:potion_arrow", {
 	visual = "sprite",
 	visual_size = {x = 0.5, y = 0.5},
-	textures = {"vessels_glass_bottle.png"},
+	--textures = {"vessels_glass_bottle.png"},  --TODO fix to else if default
+	textures = {"mcl_potions_dragon_breath.png"},
 	velocity = 6,
 
 	-- direct hit, no fire... just plenty of pain
@@ -106,6 +107,9 @@ mobs:register_arrow(":mobs:potion_arrow", {
 		--mobs:explosion(pos, 1, 1, 0)
 	end
 })
+
+--KEEP
+mobs:spawn_specific("mobs_mc:witch", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX-6, 12, 20000, 2, 1, 30)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:witch", "Witch", "mobs_mc_spawn_icon_witch.png", 0)
