@@ -174,7 +174,7 @@ mobs:register_mob("mobs_mc:villager", {
 })
 
 --mobs:register_spawn("mobs_mc:villager", {"default:gravel"},  7, -1, 4090, 4, 31000)
-mobs:register_spawn("mobs_mc:villager_zombie", {"mg_villages:road"}, 7, -1,8000, 4, 31000)
+mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, minetest.LIGHT_MAX+1, -1,8000, 4, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:villager", "mobs_mc:villager")
