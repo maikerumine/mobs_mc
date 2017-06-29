@@ -71,6 +71,7 @@ mobs:register_mob("mobs_mc:ghast", {
 	jump_height = 4,
 	floats=1,
 	fly = true,
+	fly_in = {"air", "mcl_portals:nether_air"},
 	jump_chance = 98,
 	fear_height = 120,	
 })
