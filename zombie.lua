@@ -16,17 +16,13 @@ local zombie = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-	--collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
-    --rotate = -180,
+	collisionbox = {-0.35, -0.01, -0.35, 0.35, 1.94, 0.35},
 	visual = "mesh",
-	-- TODO: Switch to AMC zombie texture
-	mesh = "mobs_zombie.x",
+	mesh = "mobs_mc_zombie.b3d",
 	textures = {
-		--{"zombie.png"},
-		{"mobs_zombie.png"},
+		{"mobs_mc_zombie.png"},
 	},
-	visual_size = {x=1, y=1},
+	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
 		random = "zombie1",
