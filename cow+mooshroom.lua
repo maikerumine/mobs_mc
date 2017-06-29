@@ -30,9 +30,9 @@ local cow_def = {
 	fear_height = 3,
 	runaway = true,
 	sounds = {
-		random = "Cow1",
-		death = "Cowhurt1",
-		damage = "Cowhurt1",
+		random = "mobs_mc_cow",
+		death = "Cowhurt1", -- TODO: Replace
+		damage = "Cowhurt1", -- TODO: Replace
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
