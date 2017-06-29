@@ -11,10 +11,15 @@
 
 
 local pigman = {
-	type = "monster",
+	-- type="animal", passive=false: This combination is needed for a neutral mob which becomes hostile, if attacked
+	type = "animal",
+	passive = false,
 	hp_min = 20,
 	hp_max = 20,
 	armor = 90,
+	attack_type = "dogfight",
+	group_attack = true,
+	damage = 9,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_zombie_pigman.b3d",
@@ -30,9 +35,7 @@ local pigman = {
 	makes_footstep_sound = true,
 	walk_velocity = .8,
 	run_velocity = 2.6,
-	damage = 9,
 	pathfinding = 1,
-	passive = false,
 	maxdrops = 2,
 	drops = {
 		{name = mobs_mc.items.rotten_flesh,
@@ -53,19 +56,18 @@ local pigman = {
 		max = 1,},
 	},
 	animation = {
-		speed_normal = 30,		speed_run = 30,
-		stand_start = 0,		stand_end = 79,
-		walk_start = 168,		walk_end = 187,
-		run_start = 168,		run_end = 187,
-		punch_start = 200,		punch_end = 219,
+		stnd_speed = 25, walk_speed = 25, run_speed = 50, punch_speed = 25,
+		stand_start = 40, stand_end = 80,
+		walk_start = 0,	walk_end = 40,
+		run_start = 0, run_end = 40,
+		punch_start = 90, punch_end = 130,
 	},
 	drawtype = "front",
 	water_damage = 1,
-	lava_damage = 4,
+	lava_damage = 0,
 	light_damage = 0,
 	fear_height = 4,
 	view_range = 16,
-	attack_type = "dogfight",
 }
 
 mobs:register_mob("mobs_mc:pigman", pigman)
