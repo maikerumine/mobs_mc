@@ -31,6 +31,7 @@ mobs:register_mob("mobs_mc:creeper", {
 		damage = "Creeper4", -- TODO: Replce
 		war_cry = "tnt_ignite",
 		explode = "tnt_explode",
+		distance = 16,
 	},
 	makes_footstep_sound = true,
 	walk_velocity = 1.5,
@@ -161,8 +162,9 @@ mobs:register_mob("mobs_mc:creeper", {
 	},
 	drawtype = "front",
 	floats = 1,
+	fear_height = 4,
 	water_damage = 1,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
 	view_range = 16,
 })

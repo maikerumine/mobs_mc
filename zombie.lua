@@ -16,9 +16,8 @@ local zombie = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-	--collisionbox = {-0.5, -0.01, -0.5, 0.5, 1.9, 0.5},
-    --rotate = -180,
+	armor = 90,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	-- TODO: Switch to AMC zombie texture
 	mesh = "mobs_zombie.x",
@@ -32,11 +31,12 @@ local zombie = {
 		random = "zombie1",
 		death = "zombiedeath",
 		damage = "zombiehurt1",
+		distance = 16,
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
 	damage = 3,
-	fear_height = 8,
+	fear_height = 4,
 	pathfinding = 1,
 	jump = true,
 	--jump_height = 3,
@@ -77,10 +77,10 @@ local zombie = {
 		death_end = 118,
 	},
 	drawtype = "front",
-	lava_damage = 5,
+	lava_damage = 4,
 	-- TODO: Burn mob only when in direct sunlight
 	light_damage = 2,
-	view_range = 17,
+	view_range = 16,
 	attack_type = "dogfight",
 }
 

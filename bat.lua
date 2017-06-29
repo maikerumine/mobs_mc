@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:bat", {
 	run_velocity = 6.0,
 	-- TODO: Hang upside down
 	animation = {
-		speed_normal = 80,		speed_run = 80,
+		walk_speed = 80, stand_speed = 80, run_speed = 80,
 		stand_start = 0,		stand_end = 40,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,

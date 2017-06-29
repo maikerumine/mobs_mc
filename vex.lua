@@ -38,7 +38,7 @@ mobs:register_mob("mobs_mc:vex", {
 		distance = 16,
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
 		stand_start = 40,		stand_end = 80,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,

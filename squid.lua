@@ -21,7 +21,8 @@ mobs:register_mob("mobs_mc:squid", {
     },
     sounds = {
 		damage = "mobs_mc_squid_hurt",
-	},
+		distance = 16,
+    },
     animation = {
 		stand_start = 1,
 		stand_end = 60,
@@ -47,12 +48,11 @@ mobs:register_mob("mobs_mc:squid", {
 	jump_chance = 98,
     fall_speed = 0.5,
     view_range = 16,
-    fall_damage = 1,
     water_damage = 0,
     lava_damage = 4,
     light_damage = 0,
     runaway = true,
-    
+    fear_height = 4,
 })
 
 -- Spawn near the water surface

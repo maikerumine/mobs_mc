@@ -35,6 +35,7 @@ mobs:register_mob("mobs_mc:enderman", {
 		war_cry = "mobs_sandmonster",
 		death = "green_slime_death",
 		damage = "Creeperdeath",
+		distance = 16,
 	},
 	walk_velocity = 0.2,
 	run_velocity = 3.4,
@@ -134,10 +135,10 @@ mobs:register_mob("mobs_mc:enderman", {
 	end,
 	drawtype = "front",
 	water_damage = 8,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
 	view_range = 16,
-	fear_height = 10,
+	fear_height = 4,
 	attack_type = "dogfight",
 
 })
