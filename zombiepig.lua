@@ -11,8 +11,7 @@
 
 
 local pigman = {
---mobs:register_mob("mobs_mc:pigman", {
-	type = "npc",--made npc to simulate they only attack when attacked first.
+	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
 	armor = 90,
@@ -22,9 +21,9 @@ local pigman = {
 	textures = {{"mobs_mc_zombie_pigman.png"}},
 	visual_size = {x=3, y=3},
 	sounds = {
-		random = "zombie1",
-		death = "zombiedeath",
-		damage = "zombiehurt1",
+		random = "zombie1", -- TODO: replace
+		death = "zombiedeath", -- TODO: replace
+		damage = "zombiehurt1", -- TODO: replace
 		distance = 16,
 	},
 	jump = true,
@@ -52,13 +51,7 @@ local pigman = {
 		chance = 200,
 		min = 0,
 		max = 1,},
-		},
-		sounds = {
-			random = "Pig2",
-			death = "Pigdeath",
-			damage = "zombiehurt1",
-		},
-
+	},
 	animation = {
 		speed_normal = 30,		speed_run = 30,
 		stand_start = 0,		stand_end = 79,
