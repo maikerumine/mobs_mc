@@ -67,7 +67,6 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 		hurt_start = 100,
 		hurt_end = 120,
 	},
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 1,

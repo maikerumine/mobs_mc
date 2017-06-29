@@ -61,7 +61,6 @@ mobs:register_mob("mobs_mc:sheep", {
 		min = 1,
 		max = 1,},
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,

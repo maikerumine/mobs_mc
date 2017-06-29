@@ -42,7 +42,6 @@ mobs:register_mob("mobs_mc:polar_bear", {
 		max = 2,},
 
 	},
-	drawtype = "front",
 	water_damage = 0,
 	floats = 1,
 	lava_damage = 5,

@@ -75,7 +75,6 @@ mobs:register_mob("mobs_mc:enderdragon", {
 		min = 1,
 		max = 1},
 	},
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,

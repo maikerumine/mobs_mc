@@ -89,7 +89,6 @@ mobs:register_mob("mobs_mc:enderman", {
 		punch_start = 74,
 		punch_end = 105,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,

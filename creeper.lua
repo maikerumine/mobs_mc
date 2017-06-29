@@ -159,7 +159,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		look_start = 50,
 		look_end = 108,
 	},
-	drawtype = "front",
 	floats = 1,
 	fear_height = 4,
 	water_damage = 1,

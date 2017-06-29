@@ -65,7 +65,6 @@ local pigman = {
 		run_start = 0, run_end = 40,
 		punch_start = 90, punch_end = 130,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 0,
 	light_damage = 0,

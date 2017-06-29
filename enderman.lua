@@ -132,7 +132,6 @@ mobs:register_mob("mobs_mc:enderman", {
 			minetest.add_item(pos, self._taken_node)
 		end
 	end,
-	drawtype = "front",
 	water_damage = 8,
 	lava_damage = 4,
 	light_damage = 0,

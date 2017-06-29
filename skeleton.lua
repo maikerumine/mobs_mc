@@ -71,7 +71,6 @@ mobs:register_mob("mobs_mc:skeleton", {
 	        hurt_start = 100,
 		hurt_end = 120,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 4,
 	light_damage = 1,

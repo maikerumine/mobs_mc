@@ -37,7 +37,6 @@ mobs:register_mob("mobs_mc:chicken", {
 		min = 0,
 		max = 2,},
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,

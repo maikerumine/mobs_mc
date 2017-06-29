@@ -49,7 +49,6 @@ mobs:register_mob("mobs_mc:blaze", {
 		shoot_start = 1,
 		shoot_end = 40,
 	},
-	drawtype = "front",
 	-- MC Wiki: takes 1 damage every half second while in water
 	water_damage = 2,
 	lava_damage = 0,

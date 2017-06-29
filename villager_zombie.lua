@@ -71,7 +71,6 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 		run_start = 0,
         run_end = 20,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 1,

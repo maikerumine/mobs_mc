@@ -66,7 +66,6 @@ local zombie = {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	drawtype = "front",
 	lava_damage = 4,
 	-- TODO: Burn mob only when in direct sunlight
 	light_damage = 2,

@@ -45,7 +45,6 @@ mobs:register_mob("mobs_mc:parrot", {
 		--fly_end = 45,
 	},
 	walk_chance = 100,
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,

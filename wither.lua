@@ -50,7 +50,6 @@ mobs:register_mob("mobs_mc:wither", {
 		min = 18,
 		max = 21},
 	},
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 0,
 	light_damage = 0,

@@ -41,7 +41,6 @@ mobs:register_mob("mobs_mc:villager", {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
