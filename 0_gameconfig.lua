@@ -220,7 +220,7 @@ mobs_mc.spawn = {
 	desert = { "default:desert_sand", "group:sand" },
 	jungle = { "default:dirt_with_rainforest_litter", "default:jungleleaves" },
 	snow = { "default:snow", "default:snowblock", "default:dirt_with_snow" },
-	end_city = { "default:cobble", "mcl_end:end_stone"},
+	end_city = { "default:cobble", "mcl_end:end_stone", "mcl_portals:void"},
 	wolf = { mobs_mc.items.grass_block, "default:dirt_with_rainforest_litter", "default:dirt", "default:dirt_with_snow", "default:snow", "default:snowblock" },
 
 	-- These probably don't need overrides
