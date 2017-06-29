@@ -132,7 +132,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 
 	-- direct hit, no fire... just plenty of pain
 	hit_player = function(self, player)
-	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
+	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 16})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
@@ -141,7 +141,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 	end,
 
 	hit_mob = function(self, player)
-	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
+	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5,max_hear_distance = 16})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
@@ -153,7 +153,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 	hit_node = function(self, pos, node)
 		mobs:explosion(pos, 3, 0, 1)
 		--from tnt
-		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
+		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 16})
 		
 	end
 })
