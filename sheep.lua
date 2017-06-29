@@ -9,28 +9,32 @@
 --################### SHEEP
 --###################
 
-
+-- TODO: Tweak and improve sheep colors
 local colors = {
 	-- group = { wool, textures }
-	unicolor_white = { mobs_mc.items.wool_white, { "mobs_mc_sheep_white.png" } },
-	unicolor_dark_orange = { mobs_mc.items.wool_brown, { "mobs_mc_sheep_brown.png" } },
-	unicolor_grey = { mobs_mc.items.wool_light_grey, { "mobs_mc_sheep_grey.png" } },
-	unicolor_darkgrey = { mobs_mc.items.wool_grey, { "mobs_mc_sheep_dark_grey.png" } },
-	unicolor_blue = { mobs_mc.items.wool_blue, { "mobs_mc_sheep_blue.png" } },
-	unicolor_dark_green = { mobs_mc.items.wool_green, { "mobs_mc_sheep_dark_green.png" } },
-	unicolor_green = { mobs_mc.items.wool_lime, { "mobs_mc_sheep_green.png" } },
-	unicolor_violet = { mobs_mc.items.wool_purple , { "mobs_mc_sheep_violet.png" } },
-	unicolor_light_red = { mobs_mc.items.wool_pink, { "mobs_mc_sheep_pink.png" } },
-	unicolor_yellow = { mobs_mc.items.wool_yellow, { "mobs_mc_sheep_yellow.png" } },
-	unicolor_orange = { mobs_mc.items.wool_orange, { "mobs_mc_sheep_orange.png" } },
-	unicolor_red = { mobs_mc.items.wool_red, { "mobs_mc_sheep_red.png" } },
-	unicolor_cyan  = { mobs_mc.items.wool_cyan, { "mobs_mc_sheep_cyan.png" } },
-	unicolor_red_violet = { mobs_mc.items.wool_magenta, { "mobs_mc_sheep_magenta.png" } },
-	unicolor_black = { mobs_mc.items.wool_black, { "mobs_mc_sheep_black.png" } },
+	unicolor_white = { mobs_mc.items.wool_white, "#FFFFFF00" },
+	unicolor_dark_orange = { mobs_mc.items.wool_brown, "#442200D0" },
+	unicolor_grey = { mobs_mc.items.wool_light_grey, "#5B5B5BD0" },
+	unicolor_darkgrey = { mobs_mc.items.wool_grey, "#303030D0" },
+	unicolor_blue = { mobs_mc.items.wool_blue, "#0000BBD0" },
+	unicolor_dark_green = { mobs_mc.items.wool_green, "#005B07D0" },
+	unicolor_green = { mobs_mc.items.wool_lime, "#61FF01D0" },
+	unicolor_violet = { mobs_mc.items.wool_purple , "#5000CCD0" },
+	unicolor_light_red = { mobs_mc.items.wool_pink, "#FF64B5D0" },
+	unicolor_yellow = { mobs_mc.items.wool_yellow, "#FFFF00D0" },
+	unicolor_orange = { mobs_mc.items.wool_orange, "#FF8000D0" },
+	unicolor_red = { mobs_mc.items.wool_red, "#FF0000D0" },
+	unicolor_cyan  = { mobs_mc.items.wool_cyan, "#00FFFFD0" },
+	unicolor_red_violet = { mobs_mc.items.wool_magenta, "#FF05BBD0" },
+	unicolor_black = { mobs_mc.items.wool_black, "#000000D0" },
 }
 
 if minetest.get_modpath("mcl_wool") ~= nil then
-	colors["unicolor_light_blue"] = { mobs_mc.items.wool_light_blue, { "mobs_mc_sheep_light_blue.png" } }
+	colors["unicolor_light_blue"] = { mobs_mc.items.wool_light_blue, "#419DFFD0" }
+end
+
+local sheep_texture = function(color_group)
+	return {"mobs_mc_sheep.png^(mobs_mc_sheep_fur.png^[colorize:"..colors[color_group][2]..")"}
 end
 
 --mcsheep
@@ -42,13 +46,10 @@ mobs:register_mob("mobs_mc:sheep", {
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.29, 0.45},
 
 	visual = "mesh",
-	visual_size = {x=0.65, y=0.65},
-	-- TODO: Switch to AMC sheep mesh
-	mesh = "mobs_sheep.x",
-	textures = {
-		{"mobs_mc_sheep_white.png"},--was sheep
-	},
-	gotten_texture = "mobs_mc_sheep_sheared.png",
+	visual_size = {x=3, y=3},
+	mesh = "mobs_mc_sheepfur.b3d",
+	textures = { sheep_texture("unicolor_white") },
+	color = "unicolor_white",
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
@@ -72,19 +73,10 @@ mobs:register_mob("mobs_mc:sheep", {
 		damage = "Sheep3",
 	},
 	animation = {
-		speed_normal = 24,
-		stand_start = 0,
-		stand_end = 23,
-		walk_start = 24,
-		walk_end = 49,
-		hurt_start = 118,
-		hurt_end = 154,
-		death_start = 154,
-		death_end = 179,
-		eat_start = 49,
-		eat_end = 78,
-		look_start = 78,
-		look_end = 108,
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
 	},
 	follow = mobs_mc.follow.sheep,
 	view_range = 12,
@@ -153,7 +145,7 @@ mobs:register_mob("mobs_mc:sheep", {
 					self.gotten = false
 					self.base_texture = colors[self.color][2]
 					self.object:set_properties({
-						textures = self.base_texture, --was sheep.png
+						textures = self.base_texture,
 					})
 				end
 			end
@@ -168,13 +160,10 @@ mobs:register_mob("mobs_mc:sheep", {
 				self.color = "unicolor_white"
 			end
 			minetest.add_item(pos, ItemStack(colors[self.color][1].." "..math.random(1,3)))
-			-- FIXME: This is a workaround for the fact that Mobs Redo does not have on_replace
-			self.color = "unicolor_white"
-			-- TODO: Use new mesh for sheared sheep (AMC)
-			self.base_texture = {"mobs_mc_sheep_sheared.png"}
 			self.object:set_properties({
-				textures = self.base_texture,
+				mesh = "mobs_mc_sheepnaked.b3d",
 			})
+			-- TODO: Change mesh back to mobs_mc_sheepfur.b3d after regrowing wool (requires on_replace)
 			if not minetest.settings:get_bool("creative_mode") then
 				item:add_wear(300)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
@@ -191,7 +180,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			minetest.log("verbose", "[mobs_mc] " ..item:get_name() .. " " .. minetest.get_item_group(item:get_name(), "dye"))
 			for group, colordata in pairs(colors) do
 				if minetest.get_item_group(item:get_name(), group) == 1 then
-					self.base_texture = colordata[2]
+					self.base_texture = sheep_texture(group)
 					self.object:set_properties({
 						textures = self.base_texture,
 					})
