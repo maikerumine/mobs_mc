@@ -13,7 +13,6 @@ mobs:register_mob("mobs_mc:12enderdragon", {
 	hp_max = 60,
 	armor = 150,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "enderdragon.b3d",
 	textures = {
@@ -43,7 +42,6 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	--collisionbox = {-0.35, 0.51, -0.35, 0.35, 1.61, 0.35},
 	--collisionbox = {-0.5, 0.5, -0.5, 0.5, 1.2, 0.5},
 	collisionbox = {-0.5, 0.01, -0.5, 0.5, 1.2, 0.5},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_ender_dragon.b3d",
 	textures = {

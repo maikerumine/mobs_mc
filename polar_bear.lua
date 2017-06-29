@@ -17,7 +17,6 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	hp_min = 30,
 	hp_max = 30,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 1.39, 0.7},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_polar_bear.b3d",
 	textures = {

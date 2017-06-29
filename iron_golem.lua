@@ -17,7 +17,6 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	hp_min = 100,
 	hp_max = 100,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_iron_golem.b3d",
 	textures = {

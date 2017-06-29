@@ -19,7 +19,6 @@ mobs:register_mob("mobs_mc:parrot", {
 	hp_min = 6,
 	hp_max = 6,
     collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.6, 0.25},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_parrot.b3d",
 	textures = {{"mobs_mc_parrot_blue.png"},{"mobs_mc_parrot_green.png"},{"mobs_mc_parrot_grey.png"},{"mobs_mc_parrot_red_blue.png"},{"mobs_mc_parrot_yellow_blue.png"}},

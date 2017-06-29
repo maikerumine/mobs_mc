@@ -18,7 +18,6 @@ mobs:register_mob("mobs_mc:creeper", {
 	hp_max = 20,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.69, 0.3},
 	pathfinding = 1,
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_creeper.b3d",
 	textures = {

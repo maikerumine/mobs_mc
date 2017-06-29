@@ -23,7 +23,6 @@ mobs:register_mob("mobs_mc:enderman", {
 	hp_min = 40,
 	hp_max = 40,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 2.89, 0.3},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_enderman.b3d",
 	textures = {

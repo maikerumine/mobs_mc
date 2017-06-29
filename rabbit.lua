@@ -9,7 +9,6 @@ local rabbit = {
 	hp_max = 3,
 	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.49, 0.2},
 
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_rabbit.b3d",
 	textures = {

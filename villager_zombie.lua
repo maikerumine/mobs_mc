@@ -16,7 +16,6 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 	hp_min = 35,
 	hp_max = 75,
     collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_villager_zombie.b3d",
 	textures = {
