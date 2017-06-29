@@ -25,13 +25,19 @@ Ver.0.3
 Mesh by Morn76
 Animation by Pavel_S
 
-Pig sounds: mobs_pig, mobs_pig_angry
+Pig sounds: mobs_pig.ogg, mobs_pig_angry.ogg
 Pig sounds taken from mobs_animal mod, licensed under MIT License
 Pig textures: From Faithful Vanilla <https://minecraft.curseforge.com/projects/faithful-vanilla>
 
-Cow sound: mobs_mc_cow
+Cow sound: mobs_mc_cow.ogg
 - CC0, by Freesound.org user Zozzy
 - Source: <https://www.freesound.org/people/Zozzy/sounds/59245/>
+
+Sheep sound: mobs_sheep.ogg
+- CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/), created by the Blender Foundation
+
+Llama sound: mobs_mc_llama.ogg
+- MIT License
 
 ===Chicken===
 Mesh and animation by Pavel_S
