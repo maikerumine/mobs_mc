@@ -88,10 +88,8 @@ mobs:register_mob("mobs_mc:llama", {
 
 	on_die = function(self, pos)
 
-		-- drop saddle when horse is killed while riding
-		-- also detach from horse properly
+		-- detach from llama properly
 		if self.driver then
-			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -119,22 +117,11 @@ mobs:register_mob("mobs_mc:llama", {
 
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
-				-- add saddle back to inventory
-				if inv:room_for_item("main", mobs_mc.items.saddle) then
-					inv:add_item("main", mobs_mc.items.saddle)
-				else
-					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
-				end
-
-			-- attach player to horse
-			elseif not self.driver
-			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
+			-- attach player to llama
+			elseif not self.driver then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
-
-				-- take saddle from inventory
-				inv:remove_item("main", mobs_mc.items.saddle)
 			end
 		end
 
