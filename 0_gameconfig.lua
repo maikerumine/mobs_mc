@@ -47,6 +47,7 @@ mobs_mc.items = {
 	spider_eye = "mobs_mc:spider_eye",
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
+	nether_star = "mobs_mc:nether_star",
 
 	arrow = "mobs_mc:arrow",
 	bow = "mobs_mc:bow_wood",
@@ -85,6 +86,12 @@ mobs_mc.items = {
 	hay_bale = "farming:straw",
 	prismarine_shard = "default:mese_crystal_fragment",
 	prismarine_crystals = "default:mese_crystal",
+	apple = "default:apple",
+	golden_apple = "default:apple",
+	rabbit_foot = "mobs_mc:rabbit_foot",
+
+	-- Boss items
+	wet_sponge = "default:gold_block", -- only dropped by elder guardian; there is no equivalent block in Minetest Game
 
 	-- Other
 	nether_brick_block = "nether:brick",
@@ -99,9 +106,6 @@ mobs_mc.items = {
 	pufferfish_raw = "fishing:pike_raw",
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
-	apple = "default:apple",
-	golden_apple = "default:apple",
-	wet_sponge = "default:gold_block", -- only dropped elder guardian; there is no equivalent block in Minetest Game
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",

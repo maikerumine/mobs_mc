@@ -366,6 +366,13 @@ if c("leather") and c("rabbit_hide") then
 	})
 end
 
+if c("rabbit_foot") then
+	minetest.register_craftitem("mobs_mc:rabbit_foot", {
+		description = "Rabbit's Foot",
+		inventory_image = "mcl_mobitems_rabbit_foot.png"
+	})
+end
+
 -- Sheep
 if c("mutton_raw") then
 	minetest.register_craftitem("mobs_mc:mutton_raw", {
@@ -447,6 +454,13 @@ if c("rotten_flesh") then
 		-- Simplified poisonous food
 		groups = { food = 2, eatable = -4 },
 		on_use = minetest.item_eat(-4),
+	})
+end
+
+if c("nether_star") then
+	minetest.register_craftitem("mobs_mc:nether_star", {
+		description = "Nether Star",
+		inventory_image = "mcl_mobitems_nether_star.png"
 	})
 end
 
