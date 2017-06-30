@@ -236,7 +236,8 @@ end
 
 -- Saddle
 if c("saddle") then
-	minetest.register_craftitem("mobs_mc:saddle", {
+	-- Overwrite the saddle from Mobs Redo
+	minetest.register_craftitem(":mobs:saddle", {
 		description = "Saddle",
 		inventory_image = "mcl_mobitems_saddle.png",
 		stack_max = 1,
