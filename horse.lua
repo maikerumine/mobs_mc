@@ -220,7 +220,7 @@ local horse = {
 				mobs.attach(self, clicker)
 
 			-- Used to capture horse with magic lasso
-			elseif not self.driver and clicker:get_wielded_item() == "" then
+			elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
 				mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
 			end
 		end

@@ -123,10 +123,11 @@ mobs:register_mob("mobs_mc:llama", {
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 			end
-		end
 
-		-- Used to capture llama with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		-- Used to capture llama with lasso
+		elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
+			mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		end
 	end
 
 })
