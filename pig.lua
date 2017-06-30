@@ -6,7 +6,6 @@ mobs:register_mob("mobs_mc:pig", {
 	hp_min = 10,
 	hp_max = 10,
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 0.865, 0.45},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_pig.b3d",
 	textures = {
@@ -22,7 +21,6 @@ mobs:register_mob("mobs_mc:pig", {
 		min = 1,
 		max = 3,},
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,
@@ -55,12 +53,11 @@ mobs:register_mob("mobs_mc:pig", {
 		-- set needed values if not already present
 		if not self.v2 then
 			self.v2 = 0
-			self.max_speed_forward = 2  --swap due to -180 model
-			self.max_speed_reverse = 4  --swap due to -180 model
+			self.max_speed_forward = 4
+			self.max_speed_reverse = 2
 			self.accel = 4
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0.0, y = 6.75, z = 1.5}
-			self.player_rotation = {x = 0, y = 180, z = 0}
+			self.driver_attach_at = {x = 0.0, y = 6.75, z = -1.5}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end

@@ -17,8 +17,7 @@ mobs:register_mob("mobs_mc:witch", {
 	type = "monster",
 	hp_min = 26,
 	hp_max = 26,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
-    rotate = -180,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_witch.b3d",
 	textures = {
@@ -35,8 +34,6 @@ mobs:register_mob("mobs_mc:witch", {
 	arrow = "mobs:potion_arrow",
 	shoot_interval = 2.5,
 	shoot_offset = 1,
-	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
-	--'dogshoot_count_max' number of seconds before switching above modes.
 	dogshoot_switch = 1,
 	dogshoot_count_max =1.8,
 	max_drops = 3,
@@ -53,6 +50,7 @@ mobs:register_mob("mobs_mc:witch", {
 		random = "Villager1",
 		death = "Villagerdead",
 		damage = "Villagerhurt1",
+		distance = 16,
 	},
 	animation = {
 		speed_normal = 30,
@@ -70,12 +68,11 @@ mobs:register_mob("mobs_mc:witch", {
 		shoot_start = 50,
 		shoot_end = 82,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
 	view_range = 16,
-	fear_height = 5,
+	fear_height = 4,
 
 })
 

@@ -9,7 +9,6 @@ local rabbit = {
 	hp_max = 3,
 	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.49, 0.2},
 
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_rabbit.b3d",
 	textures = {
@@ -35,7 +34,7 @@ local rabbit = {
 	water_damage = 1,
 	lava_damage = 4,
 	light_damage = 0,
-	fear_height = 2,
+	fear_height = 4,
 	animation = {
 		speed_normal = 25,		speed_run = 50,
 		stand_start = 0,		stand_end = 0,

@@ -23,7 +23,6 @@ local spider = {
 	hp_min = 16,
 	hp_max = 16,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 0.89, 0.7},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_spider.b3d",
 	textures = {
@@ -44,7 +43,6 @@ local spider = {
 	drops = {
 		{name = mobs_mc.items.string, chance = 1, min = 0, max = 2,},
 		{name = mobs_mc.items.spider_eye, chance = 3, min = 1, max = 1,},
-		{name = "mobs_mc:spider_head", chance = 200, min = 1, max = 1,},
 	},
 	specific_attack = { "player", "mobs_mc:iron_golem" },
 	water_damage = 0,
@@ -57,6 +55,7 @@ local spider = {
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
+	blood_amount = 0,
 }
 mobs:register_mob("mobs_mc:spider", spider)
 

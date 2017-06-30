@@ -23,7 +23,6 @@ mobs:register_mob("mobs_mc:enderman", {
 	hp_min = 40,
 	hp_max = 40,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 2.89, 0.3},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_enderman.b3d",
 	textures = {
@@ -35,6 +34,7 @@ mobs:register_mob("mobs_mc:enderman", {
 		war_cry = "mobs_sandmonster",
 		death = "green_slime_death",
 		damage = "Creeperdeath",
+		distance = 16,
 	},
 	walk_velocity = 0.2,
 	run_velocity = 3.4,
@@ -132,14 +132,13 @@ mobs:register_mob("mobs_mc:enderman", {
 			minetest.add_item(pos, self._taken_node)
 		end
 	end,
-	drawtype = "front",
 	water_damage = 8,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
 	view_range = 16,
-	fear_height = 10,
+	fear_height = 4,
 	attack_type = "dogfight",
-
+	blood_amount = 0,
 })
 
 

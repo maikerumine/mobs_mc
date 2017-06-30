@@ -10,7 +10,6 @@ mobs:register_mob("mobs_mc:endermite", {
 	armor = 100,
 	group_attack = true,
 	collisionbox = {-0.2, -0.01, -0.2, 0.2, 0.29, 0.2},
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_endermite.b3d",
 	textures = {
@@ -33,7 +32,7 @@ mobs:register_mob("mobs_mc:endermite", {
 	on_rightclick = function(self, clicker)
 		mobs:capture_mob(self, clicker, 25, 80, 0, true, nil)
 	end,
-
+	blood_amount = 0,
 })
 
 mobs:register_egg("mobs_mc:endermite", "Endermite", "mobs_mc_spawn_icon_endermite.png", 0)

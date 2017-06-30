@@ -10,7 +10,15 @@
 --################### HORSE
 --###################
 
-
+local horse_extra_texture = function(base, saddle, chest)
+	if saddle then
+		base = base .. "^mobs_mc_horse_saddle.png"
+	end
+	if chest then
+		base = base .. "^mobs_mc_horse_chest.png"
+	end
+	return base
+end
 
 -- Horse
 local horse = {
@@ -18,7 +26,6 @@ local horse = {
 	visual = "mesh",
 	mesh = "mobs_mc_horse.b3d",
 	visual_size = {x=3.0, y=3.0},
-	rotate = -180,
 	collisionbox = {-0.69825, -0.01, -0.69825, 0.69825, 1.59, 0.69825},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
@@ -58,12 +65,11 @@ local horse = {
 		-- set needed values if not already present
 		if not self.v2 then
 			self.v2 = 0
-			self.max_speed_forward = 2  --swap due to -180 model
-			self.max_speed_reverse = 7  --swap due to -180 model
+			self.max_speed_forward = 7
+			self.max_speed_reverse = 2
 			self.accel = 6
 			self.terrain_type = 3
-			self.driver_attach_at = {x = 0, y = 7.5, z = 1.75}
-			self.player_rotation = {x = 0, y = 180, z = 0}
+			self.driver_attach_at = {x = 0, y = 7.5, z = -1.75}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
@@ -119,6 +125,11 @@ local horse = {
 					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
 				end
 
+				-- Update texture
+				local tex = horse_extra_texture(self._naked_texture, false)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
 			-- attach player to horse
 			elseif not self.driver
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
@@ -128,6 +139,16 @@ local horse = {
 
 				-- take saddle from inventory
 				inv:remove_item("main", mobs_mc.items.saddle)
+
+				-- Update texture
+				if not self._naked_texture then
+					-- Base horse texture without chest or saddle
+					self._naked_texture = self.base_texture[1]
+				end
+				local tex = horse_extra_texture(self._naked_texture, true)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
 			end
 		end
 
@@ -151,6 +172,7 @@ skeleton_horse.sounds = {
 	random = "skeleton1",
 	death = "skeletondeath",
 	damage = "skeletonhurt1",
+	distance = 16,
 }
 mobs:register_mob("mobs_mc:skeleton_horse", skeleton_horse)
 
@@ -167,13 +189,14 @@ zombie_horse.sounds = {
 	random = "zombie1",
 	death = "zombiedeath",
 	damage = "zombiehurt1",
+	distance = 16,
 }
 mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 
 -- Donkey
 local d = 0.86 -- donkey scale
 local donkey = table.copy(horse)
-donkey.mesh = "mobs_mc_mule.b3d"
+donkey.mesh = "mobs_mc_horse.b3d"
 donkey.textures = {{"mobs_mc_horse_creamy.png"}}
 donkey.animation = {
 	speed_normal = 25,

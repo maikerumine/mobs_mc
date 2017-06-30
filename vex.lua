@@ -20,7 +20,6 @@ mobs:register_mob("mobs_mc:vex", {
 	hp_min = 14,
 	hp_max = 14,
 	collisionbox = {-0.2, 0.2, -0.2, 0.2, 1.0, 0.2},  --bat
-	rotate = -180,
 	visual = "mesh",
 	mesh = "mobs_mc_vex.b3d",
 	textures = {
@@ -38,7 +37,7 @@ mobs:register_mob("mobs_mc:vex", {
 		distance = 16,
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
 		stand_start = 40,		stand_end = 80,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
@@ -76,7 +75,6 @@ mobs:register_mob("mobs_mc:vex", {
 			end
 		end
 	end,
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
