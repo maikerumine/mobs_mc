@@ -38,6 +38,33 @@ local can_equip_chest = function(entity_id)
 	return entity_id == "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
 end
 
+--[[ Generate all possible horse textures.
+Horse textures are a combination of a base texture and an optional marking overlay. ]]
+-- The base horse textures
+local horse_base = {
+	"mobs_mc_horse_brown.png",
+	"mobs_mc_horse_darkbrown.png",
+	"mobs_mc_horse_white.png",
+	"mobs_mc_horse_gray.png",
+	"mobs_mc_horse_black.png",
+	"mobs_mc_horse_chestnut.png",
+}
+-- Horse marking texture overlay, to be appended to the base texture string
+local horse_markings = {
+	"", -- no markings
+	"^mobs_mc_horse_markings_whitedots.png", -- snowflake appaloosa
+	"^mobs_mc_horse_markings_blackdots.png", -- sooty
+	"^mobs_mc_horse_markings_whitefield.png", -- paint
+	"^mobs_mc_horse_markings_white.png", -- stockings and blaze
+}
+
+local horse_textures = {}
+for b=1, #horse_base do
+	for m=1, #horse_markings do
+		table.insert(horse_textures, { horse_base[b] .. horse_markings[m] })
+	end
+end
+
 -- Horse
 local horse = {
 	type = "animal",
@@ -51,14 +78,7 @@ local horse = {
 		walk_start = 0, walk_end = 40,
 		run_start = 0, run_end = 40,
 	},
-	textures = {
-		{"mobs_mc_horse_brown.png"},
-		{"mobs_mc_horse_darkbrown.png"},
-		{"mobs_mc_horse_white.png"},
-		{"mobs_mc_horse_gray.png"},
-		{"mobs_mc_horse_black.png"},
-		{"mobs_mc_horse_chestnut.png"},
-	},
+	textures = horse_textures,
 	fear_height = 4,
 	fly = false,
 	walk_chance = 60,
