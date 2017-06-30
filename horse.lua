@@ -148,8 +148,8 @@ local horse = {
 			return
 		end
 
-		-- make sure tamed horse is being clicked by owner only
-		if self.tamed and self.owner == clicker:get_player_name() then
+		-- Make sure tamed horse is mature and being clicked by owner only
+		if self.tamed and not self.child and self.owner == clicker:get_player_name() then
 
 			local inv = clicker:get_inventory()
 
