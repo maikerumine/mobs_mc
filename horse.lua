@@ -136,8 +136,10 @@ local horse = {
 				-- Put on saddle and take saddle from player's inventory
 				local w = clicker:get_wielded_item()
 				self._saddle = true
-				w:take_item()
-				clicker:set_wielded_item(w)
+				if not minetest.settings:get_bool("creative_mode") then
+					w:take_item()
+					clicker:set_wielded_item(w)
+				end
 
 				-- Update texture
 				if not self._naked_texture then
@@ -157,8 +159,10 @@ local horse = {
 				local w = clicker:get_wielded_item()
 				local armor = minetest.get_item_group(w:get_name(), "horse_armor")
 				self._horse_armor = w:get_name()
-				w:take_item()
-				clicker:set_wielded_item(w)
+				if not minetest.settings:get_bool("creative_mode") then
+					w:take_item()
+					clicker:set_wielded_item(w)
+				end
 
 				-- Set horse armor strength
 				--[[ WARNING: This goes deep into the entity data structure and depends on
@@ -166,7 +170,7 @@ local horse = {
 				the fleshy group for armor. ]]
 				-- TODO: Change this code as soon Mobs Redo officially allows to change armor afterwards
 				self.armor = armor
-				local agroups = self.object:get_armor_groups
+				local agroups = self.object:get_armor_groups()
 				agroups.fleshy = self.armor
 				self.object:set_armor_groups(agroups)
 
