@@ -129,7 +129,7 @@ local magma_cube_big = {
 	visual_size = {x=12.5, y=12.5},
 	textures = {{ "mobs_mc_magmacube.png" }},
 	visual = "mesh",
-	mesh = "mobs_mc_magma_cube.b3d",
+	mesh = "mobs_mc_magmacube.b3d",
 	blood_texture = "lava_slime_blood.png",
 	makes_footstep_sound = true,
 	sounds = {

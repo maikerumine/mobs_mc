@@ -43,9 +43,9 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	--collisionbox = {-0.5, 0.5, -0.5, 0.5, 1.2, 0.5},
 	collisionbox = {-0.5, 0.01, -0.5, 0.5, 1.2, 0.5},
 	visual = "mesh",
-	mesh = "mobs_mc_ender_dragon.b3d",
+	mesh = "mobs_mc_dragon.b3d",
 	textures = {
-		{"mobs_mc_enderdragon.png"},
+		{"mobs_mc_dragon.png"},
 	},
 	visual_size = {x=1, y=1},
 	makes_footstep_sound = true,

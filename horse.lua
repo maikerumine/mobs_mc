@@ -194,7 +194,6 @@ mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 -- Donkey
 local d = 0.86 -- donkey scale
 local donkey = table.copy(horse)
-donkey.mesh = "mobs_mc_horse.b3d"
 donkey.textures = {{"mobs_mc_horse_creamy.png"}}
 donkey.animation = {
 	speed_normal = 25,
