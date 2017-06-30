@@ -96,6 +96,10 @@ mobs:register_mob("mobs_mc:pig", {
 			end
 		end
 
+		if self.child then
+			return
+		end
+
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
 		if item:get_name() == mobs_mc.items.saddle and self.saddle ~= "yes" then
@@ -153,10 +157,11 @@ mobs:register_mob("mobs_mc:pig", {
 				inv:set_stack("main",self.driver:get_wield_index(), wielditem)
 			end
 			return
-		end
 
-		-- used to capture pig with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		-- Capture pig with lasso
+		elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
+			mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		end
 	end,
 })
 

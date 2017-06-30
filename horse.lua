@@ -10,7 +10,17 @@
 --################### HORSE
 --###################
 
-local horse_extra_texture = function(base, saddle, chest)
+-- Return overlay texture for horse/donkey/mule, e.g. chest, saddle or horse armor
+local horse_extra_texture = function(horse)
+	local base = horse._naked_texture
+	local saddle = horse._saddle
+	local chest  = horse._chest
+	local armor = horse._horse_armor
+	if armor then
+		if minetest.get_item_group(armor, "horse_armor") > 0 then
+			base = base .. "^" .. minetest.registered_items[armor]._horse_overlay_image
+		end
+	end
 	if saddle then
 		base = base .. "^mobs_mc_horse_saddle.png"
 	end
@@ -18,6 +28,41 @@ local horse_extra_texture = function(base, saddle, chest)
 		base = base .. "^mobs_mc_horse_chest.png"
 	end
 	return base
+end
+
+-- Helper functions to determine equipment rules
+local can_equip_horse_armor = function(entity_id)
+	return entity_id == "mobs_mc:horse" or entity_id == "mobs_mc:skeleton_horse" or entity_id == "mobs_mc:zombie_horse"
+end
+local can_equip_chest = function(entity_id)
+	return entity_id == "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
+end
+
+--[[ Generate all possible horse textures.
+Horse textures are a combination of a base texture and an optional marking overlay. ]]
+-- The base horse textures
+local horse_base = {
+	"mobs_mc_horse_brown.png",
+	"mobs_mc_horse_darkbrown.png",
+	"mobs_mc_horse_white.png",
+	"mobs_mc_horse_gray.png",
+	"mobs_mc_horse_black.png",
+	"mobs_mc_horse_chestnut.png",
+}
+-- Horse marking texture overlay, to be appended to the base texture string
+local horse_markings = {
+	"", -- no markings
+	"^mobs_mc_horse_markings_whitedots.png", -- snowflake appaloosa
+	"^mobs_mc_horse_markings_blackdots.png", -- sooty
+	"^mobs_mc_horse_markings_whitefield.png", -- paint
+	"^mobs_mc_horse_markings_white.png", -- stockings and blaze
+}
+
+local horse_textures = {}
+for b=1, #horse_base do
+	for m=1, #horse_markings do
+		table.insert(horse_textures, { horse_base[b] .. horse_markings[m] })
+	end
 end
 
 -- Horse
@@ -28,19 +73,12 @@ local horse = {
 	visual_size = {x=3.0, y=3.0},
 	collisionbox = {-0.69825, -0.01, -0.69825, 0.69825, 1.59, 0.69825},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
+		stand_start = 0, stand_end = 0,
+		walk_start = 0, walk_end = 40,
+		run_start = 0, run_end = 40,
 	},
-	textures = {
-		{"mobs_mc_horse_brown.png"},
-		{"mobs_mc_horse_darkbrown.png"},
-		{"mobs_mc_horse_white.png"},
-		{"mobs_mc_horse_gray.png"},
-		{"mobs_mc_horse_black.png"},
-		{"mobs_mc_horse_chestnut.png"},
-	},
+	textures = horse_textures,
 	fear_height = 4,
 	fly = false,
 	walk_chance = 60,
@@ -63,6 +101,9 @@ local horse = {
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
+		if not self._regentimer then
+			self._regentimer = 0
+		end
 		if not self.v2 then
 			self.v2 = 0
 			self.max_speed_forward = 7
@@ -72,6 +113,15 @@ local horse = {
 			self.driver_attach_at = {x = 0, y = 7.5, z = -1.75}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
+		end
+
+		-- Slowly regenerate health
+		self._regentimer = self._regentimer + dtime
+		if self._regentimer >= 4 then
+			if self.health < self.hp_max then
+				self.health = self.health + 1
+			end
+			self._regentimer = 0
 		end
 
 		-- if driver present allow control of horse
@@ -88,9 +138,11 @@ local horse = {
 	on_die = function(self, pos)
 
 		-- drop saddle when horse is killed while riding
+		if self._saddle then
+			minetest.add_item(pos, mobs_mc.items.saddle)
+		end
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -108,8 +160,8 @@ local horse = {
 			return
 		end
 
-		-- make sure tamed horse is being clicked by owner only
-		if self.tamed and self.owner == clicker:get_player_name() then
+		-- Make sure tamed horse is mature and being clicked by owner only
+		if self.tamed and not self.child and self.owner == clicker:get_player_name() then
 
 			local inv = clicker:get_inventory()
 
@@ -118,42 +170,72 @@ local horse = {
 
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
-				-- add saddle back to inventory
-				if inv:room_for_item("main", mobs_mc.items.saddle) then
-					inv:add_item("main", mobs_mc.items.saddle)
-				else
-					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
-				end
-
-				-- Update texture
-				local tex = horse_extra_texture(self._naked_texture, false)
-				self.base_texture = { tex }
-				self.object:set_properties({textures = self.base_texture})
-
-			-- attach player to horse
-			elseif not self.driver
+			-- Put on saddle if tamed
+			elseif not self.driver and not self._saddle
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
-				self.object:set_properties({stepheight = 1.1})
-				mobs.attach(self, clicker)
-
-				-- take saddle from inventory
-				inv:remove_item("main", mobs_mc.items.saddle)
+				-- Put on saddle and take saddle from player's inventory
+				local w = clicker:get_wielded_item()
+				self._saddle = true
+				if not minetest.settings:get_bool("creative_mode") then
+					w:take_item()
+					clicker:set_wielded_item(w)
+				end
 
 				-- Update texture
 				if not self._naked_texture then
 					-- Base horse texture without chest or saddle
 					self._naked_texture = self.base_texture[1]
 				end
-				local tex = horse_extra_texture(self._naked_texture, true)
+				local tex = horse_extra_texture(self)
 				self.base_texture = { tex }
 				self.object:set_properties({textures = self.base_texture})
 
+			-- Put on horse armor if tamed
+			elseif can_equip_horse_armor(self.name) and not self.driver and not self._horse_armor
+			and minetest.get_item_group(clicker:get_wielded_item():get_name(), "horse_armor") > 0 then
+
+
+				-- Put on armor and take armor from player's inventory
+				local w = clicker:get_wielded_item()
+				local armor = minetest.get_item_group(w:get_name(), "horse_armor")
+				self._horse_armor = w:get_name()
+				if not minetest.settings:get_bool("creative_mode") then
+					w:take_item()
+					clicker:set_wielded_item(w)
+				end
+
+				-- Set horse armor strength
+				--[[ WARNING: This goes deep into the entity data structure and depends on
+				how Mobs Redo works internally. This code assumes that Mobs Redo uses
+				the fleshy group for armor. ]]
+				-- TODO: Change this code as soon Mobs Redo officially allows to change armor afterwards
+				self.armor = armor
+				local agroups = self.object:get_armor_groups()
+				agroups.fleshy = self.armor
+				self.object:set_armor_groups(agroups)
+
+				-- Update texture
+				if not self._naked_texture then
+					-- Base horse texture without chest or saddle
+					self._naked_texture = self.base_texture[1]
+				end
+				local tex = horse_extra_texture(self)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
+
+			-- Mount horse
+			elseif not self.driver and self._saddle then
+
+				self.object:set_properties({stepheight = 1.1})
+				mobs.attach(self, clicker)
+
+			-- Used to capture horse with magic lasso
+			elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
+				mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
 			end
 		end
-
-		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
 	end
 }
 
@@ -174,6 +256,7 @@ skeleton_horse.sounds = {
 	damage = "skeletonhurt1",
 	distance = 16,
 }
+skeleton_horse.blood_amount = 0
 mobs:register_mob("mobs_mc:skeleton_horse", skeleton_horse)
 
 -- Zombie horse

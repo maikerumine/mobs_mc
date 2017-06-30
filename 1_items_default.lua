@@ -236,7 +236,8 @@ end
 
 -- Saddle
 if c("saddle") then
-	minetest.register_craftitem("mobs_mc:saddle", {
+	-- Overwrite the saddle from Mobs Redo
+	minetest.register_craftitem(":mobs:saddle", {
 		description = "Saddle",
 		inventory_image = "mcl_mobitems_saddle.png",
 		stack_max = 1,
@@ -251,6 +252,36 @@ if c("saddle") and c("lether") and c("string") and c("iron_ingot") then
 			{"farming:string", "", "farming:string"},
 			{"default:steel_ingot", "", "default:steel_ingot"}
 		},
+	})
+end
+
+-- Horse Armor
+-- TODO: Balance the horse armor strength, compare with MC armor strength
+if c("iron_horse_armor") then
+	minetest.register_craftitem("mobs_mc:iron_horse_armor", {
+		description = "Iron Horse Armor",
+		inventory_image = "mobs_mc_iron_horse_armor.png",
+		_horse_overlay_image = "mobs_mc_horse_armor_iron.png",
+		stack_max = 1,
+		groups = { horse_armor = 85 },
+	})
+end
+if c("gold_horse_armor") then
+	minetest.register_craftitem("mobs_mc:gold_horse_armor", {
+		description = "Golden Horse Armor",
+		inventory_image = "mobs_mc_gold_horse_armor.png",
+		_horse_overlay_image = "mobs_mc_horse_armor_gold.png",
+		stack_max = 1,
+		groups = { horse_armor = 60 },
+	})
+end
+if c("diamond_horse_armor") then
+	minetest.register_craftitem("mobs_mc:diamond_horse_armor", {
+		description = "Diamond Horse Armor",
+		inventory_image = "mobs_mc_diamond_horse_armor.png",
+		_horse_overlay_image = "mobs_mc_horse_armor_diamond.png",
+		stack_max = 1,
+		groups = { horse_armor = 45 },
 	})
 end
 

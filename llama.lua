@@ -74,7 +74,7 @@ mobs:register_mob("mobs_mc:llama", {
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
 		end
 
-		-- if driver present allow control of horse
+		-- if driver present allow control of llama
 		if self.driver then
 
 			mobs.drive(self, "walk", "stand", false, dtime)
@@ -96,22 +96,22 @@ mobs:register_mob("mobs_mc:llama", {
 
 	on_rightclick = function(self, clicker)
 
-		-- make sure player is clicking
+		-- Make sure player is clicking
 		if not clicker or not clicker:is_player() then
 			return
 		end
 
-		-- feed, tame or heal horse
+		-- Feed, tame or heal llama
 		if mobs:feed_tame(self, clicker, 1, true, true) then
 			return
 		end
 
-		-- make sure tamed horse is being clicked by owner only
-		if self.tamed and self.owner == clicker:get_player_name() then
+		-- Make sure tamed llama is mature and being clicked by owner only
+		if self.tamed and not self.child and self.owner == clicker:get_player_name() then
 
 			local inv = clicker:get_inventory()
 
-			-- detatch player already riding horse
+			-- detatch player already riding llama
 			if self.driver and clicker == self.driver then
 
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
@@ -122,10 +122,11 @@ mobs:register_mob("mobs_mc:llama", {
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 			end
-		end
 
-		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		-- Used to capture llama with lasso
+		elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
+			mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		end
 	end
 
 })
