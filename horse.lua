@@ -28,10 +28,10 @@ local horse = {
 	visual_size = {x=3.0, y=3.0},
 	collisionbox = {-0.69825, -0.01, -0.69825, 0.69825, 1.59, 0.69825},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 0,		stand_end = 0,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
+		stand_start = 0, stand_end = 0,
+		walk_start = 0, walk_end = 40,
+		run_start = 0, run_end = 40,
 	},
 	textures = {
 		{"mobs_mc_horse_brown.png"},
