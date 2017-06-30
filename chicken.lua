@@ -37,7 +37,6 @@ mobs:register_mob("mobs_mc:chicken", {
 		min = 0,
 		max = 2,},
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
@@ -45,9 +44,10 @@ mobs:register_mob("mobs_mc:chicken", {
 		random = "mobs_chicken",
 		death = "Chickenhurt1", -- TODO: replace
 		damage = "Chickenhurt1", -- TODO: replace
+		distance = 16,
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
 		stand_start = 0,		stand_end = 0,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
@@ -55,6 +55,7 @@ mobs:register_mob("mobs_mc:chicken", {
 
 	follow = mobs_mc.follow.chicken,
 	view_range = 16,
+	fear_height = 4,
 
 	on_rightclick = function(self, clicker)
 

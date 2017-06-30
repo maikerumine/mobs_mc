@@ -85,7 +85,6 @@ mobs:register_mob("mobs_mc:villager", {
 		shoot_start = 50,
 		shoot_end = 82,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
