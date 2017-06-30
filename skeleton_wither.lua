@@ -21,7 +21,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	group_attack = true,
 	collisionbox = {-0.35, -0.01, -0.35, 0.35, 2.39, 0.35},
 	visual = "mesh",
-	mesh = "mobs_mc_wither_skeleton.b3d",
+	mesh = "mobs_mc_witherskeleton.b3d",
 	textures = {
 		{"mobs_mc_witherskeleton.png"},
 	},

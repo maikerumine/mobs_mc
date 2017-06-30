@@ -42,9 +42,9 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	collisionbox = {-2, 3, -2, 2, 5, 2},
 	physical = false,
 	visual = "mesh",
-	mesh = "mobs_mc_ender_dragon.b3d",
+	mesh = "mobs_mc_dragon.b3d",
 	textures = {
-		{"mobs_mc_enderdragon.png"},
+		{"mobs_mc_dragon.png"},
 	},
 	visual_size = {x=3, y=3},
 	view_range = 35,
