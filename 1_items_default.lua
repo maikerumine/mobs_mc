@@ -256,13 +256,14 @@ if c("saddle") and c("lether") and c("string") and c("iron_ingot") then
 end
 
 -- Horse Armor
+-- TODO: Balance the horse armor strength, compare with MC armor strength
 if c("iron_horse_armor") then
 	minetest.register_craftitem("mobs_mc:iron_horse_armor", {
 		description = "Iron Horse Armor",
 		inventory_image = "mobs_mc_iron_horse_armor.png",
 		_horse_overlay_image = "mobs_mc_horse_armor_iron.png",
 		stack_max = 1,
-		groups = { horse_armor = 15 },
+		groups = { horse_armor = 85 },
 	})
 end
 if c("gold_horse_armor") then
@@ -271,7 +272,7 @@ if c("gold_horse_armor") then
 		inventory_image = "mobs_mc_gold_horse_armor.png",
 		_horse_overlay_image = "mobs_mc_horse_armor_gold.png",
 		stack_max = 1,
-		groups = { horse_armor = 17 },
+		groups = { horse_armor = 60 },
 	})
 end
 if c("diamond_horse_armor") then
@@ -280,7 +281,7 @@ if c("diamond_horse_armor") then
 		inventory_image = "mobs_mc_diamond_horse_armor.png",
 		_horse_overlay_image = "mobs_mc_horse_armor_diamond.png",
 		stack_max = 1,
-		groups = { horse_armor = 20 },
+		groups = { horse_armor = 45 },
 	})
 end
 

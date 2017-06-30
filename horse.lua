@@ -155,9 +155,20 @@ local horse = {
 
 				-- Put on armor and take armor from player's inventory
 				local w = clicker:get_wielded_item()
+				local armor = minetest.get_item_group(w:get_name(), "horse_armor")
 				self._horse_armor = w:get_name()
 				w:take_item()
 				clicker:set_wielded_item(w)
+
+				-- Set horse armor strength
+				--[[ WARNING: This goes deep into the entity data structure and depends on
+				how Mobs Redo works internally. This code assumes that Mobs Redo uses
+				the fleshy group for armor. ]]
+				-- TODO: Change this code as soon Mobs Redo officially allows to change armor afterwards
+				self.armor = armor
+				local agroups = self.object:get_armor_groups
+				agroups.fleshy = self.armor
+				self.object:set_armor_groups(agroups)
 
 				-- Update texture
 				if not self._naked_texture then
@@ -167,6 +178,7 @@ local horse = {
 				local tex = horse_extra_texture(self)
 				self.base_texture = { tex }
 				self.object:set_properties({textures = self.base_texture})
+
 
 			-- Mount horse
 			elseif not self.driver and self._saddle then
