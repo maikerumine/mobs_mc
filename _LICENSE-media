@@ -3,21 +3,52 @@
 --made for MC like Survival game
 --License for code GPL and otherwise stated in readmes such as this one.
 
-#### Links 
-[blender models](https://github.com/22i/minecraft-voxel-blender-models), 
-[mobs_mc](https://github.com/maikerumine/mobs_mc), 
-[how to recreate mobs from textures with Blender and Gimp](http://imgur.com/a/Iqg88)
+## Links
 
-Minecraft mobs were remade in blender
-Credits:[22i](https://github.com/22i) All 3-D Models - Most of the models, otherwise stated elsewhere.[toby109tt](https://github.com/tobyplowy) mapping fixes - better 2d planes.[maikerumine](https://github.com/maikerumine) Coding behaviour, spawning, drops, and misc.[wuzzy2](https://github.com/Wuzzy2) Zombies, Husks, Item textures, and lots of code.
+* [Blender models](https://github.com/22i/minecraft-voxel-blender-models),
+* [mobs_mc](https://github.com/maikerumine/mobs_mc),
+* [How to recreate mobs from textures with Blender and Gimp](http://imgur.com/a/Iqg88)
 
-Sounds:  W.I.P.
-Pig sounds: mobs_pig, mobs_pig_angryPig sounds taken from mobs_animal mod, licensed under MIT LicensePig textures: From Faithful Vanilla <https://minecraft.curseforge.com/projects/faithful-vanilla>
+### Credits
 
-Chicken sounds:- `mobs_mc_chicken_lay_egg.ogg` - WTFPL, by PilzAdam and Wuzzy- `mobs_chicken.ogg` - MIT License, from `mobs_animal` and `mobs_monster` by TenPlus1
+Minecraft mobs were remade in Blender by hand
 
-Slimes sounds:- Author: Tomas J. Luis
-- Original sound for slime damage by RandomationPictures under licence CC0 1.0.http://www.freesound.org/people/RandomationPictures/sounds/138481/
-- Original sounds for slime jump, land and death by Dr. Minky under licence CC BY 3.0.http://www.freesound.org/people/DrMinky/sounds/
+* [22i](https://github.com/22i): All 3-D models, most of the models, otherwise stated elsewhere.
+* [toby109tt](https://github.com/tobyplowy): mapping fixes - better 2d planes.
+* [maikerumine](https://github.com/maikerumine): Coding behaviour, spawning, drops, and misc.
+* [Wuzzy2](https://github.com/Wuzzy2): Zombies, Husks, Item textures, and lots of code.
 
-Mese Dragon sounds:NPXcoot   https://github.com/NPXcoot1 The license for all the models, textures and sound is 2 CC BY-SA 4.0
+#### Textures (W.I.P.)
+* Pig textures: From Faithful Vanilla <https://minecraft.curseforge.com/projects/faithful-vanilla>
+
+#### Sounds (W.I.P.)
+Note: “*” is a placeholder.
+
+* Pig
+    * mobs_pig.ogg, mobs_pig_angry.ogg: From `mobs_animal` mod, licensed under MIT License
+* Chicken
+    * `mobs_mc_chicken_lay_egg.ogg` - WTFPL, by PilzAdam and Wuzzy
+    * `mobs_chicken.ogg` - MIT License, from `mobs_animal` by TenPlus1
+* Slime
+    * Author: Tomas J. Luis
+    * Original sound for slime damage by Randomation (CC0);
+        * Source: http://www.freesound.org/people/RandomationPictures/sounds/138481/
+    * Original sounds for slime jump, land and death by Dr. Minky under licence CC BY 3.0; http://www.freesound.org/people/DrMinky/sounds/
+* Ender dragon
+    * `mobs_mc_ender_dragon_*`: NPXcoot (https://github.com/NPXcoot1) CC BY-SA 4.0
+* Cow/Mooshroom
+    * `mobs_mc_cow.ogg`, CC0, by Freesound.org user Zozzy
+        * Source: <https://www.freesound.org/people/Zozzy/sounds/59245/>
+* Sheep
+    * `mobs_sheep.ogg`, CC BY 3.0, created by the Blender Foundation
+* Llama:
+    * `mobs_mc_llama.ogg`, MIT License, from `mobs_animal` by TenPlus1
+
+### License links
+
+* [CC0](https://creativecommons.org/choose/zero/)
+* [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+* [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+* [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html])
+* [MIT](https://opensource.org/licenses/MIT)
+

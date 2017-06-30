@@ -38,9 +38,8 @@ mobs:register_mob("mobs_mc:llama", {
 	light_damage = 0,
 	fear_height = 4,
 	sounds = {
-		random = "mobs_sheep",
-		death = "mobs_sheep",
-		damage = "mobs_sheep",
+		random = "mobs_mc_llama",
+		-- TODO: Death and damage sounds
 		distance = 16,
 	},
 	animation = {
