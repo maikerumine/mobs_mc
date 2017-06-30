@@ -118,24 +118,9 @@ local horse = {
 
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
-				-- add saddle back to inventory
-				if inv:room_for_item("main", mobs_mc.items.saddle) then
-					inv:add_item("main", mobs_mc.items.saddle)
-				else
-					minetest.add_item(clicker.getpos(), mobs_mc.items.saddle)
-				end
-
-				-- Update texture
-				local tex = horse_extra_texture(self._naked_texture, false)
-				self.base_texture = { tex }
-				self.object:set_properties({textures = self.base_texture})
-
-			-- attach player to horse
+			-- Put on saddle if tamed
 			elseif not self.driver
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
-
-				self.object:set_properties({stepheight = 1.1})
-				mobs.attach(self, clicker)
 
 				-- take saddle from inventory
 				inv:remove_item("main", mobs_mc.items.saddle)
@@ -149,7 +134,14 @@ local horse = {
 				self.base_texture = { tex }
 				self.object:set_properties({textures = self.base_texture})
 
+			-- Mount horse
+			elseif not self.driver then
+
+				self.object:set_properties({stepheight = 1.1})
+				mobs.attach(self, clicker)
+
 			end
+
 		end
 
 		-- used to capture horse with magic lasso
