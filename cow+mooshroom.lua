@@ -23,19 +23,18 @@ local cow_def = {
 		min = 0,
 		max = 2,},
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
-	fear_height = 3,
 	runaway = true,
 	sounds = {
 		random = "mobs_mc_cow",
 		death = "Cowhurt1", -- TODO: Replace
 		damage = "Cowhurt1", -- TODO: Replace
+		distance = 16,
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
 		stand_start = 0,		stand_end = 0,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
@@ -62,7 +61,7 @@ local cow_def = {
 	end,
 	follow = mobs_mc.items.wheat,
 	view_range = 10,
-	fear_height = 2,
+	fear_height = 4,
 }
 
 mobs:register_mob("mobs_mc:cow", cow_def)
