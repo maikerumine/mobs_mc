@@ -10,7 +10,16 @@
 --################### HORSE
 --###################
 
-local horse_extra_texture = function(base, saddle, chest)
+local horse_extra_texture = function(horse)
+	local base = horse._naked_texture
+	local saddle = horse._saddle
+	local chest  = horse._chest
+	local armor = horse._horse_armor
+	if armor then
+		if minetest.get_item_group(armor, "horse_armor") > 0 then
+			base = base .. "^" .. minetest.registered_items[armor]._horse_overlay_image
+		end
+	end
 	if saddle then
 		base = base .. "^mobs_mc_horse_saddle.png"
 	end
@@ -88,9 +97,11 @@ local horse = {
 	on_die = function(self, pos)
 
 		-- drop saddle when horse is killed while riding
+		if self._saddle then
+			minetest.add_item(pos, mobs_mc.items.saddle)
+		end
 		-- also detach from horse properly
 		if self.driver then
-			minetest.add_item(pos, mobs_mc.items.saddle)
 			mobs.detach(self.driver, {x = 1, y = 0, z = 1})
 		end
 
@@ -119,13 +130,12 @@ local horse = {
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
 			-- Put on saddle if tamed
-			elseif not self.driver and not self.saddle
+			elseif not self.driver and not self._saddle
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
-				self.saddle = true
-
-				-- take saddle from inventory
+				-- Put on saddle and take saddle from player's inventory
 				local w = clicker:get_wielded_item()
+				self._saddle = true
 				w:take_item()
 				clicker:set_wielded_item(w)
 
@@ -134,12 +144,32 @@ local horse = {
 					-- Base horse texture without chest or saddle
 					self._naked_texture = self.base_texture[1]
 				end
-				local tex = horse_extra_texture(self._naked_texture, true)
+				local tex = horse_extra_texture(self)
+				self.base_texture = { tex }
+				self.object:set_properties({textures = self.base_texture})
+
+			-- Put on horse armor if tamed
+			elseif not self.driver and not self._horse_armor
+			and minetest.get_item_group(clicker:get_wielded_item():get_name(), "horse_armor") > 0 then
+
+
+				-- Put on armor and take armor from player's inventory
+				local w = clicker:get_wielded_item()
+				self._horse_armor = w:get_name()
+				w:take_item()
+				clicker:set_wielded_item(w)
+
+				-- Update texture
+				if not self._naked_texture then
+					-- Base horse texture without chest or saddle
+					self._naked_texture = self.base_texture[1]
+				end
+				local tex = horse_extra_texture(self)
 				self.base_texture = { tex }
 				self.object:set_properties({textures = self.base_texture})
 
 			-- Mount horse
-			elseif not self.driver then
+			elseif not self.driver and self._saddle then
 
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
