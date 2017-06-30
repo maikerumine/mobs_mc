@@ -10,6 +10,7 @@
 --################### HORSE
 --###################
 
+-- Return overlay texture for horse/donkey/mule, e.g. chest, saddle or horse armor
 local horse_extra_texture = function(horse)
 	local base = horse._naked_texture
 	local saddle = horse._saddle
@@ -27,6 +28,14 @@ local horse_extra_texture = function(horse)
 		base = base .. "^mobs_mc_horse_chest.png"
 	end
 	return base
+end
+
+-- Helper functions to determine equipment rules
+local can_equip_horse_armor = function(entity_id)
+	return entity_id == "mobs_mc:horse" or entity_id == "mobs_mc:skeleton_horse" or entity_id == "mobs_mc:zombie_horse"
+end
+local can_equip_chest = function(entity_id)
+	return entity_id == "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
 end
 
 -- Horse
@@ -151,7 +160,7 @@ local horse = {
 				self.object:set_properties({textures = self.base_texture})
 
 			-- Put on horse armor if tamed
-			elseif not self.driver and not self._horse_armor
+			elseif can_equip_horse_armor(self.name) and not self.driver and not self._horse_armor
 			and minetest.get_item_group(clicker:get_wielded_item():get_name(), "horse_armor") > 0 then
 
 
