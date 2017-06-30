@@ -223,6 +223,7 @@ skeleton_horse.sounds = {
 	death = "skeletondeath",
 	damage = "skeletonhurt1",
 }
+skeleton_horse.blood_amount = 0
 mobs:register_mob("mobs_mc:skeleton_horse", skeleton_horse)
 
 -- Zombie horse
