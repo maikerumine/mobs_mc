@@ -101,6 +101,9 @@ local horse = {
 	do_custom = function(self, dtime)
 
 		-- set needed values if not already present
+		if not self._regentimer then
+			self._regentimer = 0
+		end
 		if not self.v2 then
 			self.v2 = 0
 			self.max_speed_forward = 7
@@ -110,6 +113,15 @@ local horse = {
 			self.driver_attach_at = {x = 0, y = 7.5, z = -1.75}
 			self.driver_eye_offset = {x = 0, y = 3, z = 0}
 			self.driver_scale = {x = 1/self.visual_size.x, y = 1/self.visual_size.y}
+		end
+
+		-- Slowly regenerate health
+		self._regentimer = self._regentimer + dtime
+		if self._regentimer >= 4 then
+			if self.health < self.hp_max then
+				self.health = self.health + 1
+			end
+			self._regentimer = 0
 		end
 
 		-- if driver present allow control of horse
