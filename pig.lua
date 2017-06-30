@@ -97,6 +97,10 @@ mobs:register_mob("mobs_mc:pig", {
 			end
 		end
 
+		if self.child then
+			return
+		end
+
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
 		if item:get_name() == mobs_mc.items.saddle and self.saddle ~= "yes" then
