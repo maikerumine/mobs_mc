@@ -14,23 +14,21 @@
    
 mobs:register_mob("mobs_mc:shulker", {
 	type = "monster",
-    attack_type = "shoot",
-    shoot_interval = 0.5,
+	attack_type = "shoot",
+	shoot_interval = 0.5,
 	arrow = "mobs_mc:shulkerbullet",
 	shoot_offset = 0.5,
 	passive = false,
-    stepheight = 1.2,
 	hp_min = 30,
 	hp_max = 30,
 	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	collisionbox = {-0.5, -0.01, -0.5, 0.5, 0.99, 0.5},
 	visual = "mesh",
 	mesh = "mobs_mc_shulker.b3d",
 	textures = { "mobs_mc_shulker_purple.png", },
 	-- TODO: Make shulker dye-able
 	visual_size = {x=3, y=3},
-	walk_velocity = 0.0000000001,
-	run_velocity = 0.0000000001,
+	walk_chance = 0,
 	jump = false,
 	drops = {
 	{name = mobs_mc.items.shulker_shell,
@@ -38,21 +36,27 @@ mobs:register_mob("mobs_mc:shulker", {
 	min = 1,
 	max = 1,},
 	},
-	
 	animation = {
+		stand_speed = 25, walk_speed = 25, run_speed = 50, punch_speed = 25,
 		speed_normal = 25,		speed_run = 50,
 		stand_start = 0,		stand_end = 45,
 		walk_start = 0,		walk_end = 45,
 		run_start = 0,		run_end = 45,
         punch_start = 80,  punch_end = 100,
 	},
+	blood_amount = 0,
+	view_range = 16,
+	fear_height = 4,
+	water_damage = 1,
+	lava_damage = 4,
+	light_damage = 0,
 })
 
 -- bullet arrow (weapon)
 mobs:register_arrow("mobs_mc:shulkerbullet", {
 	visual = "sprite",
 	visual_size = {x = 0.25, y = 0.25},
-	textures = {"shulkerbullet.png"},
+	textures = {"mobs_mc_shulkerbullet.png"},
 	velocity = 6,
 
 	hit_player = function(self, player)

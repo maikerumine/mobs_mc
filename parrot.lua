@@ -15,17 +15,17 @@
 
 mobs:register_mob("mobs_mc:parrot", {
 	type = "npc",
-	pathfinding = true,
+	pathfinding = 1,
 	hp_min = 6,
 	hp_max = 6,
-    collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.6, 0.25},
+	collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.89, 0.25},
 	visual = "mesh",
 	mesh = "mobs_mc_parrot.b3d",
 	textures = {{"mobs_mc_parrot_blue.png"},{"mobs_mc_parrot_green.png"},{"mobs_mc_parrot_grey.png"},{"mobs_mc_parrot_red_blue.png"},{"mobs_mc_parrot_yellow_blue.png"}},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
-	walk_velocity = .8,
-	run_velocity = 2.6,
+	walk_velocity = 3,
+	run_velocity = 5,
 	drops = {
 		{name = mobs_mc.items.feather,
 		chance = 1,
@@ -33,8 +33,8 @@ mobs:register_mob("mobs_mc:parrot", {
 		max = 2,},
 	},
     	animation = {
-		speed_normal = 50,
-		speed_run = 50,
+		stand_speed = 50,
+		walk_speed = 50,
 		stand_start = 0,
 		stand_end = 0,
 		walk_start = 0,
@@ -44,32 +44,23 @@ mobs:register_mob("mobs_mc:parrot", {
 		--fly_start = 30,
 		--fly_end = 45,
 	},
-	drawtype = "front",
-	water_damage = 10,
-	lava_damage = 2,
+	walk_chance = 100,
+	water_damage = 0,
+	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
-	view_range = 16,
 	attack_type = "dogfight",
-	attacks_monsters = true,
 	jump = true,
 	jump_height = 4,
-	stepheight = 1.2,
-	floats=1,
+	floats = 1,
 	physical = true,
 	fly = true,
 	fly_in = {"air"},
-	jump_chance = 98,
-	fear_height = 120,	
-	view_range = 25,
+	fear_height = 4,
+	view_range = 16,
 
 	on_rightclick = function(self, clicker)
-
-		if mobs:feed_tame(self, clicker, 8, true, true) then
-			return
-		end
-
-		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
+		mobs:capture_mob(self, clicker, 0, 50, 80, false, nil)
 	end,
 
 })

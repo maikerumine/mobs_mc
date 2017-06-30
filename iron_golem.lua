@@ -16,7 +16,7 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	passive = true,
 	hp_min = 100,
 	hp_max = 100,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	collisionbox = {-0.7, -0.01, -0.7, 0.7, 2.69, 0.7},
 	visual = "mesh",
 	mesh = "mobs_mc_iron_golem.b3d",
 	textures = {
@@ -25,17 +25,17 @@ mobs:register_mob("mobs_mc:iron_golem", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	sounds = {
-		war_cry = "mobs_wolf_attack",
+		-- TODO
+		distance = 16,
 	},
 	view_range = 16,
 	stepheight = 1.1,
-	stepheight = 1.2,
 	owner = "",
 	order = "follow",
-	floats = {x=0,y=0,z=0},
-	walk_velocity = 4,
-	run_velocity = 4,
-	stepheight = 1.1,
+	floats = 0,
+	walk_velocity = 0.6,
+	run_velocity = 1.2,
+	-- Approximation
 	damage = 14,
 	group_attack = true,
 	attacks_monsters = true,
@@ -50,20 +50,18 @@ mobs:register_mob("mobs_mc:iron_golem", {
 		min = 0,
 		max = 2,},
 	},
-	drawtype = "front",
 	water_damage = 0,
-	lava_damage = 5,
+	lava_damage = 4,
 	light_damage = 0,
-
+	fall_damage = 0,
 	animation = {
-		speed_normal = 15,		speed_run = 25,
+		stand_speed = 15, walk_speed = 15, run_speed = 25, punch_speed = 15,
 		stand_start = 0,		stand_end = 0,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
-        punch_start = 40,  punch_end = 50,
+		punch_start = 40,  punch_end = 50,
 	},
 	jump = true,
-	step = 1,
 	blood_amount = 0,
 })
 

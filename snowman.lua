@@ -52,9 +52,8 @@ mobs:register_mob("mobs_mc:enderman", {
 	visual_size = {x=1.2, y=2.5},
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mobs_sandmonster",
-		death = "green_slime_death",
-		damage = "Creeperdeath",
+		-- TODO
+		distance = 16,
 	},
 	walk_velocity = 3.2,
 	run_velocity = 5.4,
@@ -90,7 +89,6 @@ mobs:register_mob("mobs_mc:enderman", {
 		punch_start = 74,
 		punch_end = 105,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,

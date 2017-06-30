@@ -13,18 +13,17 @@
 
 mobs:register_mob("mobs_mc:ghast", {
 	type = "monster",
-	pathfinding = true,
+	pathfinding = 1,
 	group_attack = true,
 	hp_min = 10,
 	hp_max = 10,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	collisionbox = {-2, 5, -2, 2, 9, 2},
 	visual = "mesh",
 	mesh = "mobs_mc_ghast.b3d",
 	textures = {
 		{"mobs_mc_ghast.png"},
 	},
-	visual_size = {x=4, y=4},
-	makes_footstep_sound = true,
+	visual_size = {x=12, y=12},
 	sounds = {
 		shoot = "mobs_fireball",
 		death = "zombiedeath",
@@ -32,8 +31,8 @@ mobs:register_mob("mobs_mc:ghast", {
 		attack = "mobs_fireball",
 		random = "mobs_eerie",
 	},
-	walk_velocity = .8,
-	run_velocity = 2.6,
+	walk_velocity = 1.6,
+	run_velocity = 3.2,
 	drops = {
 		{name = mobs_mc.items.gunpowder,
 		chance = 1,
@@ -45,17 +44,15 @@ mobs:register_mob("mobs_mc:ghast", {
 		max = 1,},
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 25,
+		stand_speed = 50, walk_speed = 50, run_speed = 50,
 		stand_start = 0,		stand_end = 40,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	drawtype = "front",
-	water_damage = 10,
-	lava_damage = 0,
+	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
-	view_range = 16,
+	view_range = 100,
 	--attack_type = "dogshoot",
 	attack_type = "dogshoot",
 	arrow = "mobs_monster:fireball",
@@ -70,9 +67,10 @@ mobs:register_mob("mobs_mc:ghast", {
 	jump_height = 4,
 	floats=1,
 	fly = true,
-	fly_in = {"air", "mcl_portals:nether_air"},
+	fly_in = {"air"},
 	jump_chance = 98,
 	fear_height = 120,	
+	blood_amount = 0,
 })
 
 

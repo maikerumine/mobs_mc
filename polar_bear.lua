@@ -42,7 +42,6 @@ mobs:register_mob("mobs_mc:polar_bear", {
 		max = 2,},
 
 	},
-	drawtype = "front",
 	water_damage = 0,
 	floats = 1,
 	lava_damage = 5,
@@ -50,6 +49,7 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	fear_height = 4,
 	sounds = {
 		random = "Cowhurt1", -- TODO: Replace
+		distance = 16,
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
