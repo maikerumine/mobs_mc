@@ -119,11 +119,15 @@ local horse = {
 				mobs.detach(clicker, {x = 1, y = 0, z = 1})
 
 			-- Put on saddle if tamed
-			elseif not self.driver
+			elseif not self.driver and not self.saddle
 			and clicker:get_wielded_item():get_name() == mobs_mc.items.saddle then
 
+				self.saddle = true
+
 				-- take saddle from inventory
-				inv:remove_item("main", mobs_mc.items.saddle)
+				local w = clicker:get_wielded_item()
+				w:take_item()
+				clicker:set_wielded_item(w)
 
 				-- Update texture
 				if not self._naked_texture then
@@ -140,12 +144,11 @@ local horse = {
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 
+			-- Used to capture horse with magic lasso
+			elseif not self.driver and clicker:get_wielded_item() == "" then
+				mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
 			end
-
 		end
-
-		-- used to capture horse with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
 	end
 }
 
