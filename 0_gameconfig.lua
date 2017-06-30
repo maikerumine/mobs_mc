@@ -83,6 +83,8 @@ mobs_mc.items = {
 	sugar = "default:papyrus",
 	wheat = "farming:wheat",
 	hay_bale = "farming:straw",
+	prismarine_shard = "default:mese_crystal_fragment",
+	prismarine_crystals = "default:mese_crystal",
 
 	-- Other
 	nether_brick_block = "nether:brick",
@@ -99,6 +101,7 @@ mobs_mc.items = {
 	slimeball = "mesecons_materials:glue",
 	apple = "default:apple",
 	golden_apple = "default:apple",
+	wet_sponge = "default:gold_block", -- only dropped elder guardian; there is no equivalent block in Minetest Game
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
