@@ -254,6 +254,7 @@ skeleton_horse.sounds = {
 	random = "skeleton1",
 	death = "skeletondeath",
 	damage = "skeletonhurt1",
+	distance = 16,
 }
 skeleton_horse.blood_amount = 0
 mobs:register_mob("mobs_mc:skeleton_horse", skeleton_horse)
@@ -271,6 +272,7 @@ zombie_horse.sounds = {
 	random = "zombie1",
 	death = "zombiedeath",
 	damage = "zombiehurt1",
+	distance = 16,
 }
 mobs:register_mob("mobs_mc:zombie_horse", zombie_horse)
 

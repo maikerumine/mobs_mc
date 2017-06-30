@@ -13,9 +13,10 @@
 
 mobs:register_mob("mobs_mc:villager_zombie", {
 	type = "monster",
-	hp_min = 35,
-	hp_max = 75,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	hp_min = 20,
+	hp_max = 20,
+	armor = 90,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_villager_zombie.b3d",
 	textures = {
@@ -28,11 +29,10 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
-	damage = 2,
+	damage = 3,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-		group_attack = true,
-		attack_type = "dogfight",
+	attack_type = "dogfight",
 	group_attack = true,
 	drops = {
 		{name = mobs_mc.items.rotten_flesh,
@@ -59,6 +59,7 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 		random = "Villager1",
 		death = "Villagerdead",
 		damage = "Villagerhurt1",
+		distance = 16,
 	},
 	animation = {
 		speed_normal = 25,
@@ -70,7 +71,6 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 		run_start = 0,
         run_end = 20,
 	},
-	drawtype = "front",
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 1,

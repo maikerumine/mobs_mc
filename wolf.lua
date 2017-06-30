@@ -42,7 +42,6 @@ local wolf = {
 	damage = 4,
 	attack_type = "dogfight",
 	fear_height = 4,
-	drawtype = "front",
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,

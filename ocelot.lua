@@ -36,7 +36,6 @@ local ocelot = {
 	walk_chance = default_walk_chance,
 	walk_velocity = 1,
 	run_velocity = 3,
-	drawtype = "front",
 	floats = 1,
 	runaway = true,
 	water_damage = 0,

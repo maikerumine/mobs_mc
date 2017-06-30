@@ -78,6 +78,7 @@ mobs_mc.items = {
 	emerald = "default:diamond",
 	iron_axe = "default:axe_steel",
 	gold_sword = "default:sword_mese",
+	gold_ingot = "default:gold_ingot",
 	gold_nugget = "default:gold_lump",
 	glowstone_dust = "default:mese_crystal_fragment",
 	redstone = "default:mese_crystal_fragment",

@@ -159,18 +159,4 @@ Skeleton
 
 Zombie pigman
 
-<img src="http://i.imgur.com/ZxgQDMQ.png">
 
-Boat
-
-<img src="http://i.imgur.com/XjDWqK7.png">
-
-banner
-
-<img src="http://i.imgur.com/sY0uuGo.png">
-
-Chest
-
-<img src="http://i.imgur.com/o2vYrbB.png">
-
-Shield 
