@@ -11,67 +11,65 @@
 
 
 local pigman = {
---mobs:register_mob("mobs_mc:pigman", {
-	type = "npc",--made npc to simulate they only attack when attacked first.
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	-- type="animal", passive=false: This combination is needed for a neutral mob which becomes hostile, if attacked
+	type = "animal",
+	passive = false,
+	hp_min = 20,
+	hp_max = 20,
+	armor = 90,
+	attack_type = "dogfight",
+	group_attack = true,
+	damage = 9,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_zombie_pigman.b3d",
 	textures = {{"mobs_mc_zombie_pigman.png"}},
 	visual_size = {x=3, y=3},
-	walk_velocity = 0.6,
-	run_velocity = 2,
+	sounds = {
+		random = "zombie1", -- TODO: replace
+		death = "zombiedeath", -- TODO: replace
+		damage = "zombiehurt1", -- TODO: replace
+		distance = 16,
+	},
 	jump = true,
-	hp_min = 20,
-	hp_max = 20,
 	makes_footstep_sound = true,
 	walk_velocity = .8,
 	run_velocity = 2.6,
-	damage = 9,
-	armor = 80,
-	pathfinding = true,
-	group_attack = true,
-	passive = false,
-	maxdrops = 2,
+	pathfinding = 1,
 	drops = {
 		{name = mobs_mc.items.rotten_flesh,
 		chance = 1,
 		min = 1,
 		max = 1,},
 		{name = mobs_mc.items.gold_nugget,
-		chance = 13,
+		chance = 1,
 		min = 0,
-		max = 2,},
+		max = 1,},
+		{name = mobs_mc.items.gold_ingot,
+		chance = 40, -- 2.5%
+		min = 1,
+		max = 1,},
 		{name = mobs_mc.items.gold_sword,
-		chance = 8,
+		chance = 12, -- 8.333%, approximation to 8.5%
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombiepig_head",
 		chance = 200,
 		min = 0,
 		max = 1,},
-		},
-		sounds = {
-			random = "Pig2",
-			death = "Pigdeath",
-			damage = "zombiehurt1",
-		},
-
-	animation = {
-		speed_normal = 30,		speed_run = 30,
-		stand_start = 0,		stand_end = 79,
-		walk_start = 168,		walk_end = 187,
-		run_start = 168,		run_end = 187,
-		punch_start = 200,		punch_end = 219,
 	},
-	drawtype = "front",
+	animation = {
+		stnd_speed = 25, walk_speed = 25, run_speed = 50, punch_speed = 25,
+		stand_start = 40, stand_end = 80,
+		walk_start = 0,	walk_end = 40,
+		run_start = 0, run_end = 40,
+		punch_start = 90, punch_end = 130,
+	},
 	water_damage = 1,
-	lava_damage = 5,
+	lava_damage = 0,
 	light_damage = 0,
-	fear_height = 3,
+	fear_height = 4,
 	view_range = 16,
-	attack_type = "dogfight",
 }
 
 mobs:register_mob("mobs_mc:pigman", pigman)

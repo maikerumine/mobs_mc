@@ -13,9 +13,9 @@
 
 mobs:register_mob("mobs_mc:villager", {
 	type = "npc",
-	hp_min = 35,
-	hp_max = 75,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	hp_min = 20,
+	hp_max = 20,
+	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_villager.b3d",
 	textures = {
@@ -26,35 +26,26 @@ mobs:register_mob("mobs_mc:villager", {
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
-	damage = 2,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	group_attack = true,
-	attack_type = "dogfight",
-	drops = {
-		{name = "default:apple",
-		chance = 10,
-		min = 1,
-		max = 2,},
-	},
-	armor = 90,
+	drops = {},
 	sounds = {
 		random = "Villager1",
 		death = "Villagerdead",
 		damage = "Villagerhurt1",
+		distance = 16,
 	},
 	animation = {
-		speed_normal = 25,		speed_run = 50,
+		stand_speed = 25, walk_speed = 25, run_speed = 50,
 		stand_start = 0,		stand_end = 0,
 		walk_start = 0,		walk_end = 40,
 		run_start = 0,		run_end = 40,
 	},
-	drawtype = "front",
-	water_damage = 1,
-	lava_damage = 5,
+	water_damage = 0,
+	lava_damage = 4,
 	light_damage = 0,
 	view_range = 16,
-	fear_height = 5,
+	fear_height = 4,
 	--[[
 	on_rightclick = function(self, clicker)
 		local inv
