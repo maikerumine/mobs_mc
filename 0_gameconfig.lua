@@ -131,6 +131,8 @@ mobs_mc.items = {
 	wool_magenta = "wool:magenta",
 	wool_black = "wool:black",
 	-- Light blue intentionally missing
+
+	music_discs = {}, -- No music discs by default; used by creeper. Override this if your subgame has music discs.
 }
 
 -- Tables for attracting, feeding and breeding mobs

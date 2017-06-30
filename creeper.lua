@@ -72,6 +72,14 @@ mobs:register_mob("mobs_mc:creeper", {
 			end
 		end
 	end,
+	on_die = function(self, pos)
+		-- Drop a random music disc
+		-- TODO: Only do this if killed by skeleton
+		if math.random(1, 200) == 1 then
+			local r = math.random(1, #mobs_mc.items.music_discs)
+			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, mobs_mc.items.music_discs[r])
+		end
+	end,
 	maxdrops = 2,
 	drops = {
 		{name = mobs_mc.items.gunpowder,
@@ -79,65 +87,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		min = 0,
 		max = 2,},
 
-		-- FIXME: Music disc drops
-		--[[
-		{name = "jdukebox:disc_1",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_2",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_3",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_4",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_5",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_6",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		]]
-		{name = "mcl_jukebox:record_1",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_2",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_3",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_4",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_5",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_6",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_7",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_8",
-		chance = 1600,
-		min = 1,
-		max = 1,},
 		{name = "mobs_mc:creeper_head",
 		chance = 200,
 		min = 1,
