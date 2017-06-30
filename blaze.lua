@@ -24,9 +24,9 @@ mobs:register_mob("mobs_mc:blaze", {
 	},
 	visual_size = {x=3, y=3},
 	sounds = {
-		random = "blaze_breath",
-		death = "blaze_died",
-		damage = "blaze_hurt1",
+		random = "mobs_mc_blaze_breath",
+		death = "mobs_mc_blaze_died",
+		damage = "mobs_mc_blaze_hurt",
 		distance = 16,
 	},
 	walk_velocity = .8,
