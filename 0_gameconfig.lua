@@ -48,8 +48,7 @@ mobs_mc.items = {
 	shulker_shell = "mobs_mc:shulker_shell",
 	magma_cream = "mobs_mc:magma_cream",
 	spider_eye = "mobs_mc:spider_eye",
-	snowball = "default:snow",
-	top_snow = "default:snow",
+	snowball = "mobs_mc:snowball",
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
 	nether_star = "mobs_mc:nether_star",
@@ -63,6 +62,7 @@ mobs_mc.items = {
 	shears = "mobs:shears",
 
 	-- Minetest Game
+	top_snow = "default:snow",
 	mushroom_red = "flowers:mushroom_red",
 	bucket = "bucket:bucket_empty",
 	grass_block = "default:dirt_with_grass",
