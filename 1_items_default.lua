@@ -512,6 +512,6 @@ if c("snowball") and minetest.get_modpath("default") then
 	-- Change the appearance of default snow to avoid confusion with snowball
 	minetest.override_item("default:snow", {
 		inventory_image = "",
-		wield_image = "default_snow.png",
+		wield_image = "",
 	})
 end
