@@ -3,6 +3,8 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+local snow_trail_frequency = 1
+
 mobs:register_mob("mobs_mc:snowman", {
 	type = "npc",
 	passive = true,
@@ -40,6 +42,28 @@ mobs:register_mob("mobs_mc:snowman", {
 		die_loop = false,
 	},
 	blood_amount = 0,
+	do_custom = function(self, dtime)
+		-- Leave a trail of top snow behind.
+		-- This is done in do_custom instead of just using replace_what because with replace_what,
+		-- the top snop may end up floating in the air.
+		if not self._snowtimer then
+			self._snowtimer = 0
+			return
+		end
+		self._snowtimer = self._snowtimer + dtime
+		if self.health > 0 and self._snowtimer > snow_trail_frequency then
+			local pos = self.object:getpos()
+			local below = {x=pos.x, y=pos.y-1, z=pos.z}
+			local def = minetest.registered_nodes[minetest.get_node(pos).name]
+			if def and def.buildable_to then
+				local belowdef = minetest.registered_nodes[minetest.get_node(below).name]
+				if belowdef and belowdef.walkable then
+					-- Place top snow
+					minetest.set_node(pos, {name = mobs_mc.items.top_snow})
+				end
+			end
+		end
+	end,
 })
 
 mobs:register_egg("mobs_mc:snowman", "Snow Golem", "mobs_mc_spawn_icon_snowman.png", 0)
