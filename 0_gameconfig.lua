@@ -71,6 +71,7 @@ mobs_mc.items = {
 	stick = "default:stick",
 	flint = "default:flint",
 	iron_ingot = "default:steel_ingot",
+	iron_block = "default:steelblock",
 	fire = "fire:basic_flame",
 	gunpowder = "tnt:gunpowder",
 	flint_and_steel = "fire:flint_and_steel",
