@@ -247,8 +247,8 @@ skeleton_horse.textures = {{"mobs_mc_horse_skeleton.png"}}
 skeleton_horse.drops = {
 	{name = mobs_mc.items.bone,
 	chance = 1,
-	min = 1,
-	max = 1,},
+	min = 0,
+	max = 2,},
 }
 skeleton_horse.sounds = {
 	random = "skeleton1",
@@ -265,8 +265,8 @@ zombie_horse.textures = {{"mobs_mc_horse_zombie.png"}}
 zombie_horse.drops = {
 	{name = mobs_mc.items.rotten_flesh,
 	chance = 1,
-	min = 1,
-	max = 1,},
+	min = 0,
+	max = 2,},
 }
 zombie_horse.sounds = {
 	random = "zombie1",

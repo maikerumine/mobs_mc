@@ -45,10 +45,10 @@ mobs:register_mob("mobs_mc:wither", {
 	attack_animals = true,
 	floats=1,
 	drops = {
-		{name = mobs_mc.items.emerald,
+		{name = mobs_mc.items.nether_star,
 		chance = 1,
-		min = 18,
-		max = 21},
+		min = 1,
+		max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 0,

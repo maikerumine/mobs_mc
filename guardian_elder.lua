@@ -33,11 +33,44 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 		run_start = 0,		run_end = 20,
 	},
 	drops = {
-		-- TODO: Implement correct drops
-		{name = mobs_mc.items.black_dye,
+		{name = mobs_mc.items.prismarine_shard,
+		chance = 1,
+		min = 0,
+		max = 2,},
+		-- TODO: Only drop if killed by player
+		{name = mobs_mc.items.wet_sponge,
 		chance = 1,
 		min = 1,
-		max = 3,},
+		max = 1,},
+
+		-- The following drops are approximations
+		-- Fish / prismarine crystal
+		{name = mobs_mc.items.fish_raw,
+		chance = 4,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.prismarine_crystals,
+		chance = 4,
+		min = 1,
+		max = 1,},
+
+		-- Rare drop: fish
+		{name = mobs_mc.items.fish_raw,
+		chance = 160, -- 2.5% / 4
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.salmon_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.clownfish_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.pufferfish_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
 	},
 	fly = true,
 	fly_in = mobs_mc.items.water_source,

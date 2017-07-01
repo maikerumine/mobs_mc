@@ -31,10 +31,10 @@ mobs:register_mob("mobs_mc:shulker", {
 	walk_chance = 0,
 	jump = false,
 	drops = {
-	{name = mobs_mc.items.shulker_shell,
-	chance = 3,
-	min = 1,
-	max = 1,},
+		{name = mobs_mc.items.shulker_shell,
+		chance = 1,
+		min = 0,
+		max = 1,},
 	},
 	animation = {
 		stand_speed = 25, walk_speed = 25, run_speed = 50, punch_speed = 25,
