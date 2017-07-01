@@ -63,6 +63,7 @@ mobs_mc.items = {
 
 	-- Minetest Game
 	top_snow = "default:snow",
+	snow_block = "default:snowblock",
 	mushroom_red = "flowers:mushroom_red",
 	bucket = "bucket:bucket_empty",
 	grass_block = "default:dirt_with_grass",
@@ -137,6 +138,7 @@ mobs_mc.items = {
 	wool_black = "wool:black",
 	-- Light blue intentionally missing
 
+	-- Special items
 	music_discs = {}, -- No music discs by default; used by creeper. Override this if your subgame has music discs.
 }
 

@@ -95,6 +95,41 @@ mobs:register_mob("mobs_mc:snowman", {
 	end,
 })
 
+-- This is to be called when a pumpkin or jack'o lantern has been placed. Recommended: In the on_construct function
+-- of the node.
+-- This summons a snow golen when pos is next to a row of two snow blocks.
+mobs_mc.tools.check_snow_golem_summon = function(pos)
+	local checks = {
+		-- These are the possible placement patterns
+		-- { snow block pos. 1, snow block pos. 2, snow golem spawn position }
+		{ {x=pos.x, y=pos.y-1, z=pos.z}, {x=pos.x, y=pos.y-2, z=pos.z}, {x=pos.x, y=pos.y-2.5, z=pos.z} },
+		{ {x=pos.x, y=pos.y+1, z=pos.z}, {x=pos.x, y=pos.y+2, z=pos.z}, {x=pos.x, y=pos.y-0.5, z=pos.z} },
+		{ {x=pos.x-1, y=pos.y, z=pos.z}, {x=pos.x-2, y=pos.y, z=pos.z}, {x=pos.x-2, y=pos.y-0.5, z=pos.z} },
+		{ {x=pos.x+1, y=pos.y, z=pos.z}, {x=pos.x+2, y=pos.y, z=pos.z}, {x=pos.x+2, y=pos.y-0.5, z=pos.z} },
+		{ {x=pos.x, y=pos.y, z=pos.z-1}, {x=pos.x, y=pos.y, z=pos.z-2}, {x=pos.x, y=pos.y-0.5, z=pos.z-2} },
+		{ {x=pos.x, y=pos.y, z=pos.z+1}, {x=pos.x, y=pos.y, z=pos.z+2}, {x=pos.x, y=pos.y-0.5, z=pos.z+2} },
+	}
+
+	for c=1, #checks do
+		local b1 = checks[c][1]
+		local b2 = checks[c][2]
+		local place = checks[c][3]
+		local b1n = minetest.get_node(b1)
+		local b2n = minetest.get_node(b2)
+		if b1n.name == mobs_mc.items.snow_block and b2n.name == mobs_mc.items.snow_block then
+			-- Remove the pumpkin and both snow blocks and summon the snow golem
+			minetest.remove_node(pos)
+			minetest.remove_node(b1)
+			minetest.remove_node(b2)
+			core.check_for_falling(pos)
+			core.check_for_falling(b1)
+			core.check_for_falling(b2)
+			minetest.add_entity(place, "mobs_mc:snowman")
+			break
+		end
+	end
+end
+
 mobs:register_egg("mobs_mc:snowman", "Snow Golem", "mobs_mc_spawn_icon_snowman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
