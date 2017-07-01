@@ -8,8 +8,9 @@ The following media licenses are used:
 * [CC0](https://creativecommons.org/choose/zero/)
 * [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 * [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-* [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html])
+* [GPL v3](https://www.gnu.org/licenses/gpl-3.0.html])
 * [MIT](https://opensource.org/licenses/MIT)
+* [LGPL v2.1](https://www.gnu.org/licenses/lgpl-2.1.html)
 
 Note: A “`*`” in a file name below is a placeholder which can stand for any text.
 
