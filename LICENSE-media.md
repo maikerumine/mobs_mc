@@ -51,17 +51,22 @@ Origin of those models:
 * Blender Foundation (CC BY 3.0)
     * `mobs_sheep.ogg`,
 * daufinsyd (MIT License)
+    * `mobs_mc_blaze_breath.ogg`
+    * `mobs_mc_blaze_died.ogg`
     * `mobs_mc_squid_hurt.ogg`
+* [thefilmbakery](https://freesound.org/people/thefilmbakery/) (CC0)
+    * `mobs_mc_blaze_hurt.ogg`
+	* Source: <https://freesound.org/people/thefilmbakery/sounds/137836/>
 * TenPlus1, from `mobs_monster` or `mobs_animal` mod (MIT License)
-    * `mobs_pig.ogg`
-    * `mobs_pig_angry.ogg`
+    * `mobs_chicken.ogg`
+    * `mobs_fireball.ogg`
     * `mobs_kitten.ogg`
     * `mobs_mc_llama.ogg`
-    * `mobs_chicken.ogg`
-    * `mobs_sandmonster.ogg`
+    * `mobs_pig.ogg`
+    * `mobs_pig_angry.ogg`
     * `mobs_rat.ogg`
-    * `mobs_kitten.ogg`
-    * `mobs_fireball.ogg`
+    * `mobs_sandmonster.ogg`
+    * `mobs_spider.ogg`
 * BrandonReese (LGPL v2.1)
     * `mobs_eerie.ogg`
 
