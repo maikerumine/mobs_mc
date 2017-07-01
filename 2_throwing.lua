@@ -275,7 +275,9 @@ if c("egg") then
 		local ent2 = obj:get_luaentity()
 		ent2.playername = player:get_player_name()
 
-		item:take_item()
+		if not minetest.settings:get_bool("creative_mode") then
+			item:take_item()
+		end
 
 		return item
 	end
@@ -354,7 +356,9 @@ if c("snowball") then
 		local ent2 = obj:get_luaentity()
 		ent2.playername = player:get_player_name()
 
-		item:take_item()
+		if not minetest.settings:get_bool("creative_mode") then
+			item:take_item()
+		end
 
 		return item
 	end
