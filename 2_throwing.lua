@@ -305,11 +305,17 @@ if c("snowball") then
 			}, nil)
 		end,
 
-		hit_mob = function(self, player)
+		hit_mob = function(self, mob)
+			-- Hurt blazes, but not damage to anything else
+			local dmg = {}
+			minetest.log("error", dump(mob))
+			if mob:get_luaentity().name == "mobs_mc:blaze" then
+				dmg = {fleshy = 3}
+			end
 			-- FIXME: No knockback
-			player:punch(self.object, 1.0, {
+			mob:punch(self.object, 1.0, {
 				full_punch_interval = 1.0,
-				damage_groups = {},
+				damage_groups = dmg,
 			}, nil)
 		end,
 
@@ -357,8 +363,7 @@ if c("snowball") then
 	-- Snowball
 	minetest.register_craftitem("mobs_mc:snowball", {
 		description = "Snowball",
-		_doc_items_longdesc = "Snowballs can be thrown by hand for fun. Hitting something with a snowball does nothing.",
-		_doc_items_usagehelp = how_to_throw,
+		_doc_items_longdesc = "Snowballs can be thrown for fun. A snowball deals 3 damage to blazes, but is harmless to anything else.",
 		inventory_image = "mcl_throwing_snowball.png",
 		on_use = mobs_shoot_snowball,
 	})
