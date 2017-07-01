@@ -3,109 +3,47 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
-
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
---###################
---################### SNOWMAN
---###################
---[[
-mobs:register_mob("mobs_mc:26snowman", {
-	type = "animal",
+mobs:register_mob("mobs_mc:snowman", {
+	type = "npc",
 	passive = true,
-    runaway = true,
-    stepheight = 1.2,
-	hp_min = 30,
-	hp_max = 60,
-	armor = 150,
-    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+	hp_min = 4,
+	hp_max = 4,
+	pathfinding = 1,
+	view_range = 16,
+	fall_damage = 0,
+	water_damage = 4,
+	lava_damage = 20,
+	attacks_monsters = true,
+	collisionbox = {-0.35, -0.01, -0.35, 0.35, 1.89, 0.35},
 	visual = "mesh",
-	mesh = "snowman.b3d",
+	mesh = "mobs_mc_snowman.b3d",
 	textures = {
-		{"snowman.png"},
+		{"mobs_mc_snowman.png^mobs_mc_snowman_pumpkin.png"},
 	},
+	gotten_texture = "mobs_mc_snowman.png",
+	drops = {{ name = mobs_mc.items.snowball, chance = 1, min = 0, max = 15 }},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,
 	run_velocity = 2,
 	jump = true,
 	animation = {
-		speed_normal = 25,		speed_run = 50,
-		stand_start = 40,		stand_end = 80,
-		walk_start = 0,		walk_end = 40,
-		run_start = 0,		run_end = 40,
+		speed_normal = 25,
+		speed_run = 50,
+		stand_start = 20,
+		stand_end = 40,
+		walk_start = 0,
+		walk_end = 20,
+		run_start = 0,
+		run_end = 20,
+		die_start = 40,
+		die_end = 50,
+		die_loop = false,
 	},
+	blood_amount = 0,
 })
 
-mobs:register_egg("mobs_mc:26snowman", "Snowman", "snowman_inv.png", 0)
-]]
-
-mobs:register_mob("mobs_mc:enderman", {
-	type = "monster",
-	hp_max = 79,
-	collisionbox = {-0.4, -2.4, -0.4, 0.4, 1.8, 0.4},
-	
-	visual = "mesh",
-	mesh = "mobs_mc_snowman.b3d",
-	textures = {
-	{"mobs_mc_snowman.png"}
-	},
-	visual_size = {x=1.2, y=2.5},
-	makes_footstep_sound = true,
-	sounds = {
-		-- TODO
-		distance = 16,
-	},
-	walk_velocity = 3.2,
-	run_velocity = 5.4,
-	damage = 3,
-	armor = 200,
-	drops = {
-		{name = "default:obsidian",
-		chance = 40,
-		min = 0,
-		max = 2,},
-		{name = "default:diamond",
-		chance = 61,
-		min = 1,
-		max = 1,},
-		{name = "farorb:farorb",
-		chance = 3,
-		min = 0,
-		max = 1,},
-		{name = "mobs_mc:enderman_head",
-		chance = 50,
-		min = 0,
-		max = 1,},
-	},
-	animation = {
-		speed_normal = 45,
-		speed_run = 15,
-		stand_start = 0,
-		stand_end = 39,
-		walk_start = 41,
-		walk_end = 72,
-		run_start = 74,
-		run_end = 105,
-		punch_start = 74,
-		punch_end = 105,
-	},
-	water_damage = 1,
-	lava_damage = 5,
-	light_damage = 0,
-	view_range = 16,
-	attack_type = "dogfight",
-	replace_rate = 1,
-	replace_what = {"default:torch","default:sand","default:desert_sand","default:cobble","default:dirt","default:dirt_with_glass","default:dirt_with_dry_grass","default:wood","default:stone","default:sandstone"},
-	replace_with = "air",
-	replace_offset = -1,
-
-})
-
-
--- spawn eggs
 mobs:register_egg("mobs_mc:snowman", "Snow Golem", "mobs_mc_spawn_icon_snowman.png", 0)
 
-
 if minetest.settings:get_bool("log_mods") then
-	minetest.log("action", "MC Enderman loaded")
+	minetest.log("action", "MC Snow Golem loaded")
 end
