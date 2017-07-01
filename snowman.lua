@@ -22,7 +22,7 @@ mobs:register_mob("mobs_mc:snowman", {
 	textures = {
 		{"mobs_mc_snowman.png^mobs_mc_snowman_pumpkin.png"},
 	},
-	gotten_texture = "mobs_mc_snowman.png",
+	gotten_texture = { "mobs_mc_snowman.png" },
 	drops = {{ name = mobs_mc.items.snowball, chance = 1, min = 0, max = 15 }},
 	visual_size = {x=3, y=3},
 	walk_velocity = 0.6,
@@ -70,6 +70,26 @@ mobs:register_mob("mobs_mc:snowman", {
 					-- Place top snow
 					minetest.set_node(pos, {name = mobs_mc.items.top_snow})
 				end
+			end
+		end
+	end,
+	-- Remove pumpkin if using shears
+	on_rightclick = function(self, clicker)
+		local item = clicker:get_wielded_item()
+		if self.gotten ~= true and item:get_name() == mobs_mc.items.shears then
+			-- Remove pumpkin
+			self.gotten = true
+			self.object:set_properties({
+				textures = {"mobs_mc_snowman.png"},
+			})
+
+			local pos = self.object:getpos()
+			minetest.sound_play("shears", {pos = pos})
+
+			-- Wear out
+			if not minetest.settings:get_bool("creative_mode") then
+				item:add_wear(300)
+				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 		end
 	end,
