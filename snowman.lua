@@ -3,7 +3,7 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
-local snow_trail_frequency = 1
+local snow_trail_frequency = 0.5 -- Time in seconds for checking to add a new snow trail
 
 mobs:register_mob("mobs_mc:snowman", {
 	type = "npc",
@@ -52,12 +52,16 @@ mobs:register_mob("mobs_mc:snowman", {
 		end
 		self._snowtimer = self._snowtimer + dtime
 		if self.health > 0 and self._snowtimer > snow_trail_frequency then
+			self._snowtimer = 0
 			local pos = self.object:getpos()
 			local below = {x=pos.x, y=pos.y-1, z=pos.z}
 			local def = minetest.registered_nodes[minetest.get_node(pos).name]
+			-- Node at snow golem's position must be replacable
 			if def and def.buildable_to then
+				-- Node below must be walkable
+				-- and a full cube (this prevents oddities like top snow on top snow, lower slabs, etc.)
 				local belowdef = minetest.registered_nodes[minetest.get_node(below).name]
-				if belowdef and belowdef.walkable then
+				if belowdef and belowdef.walkable and (belowdef.node_box == nil or belowdef.node_box.type == "regular") then
 					-- Place top snow
 					minetest.set_node(pos, {name = mobs_mc.items.top_snow})
 				end
