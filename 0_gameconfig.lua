@@ -246,9 +246,13 @@ mobs_mc.spawn = {
 	water = { mobs_mc.items.water_source, "mcl_core:water_source", "default:water_source" },
 }
 
+mobs_mc.misc = {
+	shears_wear = 276, -- Wear to add per shears usage (238 uses)
+}
+
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
-	local tables = {"items", "follow", "replace", "spawn"}
+	local tables = {"items", "follow", "replace", "spawn", "misc"}
 	for t=1, #tables do
 		local tbl = tables[t]
 		if mobs_mc.override[tbl] then
