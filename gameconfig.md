@@ -2,7 +2,7 @@
 
 This mod has been designed to make subgame integration rather easy. Ideally, it should be possible to include this mod verbatim in your subgame, with modifications only done by an external mod.
 
-To integrate this mod in a subgame, you have to do 2 things: Adding the mod, and adding another mod which tells `mobs_mc` which items to use. The idea is that `mobs_mc` should work with any items. Specifically, theres are the steps you need to follow
+To integrate this mod in a subgame, you have to do 2 things: Adding the mod, and adding another mod which tells `mobs_mc` which items to use. The idea is that `mobs_mc` should work with any items. Specifically, these are the steps you need to follow:
 
 * Add the `mobs_mc` mod and its dependencies
 * Add a mod with name “`mobs_mc_gameconfig`”
@@ -12,6 +12,10 @@ To integrate this mod in a subgame, you have to do 2 things: Adding the mod, and
     * Create the table `mobs_mc.override`
     * In `mobs_mc.override`, create subtables (`items`, `spawn`, etc.) like in `0_gameconfig.lua`, defining the na
     * Read `0_gameconfig.lua` to see which items you can override (and more explanations)
+* In `on_construct` of a pumpkin or jack'o lantern node, call:
+    * `mobs_mc.tools.check_iron_golem_summon(pos)`
+    * `mobs_mc.tools.check_snow_golem_summon(pos)`
+    * For more information, see `snowman.lua` and `iron_golem.lua`
 
 Some things to note:
 

@@ -178,7 +178,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				textures = self.base_texture,
 			})
 			if not minetest.settings:get_bool("creative_mode") then
-				item:add_wear(300)
+				item:add_wear(mobs_mc.misc.shears_wear)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 			self.drops = {

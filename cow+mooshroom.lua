@@ -92,7 +92,7 @@ mooshroom_def.on_rightclick = function(self, clicker)
 		cow:setyaw(oldyaw)
 
 		if not minetest.setting_getbool("creative_mode") then
-			item:add_wear(300)
+			item:add_wear(mobs_mc.misc.shears_wear)
 			clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 		end
 	-- Use bucket to milk
