@@ -1,27 +1,32 @@
---MCmobs v0.4
---maikerumine
---made for MC like Survival game
---License for code GPL or otherwise stated in readme's
+# MC-like mobs [`mobs_mc`]
 
+This mod adds mobs which closely resemble the mobs from the game Minecraft, version 1.12.
 
+## Credits
 
+* [maikerumine](https://github.com/maikerumine): Coding behaviour, spawning, drops, and misc.
+* [Wuzzy2](https://github.com/Wuzzy2): Zombies, husks, item textures, and code
+* [toby109tt](https://github.com/tobyplowy): Mapping fixes - better 2D planes
+* [22i](https://github.com/22i): Models (done in Blender) and mob icons for spawn eggs
+* See `LICENSE_media.md` for detailed credits about each file
 
-# amc
-test out the minecraft mobs in minetest most mob abilites are missing
+## Licensing
 
-#### Links [blender models](https://github.com/22i/minecraft-voxel-blender-models), [mobs_mc](https://github.com/maikerumine/mobs_mc), [how to recreate mobs from textures with Blender and Gimp](http://imgur.com/a/Iqg88)
+* Code: GNU General Public License, version 3 (see `LICENSE`)
+* Media: **WARNING!** Possibly includes non-free license (we will replace it soon). See `LICENSE_media.md`
 
-Minecraft mobs were remade in blender
+## Useful information for developers
 
-Credits:
-[toby109tt](https://github.com/tobyplowy) mapping fixes - better 2d planes
-[maikerumine](https://github.com/maikerumine) Coding behaviour, spawning, drops, and misc.
-[wuzzy2](https://github.com/Wuzzy2) Zombies, Husks, Item textures, and code.
-
-## Subgame integration
+### Subgame integration
 Want to include this mod in your subgame? Read `gameconfig.md`.
 
-## List of mobs
+### Links
+
+* [`mobs_mc`](https://github.com/maikerumine/mobs_mc)
+* [Blender models](https://github.com/22i/minecraft-voxel-blender-models)
+* [How to recreate mobs from textures with Blender and Gimp](http://imgur.com/a/Iqg88)
+
+## List of mobs (excerpt)
 
 <img src="http://i.imgur.com/sDrPv0I.png">
 
@@ -158,5 +163,4 @@ Skeleton
 <img src="http://i.imgur.com/NkZZudF.png">
 
 Zombie pigman
-
 
