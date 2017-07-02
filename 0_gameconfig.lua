@@ -48,6 +48,7 @@ mobs_mc.items = {
 	shulker_shell = "mobs_mc:shulker_shell",
 	magma_cream = "mobs_mc:magma_cream",
 	spider_eye = "mobs_mc:spider_eye",
+	snowball = "mobs_mc:snowball",
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
 	nether_star = "mobs_mc:nether_star",
@@ -61,6 +62,8 @@ mobs_mc.items = {
 	shears = "mobs:shears",
 
 	-- Minetest Game
+	top_snow = "default:snow",
+	snow_block = "default:snowblock",
 	mushroom_red = "flowers:mushroom_red",
 	bucket = "bucket:bucket_empty",
 	grass_block = "default:dirt_with_grass",
@@ -68,6 +71,7 @@ mobs_mc.items = {
 	stick = "default:stick",
 	flint = "default:flint",
 	iron_ingot = "default:steel_ingot",
+	iron_block = "default:steelblock",
 	fire = "fire:basic_flame",
 	gunpowder = "tnt:gunpowder",
 	flint_and_steel = "fire:flint_and_steel",
@@ -135,6 +139,7 @@ mobs_mc.items = {
 	wool_black = "wool:black",
 	-- Light blue intentionally missing
 
+	-- Special items
 	music_discs = {}, -- No music discs by default; used by creeper. Override this if your subgame has music discs.
 }
 
@@ -244,9 +249,13 @@ mobs_mc.spawn = {
 	water = { mobs_mc.items.water_source, "mcl_core:water_source", "default:water_source" },
 }
 
+mobs_mc.misc = {
+	shears_wear = 276, -- Wear to add per shears usage (238 uses)
+}
+
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
-	local tables = {"items", "follow", "replace", "spawn"}
+	local tables = {"items", "follow", "replace", "spawn", "misc"}
 	for t=1, #tables do
 		local tbl = tables[t]
 		if mobs_mc.override[tbl] then

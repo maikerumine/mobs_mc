@@ -495,3 +495,23 @@ if c("nether_star") then
 	})
 end
 
+if c("snowball") and minetest.get_modpath("default") then
+	minetest.register_craft({
+		output = "mobs_mc:snowball 2",
+		recipe = {
+			{"default:snow"},
+		},
+	})
+	minetest.register_craft({
+		output = "default:snow 2",
+		recipe = {
+			{"mobs_mc:snowball", "mobs_mc:snowball"},
+			{"mobs_mc:snowball", "mobs_mc:snowball"},
+		},
+	})
+	-- Change the appearance of default snow to avoid confusion with snowball
+	minetest.override_item("default:snow", {
+		inventory_image = "",
+		wield_image = "",
+	})
+end
