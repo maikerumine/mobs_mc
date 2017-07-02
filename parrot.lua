@@ -49,6 +49,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
+	fall_speed = -2.25,
 	attack_type = "dogfight",
 	jump = true,
 	jump_height = 4,
