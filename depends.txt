@@ -5,3 +5,4 @@ mcl_throwing?
 throwing?
 fishing?
 mobs_mc_gameconfig?
+intllib?
