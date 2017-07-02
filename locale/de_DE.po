@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 16:19+0200\n"
+"POT-Creation-Date: 2017-07-02 20:52+0200\n"
 "PO-Revision-Date: 2017-07-02 16:20+0200\n"
 "Last-Translator: Wuzzy <almikes@aol.com>\n"
 "Language-Team: \n"
@@ -188,6 +188,18 @@ msgstr "Bogen"
 #: 2_throwing.lua
 msgid "Egg"
 msgstr "Ei"
+
+#: 2_throwing.lua
+msgid "Snowball"
+msgstr "Schneeball"
+
+#: 2_throwing.lua
+msgid ""
+"Snowballs can be thrown at your enemies. A snowball deals 3 damage to "
+"blazes, but is harmless to anything else."
+msgstr ""
+"Werfen Sie Schnebälle auf Ihre Feinde. Ein Schneeball richtet gegenüber "
+"Lohen 3 Schaden an, ist aber harmlos für alles andere."
 
 #: bat.lua
 msgid "Bat"

@@ -369,8 +369,8 @@ if c("snowball") then
 
 	-- Snowball
 	minetest.register_craftitem("mobs_mc:snowball", {
-		description = "Snowball",
-		_doc_items_longdesc = "Snowballs can be thrown for fun. A snowball deals 3 damage to blazes, but is harmless to anything else.",
+		description = S("Snowball"),
+		_doc_items_longdesc = S("Snowballs can be thrown at your enemies. A snowball deals 3 damage to blazes, but is harmless to anything else."),
 		inventory_image = "mcl_throwing_snowball.png",
 		on_use = mobs_shoot_snowball,
 	})
