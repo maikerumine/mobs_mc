@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -321,11 +324,11 @@ mobs:register_spawn("mobs_mc:donkey", mobs_mc.spawn.grassland_savanna, minetest.
 mobs:alias_mob("mobs:horse", "mobs_mc:horse")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:horse", "Horse", "mobs_mc_spawn_icon_horse.png", 0)
-mobs:register_egg("mobs_mc:skeleton_horse", "Skeleton Horse", "mobs_mc_spawn_icon_horse_skeleton.png", 0)
-mobs:register_egg("mobs_mc:zombie_horse", "Zombie Horse", "mobs_mc_spawn_icon_horse_zombie.png", 0)
-mobs:register_egg("mobs_mc:donkey", "Donkey", "mobs_mc_spawn_icon_donkey.png", 0)
-mobs:register_egg("mobs_mc:mule", "Mule", "mobs_mc_spawn_icon_mule.png", 0)
+mobs:register_egg("mobs_mc:horse", S("Horse"), "mobs_mc_spawn_icon_horse.png", 0)
+mobs:register_egg("mobs_mc:skeleton_horse", S("Skeleton Horse"), "mobs_mc_spawn_icon_horse_skeleton.png", 0)
+mobs:register_egg("mobs_mc:zombie_horse", S("Zombie Horse"), "mobs_mc_spawn_icon_horse_zombie.png", 0)
+mobs:register_egg("mobs_mc:donkey", S("Donkey"), "mobs_mc_spawn_icon_donkey.png", 0)
+mobs:register_egg("mobs_mc:mule", S("Mule"), "mobs_mc_spawn_icon_mule.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -149,7 +152,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 	end
 })
 --Spawn egg
-mobs:register_egg("mobs_mc:wither", "Wither", "mobs_mc_spawn_icon_wither.png", 0)
+mobs:register_egg("mobs_mc:wither", S("Wither"), "mobs_mc_spawn_icon_wither.png", 0)
 
 --Compatibility
 mobs:alias_mob("nssm:mese_dragon", "mobs_mc:wither")	

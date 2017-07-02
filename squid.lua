@@ -4,7 +4,9 @@
 --################### SQUID
 --###################
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 mobs:register_mob("mobs_mc:squid", {
     type = "animal",
@@ -66,4 +68,4 @@ mobs:spawn_specific("mobs_mc:squid", mobs_mc.spawn.water, {mobs_mc.items.water_s
 mobs:alias_mob("mobs:squid", "mobs_mc:squid")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:squid", "Squid", "mobs_mc_spawn_icon_squid.png", 0)
+mobs:register_egg("mobs_mc:squid", S("Squid"), "mobs_mc_spawn_icon_squid.png", 0)

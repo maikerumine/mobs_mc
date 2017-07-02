@@ -1,8 +1,12 @@
 --MC Heads for minetest
 --maikerumine
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 minetest.register_node( "mobs_mc:creeper_head", {
-	description = "Creeper Head (WIP)",
+	description = S("Creeper Head (WIP)"),
 	tiles = {
 		"mobs_creeper_top.png",
 		"mobs_creeper_top.png",  --was bottom
@@ -27,7 +31,7 @@ minetest.register_node( "mobs_mc:creeper_head", {
 })
 
 minetest.register_node( "mobs_mc:enderman_head", {
-	description = "Enderman Head (WIP)",
+	description = S("Enderman Head (WIP)"),
 	tiles = {
 		"mobs_endermen_top.png",
 		"mobs_endermen_top.png",
@@ -52,7 +56,7 @@ minetest.register_node( "mobs_mc:enderman_head", {
 })
 
 minetest.register_node( "mobs_mc:ghast_head", {
-	description = "Ghast Head (WIP)",
+	description = S("Ghast Head (WIP)"),
 	tiles = {
 		"mobs_mc_ghast_white.png",
 		"mobs_mc_ghast_white.png",
@@ -77,7 +81,7 @@ minetest.register_node( "mobs_mc:ghast_head", {
 })
 
 minetest.register_node( "mobs_mc:skeleton_head", {
-	description = "Skeleton Skull (WIP)",
+	description = S("Skeleton Skull (WIP)"),
 	tiles = {
 		"mobs_skeleton_top.png",
 		"mobs_skeleton_top.png",
@@ -102,7 +106,7 @@ minetest.register_node( "mobs_mc:skeleton_head", {
 })
 
 minetest.register_node( "mobs_mc:skeleton2_head", {
-	description = "Wither Skeleton Skull (WIP)",
+	description = S("Wither Skeleton Skull (WIP)"),
 	tiles = {
 		"mobs_skeleton2_top.png",
 		"mobs_skeleton2_top.png",
@@ -127,7 +131,7 @@ minetest.register_node( "mobs_mc:skeleton2_head", {
 })
 
 minetest.register_node( "mobs_mc:spider_head", {
-	description = "Spider Head (WIP)",
+	description = S("Spider Head (WIP)"),
 	tiles = {
 		"mobs_spider_top.png",
 		"mobs_spider_top.png",
@@ -152,7 +156,7 @@ minetest.register_node( "mobs_mc:spider_head", {
 })
 
 minetest.register_node( "mobs_mc:zombie_head", {
-	description = "Zombie Head (WIP)",
+	description = S("Zombie Head (WIP)"),
 	tiles = {
 		"mobs_zombie_top.png",
 		"mobs_zombie_top.png",
@@ -177,7 +181,7 @@ minetest.register_node( "mobs_mc:zombie_head", {
 })
 
 minetest.register_node( "mobs_mc:zombiepig_head", {
-	description = "Zombie Pigmen Head (WIP)",
+	description = S("Zombie Pigman Head (WIP)"),
 	tiles = {
 		"mobs_zombiepig_top.png",
 		"mobs_zombiepig_top.png",

@@ -3,7 +3,9 @@
 -- Model and mobs_blaze.png see https://github.com/22i/minecraft-voxel-blender-models
 -- blaze.lua partial copy of mobs_mc/ghast.lua
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --###################
@@ -101,7 +103,7 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:blaze", "Blaze", "mobs_mc_spawn_icon_blaze.png", 0)
+mobs:register_egg("mobs_mc:blaze", S("Blaze"), "mobs_mc_spawn_icon_blaze.png", 0)
 
 
 

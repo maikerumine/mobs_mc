@@ -1,5 +1,8 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
@@ -94,7 +97,7 @@ mobs:register_mob("mobs_mc:chicken", {
 mobs:register_spawn("mobs_mc:chicken", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 7000, 3, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:chicken", "Chicken", "mobs_mc_spawn_icon_chicken.png", 0)
+mobs:register_egg("mobs_mc:chicken", S("Chicken"), "mobs_mc_spawn_icon_chicken.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC chicken loaded")

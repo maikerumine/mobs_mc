@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --###################
@@ -99,7 +102,7 @@ mobs:spawn_specific("mobs_mc:pigman", mobs_mc.spawn.nether_portal, {"air", "mcl_
 mobs:alias_mob("mobs:pigman", "mobs_mc:pigman")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pigman", "Zombie Pigman", "mobs_mc_spawn_icon_zombie_pigman.png", 0)
+mobs:register_egg("mobs_mc:pigman", S("Zombie Pigman"), "mobs_mc_spawn_icon_zombie_pigman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Pigmen loaded")

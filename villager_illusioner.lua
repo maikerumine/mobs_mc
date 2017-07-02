@@ -3,6 +3,10 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:illusioner", {
 	type = "monster",
 	attack_type = "shoot",
@@ -43,7 +47,7 @@ mobs:register_mob("mobs_mc:illusioner", {
 	lava_damage = 4,
 })
 
-mobs:register_egg("mobs_mc:illusioner", "Illusioner", "mobs_mc_spawn_icon_illusioner.png", 0)
+mobs:register_egg("mobs_mc:illusioner", S("Illusioner"), "mobs_mc_spawn_icon_illusioner.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Illusioner loaded")
