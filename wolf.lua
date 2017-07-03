@@ -9,11 +9,19 @@ local default_walk_chance = 50
 local pr = PseudoRandom(os.time()*10)
 
 local is_flesh = function(itemstring)
+	-- Minecraft items
 	return (itemstring == mobs_mc.items.rabbit_raw or
+	itemstring == mobs_mc.items.rabbit_cooked or
 	itemstring == mobs_mc.items.mutton_raw or
+	itemstring == mobs_mc.items.mutton_cooked or
 	itemstring == mobs_mc.items.beef_raw or
+	itemstring == mobs_mc.items.beef_cooked or
 	itemstring == mobs_mc.items.chicken_raw or
-	itemstring == mobs_mc.items.rotten_flesh)
+	itemstring == mobs_mc.items.chicken_cooked or
+	itemstring == mobs_mc.items.rotten_flesh or
+	-- Mobs Redo items
+	itemstring == "mobs:meat" or
+	itemstring == "mobs:meat_raw")
 end
 
 -- Wolf
@@ -50,10 +58,9 @@ local wolf = {
 	lava_damage = 4,
 	light_damage = 0,
 	on_rightclick = function(self, clicker)
-		-- Try to tame wolf
+		-- Try to tame wolf (intentionally does NOT use mobs:feed_tame)
 		local tool = clicker:get_wielded_item()
-		local dog
-		local ent
+		local dog, ent
 		if is_flesh(tool:get_name()) then
 			if not minetest.settings:get_bool("creative_mode") then
 				tool:take_item()
@@ -128,7 +135,12 @@ dog.owner_loyal = true
 dog.do_custom = mobs_mc.make_owner_teleport_function(12)
 dog.on_rightclick = function(self, clicker)
 	local item = clicker:get_wielded_item()
-	if is_flesh(item:get_name()) then
+
+	if mobs:protect(self, clicker) then
+		return
+	elseif item:get_name() ~= "" and mobs:capture_mob(self, clicker, 0, 2, 80, false, nil) then
+		return
+	elseif is_flesh(item:get_name()) then
 		-- Feed
 		local hp = self.object:get_hp()
 		if hp + 4 > self.hp_max then return end

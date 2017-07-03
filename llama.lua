@@ -103,10 +103,8 @@ mobs:register_mob("mobs_mc:llama", {
 			return
 		end
 
-		-- Feed, tame or heal llama
-		if mobs:feed_tame(self, clicker, 1, true, true) then
-			return
-		end
+		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		if mobs:protect(self, clicker) then return end
 
 		-- Make sure tamed llama is mature and being clicked by owner only
 		if self.tamed and not self.child and self.owner == clicker:get_player_name() then
@@ -125,9 +123,9 @@ mobs:register_mob("mobs_mc:llama", {
 				mobs.attach(self, clicker)
 			end
 
-		-- Used to capture llama with lasso
+		-- Used to capture llama
 		elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
-			mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+			mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
 		end
 	end
 

@@ -45,9 +45,13 @@ local cow_def = {
 	},
 	follow = mobs_mc.follow.cow,
 	on_rightclick = function(self, clicker)
+		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		if mobs:protect(self, clicker) then return end
+
 		if self.child then
 			return
 		end
+
 		local item = clicker:get_wielded_item()
 		if item:get_name() == mobs_mc.items.bucket and clicker:get_inventory() then
 			local inv = clicker:get_inventory()
@@ -60,6 +64,7 @@ local cow_def = {
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {name = mobs_mc.items.milk})
 			end
+			return
 		end
 		mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
 	end,
@@ -76,6 +81,9 @@ local mooshroom_def = table.copy(cow_def)
 mooshroom_def.mesh = "mobs_mc_mooshroom.b3d"
 mooshroom_def.textures = { {"mobs_mc_mooshroom.png"}, }
 mooshroom_def.on_rightclick = function(self, clicker)
+	if mobs:feed_tame(self, clicker, 1, true, true) then return end
+	if mobs:protect(self, clicker) then return end
+
 	if self.child then
 		return
 	end

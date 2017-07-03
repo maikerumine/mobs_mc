@@ -33,9 +33,6 @@ mobs:register_mob("mobs_mc:endermite", {
 	fear_height = 4,
 	view_range = 16,
 	damage = 2,
-	on_rightclick = function(self, clicker)
-		mobs:capture_mob(self, clicker, 25, 80, 0, true, nil)
-	end,
 	blood_amount = 0,
 })
 

@@ -137,30 +137,10 @@ mobs:register_mob("mobs_mc:sheep", {
 	
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
-		if item:get_name() == mobs_mc.items.wheat then
-			if not self.tamed then
-				if not minetest.settings:get_bool("creative_mode") then
-					item:take_item()
-					clicker:set_wielded_item(item)
-				end
-				self.tamed = true
-			elseif self.gotten then
-				if not minetest.settings:get_bool("creative_mode") then
-					item:take_item()
-					clicker:set_wielded_item(item)
-				end
-				self.food = (self.food or 0) + 1
-				if self.food >= 4 then
-					self.food = 0
-					self.gotten = false
-					self.base_texture = colors[self.color][2]
-					self.object:set_properties({
-						textures = self.base_texture, --was sheep.png
-					})
-				end
-			end
-			return
-		end
+
+		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		if mobs:protect(self, clicker) then return end
+
 		if item:get_name() == mobs_mc.items.shears and not self.gotten then
 			self.gotten = true
 			local pos = self.object:getpos()
@@ -187,6 +167,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				min = 1,
 				max = 2,},
 			}
+			return
 		end
 		-- Dye sheep
 		if minetest.get_item_group(item:get_name(), "dye") == 1 and not self.gotten then
@@ -211,7 +192,9 @@ mobs:register_mob("mobs_mc:sheep", {
 					break
 				end
 			end
+			return
 		end
+		if mobs:capture_mob(self, clicker, 0, 5, 70, false, nil) then return end
 	end,
 })
 mobs:register_spawn("mobs_mc:sheep", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 0, 15000, 3, 31000)

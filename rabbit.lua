@@ -53,13 +53,10 @@ local rabbit = {
 	replace_rate = 10,
 	replace_what = mobs_mc.replace.rabbit,
 	on_rightclick = function(self, clicker)
-
-		-- feed or tame
-		if mobs:feed_tame(self, clicker, 4, true, true) then
-			return
-		end
-
-		mobs:capture_mob(self, clicker, 30, 50, 80, false, nil)
+		-- Feed, tame protect or capture
+		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		if mobs:protect(self, clicker) then return end
+		if mobs:capture_mob(self, clicker, 0, 50, 80, false, nil) then return end
 	end,
 	do_custom = function(self)
 		-- Easter egg: Change texture if rabbit is named “Toast”
