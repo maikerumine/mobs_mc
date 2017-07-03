@@ -53,6 +53,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	water_damage = 2,
 	lava_damage = 0,
 	fall_damage = 0,
+	fall_speed = -2.25,
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "dogshoot",
