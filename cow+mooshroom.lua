@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 local cow_def = {
 	type = "animal",
 	hp_min = 10,
@@ -130,8 +134,8 @@ mobs:register_spawn("mobs_mc:mooshroom", mobs_mc.spawn.mushroom_island, minetest
 mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 
 -- spawn egg
-mobs:register_egg("mobs_mc:cow", "Cow", "mobs_mc_spawn_icon_cow.png", 0)
-mobs:register_egg("mobs_mc:mooshroom", "Mooshroom", "mobs_mc_spawn_icon_mooshroom.png", 0)
+mobs:register_egg("mobs_mc:cow", S("Cow"), "mobs_mc_spawn_icon_cow.png", 0)
+mobs:register_egg("mobs_mc:mooshroom", S("Mooshroom"), "mobs_mc_spawn_icon_mooshroom.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")

@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -78,7 +81,7 @@ mobs:register_arrow("mobs_mc:shulkerbullet", {
 })
 
 
-mobs:register_egg("mobs_mc:shulker", "Shulker", "mobs_mc_spawn_icon_shulker.png", 0)
+mobs:register_egg("mobs_mc:shulker", S("Shulker"), "mobs_mc_spawn_icon_shulker.png", 0)
 
 mobs:spawn_specific("mobs_mc:shulker", mobs_mc.spawn.end_city, 0, minetest.LIGHT_MAX+1, 5, 3, 1, -31000, -5000)
 

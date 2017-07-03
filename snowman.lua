@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 local snow_trail_frequency = 0.5 -- Time in seconds for checking to add a new snow trail
 
 mobs:register_mob("mobs_mc:snowman", {
@@ -130,7 +133,8 @@ mobs_mc.tools.check_snow_golem_summon = function(pos)
 	end
 end
 
-mobs:register_egg("mobs_mc:snowman", "Snow Golem", "mobs_mc_spawn_icon_snowman.png", 0)
+-- Spawn egg
+mobs:register_egg("mobs_mc:snowman", S("Snow Golem"), "mobs_mc_spawn_icon_snowman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Snow Golem loaded")

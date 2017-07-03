@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --maikerumines throwing code
 --arrow (weapon)
@@ -130,7 +133,7 @@ end
 
 if c("arrow") then
 	minetest.register_craftitem("mobs_mc:arrow", {
-		description = "Arrow",
+		description = S("Arrow"),
 		inventory_image = "throwing_arrow_2.png",
 	})
 end
@@ -148,7 +151,7 @@ end
 
 if c("bow") then
 	minetest.register_tool("mobs_mc:bow_wood", {
-		description = "Bow",
+		description = S("Bow"),
 		inventory_image = "mobs_mc_bow.png",
 		on_use = function(itemstack, user, pointed_thing)
 			if throwing_shoot_arrow(itemstack, user, pointed_thing) then
@@ -283,7 +286,7 @@ if c("egg") then
 	end
 
 	minetest.register_craftitem("mobs_mc:egg", {
-		description = "Egg",
+		description = S("Egg"),
 		inventory_image = "mobs_chicken_egg.png",
 		on_use = mobs_shoot_egg,
 	})
@@ -366,8 +369,8 @@ if c("snowball") then
 
 	-- Snowball
 	minetest.register_craftitem("mobs_mc:snowball", {
-		description = "Snowball",
-		_doc_items_longdesc = "Snowballs can be thrown for fun. A snowball deals 3 damage to blazes, but is harmless to anything else.",
+		description = S("Snowball"),
+		_doc_items_longdesc = S("Snowballs can be thrown at your enemies. A snowball deals 3 damage to blazes, but is harmless to anything else."),
 		inventory_image = "mcl_throwing_snowball.png",
 		on_use = mobs_shoot_snowball,
 	})

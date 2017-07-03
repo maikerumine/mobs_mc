@@ -3,6 +3,10 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 --###################
 --################### OCELOT AND CAT
 --###################
@@ -196,7 +200,7 @@ mobs:alias_mob("mobs:kitten", "mobs_mc:ocelot")
 
 -- spawn eggs
 -- FIXME: The spawn icon shows a cat texture, not an ocelot texture
-mobs:register_egg("mobs_mc:ocelot", "Ocelot", "mobs_mc_spawn_icon_cat.png", 0)
+mobs:register_egg("mobs_mc:ocelot", S("Ocelot"), "mobs_mc_spawn_icon_cat.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ocelot loaded")

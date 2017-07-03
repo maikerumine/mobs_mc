@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:pig", {
 	type = "animal",
 	runaway = true,
@@ -171,7 +175,7 @@ mobs:register_spawn("mobs_mc:pig", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1
 mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pig", "Pig", "mobs_mc_spawn_icon_pig.png", 0)
+mobs:register_egg("mobs_mc:pig", S("Pig"), "mobs_mc_spawn_icon_pig.png", 0)
 
 
 if minetest.settings:get("log_mods") then

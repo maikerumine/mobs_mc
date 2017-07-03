@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:bat", {
 	type = "animal",
 	passive = true,
@@ -54,7 +58,7 @@ mobs:spawn_specific("mobs_mc:bat", mobs_mc.spawn.solid,{"air"},0, maxlight, 20, 
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:bat", "Bat", "mobs_mc_spawn_icon_bat.png", 0)
+mobs:register_egg("mobs_mc:bat", S("Bat"), "mobs_mc_spawn_icon_bat.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

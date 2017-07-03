@@ -1,8 +1,11 @@
-
-	
 --###################
 --################### ENDERDRAGON
 --###################
+
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 --[[
 mobs:register_mob("mobs_mc:12enderdragon", {
 	type = "animal",
@@ -175,5 +178,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "mobs_mc_spawn_icon_enderdragon.png", 0)
+mobs:register_egg("mobs_mc:enderdragon", S("Ender Dragon"), "mobs_mc_spawn_icon_enderdragon.png", 0)
 

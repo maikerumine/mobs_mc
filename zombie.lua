@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -121,8 +124,8 @@ mobs:register_spawn("mobs_mc:baby_husk", mobs_mc.spawn.desert, 7, 0, 65000, 4, 3
 mobs:alias_mob("mobs:zombie", "mobs_mc:zombie")
 
 -- Spawn eggs
-mobs:register_egg("mobs_mc:husk", "Husk", "spawn_egg_husk.png", 0) -- TODO: Replace spawn icon
-mobs:register_egg("mobs_mc:zombie", "Zombie", "mobs_mc_spawn_icon_zombie.png", 0)
+mobs:register_egg("mobs_mc:husk", S("Husk"), "spawn_egg_husk.png", 0) -- TODO: Replace spawn icon
+mobs:register_egg("mobs_mc:zombie", S("Zombie"), "mobs_mc_spawn_icon_zombie.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Zombie loaded")

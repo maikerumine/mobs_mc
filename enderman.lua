@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -147,7 +150,7 @@ mobs:register_mob("mobs_mc:enderman", {
 mobs:register_spawn("mobs_mc:enderman", mobs_mc.spawn.desert, 7, 0, 9000, -31000, 31000)
 mobs:register_spawn("mobs_mc:enderman", mobs_mc.end_city, minetest.LIGHT_MAX+1, 0, 9000, -31000, -5000)
 -- spawn eggs
-mobs:register_egg("mobs_mc:enderman", "Enderman", "mobs_mc_spawn_icon_enderman.png", 0)
+mobs:register_egg("mobs_mc:enderman", S("Enderman"), "mobs_mc_spawn_icon_enderman.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 

@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 local rabbit = {
 	type = "animal",
 	passive = true,
@@ -159,10 +163,10 @@ end
 mobs:spawn(spawn_grass)
 
 -- Spawn egg
-mobs:register_egg("mobs_mc:rabbit", "Rabbit", "mobs_mc_spawn_icon_rabbit.png", 0)
+mobs:register_egg("mobs_mc:rabbit", S("Rabbit"), "mobs_mc_spawn_icon_rabbit.png", 0)
 
 -- Note: This spawn egg does not exist in Minecraft
-mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "mobs_mc_spawn_icon_rabbit.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
+mobs:register_egg("mobs_mc:killer_bunny", S("Killer Bunny"), "mobs_mc_spawn_icon_rabbit.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
 
 
 -- compatibility

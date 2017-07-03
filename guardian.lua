@@ -4,6 +4,10 @@
 --################### GUARDIAN
 --###################
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:guardian", {
 	type = "monster",
 	hp_min = 30,
@@ -79,4 +83,4 @@ mobs:register_mob("mobs_mc:guardian", {
 mobs:register_spawn("mobs_mc:guardian", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:guardian", "Guardian", "mobs_mc_spawn_icon_guardian.png", 0)
+mobs:register_egg("mobs_mc:guardian", S("Guardian"), "mobs_mc_spawn_icon_guardian.png", 0)
