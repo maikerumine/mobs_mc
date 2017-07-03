@@ -40,6 +40,9 @@ end
 local can_equip_chest = function(entity_id)
 	return entity_id == "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
 end
+local can_breed = function(entity_id)
+	return entity_id == "mobs_mc:horse" or "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
+end
 
 --[[ Generate all possible horse textures.
 Horse textures are a combination of a base texture and an optional marking overlay. ]]
@@ -158,7 +161,13 @@ local horse = {
 			return
 		end
 
-		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		local item = clicker:get_wielded_item()
+		if can_breed(self.name) and (item:get_name() == mobs_mc.items.golden_apple or item:get_name() == mobs_mc.items.golden_carrot) then
+			-- Breed horse with golden apple or golden carrot
+			if mobs:feed_tame(self, clicker, 1, true, false) then return end
+		end
+		-- Feed/tame with anything else
+		if mobs:feed_tame(self, clicker, 1, false, true) then return end
 		if mobs:protect(self, clicker) then return end
 
 		-- Make sure tamed horse is mature and being clicked by owner only
