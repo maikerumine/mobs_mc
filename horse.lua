@@ -97,6 +97,8 @@ local horse = {
 	lava_damage = 4,
 	water_damage = 1,
 	makes_footstep_sound = true,
+	jump = true,
+	jump_height = 5.75, -- can clear 2.5 blocks
 	drops = {
 		{name = mobs_mc.items.leather,
 		chance = 1,
@@ -167,6 +169,7 @@ local horse = {
 			if mobs:feed_tame(self, clicker, 1, true, false) then return end
 		end
 		-- Feed/tame with anything else
+		-- TODO: Different health bonus for feeding
 		if mobs:feed_tame(self, clicker, 1, false, true) then return end
 		if mobs:protect(self, clicker) then return end
 
@@ -304,6 +307,9 @@ donkey.collisionbox = {
 	horse.collisionbox[5] * d,
 	horse.collisionbox[6] * d,
 }
+donkey.jump = true
+donkey.jump_height = 3.75 -- can clear 1 block height
+
 mobs:register_mob("mobs_mc:donkey", donkey)
 
 -- Mule
