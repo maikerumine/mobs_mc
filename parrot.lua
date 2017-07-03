@@ -79,7 +79,7 @@ mobs:register_mob("mobs_mc:parrot", {
 		end
 
 		-- Feed to tame, but not breed
-		if mobs:feed_tame(self, clicker, 1, true, false) then return end
+		if mobs:feed_tame(self, clicker, 1, false, true) then return end
 		if mobs:protect(self, clicker) then return end
 		if mobs:capture_mob(self, clicker, 0, 50, 80, false, nil) then return end
 	end,
