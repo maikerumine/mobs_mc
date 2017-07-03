@@ -103,7 +103,14 @@ mobs:register_mob("mobs_mc:llama", {
 			return
 		end
 
-		if mobs:feed_tame(self, clicker, 1, true, true) then return end
+		local item = clicker:get_wielded_item()
+		if item:get_name() == mobs_mc.items.hay_bale then
+			-- Breed with hay bale
+			if mobs:feed_tame(self, clicker, 1, true, false) then return end
+		else
+			-- Feed with anything else
+			if mobs:feed_tame(self, clicker, 1, false, true) then return end
+		end
 		if mobs:protect(self, clicker) then return end
 
 		-- Make sure tamed llama is mature and being clicked by owner only
