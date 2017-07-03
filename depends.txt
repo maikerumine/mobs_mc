@@ -4,5 +4,6 @@ tnt?
 mcl_throwing?
 throwing?
 fishing?
+bones?
 mobs_mc_gameconfig?
 intllib?
