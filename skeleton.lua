@@ -93,7 +93,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 
 --spawn
-mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"},0, 7, 20, 7000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"},0, 7, 20, 17000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:skeleton", S("Skeleton"), "mobs_mc_spawn_icon_skeleton.png", 0)

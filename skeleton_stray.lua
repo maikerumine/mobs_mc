@@ -89,7 +89,7 @@ mobs:register_mob("mobs_mc:stray", {
 })
 
 --spawn
-mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 19000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:stray", S("Stray"), "mobs_mc_spawn_icon_stray.png", 0)
