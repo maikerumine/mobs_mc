@@ -16,7 +16,7 @@ local S, NS = dofile(MP.."/intllib.lua")
 
 
 
-mobs:register_mob("mobs_mc:skeleton", {
+local skeleton = {
 	type = "monster",
 	hp_min = 20,
 	hp_max = 20,
@@ -86,17 +86,44 @@ mobs:register_mob("mobs_mc:skeleton", {
 	dogshoot_switch = 1,
 	dogshoot_count_max =1.8,
 	blood_amount = 0,
+}
+
+mobs:register_mob("mobs_mc:skeleton", skeleton)
+
+
+--###################
+--################### STRAY
+--###################
+
+local stray = table.copy(skeleton)
+stray.mesh = "mobs_mc_stray.b3d"
+stray.textures = {
+	{"mobs_mc_stray.png"},
+}
+-- TODO: different sound (w/ echo)
+-- TODO: stray's arrow inflicts slowness status
+table.insert(stray.drops, {
+	-- Chance to drop additional arrow.
+	-- TODO: Should be tipped arrow of slowness
+	name = mobs_mc.items.arrow,
+	chance = 2,
+	min = 1,
+	max = 1,
 })
 
+mobs:register_mob("mobs_mc:stray", stray)
 
 -- compatibility
 mobs:alias_mob("mobs:skeleton", "mobs_mc:skeleton")
 
 --spawn
-mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"},0, 7, 20, 17000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:skeleton", mobs_mc.spawn.solid,{"air"}, 0, 7, 20, 17000, 2, -110, 31000)
+-- TODO: Spawn directly under the sky
+mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, 0, 7, 20, 19000, 2, -110, 31000)
 
 -- spawn eggs
 mobs:register_egg("mobs_mc:skeleton", S("Skeleton"), "mobs_mc_spawn_icon_skeleton.png", 0)
+mobs:register_egg("mobs_mc:stray", S("Stray"), "mobs_mc_spawn_icon_stray.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Skeleton loaded")

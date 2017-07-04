@@ -62,9 +62,26 @@ mobs:register_mob("mobs_mc:parrot", {
 	fly_in = {"air"},
 	fear_height = 4,
 	view_range = 16,
-
+	follow = mobs_mc.follow.parrot,
 	on_rightclick = function(self, clicker)
-		mobs:capture_mob(self, clicker, 0, 50, 80, false, nil)
+		if self._doomed then return end
+		local item = clicker:get_wielded_item()
+		-- Kill parrot if fed with cookie
+		if item:get_name() == mobs_mc.items.cookie then
+			self.health = 0
+			-- Doomed to die
+			self._doomed = true
+			if not minetest.settings:get_bool("creative_mode") then
+				item:take_item()
+				clicker:set_wielded_item(item)
+			end
+			return
+		end
+
+		-- Feed to tame, but not breed
+		if mobs:feed_tame(self, clicker, 1, false, true) then return end
+		if mobs:protect(self, clicker) then return end
+		if mobs:capture_mob(self, clicker, 0, 50, 80, false, nil) then return end
 	end,
 
 })

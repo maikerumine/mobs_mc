@@ -66,10 +66,8 @@ local ocelot = {
 	attack_animals = true,
 	specific_attack = { "mobs_mc:chicken" },
 	on_rightclick = function(self, clicker)
-		if self.child then
-			return
-		end
-		-- Try to tame ocelot
+		if self.child then return end
+		-- Try to tame ocelot (mobs:feed_tame is intentionally NOT used)
 		local item = clicker:get_wielded_item()
 		if is_food(item:get_name()) then
 			if not minetest.settings:get_bool("creative_mode") then
@@ -85,11 +83,10 @@ local ocelot = {
 				ent.owner = clicker:get_player_name()
 				ent.tamed = true
 				self.object:remove()
+				return
 			end
 		end
 
-		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 30, 50, 80, false, nil) then return end
 	end,
 }
 
@@ -106,12 +103,11 @@ cat.runaway = false
 -- Automatically teleport cat to owner
 cat.do_custom = mobs_mc.make_owner_teleport_function(12)
 cat.on_rightclick = function(self, clicker)
-	if self.child then
-		return
-	end
-	if mobs:feed_tame(self, clicker, 1, true, false) then
-		return
-	end
+	if mobs:feed_tame(self, clicker, 1, true, false) then return end
+	if mobs:capture_mob(self, clicker, 0, 60, 5, false, nil) then return end
+	if mobs:protect(self, clicker) then return end
+
+	if self.child then return end
 
 	-- Toggle sitting order
 
@@ -132,7 +128,6 @@ cat.on_rightclick = function(self, clicker)
 		self.jump = false
 	end
 
-	if mobs:protect(self, clicker) then return end
 end
 
 mobs:register_mob("mobs_mc:cat", cat)
