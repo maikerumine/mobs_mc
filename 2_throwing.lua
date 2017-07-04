@@ -34,7 +34,7 @@ minetest.register_node("mobs_mc:arrow_box", {
 			{7.5/17, -2.5/17, -2.5/17, 8.5/17, -3.5/17, -3.5/17},
 		}
 	},
-	tiles = {"throwing_arrow.png", "throwing_arrow.png", "throwing_arrow_back.png", "throwing_arrow_front.png", "throwing_arrow_2.png", "throwing_arrow.png"},
+	tiles = {"mcl_throwing_arrow.png^[transformFX", "mcl_throwing_arrow.png^[transformFX", "mcl_throwing_arrow_back.png", "mcl_throwing_arrow_front.png", "mcl_throwing_arrow.png", "mcl_throwing_arrow.png^[transformFX"},
 	groups = {not_in_creative_inventory=1},
 })
 
@@ -134,7 +134,7 @@ end
 if c("arrow") then
 	minetest.register_craftitem("mobs_mc:arrow", {
 		description = S("Arrow"),
-		inventory_image = "throwing_arrow_2.png",
+		inventory_image = "mcl_throwing_arrow_inv.png",
 	})
 end
 
@@ -152,7 +152,7 @@ end
 if c("bow") then
 	minetest.register_tool("mobs_mc:bow_wood", {
 		description = S("Bow"),
-		inventory_image = "mobs_mc_bow.png",
+		inventory_image = "mcl_throwing_bow.png",
 		on_use = function(itemstack, user, pointed_thing)
 			if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 				if not minetest.settings:get_bool("creative_mode") then
