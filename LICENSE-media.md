@@ -9,27 +9,30 @@ The following media licenses are used:
 * [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 * [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 * [GPL v3](https://www.gnu.org/licenses/gpl-3.0.html])
-* [MIT](https://opensource.org/licenses/MIT)
+* [MIT License](https://opensource.org/licenses/MIT)
 * [LGPL v2.1](https://www.gnu.org/licenses/lgpl-2.1.html)
 
 Note: A “`*`” in a file name below is a placeholder which can stand for any text.
 
 ## Models
-All models were done by [22i](https://github.com/22i) and are licensed under GPLv3.
+All models (except `mobs_sheep.x`) were done by [22i](https://github.com/22i) and are licensed under GPLv3.
 
 Origin of those models:
 
 * [Mod “amc”](https://github.com/22i/amc/)
 * [Repository with Blender source files for models](https://github.com/22i/minecraft-voxel-blender-models)
 
-## Textures (W.I.P.)
+`mobs_sheep.x` is done by TenPlus1 (MIT License).
 
-* Mob and most item textures come from from [Faithful Vanilla](https://minecraft.curseforge.com/projects/faithful-vanilla)
-    * **WARNING**: Licensing status of Faithful Vanilla is currently dubious, so if you're paranoid, assume full copyright. We plan to replace the textures.
-* “Spawn egg” textures: 22i
+## Textures
+
+* Most mob and item textures from [Pixel Perfection](https://www.planetminecraft.com/texture_pack/131pixel-perfection/), a texture pack for Minecraft.
+    * Author: [XSSheep](https://www.planetminecraft.com/member/xssheep/)
+    * License: CC BY-SA 4.0
+* Sheep textures by TenPlus1 (MIT License)
+* “Spawn egg” textures (`mobs_mc_spawn_icon_*`) by 22i
 * Mob head textures: **UNKNOWN!**
-* `throwing_*`: Jeija (CC0)
-* Anything else: **UNKNOWN!**
+* Any other texture not mentioned here are licensed under the MIT License
 
 ## Sounds
 
