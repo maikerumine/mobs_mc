@@ -46,8 +46,8 @@ mobs:register_mob("mobs_mc:sheep", {
 	visual = "mesh",
 	visual_size = {x=3, y=3},
 	mesh = "mobs_mc_sheepfur.b3d",
+	gotten_mesh = "mobs_mc_sheepnaked.b3d",
 	textures = { sheep_texture("unicolor_white") },
-	gotten_texture = { sheep_texture("unicolor_white") },
 	color = "unicolor_white",
 	makes_footstep_sound = true,
 	walk_velocity = 1,
@@ -83,6 +83,9 @@ mobs:register_mob("mobs_mc:sheep", {
 	-- Eat grass
 	replace_rate = 20,
 	replace_what = mobs_mc.replace.sheep,
+	-- FIXME: Visual sheep color resets to white after replace
+	-- FIXME: Wool drop is not added back after regrowing
+	-- We need on_replace from Mobs Redo! :-/
 
 	-- Set random color on spawn
 	do_custom = function(self)
@@ -108,7 +111,7 @@ mobs:register_mob("mobs_mc:sheep", {
 				-- 0.164%
 				self.color = "unicolor_light_red"
 			end
-			self.base_texture = colors[self.color][2]
+			self.base_texture = sheep_texture(self.color)
 			self.object:set_properties({ textures = self.base_texture })
 			self.drops = {
 				{name = mobs_mc.items.mutton_raw,
@@ -138,15 +141,6 @@ mobs:register_mob("mobs_mc:sheep", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				self.food = (self.food or 0) + 1
-				if self.food >= 4 then
-					self.food = 0
-					self.gotten = false
-					self.base_texture = colors[self.color][2]
-					self.object:set_properties({
-						textures = self.base_texture,
-					})
-				end
 			end
 			return
 		end
@@ -162,7 +156,6 @@ mobs:register_mob("mobs_mc:sheep", {
 			self.object:set_properties({
 				mesh = "mobs_mc_sheepnaked.b3d",
 			})
-			-- TODO: Change mesh back to mobs_mc_sheepfur.b3d after regrowing wool (requires on_replace)
 			if not minetest.settings:get_bool("creative_mode") then
 				item:add_wear(mobs_mc.misc.shears_wear)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
