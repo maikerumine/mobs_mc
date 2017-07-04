@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	visual = "mesh",
 	mesh = "mobs_mc_witherskeleton.b3d",
 	textures = {
-		{"mobs_mc_witherskeleton.png"},
+		{"mobs_mc_wither_skeleton.png^mobs_mc_wither_skeleton_sword.png"},
 	},
 	visual_size = {x=3.6, y=3.6},
 	makes_footstep_sound = true,

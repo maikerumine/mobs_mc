@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:stray", {
 	visual = "mesh",
 	mesh = "mobs_mc_stray.b3d",
 	textures = {
-		{"mobs_mc_stray.png"},
+		{"mobs_mc_stray.png^mobs_mc_stray_bow.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

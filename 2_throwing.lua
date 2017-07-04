@@ -34,7 +34,7 @@ minetest.register_node("mobs_mc:arrow_box", {
 			{7.5/17, -2.5/17, -2.5/17, 8.5/17, -3.5/17, -3.5/17},
 		}
 	},
-	tiles = {"throwing_arrow.png", "throwing_arrow.png", "throwing_arrow_back.png", "throwing_arrow_front.png", "throwing_arrow_2.png", "throwing_arrow.png"},
+	tiles = {"mcl_throwing_arrow.png^[transformFX", "mcl_throwing_arrow.png^[transformFX", "mcl_throwing_arrow_back.png", "mcl_throwing_arrow_front.png", "mcl_throwing_arrow.png", "mcl_throwing_arrow.png^[transformFX"},
 	groups = {not_in_creative_inventory=1},
 })
 
@@ -136,7 +136,7 @@ if c("arrow") then
 		description = S("Arrow"),
 		_doc_items_longdesc = S("Arrows are ammunition for bows."),
 		_doc_items_usagehelp = S("To use arrows as ammunition for a bow, put them in the inventory slot following the bow. Slots are counted left to right, top to bottom."),
-		inventory_image = "throwing_arrow_2.png",
+		inventory_image = "mcl_throwing_arrow_inv.png",
 	})
 end
 
@@ -156,7 +156,7 @@ if c("bow") then
 		description = S("Bow"),
 		_doc_items_longdesc = S("Bows are ranged weapons to shoot arrows at your foes."),
 		_doc_items_usagehelp = S("To use the bow, you first need to have at least one arrow in slot following the bow. Leftclick to shoot. Each hit deals 3 damage."),
-		inventory_image = "mobs_mc_bow.png",
+		inventory_image = "mcl_throwing_bow.png",
 		on_use = function(itemstack, user, pointed_thing)
 			if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 				if not minetest.settings:get_bool("creative_mode") then
@@ -321,7 +321,6 @@ if c("snowball") then
 		hit_mob = function(self, mob)
 			-- Hurt blazes, but not damage to anything else
 			local dmg = {}
-			minetest.log("error", dump(mob))
 			if mob:get_luaentity().name == "mobs_mc:blaze" then
 				dmg = {fleshy = 3}
 			end

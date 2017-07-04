@@ -52,6 +52,8 @@ mobs_mc.items = {
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
 	nether_star = "mobs_mc:nether_star",
+	bone = "mobs_mc:bone",
+	slimeball = "mobs_mc:slimeball",
 
 	arrow = "mobs_mc:arrow",
 	bow = "mobs_mc:bow_wood",
@@ -111,8 +113,11 @@ mobs_mc.items = {
 	salmon_raw = "fishing:carp_raw",
 	clownfish_raw = "fishing:clownfish_raw",
 	pufferfish_raw = "fishing:pike_raw",
+
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
+	cookie = "farming:cookie",
+
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
@@ -147,8 +152,9 @@ mobs_mc.items = {
 mobs_mc.follow = {
 	sheep = { mobs_mc.items.wheat },
 	cow = { mobs_mc.items.wheat },
-	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
-	horse = { mobs_mc.items.apple, mobs_mc.items.sugar, mobs_mc.items.wheat, mobs_mc.items.hay_bale, mobs_mc.items.golden_apple, mobs_mc.items.golden_carrot }, -- TODO
+	chicken = { "farming:seed_wheat", "farming:seed_cotton" }, -- seeds in general
+	parrot = { "farming:seed_wheat", "farming:seed_cotton" }, -- seeds in general
+	horse = { mobs_mc.items.apple, mobs_mc.items.sugar, mobs_mc.items.wheat, mobs_mc.items.hay_bale, mobs_mc.items.golden_apple, mobs_mc.items.golden_carrot },
 	pig = { mobs_mc.items.potato, mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick,
 		mobs_mc.items.apple, -- Minetest Game extra
 	},

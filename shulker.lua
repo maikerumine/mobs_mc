@@ -28,7 +28,7 @@ mobs:register_mob("mobs_mc:shulker", {
 	collisionbox = {-0.5, -0.01, -0.5, 0.5, 0.99, 0.5},
 	visual = "mesh",
 	mesh = "mobs_mc_shulker.b3d",
-	textures = { "mobs_mc_shulker_purple.png", },
+	textures = { "mobs_mc_endergolem.png", },
 	-- TODO: Make shulker dye-able
 	visual_size = {x=3, y=3},
 	walk_chance = 0,
