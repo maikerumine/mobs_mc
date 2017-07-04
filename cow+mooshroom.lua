@@ -73,8 +73,8 @@ mobs:register_mob("mobs_mc:cow", cow_def)
 -- Mooshroom
 local mooshroom_def = table.copy(cow_def)
 
-mooshroom_def.mesh = "mobs_mc_mooshroom.b3d"
-mooshroom_def.textures = { {"mobs_mc_mooshroom.png"}, }
+mooshroom_def.mesh = "mobs_mc_cow.b3d"
+mooshroom_def.textures = { {"mobs_mc_mooshroom.png^mobs_mc_mooshroom_mooshroom.png"}, }
 mooshroom_def.on_rightclick = function(self, clicker)
 	if self.child then
 		return
