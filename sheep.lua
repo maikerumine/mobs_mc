@@ -83,9 +83,23 @@ mobs:register_mob("mobs_mc:sheep", {
 	-- Eat grass
 	replace_rate = 20,
 	replace_what = mobs_mc.replace.sheep,
-	-- FIXME: Visual sheep color resets to white after replace
-	-- FIXME: Wool drop is not added back after regrowing
-	-- We need on_replace from Mobs Redo! :-/
+	-- Properly regrow wool after eating grass
+	on_replace = function(self, pos, oldnode, newnode)
+		self.gotten = false
+		self.drops = {
+		{name = mobs_mc.items.mutton_raw,
+		chance = 1,
+		min = 1,
+		max = 2,},
+		{name = colors[self.color][1],
+		chance = 1,
+		min = 1,
+		max = 1,},
+		}
+		self.object:set_properties({
+		mesh = "mobs_mc_sheepfur.b3d",
+	})
+	end,
 
 	-- Set random color on spawn
 	do_custom = function(self)
