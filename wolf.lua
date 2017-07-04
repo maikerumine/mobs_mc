@@ -60,8 +60,10 @@ local wolf = {
 	on_rightclick = function(self, clicker)
 		-- Try to tame wolf (intentionally does NOT use mobs:feed_tame)
 		local tool = clicker:get_wielded_item()
+
 		local dog, ent
 		if is_flesh(tool:get_name()) then
+
 			if not minetest.settings:get_bool("creative_mode") then
 				tool:take_item()
 				clicker:set_wielded_item(tool)

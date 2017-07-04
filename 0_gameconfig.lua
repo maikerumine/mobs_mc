@@ -52,6 +52,8 @@ mobs_mc.items = {
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
 	nether_star = "mobs_mc:nether_star",
+	bone = "mobs_mc:bone",
+	slimeball = "mobs_mc:slimeball",
 
 	arrow = "mobs_mc:arrow",
 	bow = "mobs_mc:bow_wood",
@@ -111,9 +113,11 @@ mobs_mc.items = {
 	salmon_raw = "fishing:carp_raw",
 	clownfish_raw = "fishing:clownfish_raw",
 	pufferfish_raw = "fishing:pike_raw",
+
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
 	cookie = "farming:cookie",
+
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",

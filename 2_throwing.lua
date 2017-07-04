@@ -313,7 +313,6 @@ if c("snowball") then
 		hit_mob = function(self, mob)
 			-- Hurt blazes, but not damage to anything else
 			local dmg = {}
-			minetest.log("error", dump(mob))
 			if mob:get_luaentity().name == "mobs_mc:blaze" then
 				dmg = {fleshy = 3}
 			end
