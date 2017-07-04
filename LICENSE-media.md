@@ -15,21 +15,18 @@ The following media licenses are used:
 Note: A “`*`” in a file name below is a placeholder which can stand for any text.
 
 ## Models
-All models (except `mobs_sheep.x`) were done by [22i](https://github.com/22i) and are licensed under GPLv3.
+All models were done by [22i](https://github.com/22i) and are licensed under GPLv3.
 
 Origin of those models:
 
 * [Mod “amc”](https://github.com/22i/amc/)
 * [Repository with Blender source files for models](https://github.com/22i/minecraft-voxel-blender-models)
 
-`mobs_sheep.x` is done by TenPlus1 (MIT License).
-
 ## Textures
 
 * Most mob and item textures from [Pixel Perfection](https://www.planetminecraft.com/texture_pack/131pixel-perfection/), a texture pack for Minecraft.
     * Author: [XSSheep](https://www.planetminecraft.com/member/xssheep/)
     * License: CC BY-SA 4.0
-* Sheep textures by TenPlus1 (MIT License)
 * “Spawn egg” textures (`mobs_mc_spawn_icon_*`) by 22i
 * Mob head textures: **UNKNOWN!**
 * Any other texture not mentioned here are licensed under the MIT License
