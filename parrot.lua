@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -49,6 +52,7 @@ mobs:register_mob("mobs_mc:parrot", {
 	lava_damage = 4,
 	light_damage = 0,
 	fall_damage = 0,
+	fall_speed = -2.25,
 	attack_type = "dogfight",
 	jump = true,
 	jump_height = 4,
@@ -71,7 +75,7 @@ mobs:register_mob("mobs_mc:parrot", {
 mobs:spawn_specific("mobs_mc:parrot", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX+1, 20, 20000, 2, 15, 20)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:parrot", "Parrot", "mobs_mc_spawn_icon_parrot.png", 0)
+mobs:register_egg("mobs_mc:parrot", S("Parrot"), "mobs_mc_spawn_icon_parrot.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Parrot loaded")

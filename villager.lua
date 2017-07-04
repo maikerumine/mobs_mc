@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --###################
@@ -170,7 +173,7 @@ mobs:register_spawn("mobs_mc:villager", {"mg_villages:road"}, minetest.LIGHT_MAX
 mobs:alias_mob("mobs:villager", "mobs_mc:villager")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:villager", "Villager", "mobs_mc_spawn_icon_villager.png", 0)
+mobs:register_egg("mobs_mc:villager", S("Villager"), "mobs_mc_spawn_icon_villager.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")

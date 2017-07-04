@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 local rabbit = {
 	type = "animal",
 	passive = true,
@@ -30,6 +34,7 @@ local rabbit = {
 	drops = {
 		{name = mobs_mc.items.rabbit_raw, chance = 1, min = 0, max = 1},
 		{name = mobs_mc.items.rabbit_hide, chance = 1, min = 0, max = 1},
+		{name = mobs_mc.items.rabbit_foot, chance = 10, min = 1, max = 1},
 	},
 	water_damage = 1,
 	lava_damage = 4,
@@ -102,7 +107,7 @@ mobs:register_mob("mobs_mc:killer_bunny", killer_bunny)
 
 local spawn = {
 	name = "mobs_mc:rabbit",
-	chance = 5000,
+	chance = 15000,
 	active_object_count = 99,
 	min_light = 0,
 	max_light = minetest.LIGHT_MAX+1,
@@ -158,10 +163,10 @@ end
 mobs:spawn(spawn_grass)
 
 -- Spawn egg
-mobs:register_egg("mobs_mc:rabbit", "Rabbit", "mobs_mc_spawn_icon_rabbit.png", 0)
+mobs:register_egg("mobs_mc:rabbit", S("Rabbit"), "mobs_mc_spawn_icon_rabbit.png", 0)
 
 -- Note: This spawn egg does not exist in Minecraft
-mobs:register_egg("mobs_mc:killer_bunny", "Killer Bunny", "mobs_mc_spawn_icon_rabbit.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
+mobs:register_egg("mobs_mc:killer_bunny", S("Killer Bunny"), "mobs_mc_spawn_icon_rabbit.png^[colorize:#FF0000:192", 0) -- TODO: Update inventory image
 
 
 -- compatibility

@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -86,10 +89,10 @@ mobs:register_mob("mobs_mc:stray", {
 })
 
 --spawn
-mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:stray", mobs_mc.spawn.snow, {"air"}, minetest.LIGHT_MAX+1, minetest.LIGHT_MAX+1, 20, 19000, 2, -110, 31000)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:stray", "Stray", "mobs_mc_spawn_icon_stray.png", 0)
+mobs:register_egg("mobs_mc:stray", S("Stray"), "mobs_mc_spawn_icon_stray.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Stray Skeleton loaded")

@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -73,7 +76,7 @@ cave_spider.walk_velocity = 4.1
 mobs:register_mob("mobs_mc:cave_spider", cave_spider)
 
 
-mobs:register_spawn("mobs_mc:spider", mobs_mc.spawn.solid, 7, 0, 9500, 2, 3000)
+mobs:register_spawn("mobs_mc:spider", mobs_mc.spawn.solid, 7, 0, 19500, 2, 3000)
 
 
 -- compatibility
@@ -81,8 +84,8 @@ mobs:alias_mob("mobs:spider", "mobs_mc:spider")
 mobs:alias_mob("esmobs:spider", "mobs_mc:spider")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:spider", "Spider", "mobs_mc_spawn_icon_spider.png", 0)
-mobs:register_egg("mobs_mc:cave_spider", "Cave Spider", "mobs_mc_spawn_icon_cave_spider.png", 0)
+mobs:register_egg("mobs_mc:spider", S("Spider"), "mobs_mc_spawn_icon_spider.png", 0)
+mobs:register_egg("mobs_mc:cave_spider", S("Cave Spider"), "mobs_mc_spawn_icon_cave_spider.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Spiders loaded")

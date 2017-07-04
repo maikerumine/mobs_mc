@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 -- Slime
 local slime_big = {
 	type = "monster",
@@ -115,9 +119,9 @@ slime_tiny.on_die = nil
 mobs:register_mob("mobs_mc:slime_tiny", slime_tiny)
 
 
-mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
-mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 5000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_tiny", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 35000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_small", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 35000, 4, -12)
+mobs:register_spawn("mobs_mc:slime_big", mobs_mc.spawn.solid, minetest.LIGHT_MAX+1, 0, 35000, 4, -12)
 
 
 -- Magma cube
@@ -129,7 +133,7 @@ local magma_cube_big = {
 	visual_size = {x=12.5, y=12.5},
 	textures = {{ "mobs_mc_magmacube.png" }},
 	visual = "mesh",
-	mesh = "mobs_mc_magma_cube.b3d",
+	mesh = "mobs_mc_magmacube.b3d",
 	blood_texture = "lava_slime_blood.png",
 	makes_footstep_sound = true,
 	sounds = {
@@ -237,13 +241,13 @@ mobs:register_mob("mobs_mc:magma_cube_tiny", magma_cube_tiny)
 
 
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 5500, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 6000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 15000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 15500, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether, minetest.LIGHT_MAX+1, 0, 16000, 4, -1000)
 
-mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1000, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1100, 4, -1000)
-mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 1200, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_tiny", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 11000, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_small", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 11100, 4, -1000)
+mobs:register_spawn("mobs_mc:magma_cube_big", mobs_mc.spawn.nether_fortress, minetest.LIGHT_MAX+1, 0, 11200, 4, -1000)
 
 -- Compability
 mobs:alias_mob("mobs_mc:greensmall", "mobs_mc:slime_tiny")
@@ -254,8 +258,8 @@ mobs:alias_mob("mobs_mc:lavamedium", "mobs_mc:magma_cube_small")
 mobs:alias_mob("mobs_mc:lavabig", "mobs_mc:magma_cube_big")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:magma_cube_big", "Magma Cube", "mobs_mc_spawn_icon_magmacube.png")
-mobs:register_egg("mobs_mc:slime_big", "Slime", "mobs_mc_spawn_icon_slime.png")
+mobs:register_egg("mobs_mc:magma_cube_big", S("Magma Cube"), "mobs_mc_spawn_icon_magmacube.png")
+mobs:register_egg("mobs_mc:slime_big", S("Slime"), "mobs_mc_spawn_icon_slime.png")
 
 
 if minetest.settings:get_bool("log_mods") then

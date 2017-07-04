@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -109,7 +112,7 @@ mobs:register_arrow(":mobs:potion_arrow", {
 mobs:spawn_specific("mobs_mc:witch", mobs_mc.spawn.jungle, {"air"}, 0, minetest.LIGHT_MAX-6, 12, 20000, 2, 1, 30)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:witch", "Witch", "mobs_mc_spawn_icon_witch.png", 0)
+mobs:register_egg("mobs_mc:witch", S("Witch"), "mobs_mc_spawn_icon_witch.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs loaded")

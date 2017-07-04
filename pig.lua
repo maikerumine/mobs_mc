@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:pig", {
 	type = "animal",
 	runaway = true,
@@ -96,6 +100,10 @@ mobs:register_mob("mobs_mc:pig", {
 			end
 		end
 
+		if self.child then
+			return
+		end
+
 		-- Put saddle on pig
 		local item = clicker:get_wielded_item()
 		if item:get_name() == mobs_mc.items.saddle and self.saddle ~= "yes" then
@@ -153,20 +161,21 @@ mobs:register_mob("mobs_mc:pig", {
 				inv:set_stack("main",self.driver:get_wield_index(), wielditem)
 			end
 			return
-		end
 
-		-- used to capture pig with magic lasso
-		mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		-- Capture pig with lasso
+		elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
+			mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+		end
 	end,
 })
 
-mobs:register_spawn("mobs_mc:pig", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 5000, 30, 31000)
+mobs:register_spawn("mobs_mc:pig", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 15000, 30, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:pig", "mobs_mc:pig")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:pig", "Pig", "mobs_mc_spawn_icon_pig.png", 0)
+mobs:register_egg("mobs_mc:pig", S("Pig"), "mobs_mc_spawn_icon_pig.png", 0)
 
 
 if minetest.settings:get("log_mods") then

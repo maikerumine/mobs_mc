@@ -1,8 +1,11 @@
-
-	
 --###################
 --################### ENDERDRAGON
 --###################
+
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 --[[
 mobs:register_mob("mobs_mc:12enderdragon", {
 	type = "animal",
@@ -42,17 +45,17 @@ mobs:register_mob("mobs_mc:enderdragon", {
 	collisionbox = {-2, 3, -2, 2, 5, 2},
 	physical = false,
 	visual = "mesh",
-	mesh = "mobs_mc_ender_dragon.b3d",
+	mesh = "mobs_mc_dragon.b3d",
 	textures = {
-		{"mobs_mc_enderdragon.png"},
+		{"mobs_mc_dragon.png"},
 	},
 	visual_size = {x=3, y=3},
 	view_range = 35,
 	walk_velocity = 6,
 	run_velocity = 6,
 	sounds = {
-		shoot_attack = "mesed",
-		attack = "mese_dragon",
+		shoot_attack = "mobs_mc_ender_dragon_shoot",
+		attack = "mobs_mc_ender_dragon_attack",
 		distance = 60,
 	},
 	physical = true,
@@ -175,5 +178,5 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 	end
 })
 
-mobs:register_egg("mobs_mc:enderdragon", "Ender Dragon", "mobs_mc_spawn_icon_enderdragon.png", 0)
+mobs:register_egg("mobs_mc:enderdragon", S("Ender Dragon"), "mobs_mc_spawn_icon_enderdragon.png", 0)
 

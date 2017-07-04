@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -75,7 +78,7 @@ mobs:register_mob("mobs_mc:ghast", {
 
 
 --mobs:register_spawn("mobs_mc:ghast", {"default:flowing_lava", "nether:rack","air"}, 17, -1, 5000, 1, -2000)
-mobs:spawn_specific("mobs_mc:ghast", mobs_mc.spawn.nether, {"air"},0, minetest.LIGHT_MAX+1, 0, 8000, 2, -3610, -2100)
+mobs:spawn_specific("mobs_mc:ghast", mobs_mc.spawn.nether, {"air"},0, minetest.LIGHT_MAX+1, 0, 18000, 2, -3610, -2100)
 -- fireball (weapon)
 mobs:register_arrow(":mobs_monster:fireball", {
 	visual = "sprite",
@@ -108,7 +111,7 @@ mobs:register_arrow(":mobs_monster:fireball", {
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:ghast", "Ghast", "mobs_mc_spawn_icon_ghast.png", 0)
+mobs:register_egg("mobs_mc:ghast", S("Ghast"), "mobs_mc_spawn_icon_ghast.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Ghast loaded")

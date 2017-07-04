@@ -3,7 +3,9 @@
 -- Model and mobs_blaze.png see https://github.com/22i/minecraft-voxel-blender-models
 -- blaze.lua partial copy of mobs_mc/ghast.lua
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 --###################
@@ -24,9 +26,9 @@ mobs:register_mob("mobs_mc:blaze", {
 	},
 	visual_size = {x=3, y=3},
 	sounds = {
-		random = "blaze_breath",
-		death = "blaze_died",
-		damage = "blaze_hurt1",
+		random = "mobs_mc_blaze_breath",
+		death = "mobs_mc_blaze_died",
+		damage = "mobs_mc_blaze_hurt",
 		distance = 16,
 	},
 	walk_velocity = .8,
@@ -53,6 +55,7 @@ mobs:register_mob("mobs_mc:blaze", {
 	water_damage = 2,
 	lava_damage = 0,
 	fall_damage = 0,
+	fall_speed = -2.25,
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "dogshoot",
@@ -101,7 +104,7 @@ mobs:register_arrow("mobs_mc:blaze_fireball", {
 })
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:blaze", "Blaze", "mobs_mc_spawn_icon_blaze.png", 0)
+mobs:register_egg("mobs_mc:blaze", S("Blaze"), "mobs_mc_spawn_icon_blaze.png", 0)
 
 
 

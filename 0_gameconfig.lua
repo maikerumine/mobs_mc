@@ -33,7 +33,10 @@ mobs_mc.items = {
 	egg = "mobs_mc:egg",
 	ender_eye  = "mobs_mc:ender_eye",
 	ghast_tear = "mobs_mc:ghast_tear",
-	saddle = "mobs_mc:saddle",
+	saddle = "mobs:saddle",
+	iron_horse_armor = "mobs_mc:iron_horse_armor",
+	gold_horse_armor = "mobs_mc:gold_horse_armor",
+	diamond_horse_armor = "mobs_mc:diamond_horse_armor",
 	porkchop_raw = "mobs_mc:porkchop_raw",
 	porkchop_cooked = "mobs_mc:porkchop_cooked",
 	carrot_on_a_stick = "mobs_mc:carrot_on_a_stick",
@@ -45,8 +48,10 @@ mobs_mc.items = {
 	shulker_shell = "mobs_mc:shulker_shell",
 	magma_cream = "mobs_mc:magma_cream",
 	spider_eye = "mobs_mc:spider_eye",
+	snowball = "mobs_mc:snowball",
 	totem = "mobs_mc:totem",
 	rotten_flesh = "mobs_mc:rotten_flesh",
+	nether_star = "mobs_mc:nether_star",
 
 	arrow = "mobs_mc:arrow",
 	bow = "mobs_mc:bow_wood",
@@ -57,6 +62,8 @@ mobs_mc.items = {
 	shears = "mobs:shears",
 
 	-- Minetest Game
+	top_snow = "default:snow",
+	snow_block = "default:snowblock",
 	mushroom_red = "flowers:mushroom_red",
 	bucket = "bucket:bucket_empty",
 	grass_block = "default:dirt_with_grass",
@@ -64,6 +71,7 @@ mobs_mc.items = {
 	stick = "default:stick",
 	flint = "default:flint",
 	iron_ingot = "default:steel_ingot",
+	iron_block = "default:steelblock",
 	fire = "fire:basic_flame",
 	gunpowder = "tnt:gunpowder",
 	flint_and_steel = "fire:flint_and_steel",
@@ -83,6 +91,14 @@ mobs_mc.items = {
 	sugar = "default:papyrus",
 	wheat = "farming:wheat",
 	hay_bale = "farming:straw",
+	prismarine_shard = "default:mese_crystal_fragment",
+	prismarine_crystals = "default:mese_crystal",
+	apple = "default:apple",
+	golden_apple = "default:apple",
+	rabbit_foot = "mobs_mc:rabbit_foot",
+
+	-- Boss items
+	wet_sponge = "default:gold_block", -- only dropped by elder guardian; there is no equivalent block in Minetest Game
 
 	-- Other
 	nether_brick_block = "nether:brick",
@@ -97,8 +113,6 @@ mobs_mc.items = {
 	pufferfish_raw = "fishing:pike_raw",
 	bone = "bonemeal:bone",
 	slimeball = "mesecons_materials:glue",
-	apple = "default:apple",
-	golden_apple = "default:apple",
 
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
@@ -124,6 +138,9 @@ mobs_mc.items = {
 	wool_magenta = "wool:magenta",
 	wool_black = "wool:black",
 	-- Light blue intentionally missing
+
+	-- Special items
+	music_discs = {}, -- No music discs by default; used by creeper. Override this if your subgame has music discs.
 }
 
 -- Tables for attracting, feeding and breeding mobs
@@ -232,9 +249,13 @@ mobs_mc.spawn = {
 	water = { mobs_mc.items.water_source, "mcl_core:water_source", "default:water_source" },
 }
 
+mobs_mc.misc = {
+	shears_wear = 276, -- Wear to add per shears usage (238 uses)
+}
+
 -- Item name overrides from mobs_mc_gameconfig (if present)
 if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
-	local tables = {"items", "follow", "replace", "spawn"}
+	local tables = {"items", "follow", "replace", "spawn", "misc"}
 	for t=1, #tables do
 		local tbl = tables[t]
 		if mobs_mc.override[tbl] then

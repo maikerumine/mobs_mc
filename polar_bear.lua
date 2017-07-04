@@ -1,6 +1,8 @@
 --License for code WTFPL and otherwise stated in readmes
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -18,7 +20,7 @@ mobs:register_mob("mobs_mc:polar_bear", {
 	hp_max = 30,
 	collisionbox = {-0.7, -0.01, -0.7, 0.7, 1.39, 0.7},
 	visual = "mesh",
-	mesh = "mobs_mc_polar_bear.b3d",
+	mesh = "mobs_mc_polarbear.b3d",
 	textures = {
 		{"mobs_mc_polarbear.png"},
 	},
@@ -73,7 +75,7 @@ mobs:register_spawn("mobs_mc:polar_bear", mobs_mc.spawn.snow, minetest.LIGHT_MAX
 
 
 
-mobs:register_egg("mobs_mc:polar_bear", "Polar Bear", "mobs_mc_spawn_icon_polarbear.png", 0)
+mobs:register_egg("mobs_mc:polar_bear", S("Polar Bear"), "mobs_mc_spawn_icon_polarbear.png", 0)
 
 
 if minetest.settings:get_bool("log_mods") then

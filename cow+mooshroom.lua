@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 local cow_def = {
 	type = "animal",
 	hp_min = 10,
@@ -28,9 +32,9 @@ local cow_def = {
 	light_damage = 0,
 	runaway = true,
 	sounds = {
-		random = "Cow1",
-		death = "Cowhurt1",
-		damage = "Cowhurt1",
+		random = "mobs_mc_cow",
+		death = "Cowhurt1", -- TODO: Replace
+		damage = "Cowhurt1", -- TODO: Replace
 		distance = 16,
 	},
 	animation = {
@@ -88,7 +92,7 @@ mooshroom_def.on_rightclick = function(self, clicker)
 		cow:setyaw(oldyaw)
 
 		if not minetest.setting_getbool("creative_mode") then
-			item:add_wear(300)
+			item:add_wear(mobs_mc.misc.shears_wear)
 			clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 		end
 	-- Use bucket to milk
@@ -122,16 +126,16 @@ mobs:register_mob("mobs_mc:mooshroom", mooshroom_def)
 
 
 -- Spawning
-mobs:register_spawn("mobs_mc:cow", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 7000, 20, 31000)
-mobs:register_spawn("mobs_mc:mooshroom", mobs_mc.spawn.mushroom_island, minetest.LIGHT_MAX+1, 9, 7000, 10, 31000)
+mobs:register_spawn("mobs_mc:cow", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 9, 17000, 20, 31000)
+mobs:register_spawn("mobs_mc:mooshroom", mobs_mc.spawn.mushroom_island, minetest.LIGHT_MAX+1, 9, 17000, 10, 31000)
 
 
 -- compatibility
 mobs:alias_mob("mobs_animal:cow", "mobs_mc:cow")
 
 -- spawn egg
-mobs:register_egg("mobs_mc:cow", "Cow", "mobs_mc_spawn_icon_cow.png", 0)
-mobs:register_egg("mobs_mc:mooshroom", "Mooshroom", "mobs_mc_spawn_icon_mooshroom.png", 0)
+mobs:register_egg("mobs_mc:cow", S("Cow"), "mobs_mc_spawn_icon_cow.png", 0)
+mobs:register_egg("mobs_mc:mooshroom", S("Mooshroom"), "mobs_mc_spawn_icon_mooshroom.png", 0)
 
 if minetest.setting_get("log_mods") then
 	minetest.log("action", "MC Cow loaded")

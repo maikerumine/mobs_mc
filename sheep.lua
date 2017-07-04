@@ -1,6 +1,8 @@
 --License for code WTFPL and otherwise stated in readmes
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -165,7 +167,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			})
 			-- TODO: Change mesh back to mobs_mc_sheepfur.b3d after regrowing wool (requires on_replace)
 			if not minetest.settings:get_bool("creative_mode") then
-				item:add_wear(300)
+				item:add_wear(mobs_mc.misc.shears_wear)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)
 			end
 			self.drops = {
@@ -201,12 +203,12 @@ mobs:register_mob("mobs_mc:sheep", {
 		end
 	end,
 })
-mobs:register_spawn("mobs_mc:sheep", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 0, 5000, 3, 31000)
+mobs:register_spawn("mobs_mc:sheep", mobs_mc.spawn.grassland, minetest.LIGHT_MAX+1, 0, 15000, 3, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs_animal:sheep", "mobs_mc:sheep")
 -- spawn eggs
-mobs:register_egg("mobs_mc:sheep", "Sheep", "mobs_mc_spawn_icon_sheep.png", 0)
+mobs:register_egg("mobs_mc:sheep", S("Sheep"), "mobs_mc_spawn_icon_sheep.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Sheep loaded")

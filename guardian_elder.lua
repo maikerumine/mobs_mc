@@ -4,6 +4,10 @@
 --################### GUARDIAN
 --###################
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 mobs:register_mob("mobs_mc:guardian_elder", {
 	type = "monster",
 	hp_min = 80,
@@ -33,11 +37,44 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 		run_start = 0,		run_end = 20,
 	},
 	drops = {
-		-- TODO: Implement correct drops
-		{name = mobs_mc.items.black_dye,
+		{name = mobs_mc.items.prismarine_shard,
+		chance = 1,
+		min = 0,
+		max = 2,},
+		-- TODO: Only drop if killed by player
+		{name = mobs_mc.items.wet_sponge,
 		chance = 1,
 		min = 1,
-		max = 3,},
+		max = 1,},
+
+		-- The following drops are approximations
+		-- Fish / prismarine crystal
+		{name = mobs_mc.items.fish_raw,
+		chance = 4,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.prismarine_crystals,
+		chance = 4,
+		min = 1,
+		max = 1,},
+
+		-- Rare drop: fish
+		{name = mobs_mc.items.fish_raw,
+		chance = 160, -- 2.5% / 4
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.salmon_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.clownfish_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
+		{name = mobs_mc.items.pufferfish_raw,
+		chance = 160,
+		min = 1,
+		max = 1,},
 	},
 	fly = true,
 	fly_in = mobs_mc.items.water_source,
@@ -51,5 +88,5 @@ mobs:register_mob("mobs_mc:guardian_elder", {
 mobs:register_spawn("mobs_mc:guardian_elder", mobs_mc.spawn.water, minetest.LIGHT_MAX+1, 0, 5000, 2, -1000, true)
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:guardian_elder", "Guardian Elder", "mobs_mc_spawn_icon_guardian_elder.png", 0)
+mobs:register_egg("mobs_mc:guardian_elder", S("Elder Guardian"), "mobs_mc_spawn_icon_guardian_elder.png", 0)
 

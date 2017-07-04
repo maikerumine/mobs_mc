@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -18,7 +21,7 @@ mobs:register_mob("mobs_mc:villager_zombie", {
 	armor = 90,
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
-	mesh = "mobs_mc_villager_zombie.b3d",
+	mesh = "mobs_mc_zvillager.b3d",
 	textures = {
 		{"mobs_mc_zombie_butcher.png"},
 		{"mobs_mc_zombie_farmer.png"},
@@ -85,7 +88,7 @@ mobs:register_spawn("mobs_mc:villager_zombie", {"mg_villages:road"}, 7, -1, 4090
 
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:villager_zombie", "Zombie Villager", "mobs_mc_spawn_icon_zombie_villager.png", 0)
+mobs:register_egg("mobs_mc:villager_zombie", S("Zombie Villager"), "mobs_mc_spawn_icon_zombie_villager.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC mobs Zombie Villager loaded")

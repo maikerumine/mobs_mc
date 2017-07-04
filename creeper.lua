@@ -1,6 +1,8 @@
 --License for code WTFPL and otherwise stated in readmes
 
-
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -72,6 +74,14 @@ mobs:register_mob("mobs_mc:creeper", {
 			end
 		end
 	end,
+	on_die = function(self, pos)
+		-- Drop a random music disc
+		-- TODO: Only do this if killed by skeleton
+		if math.random(1, 200) == 1 then
+			local r = math.random(1, #mobs_mc.items.music_discs)
+			minetest.add_item({x=pos.x, y=pos.y+1, z=pos.z}, mobs_mc.items.music_discs[r])
+		end
+	end,
 	maxdrops = 2,
 	drops = {
 		{name = mobs_mc.items.gunpowder,
@@ -79,65 +89,6 @@ mobs:register_mob("mobs_mc:creeper", {
 		min = 0,
 		max = 2,},
 
-		-- FIXME: Music disc drops
-		--[[
-		{name = "jdukebox:disc_1",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_2",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_3",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_4",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_5",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		{name = "jdukebox:disc_6",
-		chance = 30,
-		min = 0,
-		max = 1,},
-		]]
-		{name = "mcl_jukebox:record_1",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_2",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_3",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_4",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_5",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_6",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_7",
-		chance = 1600,
-		min = 1,
-		max = 1,},
-		{name = "mcl_jukebox:record_8",
-		chance = 1600,
-		min = 1,
-		max = 1,},
 		{name = "mobs_mc:creeper_head",
 		chance = 200,
 		min = 1,
@@ -169,13 +120,13 @@ mobs:register_mob("mobs_mc:creeper", {
 })
 
 
-mobs:spawn_specific("mobs_mc:creeper", mobs_mc.spawn.solid, {"air"},0, 7, 20, 6500, 1, -310, 31000)
+mobs:spawn_specific("mobs_mc:creeper", mobs_mc.spawn.solid, {"air"},0, 7, 20, 16500, 1, -310, 31000)
 
 -- compatibility
 mobs:alias_mob("mobs:creeper", "mobs_mc:creeper")
 
 -- spawn eggs
-mobs:register_egg("mobs_mc:creeper", "Creeper", "mobs_mc_spawn_icon_creeper.png", 0)
+mobs:register_egg("mobs_mc:creeper", S("Creeper"), "mobs_mc_spawn_icon_creeper.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Creeper loaded")

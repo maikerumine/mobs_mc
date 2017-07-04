@@ -3,6 +3,9 @@
 --made for MC like Survival game
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
@@ -32,8 +35,8 @@ mobs:register_mob("mobs_mc:wither", {
 	run_velocity = 4,
 	stepheight = 1.2,
 	sounds = {
-		shoot_attack = "mesed",
-		attack = "mese_dragon",
+		shoot_attack = "mobs_mc_ender_dragon_shoot",
+		attack = "mobs_mc_ender_dragon_attack",
 		distance = 60,
 	},
 	jump = true,
@@ -45,10 +48,10 @@ mobs:register_mob("mobs_mc:wither", {
 	attack_animals = true,
 	floats=1,
 	drops = {
-		{name = mobs_mc.items.emerald,
+		{name = mobs_mc.items.nether_star,
 		chance = 1,
-		min = 18,
-		max = 21},
+		min = 1,
+		max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -149,7 +152,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 	end
 })
 --Spawn egg
-mobs:register_egg("mobs_mc:wither", "Wither", "mobs_mc_spawn_icon_wither.png", 0)
+mobs:register_egg("mobs_mc:wither", S("Wither"), "mobs_mc_spawn_icon_wither.png", 0)
 
 --Compatibility
 mobs:alias_mob("nssm:mese_dragon", "mobs_mc:wither")	

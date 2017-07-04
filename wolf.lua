@@ -1,5 +1,9 @@
 --License for code WTFPL and otherwise stated in readmes
 
+-- intllib
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
+
 local default_walk_chance = 50
 
 local pr = PseudoRandom(os.time()*10)
@@ -186,7 +190,7 @@ mobs:alias_mob("mobs:dog", "mobs_mc:dog")
 mobs:alias_mob("esmobs:wolf", "mobs_mc:wolf")
 mobs:alias_mob("esmobs:dog", "mobs_mc:dog")
 
-mobs:register_egg("mobs_mc:wolf", "Wolf", "mobs_mc_spawn_icon_wolf.png", 0)
+mobs:register_egg("mobs_mc:wolf", S("Wolf"), "mobs_mc_spawn_icon_wolf.png", 0)
 
 if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "MC Wolf loaded")
