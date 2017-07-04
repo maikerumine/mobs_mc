@@ -40,6 +40,9 @@ end
 local can_equip_chest = function(entity_id)
 	return entity_id == "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
 end
+local can_breed = function(entity_id)
+	return entity_id == "mobs_mc:horse" or "mobs_mc:mule" or entity_id == "mobs_mc:donkey"
+end
 
 --[[ Generate all possible horse textures.
 Horse textures are a combination of a base texture and an optional marking overlay. ]]
@@ -94,6 +97,8 @@ local horse = {
 	lava_damage = 4,
 	water_damage = 1,
 	makes_footstep_sound = true,
+	jump = true,
+	jump_height = 5.75, -- can clear 2.5 blocks
 	drops = {
 		{name = mobs_mc.items.leather,
 		chance = 1,
@@ -158,10 +163,15 @@ local horse = {
 			return
 		end
 
-		-- feed, tame or heal horse
-		if mobs:feed_tame(self, clicker, 1, true, true) then
-			return
+		local item = clicker:get_wielded_item()
+		if can_breed(self.name) and (item:get_name() == mobs_mc.items.golden_apple or item:get_name() == mobs_mc.items.golden_carrot) then
+			-- Breed horse with golden apple or golden carrot
+			if mobs:feed_tame(self, clicker, 1, true, false) then return end
 		end
+		-- Feed/tame with anything else
+		-- TODO: Different health bonus for feeding
+		if mobs:feed_tame(self, clicker, 1, false, true) then return end
+		if mobs:protect(self, clicker) then return end
 
 		-- Make sure tamed horse is mature and being clicked by owner only
 		if self.tamed and not self.child and self.owner == clicker:get_player_name() then
@@ -234,9 +244,9 @@ local horse = {
 				self.object:set_properties({stepheight = 1.1})
 				mobs.attach(self, clicker)
 
-			-- Used to capture horse with magic lasso
+			-- Used to capture horse
 			elseif not self.driver and clicker:get_wielded_item():get_name() ~= "" then
-				mobs:capture_mob(self, clicker, 0, 0, 80, false, nil)
+				mobs:capture_mob(self, clicker, 0, 5, 60, false, nil)
 			end
 		end
 	end
@@ -297,6 +307,9 @@ donkey.collisionbox = {
 	horse.collisionbox[5] * d,
 	horse.collisionbox[6] * d,
 }
+donkey.jump = true
+donkey.jump_height = 3.75 -- can clear 1 block height
+
 mobs:register_mob("mobs_mc:donkey", donkey)
 
 -- Mule

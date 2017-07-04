@@ -114,6 +114,11 @@ mobs_mc.items = {
 	clownfish_raw = "fishing:clownfish_raw",
 	pufferfish_raw = "fishing:pike_raw",
 
+	bone = "bonemeal:bone",
+	slimeball = "mesecons_materials:glue",
+	cookie = "farming:cookie",
+
+
 	-- TODO: Add actual ender pearl
 	ender_pearl = "farorb:farorb",
 
@@ -147,8 +152,9 @@ mobs_mc.items = {
 mobs_mc.follow = {
 	sheep = { mobs_mc.items.wheat },
 	cow = { mobs_mc.items.wheat },
-	chicken = { "farming:seed_wheat", "farming:seed_cotton" },
-	horse = { mobs_mc.items.apple, mobs_mc.items.sugar, mobs_mc.items.wheat, mobs_mc.items.hay_bale, mobs_mc.items.golden_apple, mobs_mc.items.golden_carrot }, -- TODO
+	chicken = { "farming:seed_wheat", "farming:seed_cotton" }, -- seeds in general
+	parrot = { "farming:seed_wheat", "farming:seed_cotton" }, -- seeds in general
+	horse = { mobs_mc.items.apple, mobs_mc.items.sugar, mobs_mc.items.wheat, mobs_mc.items.hay_bale, mobs_mc.items.golden_apple, mobs_mc.items.golden_carrot },
 	pig = { mobs_mc.items.potato, mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick,
 		mobs_mc.items.apple, -- Minetest Game extra
 	},
