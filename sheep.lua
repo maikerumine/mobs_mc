@@ -143,7 +143,7 @@ mobs:register_mob("mobs_mc:sheep", {
 	
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
-<<<<<<< HEAD
+
 		if item:get_name() == mobs_mc.items.wheat then
 			if not self.tamed then
 				if not minetest.settings:get_bool("creative_mode") then
@@ -159,12 +159,7 @@ mobs:register_mob("mobs_mc:sheep", {
 			end
 			return
 		end
-=======
 
-		if mobs:feed_tame(self, clicker, 1, true, true) then return end
-		if mobs:protect(self, clicker) then return end
-
->>>>>>> refs/remotes/origin/master
 		if item:get_name() == mobs_mc.items.shears and not self.gotten then
 			self.gotten = true
 			local pos = self.object:getpos()
