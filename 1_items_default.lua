@@ -493,6 +493,7 @@ end
 if c("slimeball") then
 	minetest.register_craftitem("mobs_mc:slimeball", {
 		description = S("Slimeball"),
+		_doc_items_longdesc = S("Slimeballs are used in crafting. They are dropped from slimes."),
 		inventory_image = "mcl_mobitems_slimeball.png"
 	})
 	if minetest.get_modpath("mesecons_materials") then
@@ -581,6 +582,8 @@ end
 if c("bone") then
 	minetest.register_craftitem("mobs_mc:bone", {
 		description = S("Bone"),
+		_doc_items_longdesc = S("Bones can be used to tame wolves so they will protect you. They are also useful as a crafting ingredient."),
+		_doc_items_usagehelp = S("Hold the bone in your hand near wolves to attract them. Rightclick the wolf to give it a bone and tame it."),
 		inventory_image = "mcl_mobitems_bone.png"
 	})
 	if minetest.get_modpath("bones") then
