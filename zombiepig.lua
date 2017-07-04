@@ -26,7 +26,7 @@ local pigman = {
 	collisionbox = {-0.3, -0.01, -0.3, 0.3, 1.94, 0.3},
 	visual = "mesh",
 	mesh = "mobs_mc_zombie_pigman.b3d",
-	textures = {{"mobs_mc_zombie_pigman.png"}},
+	textures = {{"mobs_mc_zombie_pigman.png^mobs_mc_zombie_pigman_sword.png"}},
 	visual_size = {x=3, y=3},
 	sounds = {
 		random = "zombie1", -- TODO: replace

@@ -26,7 +26,7 @@ local skeleton = {
 	visual = "mesh",
 	mesh = "mobs_mc_skeleton.b3d",
 	textures = {
-		{"mobs_mc_skeleton.png"},
+		{"mobs_mc_skeleton.png^mobs_mc_skeleton_bow.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,

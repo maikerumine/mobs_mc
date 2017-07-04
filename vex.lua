@@ -27,7 +27,7 @@ mobs:register_mob("mobs_mc:vex", {
 	visual = "mesh",
 	mesh = "mobs_mc_vex.b3d",
 	textures = {
-		{"mobs_mc_vex.png"},
+		{"mobs_mc_vex.png^mobs_mc_vex_sword.png"},
 	},
 	visual_size = {x=1.25, y=1.25},
 	damage = 9,
@@ -49,13 +49,13 @@ mobs:register_mob("mobs_mc:vex", {
 	do_custom = function(self, dtime)
 		-- Glow red while attacking
 		if self.state == "attack" then
-			if self.base_texture[1] ~= "mobs_mc_vex_charging.png" then
-				self.base_texture = {"mobs_mc_vex_charging.png"}
+			if self.base_texture[1] ~= "mobs_mc_vex_charging.png^mobs_mc_vex_sword.png" then
+				self.base_texture = {"mobs_mc_vex_charging.png^mobs_mc_vex_sword.png"}
 				self.object:set_properties({textures=self.base_texture})
 			end
 		else
-			if self.base_texture[1] ~= "mobs_mc_vex.png" then
-				self.base_texture = {"mobs_mc_vex.png"}
+			if self.base_texture[1] ~= "mobs_mc_vex.png^mobs_mc_vex_sword.png" then
+				self.base_texture = {"mobs_mc_vex.png^mobs_mc_vex_sword.png"}
 				self.object:set_properties({textures=self.base_texture})
 			end
 		end

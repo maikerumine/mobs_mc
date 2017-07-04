@@ -26,6 +26,8 @@ mobs:register_mob("mobs_mc:villager", {
 		{"mobs_mc_villager_farmer.png"},
 		{"mobs_mc_villager_priest.png"},
 		{"mobs_mc_villager_librarian.png"},
+		{"mobs_mc_villager_butcher.png"},
+		{"mobs_mc_villager_smith.png"},
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
