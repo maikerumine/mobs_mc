@@ -4,35 +4,31 @@
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
---dofile(minetest.get_modpath("mobs").."/api.lua")
-
-
 --###################
 --################### SHEEP
 --###################
 
--- TODO: Tweak and improve sheep colors
 local colors = {
 	-- group = { wool, textures }
 	unicolor_white = { mobs_mc.items.wool_white, "#FFFFFF00" },
-	unicolor_dark_orange = { mobs_mc.items.wool_brown, "#442200D0" },
+	unicolor_dark_orange = { mobs_mc.items.wool_brown, "#502A00D0" },
 	unicolor_grey = { mobs_mc.items.wool_light_grey, "#5B5B5BD0" },
 	unicolor_darkgrey = { mobs_mc.items.wool_grey, "#303030D0" },
-	unicolor_blue = { mobs_mc.items.wool_blue, "#0000BBD0" },
-	unicolor_dark_green = { mobs_mc.items.wool_green, "#005B07D0" },
-	unicolor_green = { mobs_mc.items.wool_lime, "#61FF01D0" },
+	unicolor_blue = { mobs_mc.items.wool_blue, "#0000CCD0" },
+	unicolor_dark_green = { mobs_mc.items.wool_green, "#005000D0" },
+	unicolor_green = { mobs_mc.items.wool_lime, "#50CC00D0" },
 	unicolor_violet = { mobs_mc.items.wool_purple , "#5000CCD0" },
-	unicolor_light_red = { mobs_mc.items.wool_pink, "#FF64B5D0" },
-	unicolor_yellow = { mobs_mc.items.wool_yellow, "#FFFF00D0" },
-	unicolor_orange = { mobs_mc.items.wool_orange, "#FF8000D0" },
-	unicolor_red = { mobs_mc.items.wool_red, "#FF0000D0" },
-	unicolor_cyan  = { mobs_mc.items.wool_cyan, "#00FFFFD0" },
-	unicolor_red_violet = { mobs_mc.items.wool_magenta, "#FF05BBD0" },
+	unicolor_light_red = { mobs_mc.items.wool_pink, "#FF5050D0" },
+	unicolor_yellow = { mobs_mc.items.wool_yellow, "#CCCC00D0" },
+	unicolor_orange = { mobs_mc.items.wool_orange, "#CC5000D0" },
+	unicolor_red = { mobs_mc.items.wool_red, "#CC0000D0" },
+	unicolor_cyan  = { mobs_mc.items.wool_cyan, "#00CCCCD0" },
+	unicolor_red_violet = { mobs_mc.items.wool_magenta, "#CC0050D0" },
 	unicolor_black = { mobs_mc.items.wool_black, "#000000D0" },
 }
 
 if minetest.get_modpath("mcl_wool") ~= nil then
-	colors["unicolor_light_blue"] = { mobs_mc.items.wool_light_blue, "#419DFFD0" }
+	colors["unicolor_light_blue"] = { mobs_mc.items.wool_light_blue, "#5050FFD0" }
 end
 
 local sheep_texture = function(color_group)
