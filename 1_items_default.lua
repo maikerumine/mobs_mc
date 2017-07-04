@@ -456,6 +456,20 @@ if c("magma_cream") then
 	})
 end
 
+-- Slime
+if c("slimeball") then
+	minetest.register_craftitem("mobs_mc:slimeball", {
+		description = S("Slimeball"),
+		inventory_image = "mcl_mobitems_slimeball.png"
+	})
+	if minetest.get_modpath("mesecons_materials") then
+		minetest.register_craft({
+			output = "mesecons_materials:glue",
+			recipe = {{ "mobs_mc:slimeball" }},
+		})
+	end
+end
+
 -- Spider
 if c("spider_eye") then
 	minetest.register_craftitem("mobs_mc:spider_eye", {
@@ -492,6 +506,7 @@ if c("rotten_flesh") then
 	})
 end
 
+-- Misc.
 if c("nether_star") then
 	minetest.register_craftitem("mobs_mc:nether_star", {
 		description = S("Nether Star"),
@@ -518,4 +533,17 @@ if c("snowball") and minetest.get_modpath("default") then
 		inventory_image = "",
 		wield_image = "",
 	})
+end
+
+if c("bone") then
+	minetest.register_craftitem("mobs_mc:bone", {
+		description = S("Bone"),
+		inventory_image = "mcl_mobitems_bone.png"
+	})
+	if minetest.get_modpath("bones") then
+		minetest.register_craft({
+			output = "mobs_mc:bone 3",
+			recipe = {{ "bones:bones" }},
+		})
+	end
 end
