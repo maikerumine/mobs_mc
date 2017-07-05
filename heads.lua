@@ -5,203 +5,54 @@
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
-minetest.register_node( "mobs_mc:creeper_head", {
-	description = S("Creeper Head (WIP)"),
-	tiles = {
-		"mobs_creeper_top.png",
-		"mobs_creeper_top.png",  --was bottom
-		"mobs_creeper_side.png",
-		"mobs_creeper_side.png",
-		"mobs_creeper_side.png", --was rear
-		"mobs_creeper_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = false,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
+-- Heads system
 
-minetest.register_node( "mobs_mc:enderman_head", {
-	description = S("Enderman Head (WIP)"),
-	tiles = {
-		"mobs_endermen_top.png",
-		"mobs_endermen_top.png",
-		"mobs_endermen_side.png",
-		"mobs_endermen_side.png",
-		"mobs_endermen_side.png",
-		"mobs_endermen_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
+local sounds
+if minetest.get_modpath("default") then
+	sounds = default.node_sound_defaults({
+		footstep = {name="default_hard_footstep", gain=0.3}
+	})
+end
 
-minetest.register_node( "mobs_mc:ghast_head", {
-	description = S("Ghast Head (WIP)"),
-	tiles = {
-		"mobs_mc_ghast_white.png",
-		"mobs_mc_ghast_white.png",
-		"mobs_mc_ghast_white.png",
-		"mobs_mc_ghast_white.png",
-		"mobs_mc_ghast_white.png",
-		"mobs_mc_ghast_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
+local function addhead(mobname, desc, longdesc)
+	minetest.register_node("mobs_mc:head_"..mobname, {
+		description = desc,
+		_doc_items_longdesc = longdesc,
+		drawtype = "nodebox",
+		is_ground_content = false,
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{ -0.25, -0.5, -0.25, 0.25, 0.0, 0.25, },
 			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
+		},
+		groups = { oddly_breakable_by_hand=3, armor_head=1, head=1, },
+		-- The head textures are based off the textures of an actual mob.
+		-- FIXME: This code assumes 16×16 textures for the mob textures!
+		tiles = {
+			-- Note: bottom texture is overlaid over top texture to get rid of possible transparency.
+			-- This is required for skeleton skull and wither skeleton skull.
+			"[combine:16x16:-4,4=mobs_mc_"..mobname..".png", -- top
+			"([combine:16x16:-4,4=mobs_mc_"..mobname..".png)^([combine:16x16:-12,4=mobs_mc_"..mobname..".png)", -- bottom
+			"[combine:16x16:-12,0=mobs_mc_"..mobname..".png", -- left
+			"[combine:16x16:4,0=mobs_mc_"..mobname..".png", -- right
+			"[combine:16x16:-20,0=mobs_mc_"..mobname..".png", -- back
+			"[combine:16x16:-4,0=mobs_mc_"..mobname..".png", -- front
+		},
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		walkable = true,
+		sounds = sounds,
+		selection_box = {
+			type = "fixed",
+			fixed = { -0.25, -0.5, -0.25, 0.25, 0.0, 0.25, },
+		},
+	})
+end
 
-minetest.register_node( "mobs_mc:skeleton_head", {
-	description = S("Skeleton Skull (WIP)"),
-	tiles = {
-		"mobs_skeleton_top.png",
-		"mobs_skeleton_top.png",
-		"mobs_skeleton_side.png",
-		"mobs_skeleton_side.png",
-		"mobs_skeleton_side.png",
-		"mobs_skeleton_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = false,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
-
-minetest.register_node( "mobs_mc:skeleton2_head", {
-	description = S("Wither Skeleton Skull (WIP)"),
-	tiles = {
-		"mobs_skeleton2_top.png",
-		"mobs_skeleton2_top.png",
-		"mobs_skeleton2_side.png",
-		"mobs_skeleton2_side.png",
-		"mobs_skeleton2_side.png",
-		"mobs_skeleton2_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
-
-minetest.register_node( "mobs_mc:spider_head", {
-	description = S("Spider Head (WIP)"),
-	tiles = {
-		"mobs_spider_top.png",
-		"mobs_spider_top.png",
-		"mobs_spider_side.png",
-		"mobs_spider_side.png",
-		"mobs_spider_side.png",
-		"mobs_spider_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
-
-minetest.register_node( "mobs_mc:zombie_head", {
-	description = S("Zombie Head (WIP)"),
-	tiles = {
-		"mobs_zombie_top.png",
-		"mobs_zombie_top.png",
-		"mobs_zombie_side.png",
-		"mobs_zombie_side.png",
-		"mobs_zombie_side.png",
-		"mobs_zombie_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
-
-minetest.register_node( "mobs_mc:zombiepig_head", {
-	description = S("Zombie Pigman Head (WIP)"),
-	tiles = {
-		"mobs_zombiepig_top.png",
-		"mobs_zombiepig_top.png",
-		"mobs_zombiepig_side.png",
-		"mobs_zombiepig_side.png",
-		"mobs_zombiepig_side.png",
-		"mobs_zombiepig_front.png"
-	},
-	paramtype2 = "facedir",
-			node_box = {
-				type = "fixed",
-				fixed = {-0.25, -0.5, -0.25, 0.25, 0.00, 0.25},
-			},
-			
-	drawtype = "nodebox",
-	paramtype = "light",
-	visual_scale = 1.0,
-	is_ground_content = true,
-	groups = {cracky=2},
-	--sounds = default.node_sound_stone_defaults(),
-	stack_max = 1,
-})
-
+-- Add heads
+addhead("zombie", S("Zombie Head"), S("A zombie head is a small decorative block which resembles the head of a zombie."))
+addhead("creeper", S("Creeper Head"), S("A creeper head is a small decorative block which resembles the head of a creeper."))
+addhead("skeleton", S("Skeleton Skull"), S("A skeleton skull is a small decorative block which resembles the head of a skeleton."))
+addhead("wither_skeleton", S("Wither Skeleton Skull"), S("A wither skeleton skull is a small decorative block which resembles the head of a wither skeleton."))
