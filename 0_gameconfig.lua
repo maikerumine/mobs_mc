@@ -156,7 +156,7 @@ mobs_mc.follow = {
 	pig = { mobs_mc.items.potato, mobs_mc.items.carrot, mobs_mc.items.carrot_on_a_stick,
 		mobs_mc.items.apple, -- Minetest Game extra
 	},
-	rabbit = { mobs_mc.items.dandelion, mobs_mc.items.carrot, mobs_mc.items.carrot_gold, "farming_plus:carrot_item", },
+	rabbit = { mobs_mc.items.dandelion, mobs_mc.items.carrot, mobs_mc.items.golden_carrot, "farming_plus:carrot_item", },
 	ocelot = { mobs_mc.items.fish_raw, mobs_mc.items.salmon_raw, mobs_mc.items.clownfish_raw, mobs_mc.items.pufferfish_raw,
 		mobs_mc.items.chicken_raw, -- Minetest Game extra
 	},
