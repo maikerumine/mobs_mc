@@ -62,6 +62,13 @@ local zombie = {
 		chance = 11,
 		min = 1,
 		max = 1,},
+
+		-- Head
+		-- TODO: Only drop if killed by charged creeper
+		{name = mobs_mc.items.head_zombie,
+		chance = 200, -- 0.5%
+		min = 1,
+		max = 1,},
 	},
 	animation = {
 		speed_normal = 25,		speed_run = 50,
