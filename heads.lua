@@ -26,7 +26,7 @@ local function addhead(mobname, desc, longdesc)
 				{ -0.25, -0.5, -0.25, 0.25, 0.0, 0.25, },
 			},
 		},
-		groups = { oddly_breakable_by_hand=3, armor_head=1, head=1, },
+		groups = { oddly_breakable_by_hand=3, head=1, },
 		-- The head textures are based off the textures of an actual mob.
 		-- FIXME: This code assumes 16×16 textures for the mob textures!
 		tiles = {
