@@ -57,12 +57,13 @@ local wolf = {
 	water_damage = 0,
 	lava_damage = 4,
 	light_damage = 0,
+	follow = mobs_mc.items.bone,
 	on_rightclick = function(self, clicker)
 		-- Try to tame wolf (intentionally does NOT use mobs:feed_tame)
 		local tool = clicker:get_wielded_item()
 
 		local dog, ent
-		if is_flesh(tool:get_name()) then
+		if tool:get_name() == mobs_mc.items.bone then
 
 			if not minetest.settings:get_bool("creative_mode") then
 				tool:take_item()

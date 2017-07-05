@@ -114,8 +114,6 @@ mobs_mc.items = {
 	clownfish_raw = "fishing:clownfish_raw",
 	pufferfish_raw = "fishing:pike_raw",
 
-	bone = "bonemeal:bone",
-	slimeball = "mesecons_materials:glue",
 	cookie = "farming:cookie",
 
 
