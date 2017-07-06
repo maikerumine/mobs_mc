@@ -108,7 +108,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 
 		local pos = self.object:getpos()
 
-		local n = minetest.env:get_node(pos).name
+		local n = minetest.get_node(pos).name
 
 		if self.timer == 0 then
 			self.timer = os.time()
@@ -118,7 +118,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 			self.object:remove()
 		end
 
-		local objects = minetest.env:get_objects_inside_radius(pos, 1)
+		local objects = minetest.get_objects_inside_radius(pos, 1)
 	    for _,obj in ipairs(objects) do
 			local name = obj:get_entity_name()
 			if name~="mobs_mc:roar_of_the_dragon2" and name ~= "mobs_mc:enderdragon" then
@@ -131,13 +131,13 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 			end
 	    end
 
-		minetest.env:set_node(pos, {name="air"})
+		minetest.set_node(pos, {name="air"})
 		if math.random(1,2)==1 then
 			dx = math.random(-1,1)
 			dy = math.random(-1,1)
 			dz = math.random(-1,1)
 			local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
-			minetest.env:set_node(p, {name="air"})
+			minetest.set_node(p, {name="air"})
 		end
 	end
 })
