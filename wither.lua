@@ -120,8 +120,9 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 -- fireball (weapon)
 mobs:register_arrow(":mobs_mc:fireball", {
 	visual = "sprite",
-	visual_size = {x = 1.5, y = 1.5},
-	textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
+	visual_size = {x = 0.75, y = 0.75},
+	-- TODO: 3D projectile, replace tetxture
+	textures = {"mobs_mc_TEMP_wither_projectile.png"},
 	velocity = 6,
 
 	-- direct hit, no fire... just plenty of pain
