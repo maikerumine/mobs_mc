@@ -114,7 +114,6 @@ local throwing_shoot_arrow = function(itemstack, player)
 				player:get_inventory():remove_item("main", arrow[1])
 			end
 			local playerpos = player:getpos()
-			--local obj = minetest.env:add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, arrow[2]) --current
 			local obj = minetest.add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, arrow[2])  --mc
 			local dir = player:get_look_dir()
 			obj:setvelocity({x=dir.x*22, y=dir.y*22, z=dir.z*22})
@@ -300,39 +299,41 @@ if c("egg") then
 	})
 end
 
+-- Snowball
+
+local snowball_GRAVITY = 9
+local snowball_VELOCITY = 19
+
+mobs:register_arrow("mobs_mc:snowball_entity", {
+	visual = "sprite",
+	visual_size = {x=.5, y=.5},
+	textures = {"mcl_throwing_snowball.png"},
+	velocity = snowball_VELOCITY,
+
+	hit_player = function(self, player)
+		-- FIXME: No knockback
+		player:punch(self.object, 1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = {},
+		}, nil)
+	end,
+
+	hit_mob = function(self, mob)
+		-- Hurt blazes, but not damage to anything else
+		local dmg = {}
+		if mob:get_luaentity().name == "mobs_mc:blaze" then
+			dmg = {fleshy = 3}
+		end
+		-- FIXME: No knockback
+		mob:punch(self.object, 1.0, {
+			full_punch_interval = 1.0,
+			damage_groups = dmg,
+		}, nil)
+	end,
+
+})
+
 if c("snowball") then
-	local snowball_GRAVITY = 9
-	local snowball_VELOCITY = 19
-
-	mobs:register_arrow("mobs_mc:snowball_entity", {
-		visual = "sprite",
-		visual_size = {x=.5, y=.5},
-		textures = {"mcl_throwing_snowball.png"},
-		velocity = snowball_VELOCITY,
-
-		hit_player = function(self, player)
-			-- FIXME: No knockback
-			player:punch(self.object, 1.0, {
-				full_punch_interval = 1.0,
-				damage_groups = {},
-			}, nil)
-		end,
-
-		hit_mob = function(self, mob)
-			-- Hurt blazes, but not damage to anything else
-			local dmg = {}
-			if mob:get_luaentity().name == "mobs_mc:blaze" then
-				dmg = {fleshy = 3}
-			end
-			-- FIXME: No knockback
-			mob:punch(self.object, 1.0, {
-				full_punch_interval = 1.0,
-				damage_groups = dmg,
-			}, nil)
-		end,
-
-	})
-
 	-- shoot snowball
 	local mobs_shoot_snowball = function (item, player, pointed_thing)
 
