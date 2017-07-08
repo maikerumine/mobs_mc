@@ -58,7 +58,7 @@ mobs:register_mob("mobs_mc:wither", {
 	light_damage = 0,
 	attack_type = "dogshoot",
 	explosion_radius = 3,
-	explosion_fire = 0,
+	explosion_fire = false,
 	dogshoot_stop = true,
 	arrow = "mobs_mc:fireball",
 	reach = 5,

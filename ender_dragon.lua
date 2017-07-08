@@ -171,7 +171,7 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 
 	-- node hit, bursts into flame
 	hit_node = function(self, pos, node)
-		mobs:explosion(pos, 3, 1, 1)
+		mobs:explosion(pos, 3, 0, 1)
 		--from tnt
 		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		
