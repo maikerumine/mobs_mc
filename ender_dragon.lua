@@ -146,7 +146,7 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon2", {
 mobs:register_arrow(":mobs_mc:fireball2", {
 	visual = "sprite",
 	visual_size = {x = 1.5, y = 1.5},
-	textures = {"fire_basic_flame.png"},
+	textures = {"mobs_mc_dragon_fireball.png"},
 	--textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
 	velocity = 6,
 
@@ -179,4 +179,3 @@ mobs:register_arrow(":mobs_mc:fireball2", {
 })
 
 mobs:register_egg("mobs_mc:enderdragon", S("Ender Dragon"), "mobs_mc_spawn_icon_dragon.png", 0)
-
