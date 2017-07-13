@@ -67,4 +67,11 @@ Origin of those models:
     * `mobs_spider.ogg`
 * BrandonReese (LGPL v2.1)
     * `mobs_eerie.ogg`
-
+* [Under7dude](https://freesound.org/people/Under7dude/) (CC0)
+    * `mobs_mc_zombie_idle.ogg`
+        * Source: <https://freesound.org/people/Under7dude/sounds/163445/>
+* [haratman](https://freesound.org/people/haratman/) (CC0)
+    * `mobs_mc_zombie_death.ogg`
+        * Source: <https://freesound.org/people/haratman/sounds/393749/>
+    * `mobs_mc_zombie_hurt.ogg`
+        * Source: <https://freesound.org/people/haratman/sounds/393749/>
