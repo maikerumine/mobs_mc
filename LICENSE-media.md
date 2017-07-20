@@ -38,6 +38,12 @@ Origin of those models:
         * `mobs_mc_spider.png`
         * `mobs_mc_squid.png`
         * `mobs_mc_zombie.png`
+        * `mobs_mc_villager_butcher.png`
+        * `mobs_mc_villager_farmer.png`
+        * `mobs_mc_villager_librarian.png`
+        * `mobs_mc_villager.png`
+        * `mobs_mc_villager_priest.png`
+        * `mobs_mc_villager_smith.png`
     * Additions by MysticTempest:
         * `mobs_mc_parrot_blue.png`
         * `mobs_mc_parrot_green.png`
