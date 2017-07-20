@@ -30,7 +30,6 @@ mobs:register_mob("mobs_mc:evoker", {
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 6,
-	reach = 1,
 	walk_velocity = 0.2,
 	run_velocity = 1.4,
 	group_attack = true,
