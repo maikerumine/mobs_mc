@@ -23,12 +23,13 @@ mobs:register_mob("mobs_mc:vindicator", {
 	visual = "mesh",
 	mesh = "mobs_mc_vindicator.b3d",
 	textures = {
-	        {"mobs_mc_vindicator_base.png^mobs_mc_vindicator_axe.png"},
+	        {"mobs_mc_vindicator_axe.png"},
 		-- TODO: Glow when attacking (mobs_mc_vindicator.png)
 	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 13,
+	reach = 1,
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	attack_type = "dogfight",

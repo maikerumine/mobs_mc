@@ -27,7 +27,7 @@ Origin of those models:
     * Original author: [XSSheep](https://www.planetminecraft.com/member/xssheep/)
     * License (if not mentioned otherwise): CC BY-SA 4.0
     * Some textures have been modified or added
-    * Modifications by MysticTempest:
+    * Modifications and additions by MysticTempest:
         * `mobs_mc_cave_spider.png`
         * `mobs_mc_enderman_eyes.png`
         * `mobs_mc_enderman.png`
@@ -38,7 +38,18 @@ Origin of those models:
         * `mobs_mc_spider.png`
         * `mobs_mc_squid.png`
         * `mobs_mc_zombie.png`
-    * Additions by MysticTempest:
+        * `mobs_mc_evoker_base.png`
+        * `mobs_mc_illusionist_bow.png`
+        * `mobs_mc_illusionist.png`
+        * `mobs_mc_villager_butcher.png`
+        * `mobs_mc_villager_farmer.png`
+        * `mobs_mc_villager_librarian.png`
+        * `mobs_mc_villager.png`
+        * `mobs_mc_villager_priest.png`
+        * `mobs_mc_villager_smith.png`
+        * `mobs_mc_vindicator_axe.png`
+        * `mobs_mc_vindicator_base.png`
+        * `mobs_mc_horse_skeleton.png`
         * `mobs_mc_parrot_blue.png`
         * `mobs_mc_parrot_green.png`
         * `mobs_mc_parrot_grey.png`
