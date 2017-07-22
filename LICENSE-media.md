@@ -49,6 +49,12 @@ Origin of those models:
         * `mobs_mc_parrot_grey.png`
         * `mobs_mc_parrot_red_blue.png`
         * `mobs_mc_parrot_yellow_blue.png`
+        * `mobs_mc_evoker_base.png`
+        * `mobs_mc_illusionist_bow.png`
+        * `mobs_mc_illusionist.png`
+        * `mobs_mc_vindicator_axe.png`
+        * `mobs_mc_vindicator_base.png`
+        * `mobs_mc_horse_skeleton.png`
     * Additions by kingoscargames:
         * `mobs_mc_vex.png`
         * `mobs_mc_vex_charging.png`
