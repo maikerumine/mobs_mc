@@ -39,7 +39,7 @@ mobs:register_mob("mobs_mc:witherskeleton", {
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
 	damage = 7,
-	reach = 1,
+	reach = 2,
 	drops = {
 		{name = mobs_mc.items.coal,
 		chance = 1,
