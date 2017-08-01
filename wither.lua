@@ -108,9 +108,9 @@ mobs:register_arrow("mobs_mc:roar_of_the_dragon", {
 
 		minetest.set_node(pos, {name="air"})
 		if math.random(1,2)==1 then
-			dx = math.random(-1,1)
-			dy = math.random(-1,1)
-			dz = math.random(-1,1)
+			local dx = math.random(-1,1)
+			local dy = math.random(-1,1)
+			local dz = math.random(-1,1)
 			local p = {x=pos.x+dx, y=pos.y+dy, z=pos.z+dz}
 			minetest.set_node(p, {name="air"})
 		end
@@ -127,7 +127,7 @@ mobs:register_arrow(":mobs_mc:fireball", {
 
 	-- direct hit, no fire... just plenty of pain
 	hit_player = function(self, player)
-	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 16})
+		minetest.sound_play("tnt_explode", {pos = player:getpos(), gain = 1.5, max_hear_distance = 16})
 		player:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
@@ -135,9 +135,9 @@ mobs:register_arrow(":mobs_mc:fireball", {
 
 	end,
 
-	hit_mob = function(self, player)
-	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5,max_hear_distance = 16})
-		player:punch(self.object, 1.0, {
+	hit_mob = function(self, mob)
+		minetest.sound_play("tnt_explode", {pos = mob:getpos(), gain = 1.5,max_hear_distance = 16})
+		mob:punch(self.object, 1.0, {
 			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
 		}, nil)
