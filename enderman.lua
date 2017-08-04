@@ -78,7 +78,7 @@ mobs:register_mob("mobs_mc:enderman", {
 					-- TODO: Update enderman model (enderman holding block)
 					local def = minetest.registered_nodes[self._taken_node]
 					if def.sounds and def.sounds.dug then
-						minetest.sound_play(def.sounds.dug, {pos = take_pos, max_hear_distance = 16})
+						minetest.sound_play(def.sounds.dug, {pos = place_pos, max_hear_distance = 16})
 					end
 				end
 			end
@@ -149,7 +149,8 @@ mobs:register_mob("mobs_mc:enderman", {
 
 --spawn on solid blocks
 mobs:register_spawn("mobs_mc:enderman", mobs_mc.spawn.desert, 7, 0, 9000, -31000, 31000)
-mobs:register_spawn("mobs_mc:enderman", mobs_mc.end_city, minetest.LIGHT_MAX+1, 0, 9000, -31000, -5000)
+--mobs:register_spawn("mobs_mc:enderman", mobs_mc.end_city, minetest.LIGHT_MAX+1, 0, 9000, -31000, -5000)
+mobs:spawn_specific("mobs_mc:enderman",  mobs_mc.spawn.end_city, {"air"}, 0, minetest.LIGHT_MAX+1, 5, 20, 2, -31000, -5000)
 -- spawn eggs
 mobs:register_egg("mobs_mc:enderman", S("Enderman"), "mobs_mc_spawn_icon_enderman.png", 0)
 
