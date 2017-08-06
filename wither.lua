@@ -146,11 +146,8 @@ mobs:register_arrow(":mobs_mc:fireball", {
 
 	-- node hit, bursts into flame
 	hit_node = function(self, pos, node)
-		--mobs:explosion(pos, 3, 0, 1)  --WHY THE ACTUAL FUCK DOES THIS NOT WORK ANYMORE?  Because wuzzy uses his own mobs.
-		mobs:explosion(pos, 3)   --USE THIS IF USING MINECLONE
-		--from tnt
-		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 16})
-		
+		-- FIXME: Deprecated, switch to mobs:boom instead
+		mobs:explosion(pos, 3, 0, 1)
 	end
 })
 --Spawn egg
