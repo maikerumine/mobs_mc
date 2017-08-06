@@ -77,9 +77,10 @@ mobs:register_mob("mobs_mc:evoker", {
 		walk_end = 40,
 		shoot_start = 60,
 		shoot_end = 80,
-		die_start = 80,
-		die_end = 130,
-		die_loop = false,
+		-- TODO: Implement and fix death animation
+		--die_start = 80,
+		--die_end = 130,
+		--die_loop = false,
 	},
 	water_damage = 0,
 	lava_damage = 4,

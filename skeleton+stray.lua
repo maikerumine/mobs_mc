@@ -75,9 +75,10 @@ local skeleton = {
 	        shoot_end = 90,
 	        punch_start = 70,
 	        punch_end = 90,
-	        die_start = 120,
-	        die_end = 130,
-		die_loop = false,
+		-- TODO: Implement and fix death animation
+	        --die_start = 120,
+	        --die_end = 130,
+		--die_loop = false,
 	},
 	water_damage = 1,
 	lava_damage = 4,

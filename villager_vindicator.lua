@@ -58,9 +58,10 @@ mobs:register_mob("mobs_mc:vindicator", {
 		walk_end = 40,
 		punch_start = 90,
 		punch_end = 110,
-		die_start = 110,
-		die_end = 130,
-		die_loop = false,
+		-- TODO: Implement and fix death animation
+		--die_start = 110,
+		--die_end = 130,
+		--die_loop = false,
 	},
 	water_damage = 1,
 	lava_damage = 4,
