@@ -80,7 +80,7 @@ mobs:register_mob("mobs_mc:pigman", pigman)
 
 local baby_pigman = table.copy(pigman)
 baby_pigman.collisionbox = {-0.25, -0.01, -0.25, 0.25, 0.94, 0.25}
-baby_pigman.visual_size = {x=0.5, y=0.5}
+baby_pigman.visual_size = {x=pigman.visual_size.x/2, y=pigman.visual_size.y/2}
 baby_pigman.textures = {{"mobs_mc_zombie_pigman.png"}}
 baby_pigman.walk_velocity = 1.2
 baby_pigman.run_velocity = 2.4
