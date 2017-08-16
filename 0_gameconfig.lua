@@ -261,12 +261,20 @@ mobs_mc.spawn = {
 	water = { mobs_mc.items.water_source, "mcl_core:water_source", "default:water_source" },
 }
 
+-- This table contains important spawn height references for the mob spawn height.
+-- Please base your mob spawn height on these numbers to keep things clean.
 mobs_mc.spawn_height = {
 	water = tonumber(minetest.setting_get("water_level")) or 0, -- Water level in the Overworld
+
+	-- Overworld boundaries (inclusive)
 	overworld_min = -2999,
 	overworld_max = 31000,
+
+	-- Nether boundaries (inclusive)
 	nether_min = -3369,
 	nether_max = -3000,
+
+	-- End boundaries (inclusive)
 	end_min = -6200,
 	end_max = -6000,
 }
