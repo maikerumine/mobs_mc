@@ -158,8 +158,9 @@ local select_enderman_animation = function(animation_type)
 end
 
 mobs:register_mob("mobs_mc:enderman", {
-	type = "monster",
-	runaway = true,
+	-- TODO: Make endermen attack when looked at
+	type = "animal",
+	passive = false,
 	pathfinding = 1,
 	stepheight = 1.2,
 	hp_min = 40,
