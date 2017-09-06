@@ -23,13 +23,11 @@ mobs:register_mob("mobs_mc:evoker", {
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.95, 0.4},
 	visual = "mesh",
 	mesh = "mobs_mc_villager.b3d",
-    textures = {
-        {
-            "mobs_mc_evoker_base.png",
-            "blank.png", --no hat
-            -- TODO: Attack glow
-        }
-    },
+	textures = { {
+		"mobs_mc_evoker_base.png",
+		"blank.png", --no hat
+		-- TODO: Attack glow
+	} },
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	damage = 6,
@@ -83,7 +81,7 @@ mobs:register_mob("mobs_mc:evoker", {
 		-- TODO: Implement and fix death animation
 		--die_start = 190,
 		--die_end = 200,
-        --die_speed = 15,
+	        --die_speed = 15,
 		--die_loop = false,
 	},
 	water_damage = 0,

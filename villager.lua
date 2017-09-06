@@ -22,31 +22,31 @@ mobs:register_mob("mobs_mc:villager", {
 	visual = "mesh",
 	mesh = "mobs_mc_villager.b3d",
 	textures = {
-        {
-            "mobs_mc_villager.png",
-            "mobs_mc_villager.png", --hat
-        },
-        {
-            "mobs_mc_villager_farmer.png",
-            "mobs_mc_villager_farmer.png", --hat
-        },
-        {
-            "mobs_mc_villager_priest.png",
-            "mobs_mc_villager_priest.png", --hat
-        },
-        {
-            "mobs_mc_villager_librarian.png",
-            "mobs_mc_villager_librarian.png", --hat
-        },
-        {
-            "mobs_mc_villager_butcher.png",
-            "mobs_mc_villager_butcher.png", --hat
-        },
-        {
-            "mobs_mc_villager_smith.png",
-            "mobs_mc_villager_smith.png", --hat
-        },
-    },
+	{
+		"mobs_mc_villager.png",
+		"mobs_mc_villager.png", --hat
+	},
+	{
+		"mobs_mc_villager_farmer.png",
+		"mobs_mc_villager_farmer.png", --hat
+	},
+	{
+		"mobs_mc_villager_priest.png",
+		"mobs_mc_villager_priest.png", --hat
+	},
+	{
+		"mobs_mc_villager_librarian.png",
+		"mobs_mc_villager_librarian.png", --hat
+	},
+	{
+		"mobs_mc_villager_butcher.png",
+		"mobs_mc_villager_butcher.png", --hat
+	},
+	{
+		"mobs_mc_villager_smith.png",
+		"mobs_mc_villager_smith.png", --hat
+	},
+	},
 	visual_size = {x=3, y=3},
 	makes_footstep_sound = true,
 	walk_velocity = 1.2,

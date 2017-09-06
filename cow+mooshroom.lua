@@ -11,12 +11,10 @@ local cow_def = {
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.39, 0.45},
 	visual = "mesh",
 	mesh = "mobs_mc_cow.b3d",
-	textures = {
-		{
-            "mobs_mc_cow.png",
-            "blank.png",
-        },
-	},
+	textures = { {
+		"mobs_mc_cow.png",
+		"blank.png",
+	}, },
 	visual_size = {x=2.8, y=2.8},
 	makes_footstep_sound = true,
 	walk_velocity = 1,
