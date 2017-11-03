@@ -55,10 +55,12 @@ dofile(path .. "/squid.lua") -- Animation, sound and egg texture by daufinsyd
 
 -- NPC
 dofile(path .. "/villager.lua") -- KrupnoPavel Mesh and animation by toby109tt  / https://github.com/22i
---dofile(path .. "/villager_agent.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/villager_evoker.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/villager_vindicator.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 dofile(path .. "/villager_zombie.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
+-- Agent texture missing
+--dofile(path .. "/agent.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
+
 dofile(path .. "/witch.lua") -- Mesh and animation by toby109tt  / https://github.com/22i
 
 --Monsters
