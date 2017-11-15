@@ -320,6 +320,9 @@ if minetest.get_modpath("mobs_mc_gameconfig") and mobs_mc.override then
 	if mobs_mc.override.enderman_takable then
 		mobs_mc.enderman_takable = mobs_mc.override.enderman_takable
 	end
+	if mobs_mc.override.enderman_replace_on_take then
+		mobs_mc.enderman_replace_on_take = mobs_mc.override.enderman_replace_on_take
+	end
 	if mobs_mc.enderman_block_texture_overrides then
 		mobs_mc.enderman_block_texture_overrides = mobs_mc.override.enderman_block_texture_overrides
 	end
