@@ -241,6 +241,19 @@ mobs_mc.enderman_takable = {
 	"nether:rack",
 }
 
+--[[ Table of nodes to replace when an enderman takes it.
+If the enderman takes an indexed node, it the enderman will get the item in the value.
+Table indexes: Original node, taken by enderman.
+Table values: The item which the enderman *actually* gets
+Example:
+	mobs_mc.enderman_node_replace = {
+		["default:dirt_with_dry_grass"] = "default_dirt_with_grass",
+	}
+-- This means, if the enderman takes a dirt with dry grass, he will get a dirt with grass
+-- on his hand instead.
+]]
+mobs_mc.enderman_replace_on_take = {} -- no replacements by default
+
 -- A table which can be used to override block textures of blocks carried by endermen.
 -- Only works for cube-shaped nodes and nodeboxes.
 -- Key: itemstrings of the blocks to replace
