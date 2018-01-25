@@ -519,22 +519,37 @@ end
 
 -- Evoker
 if c("totem") then
-	-- TODO: Implement actual MC totem behaviour
+	-- Totem of Undying
 	minetest.register_craftitem("mobs_mc:totem", {
 		description = S("Totem of Undying"),
 		_doc_items_longdesc = S("A totem of undying is a rare artifact which may safe you from certain death."),
-		_doc_items_usagehelp = S("Hold it in your hand and punch once to instantly get back to full health. The totem gets destroyed in the process."),
-		wield_image = "mcl_mobitems_totem.png",
-		inventory_image = "mcl_mobitems_totem.png",
+		_doc_items_usagehelp = S("The totem only works while you hold it in your hand. If you receive fatal damage, you are saved from death and you get a second chance with 1 HP. The totem is destroyed in the process, however."),
+		inventory_image = "mcl_totems_totem.png",
+		wield_image = "mcl_totems_totem.png",
 		stack_max = 1,
-		on_use = function(itemstack, user, pointed_thing)
-			user:set_hp(20)
-			if not minetest.settings:get_bool("creative_mode") then
-				itemstack:take_item()
-			end
-			return itemstack
-		end,
 	})
+
+	-- Save the player from death when holding totem of undying in hand
+	minetest.register_on_player_hpchange(function(player, hp_change)
+		local hp = player:get_hp()
+		-- Fatal damage?
+		if hp + hp_change <= 0 then
+			local wield = player:get_wielded_item()
+			if wield:get_name() == "mobs_mc:totem" then
+				if minetest.get_modpath("mcl_hunger") then
+					mcl_hunger.set_hunger(player, 20, false)
+				end
+				if not minetest.settings:get_bool("creative_mode") then
+					wield:take_item()
+					player:set_wielded_item(wield)
+				end
+				minetest.sound_play({name = "mcl_totems_totem", gain=1}, {pos=player:get_pos(), max_hear_distance=16})
+				-- Set HP to exactly 1
+				return -hp + 1
+			end
+		end
+		return hp_change
+	end, true)
 end
 
 -- Rotten flesh
