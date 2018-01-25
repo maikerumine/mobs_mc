@@ -550,8 +550,9 @@ if c("totem") then
 						return hp_change
 					end
 				end
-				if minetest.get_modpath("mcl_hunger") then
-					mcl_hunger.set_hunger(player, 20, false)
+				-- Reset breath as well
+				if player:get_breath() < 11 then
+					player:set_breath(10)
 				end
 				if not minetest.settings:get_bool("creative_mode") then
 					wield:take_item()
