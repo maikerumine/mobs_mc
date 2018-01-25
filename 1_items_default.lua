@@ -536,6 +536,14 @@ if c("totem") then
 		if hp + hp_change <= 0 then
 			local wield = player:get_wielded_item()
 			if wield:get_name() == "mobs_mc:totem" then
+				local ppos = player:get_pos()
+				local pnname = minetest.get_node(ppos).name
+				-- Some exceptions when _not_ to save the player
+				for n=1, #mobs_mc.misc.totem_fail_nodes do
+					if pnname == mobs_mc.misc.totem_fail_nodes[n] then
+						return hp_change
+					end
+				end
 				if minetest.get_modpath("mcl_hunger") then
 					mcl_hunger.set_hunger(player, 20, false)
 				end
@@ -543,7 +551,7 @@ if c("totem") then
 					wield:take_item()
 					player:set_wielded_item(wield)
 				end
-				minetest.sound_play({name = "mcl_totems_totem", gain=1}, {pos=player:get_pos(), max_hear_distance=16})
+				minetest.sound_play({name = "mcl_totems_totem", gain=1}, {pos=ppos, max_hear_distance=16})
 				-- Set HP to exactly 1
 				return -hp + 1
 			end
