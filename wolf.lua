@@ -92,21 +92,21 @@ mobs:register_mob("mobs_mc:wolf", wolf)
 
 -- Collar colors
 local colors = {
-	["unicolor_black"] = "#000000",
-	["unicolor_blue"] = "#0000BB",
-	["unicolor_dark_orange"] = "#663300", -- brown
-	["unicolor_cyan"] = "#01FFD8",
-	["unicolor_dark_green"] = "#005B00",
-	["unicolor_grey"] = "#C0C0C0",
-	["unicolor_darkgrey"] = "#303030",
-	["unicolor_green"] = "#00FF01",
-	["unicolor_red_violet"] = "#FF05BB", -- magenta
-	["unicolor_orange"] = "#FF8401",
-	["unicolor_light_red"] = "#FF65B5", -- pink
-	["unicolor_red"] = "#FF0000",
-	["unicolor_violet"] = "#5000CC",
-	["unicolor_white"] = "#FFFFFF",
-	["unicolor_yellow"] = "#FFFF00",
+	["black"] = "#000000",
+	["blue"] = "#0000BB",
+	["brown"] = "#663300", -- brown
+	["cyan"] = "#01FFD8",
+	["dark_green"] = "#005B00",
+	["grey"] = "#C0C0C0",
+	["dark_grey"] = "#303030",
+	["green"] = "#00FF01",
+	["magenta"] = "#FF05BB", -- magenta
+	["orange"] = "#FF8401",
+	["pink"] = "#FF65B5", -- pink
+	["red"] = "#FF0000",
+	["violet"] = "#5000CC",
+	["white"] = "#FFFFFF",
+	["yellow"] = "#FFFF00",
 
 	["unicolor_light_blue"] = "#B0B0FF",
 }
@@ -125,7 +125,7 @@ dog.passive = true
 dog.hp_min = 20
 dog.hp_max = 20
 -- Tamed wolf texture + red collar
-dog.textures = get_dog_textures("unicolor_red")
+dog.textures = get_dog_textures("red")
 dog.owner = ""
 -- TODO: Start sitting by default
 dog.order = "roam"
@@ -167,7 +167,7 @@ dog.on_rightclick = function(self, clicker)
 		-- Dye (if possible)
 		for group, _ in pairs(colors) do
 			-- Check if color is supported
-			if minetest.get_item_group(item:get_name(), group) == 1 then
+			if minetest.get_item_group(item:get_name(), "color_"..group) == 1 then
 				-- Dye collar
 				local tex = get_dog_textures(group)
 				if tex then
