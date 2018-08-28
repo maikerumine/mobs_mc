@@ -10,21 +10,21 @@ local S, NS = dofile(MP.."/intllib.lua")
 
 local colors = {
 	-- group = { wool, textures }
-	unicolor_white = { mobs_mc.items.wool_white, "#FFFFFF00" },
-	unicolor_dark_orange = { mobs_mc.items.wool_brown, "#502A00D0" },
-	unicolor_grey = { mobs_mc.items.wool_light_grey, "#5B5B5BD0" },
-	unicolor_darkgrey = { mobs_mc.items.wool_grey, "#303030D0" },
-	unicolor_blue = { mobs_mc.items.wool_blue, "#0000CCD0" },
-	unicolor_dark_green = { mobs_mc.items.wool_green, "#005000D0" },
-	unicolor_green = { mobs_mc.items.wool_lime, "#50CC00D0" },
-	unicolor_violet = { mobs_mc.items.wool_purple , "#5000CCD0" },
-	unicolor_light_red = { mobs_mc.items.wool_pink, "#FF5050D0" },
-	unicolor_yellow = { mobs_mc.items.wool_yellow, "#CCCC00D0" },
-	unicolor_orange = { mobs_mc.items.wool_orange, "#CC5000D0" },
-	unicolor_red = { mobs_mc.items.wool_red, "#CC0000D0" },
-	unicolor_cyan  = { mobs_mc.items.wool_cyan, "#00CCCCD0" },
-	unicolor_red_violet = { mobs_mc.items.wool_magenta, "#CC0050D0" },
-	unicolor_black = { mobs_mc.items.wool_black, "#000000D0" },
+	unicolor_white = { mobs_mc.items.wool_white, "#FFFFFF00", "white" },
+	unicolor_dark_orange = { mobs_mc.items.wool_brown, "#502A00D0", "brown" },
+	unicolor_grey = { mobs_mc.items.wool_light_grey, "#5B5B5BD0", "grey" },
+	unicolor_darkgrey = { mobs_mc.items.wool_grey, "#303030D0", "dark_grey" },
+	unicolor_blue = { mobs_mc.items.wool_blue, "#0000CCD0", "blue" },
+	unicolor_dark_green = { mobs_mc.items.wool_green, "#005000D0", "dark_green" },
+	unicolor_green = { mobs_mc.items.wool_lime, "#50CC00D0", "green" },
+	unicolor_violet = { mobs_mc.items.wool_purple , "#5000CCD0", "violet" },
+	unicolor_light_red = { mobs_mc.items.wool_pink, "#FF5050D0", "pink" },
+	unicolor_yellow = { mobs_mc.items.wool_yellow, "#CCCC00D0", "yellow" },
+	unicolor_orange = { mobs_mc.items.wool_orange, "#CC5000D0", "orange" },
+	unicolor_red = { mobs_mc.items.wool_red, "#CC0000D0", "red" },
+	unicolor_cyan  = { mobs_mc.items.wool_cyan, "#00CCCCD0", "cyan" },
+	unicolor_red_violet = { mobs_mc.items.wool_magenta, "#CC0050D0", "magenta" },
+	unicolor_black = { mobs_mc.items.wool_black, "#000000D0", "black" },
 }
 
 if minetest.get_modpath("mcl_wool") ~= nil then
@@ -178,7 +178,8 @@ mobs:register_mob("mobs_mc:sheep", {
 		if minetest.get_item_group(item:get_name(), "dye") == 1 and not self.gotten then
 			minetest.log("verbose", "[mobs_mc] " ..item:get_name() .. " " .. minetest.get_item_group(item:get_name(), "dye"))
 			for group, colordata in pairs(colors) do
-				if minetest.get_item_group(item:get_name(), group) == 1 then
+				if minetest.get_item_group(item:get_name(), group) == 1
+				or minetest.get_item_group(item:get_name(), "color_"..colordata[3]) == 1 then
 					self.base_texture = sheep_texture(group)
 					self.object:set_properties({
 						textures = self.base_texture,
