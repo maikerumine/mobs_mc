@@ -1,0 +1,720 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-25 18:45+0100\n"
+"PO-Revision-Date: 2018-10-28 10:23+0100\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: 1_items_default.lua
+msgid "Blaze Rod"
+msgstr "Vara resplandeciente"
+
+#: 1_items_default.lua
+msgid "This is a crafting component dropped from dead blazes."
+msgstr ""
+"Este es un componente de artesanía obtenido de los Resplandores muertos."
+
+#: 1_items_default.lua
+msgid "Blaze Powder"
+msgstr "Pólvora resplandeciente"
+
+#: 1_items_default.lua
+msgid "This item is mainly used for brewing potions and crafting."
+msgstr ""
+"Este artículo se utiliza principalmente para elaborar pociones y artesanías."
+
+#: 1_items_default.lua
+msgid "Raw Chicken"
+msgstr "Pollo crudo"
+
+#: 1_items_default.lua
+msgid ""
+"Raw chicken is a food item and can be eaten safely. Cooking it will increase "
+"its nutritional value."
+msgstr ""
+"El pollo crudo es un alimento y puede ser consumido con seguridad. Cocinarlo "
+"aumentará su valor nutricional."
+
+#: 1_items_default.lua
+msgid "Cooked Chicken"
+msgstr "Pollo asado"
+
+#: 1_items_default.lua
+msgid "A cooked chicken is a healthy food item which can be eaten."
+msgstr "Un pollo asado es un alimento saludable que se puede comer."
+
+#: 1_items_default.lua
+msgid "Feather"
+msgstr "Pluma"
+
+#: 1_items_default.lua
+msgid "Feathers are used in crafting and are dropped from chickens."
+msgstr "Las plumas se utilizan en la elaboración y se obtienen de los pollos."
+
+#: 1_items_default.lua
+msgid "Raw Beef"
+msgstr "Chuleta cruda"
+
+#: 1_items_default.lua
+msgid ""
+"Raw beef is the flesh from cows and can be eaten safely. Cooking it will "
+"greatly increase its nutritional value."
+msgstr ""
+"La chuleta de vaca cruda es la carne de las vacas y puede ser consumida con "
+"seguridad. Cocinarlo aumentará en gran medida su valor nutricional."
+
+#: 1_items_default.lua
+msgid "Steak"
+msgstr "Bistec"
+
+#: 1_items_default.lua
+msgid "Steak is cooked beef from cows and can be eaten."
+msgstr "El bistec es carne de vaca cocida y se puede comer."
+
+#: 1_items_default.lua
+msgid "Milk"
+msgstr "Leche"
+
+#: 1_items_default.lua
+msgid "Milk is a food item obtained by using a bucket on a cow."
+msgstr ""
+"La leche es un alimento que se obtiene ordeñando una vaca con un balde."
+
+#: 1_items_default.lua
+msgid "Bowl"
+msgstr "Tazón"
+
+#: 1_items_default.lua
+msgid "Bowls are mainly used to hold tasty soups."
+msgstr ""
+"Los tazones se utilizan principalmente para mantener las sopas sabrosas."
+
+#: 1_items_default.lua
+msgid "Mushroom Stew"
+msgstr "Estofado de champiñones"
+
+#: 1_items_default.lua
+msgid "Mushroom stew is a healthy soup."
+msgstr "El estofado de champiñones es una comida saludable."
+
+#: 1_items_default.lua
+msgid "Dragon Egg"
+msgstr "Huevo de dragón"
+
+#: 1_items_default.lua
+msgid "Eye of Ender"
+msgstr "Ojo de Ender"
+
+#: 1_items_default.lua
+msgid "Ghast Tear"
+msgstr "Lágrima de Espantoso"
+
+#: 1_items_default.lua
+msgid ""
+"A ghast tear is an item used in potion brewing. It is dropped from dead "
+"ghasts."
+msgstr ""
+"Una lágrima de Espantoso es un artículo usado en la preparación de pociones. "
+"Se obtiene de los Espantosos muertos."
+
+#: 1_items_default.lua
+msgid "Saddle"
+msgstr "Silla de montar"
+
+#: 1_items_default.lua
+msgid ""
+"Saddles can be put on horses, donkeys, mules and pigs in order to mount them."
+msgstr ""
+"Las sillas de montar se pueden poner sobre caballos, burros, mulas y cerdos."
+
+#: 1_items_default.lua
+msgid ""
+"Rightclick an animal while holding a saddle to put on the saddle. You can "
+"now mount the animal by rightclicking it again."
+msgstr ""
+"Haz clic con el botón derecho del ratón sobre un animal mientras sujetas una "
+"silla de montar para colocarla. Ahora puede montar el animal haciendo clic "
+"con el botón derecho del ratón otra vez."
+
+#: 1_items_default.lua
+msgid ""
+"Rightclick a horse to put on the horse armor. Donkeys and mules can't wear "
+"horse armor."
+msgstr ""
+"Haz clic con el botón derecho del ratón en un caballo para ponerte la "
+"armadura. Los burros y las mulas no pueden llevar armadura de caballo."
+
+#: 1_items_default.lua
+msgid "Iron Horse Armor"
+msgstr "Armadura de hierro de caballo"
+
+#: 1_items_default.lua
+msgid ""
+"Iron horse armor can be worn by horses to increase their protection from "
+"harm a bit."
+msgstr ""
+"La armadura de hierro para caballos puede ser usada en los caballos para "
+"aumentar su protección contra el daño un poco."
+
+#: 1_items_default.lua
+msgid "Golden Horse Armor"
+msgstr "Armadura de oro de caballo"
+
+#: 1_items_default.lua
+msgid ""
+"Golden horse armor can be worn by horses to increase their protection from "
+"harm."
+msgstr ""
+"La armadura de oro para caballos puede ser usada en los caballos para "
+"aumentar su protección contra el daño."
+
+#: 1_items_default.lua
+msgid "Diamond Horse Armor"
+msgstr "Armadura de diamante de caballo"
+
+#: 1_items_default.lua
+msgid ""
+"Diamond horse armor can be worn by horses to greatly increase their "
+"protection from harm."
+msgstr ""
+"La armadura de diamante para caballos puede ser usada en los caballos para "
+"aumentar enormemente su protección contra el daño."
+
+#: 1_items_default.lua
+msgid "Raw Porkchop"
+msgstr "Chuleta cruda"
+
+#: 1_items_default.lua
+msgid ""
+"A raw porkchop is the flesh from a pig and can be eaten safely. Cooking it "
+"will greatly increase its nutritional value."
+msgstr ""
+"Una chuleta de cerdo cruda es la carne de un cerdo y se puede comer sin "
+"peligro. Cocinarlo aumentará en gran medida su valor nutricional."
+
+#: 1_items_default.lua
+msgid "Cooked Porkchop"
+msgstr "Chuleta cocinada"
+
+#: 1_items_default.lua
+msgid "Carrot on a Stick"
+msgstr "Palo con zanahoria"
+
+#: 1_items_default.lua
+msgid ""
+"A carrot on a stick can be used on saddled pigs to ride them. Pigs will also "
+"follow anyone who holds a carrot on a stick near them."
+msgstr ""
+"Una zanahoria en un palo puede ser usada en cerdos ensillados para "
+"montarlos. Los cerdos también seguirán a cualquiera que sostenga una "
+"zanahoria en un palo cerca de ellos."
+
+#: 1_items_default.lua
+msgid ""
+"Rightclick a saddled pig with the carrot on a stick to mount it. You can now "
+"ride it like a horse."
+msgstr ""
+"Haz clic con el botón derecho del ratón en un cerdo ensillado con la "
+"zanahoria en un palo para montarlo. Ahora podrás montarlo como un caballo."
+
+#: 1_items_default.lua
+msgid "Raw Rabbit"
+msgstr "Conejo crudo"
+
+#: 1_items_default.lua
+msgid ""
+"Raw rabbit is a food item from a dead rabbit. It can be eaten safely. "
+"Cooking it will increase its nutritional value."
+msgstr ""
+"El conejo crudo es un alimento de un conejo muerto. Puede comerse sin "
+"peligro. Cocinarlo aumentará su valor nutricional."
+
+#: 1_items_default.lua
+msgid "Cooked Rabbit"
+msgstr "Conejo cocinado"
+
+#: 1_items_default.lua
+msgid "This is a food item which can be eaten."
+msgstr "Este es un alimento que se puede comer."
+
+#: 1_items_default.lua
+msgid "Rabbit Hide"
+msgstr "Pellejo de conejo"
+
+#: 1_items_default.lua
+msgid "Rabbit hide is used to create leather."
+msgstr "El pellejo de conejo se utiliza para crear cuero."
+
+#: 1_items_default.lua
+msgid "Rabbit's Foot"
+msgstr "Pata de conejo"
+
+#: 1_items_default.lua
+msgid "This item is used in brewing."
+msgstr "Este artículo se utiliza en la fabricación de pociones."
+
+#: 1_items_default.lua
+msgid "Raw Mutton"
+msgstr "Cordero crudo"
+
+#: 1_items_default.lua
+msgid ""
+"Raw mutton is the flesh from a sheep and can be eaten safely. Cooking it "
+"will greatly increase its nutritional value."
+msgstr ""
+"El cordero crudo es la carne de una oveja y puede ser consumido con "
+"seguridad. Cocinarlo aumentará en gran medida su valor nutricional."
+
+#: 1_items_default.lua
+msgid "Cooked Mutton"
+msgstr "Cordero cocinado"
+
+#: 1_items_default.lua
+msgid "Cooked mutton is the cooked flesh from a sheep and is used as food."
+msgstr ""
+"El cordero asado es la carne asada de una oveja y se utiliza como alimento."
+
+#: 1_items_default.lua
+msgid "Shulker Shell"
+msgstr "Caparazón de bateador"
+
+#: 1_items_default.lua
+msgid ""
+"Shulker shells are used in crafting. They are dropped from dead shulkers."
+msgstr ""
+"Las caparazones de Bateador se utilizan en para fabricar otros objetos. Son "
+"obtenidos de los Bateadores muertos."
+
+#: 1_items_default.lua
+msgid "Magma Cream"
+msgstr "Crema de magma"
+
+#: 1_items_default.lua
+msgid "Magma cream is a crafting component."
+msgstr "La crema de magma es un componente para elaborar otros objetos."
+
+#: 1_items_default.lua
+msgid "Slimeball"
+msgstr "Bola de babas"
+
+#: 1_items_default.lua
+msgid "Slimeballs are used in crafting. They are dropped from slimes."
+msgstr ""
+"Las bolas de baba se utilizan en la elaboración de otros objetos. Se "
+"obtienen de las babosas."
+
+#: 1_items_default.lua
+msgid "Spider Eye"
+msgstr "Ojo de araña"
+
+#: 1_items_default.lua
+msgid ""
+"Spider eyes are used mainly in crafting and brewing. Spider eyes can be "
+"eaten, but they poison you and reduce your health by 2 hit points."
+msgstr ""
+"Los ojos de araña se utilizan principalmente en la elaboración de otros "
+"objetos y pociones. Los ojos de araña se pueden comer, pero te envenenan y "
+"reducen tu salud en 2 puntos."
+
+#: 1_items_default.lua
+msgid "Totem of Undying"
+msgstr "Tótem de la inmortalidad"
+
+#: 1_items_default.lua
+msgid ""
+"A totem of undying is a rare artifact which may safe you from certain death."
+msgstr ""
+"Un tótem de inmortalidad es un artefacto raro que puede salvarte de una "
+"muerte segura."
+
+#: 1_items_default.lua
+msgid ""
+"The totem only works while you hold it in your hand. If you receive fatal "
+"damage, you are saved from death and you get a second chance with 1 HP. The "
+"totem is destroyed in the process, however."
+msgstr ""
+"El tótem sólo funciona mientras lo tienes en la mano. Si recibes un daño "
+"fatal, te salvas de la muerte y tienes una segunda oportunidad con 1 HP. Sin "
+"embargo, el tótem será destruído en el proceso."
+
+#: 1_items_default.lua
+msgid "Rotten Flesh"
+msgstr "Carne podrida"
+
+#: 1_items_default.lua
+msgid ""
+"Yuck! This piece of flesh clearly has seen better days. Eating it will only "
+"poison you and reduces your health by 4 hit points. But tamed wolves can eat "
+"it just fine."
+msgstr ""
+"¡Qué asco! Este pedazo de carne claramente ha visto mejores días. Comerlo "
+"sólo te envenenará y reducirá tu salud en 4 puntos. Pero los lobos domados "
+"pueden comerlo tranquilamente."
+
+#: 1_items_default.lua
+msgid "Nether Star"
+msgstr "Estrella del Inframundo"
+
+#: 1_items_default.lua
+msgid "A nether star is a crafting component. It is dropped from the Wither."
+msgstr ""
+"Una estrella del Inframundo es un componente para elaborar otros objetos. Se "
+"obtiene de un Marchito."
+
+#: 1_items_default.lua
+msgid "Bone"
+msgstr "Hueso"
+
+#: 1_items_default.lua
+msgid ""
+"Bones can be used to tame wolves so they will protect you. They are also "
+"useful as a crafting ingredient."
+msgstr ""
+"Los huesos se pueden usar para domar a los lobos para que te protejan. "
+"También son útiles como ingrediente para elaborar otros objetos."
+
+#: 1_items_default.lua
+msgid ""
+"Hold the bone in your hand near wolves to attract them. Rightclick the wolf "
+"to give it a bone and tame it."
+msgstr ""
+"Sostén el hueso en tu mano cerca de los lobos para atraerlos. Haz clic con "
+"el botón derecho del ratón sobre el lobo para darle el hueso y domarlo."
+
+#: 2_throwing.lua
+msgid "Arrow"
+msgstr "Flecha"
+
+#: 2_throwing.lua
+msgid "Arrows are ammunition for bows."
+msgstr "Las flechas son munición para los arcos."
+
+#: 2_throwing.lua
+msgid ""
+"To use arrows as ammunition for a bow, put them in the inventory slot "
+"following the bow. Slots are counted left to right, top to bottom."
+msgstr ""
+"Para usar flechas como munición para un arco, colócalas en la ranura de "
+"inventario que sigue al arco. Las ranuras se cuentan de izquierda a derecha, "
+"y de arriba a abajo."
+
+#: 2_throwing.lua
+msgid "Bow"
+msgstr "Arco"
+
+#: 2_throwing.lua
+msgid "Bows are ranged weapons to shoot arrows at your foes."
+msgstr "Los arcos son armas a distancia para disparar flechas a tus enemigos."
+
+#: 2_throwing.lua
+msgid ""
+"To use the bow, you first need to have at least one arrow in slot following "
+"the bow. Leftclick to shoot. Each hit deals 3 damage."
+msgstr ""
+"Para usar el arco, primero necesitas tener al menos una flecha en la ranura "
+"que sigue al arco. Haga clic con el botón izquierdo para disparar. Cada "
+"impacto inflige 3 puntos de daño."
+
+#: 2_throwing.lua
+msgid "Egg"
+msgstr "Huevo"
+
+#: 2_throwing.lua
+msgid ""
+"Eggs can be thrown and break on impact. There is a small chance that 1 or "
+"even 4 chicks will pop out"
+msgstr ""
+"Los huevos pueden lanzarse y se rompen en el impacto. Hay una pequeña "
+"posibilidad de que surjan de ellos 1 o incluso 4 pollos."
+
+#: 2_throwing.lua
+msgid "Snowball"
+msgstr "Bola de nieve"
+
+#: 2_throwing.lua
+msgid ""
+"Snowballs can be thrown at your enemies. A snowball deals 3 damage to "
+"blazes, but is harmless to anything else."
+msgstr ""
+"Las bolas de nieve pueden ser lanzadas a tus enemigos. Una bola de nieve "
+"daña a los Resplandores, pero es inofensiva para todos los demás."
+
+#: 4_heads.lua
+msgid "Zombie Head"
+msgstr "Cabeza de zombie"
+
+#: 4_heads.lua
+msgid ""
+"A zombie head is a small decorative block which resembles the head of a "
+"zombie."
+msgstr ""
+"La cabeza de un zombie es un pequeño bloque decorativo que se asemeja al "
+"cráneo de un zombie."
+
+#: 4_heads.lua
+msgid "Creeper Head"
+msgstr "Cabeza de creeper"
+
+#: 4_heads.lua
+msgid ""
+"A creeper head is a small decorative block which resembles the head of a "
+"creeper."
+msgstr ""
+"La cabeza de un trepador es un pequeño bloque decorativo que se asemeja al "
+"cráneo de un trepador."
+
+#: 4_heads.lua
+msgid "Skeleton Skull"
+msgstr "Calavera de esqueleto"
+
+#: 4_heads.lua
+msgid ""
+"A skeleton skull is a small decorative block which resembles the skull of a "
+"skeleton."
+msgstr ""
+"La calavera de un esqueleto es un pequeño bloque decorativo que se asemeja "
+"al cráneo de un esqueleto."
+
+#: 4_heads.lua
+msgid "Wither Skeleton Skull"
+msgstr "Calavera de esqueleto marchito"
+
+#: 4_heads.lua
+msgid ""
+"A wither skeleton skull is a small decorative block which resembles the "
+"skull of a wither skeleton."
+msgstr ""
+"La calavera de un esqueleto marchito es un pequeño bloque decorativo que se "
+"asemeja al cráneo de un esqueleto marchito."
+
+#: agent.lua
+msgid "Agent"
+msgstr "Agente"
+
+#: bat.lua
+msgid "Bat"
+msgstr "Murciélago"
+
+#: blaze.lua
+msgid "Blaze"
+msgstr "Resplandeciente"
+
+#: chicken.lua
+msgid "Chicken"
+msgstr "Pollo"
+
+#: cow+mooshroom.lua
+msgid "Cow"
+msgstr "Vaca"
+
+#: cow+mooshroom.lua
+msgid "Mooshroom"
+msgstr "Champiñaca"
+
+#: creeper.lua
+msgid "Creeper"
+msgstr "Trepador"
+
+#: ender_dragon.lua
+msgid "Ender Dragon"
+msgstr "Dragón Ender"
+
+#: enderman.lua
+msgid "Enderman"
+msgstr "Hombre oscuro"
+
+#: endermite.lua
+msgid "Endermite"
+msgstr "Endermita"
+
+#: ghast.lua
+msgid "Ghast"
+msgstr "Espantoso"
+
+#: guardian_elder.lua
+msgid "Elder Guardian"
+msgstr "Guardián antiguo"
+
+#: guardian.lua
+msgid "Guardian"
+msgstr "Guardián"
+
+#: horse.lua
+msgid "Horse"
+msgstr "Caballo"
+
+#: horse.lua
+msgid "Skeleton Horse"
+msgstr "Caballo esqueleto"
+
+#: horse.lua
+msgid "Zombie Horse"
+msgstr "Caballo zombie"
+
+#: horse.lua
+msgid "Donkey"
+msgstr "Burro"
+
+#: horse.lua
+msgid "Mule"
+msgstr "Mula"
+
+#: iron_golem.lua
+msgid "Iron Golem"
+msgstr "Gólem de hierro"
+
+#: llama.lua
+msgid "Llama"
+msgstr "Llama"
+
+#: ocelot.lua
+msgid "Ocelot"
+msgstr "Ocelote"
+
+#: parrot.lua
+msgid "Parrot"
+msgstr "Loro"
+
+#: pig.lua
+msgid "Pig"
+msgstr "Cerdo"
+
+#: polar_bear.lua
+msgid "Polar Bear"
+msgstr "Oso polar"
+
+#: rabbit.lua
+msgid "Rabbit"
+msgstr "Conejo"
+
+#: rabbit.lua
+msgid "Killer Bunny"
+msgstr "Conejo asesino"
+
+#: sheep.lua
+msgid "Sheep"
+msgstr "Oveja"
+
+#: shulker.lua
+msgid "Shulker"
+msgstr "Bateador"
+
+#: silverfish.lua
+msgid "Silverfish"
+msgstr "Pececillo de plata"
+
+#: silverfish.lua
+msgid "Stone Monster Egg"
+msgstr "Huevo de piedra de monstruo"
+
+#: silverfish.lua
+msgid "Cobblestone Monster Egg"
+msgstr "Huevo de adoquines de monstruo"
+
+#: silverfish.lua
+msgid "Mossy Cobblestone Monster Egg"
+msgstr "Huevo de adoquines musgoso de monstruo"
+
+#: silverfish.lua
+msgid "Stone Brick Monster Egg"
+msgstr "Huevo de ladrillos de monstruo"
+
+#: silverfish.lua
+msgid "Stone Block Monster Egg"
+msgstr "Huevo de piedra de monstruo"
+
+#: skeleton+stray.lua
+msgid "Skeleton"
+msgstr "Esqueleto"
+
+#: skeleton+stray.lua
+msgid "Stray"
+msgstr "Descarriado"
+
+#: skeleton_wither.lua
+msgid "Wither Skeleton"
+msgstr "Esqueleto marchito"
+
+#: slime+magma_cube.lua
+msgid "Magma Cube"
+msgstr "Cubo de magma"
+
+#: slime+magma_cube.lua
+msgid "Slime"
+msgstr "Babosa"
+
+#: snowman.lua
+msgid "Snow Golem"
+msgstr "Gólem de las nieves"
+
+#: spider.lua
+msgid "Spider"
+msgstr "Araña"
+
+#: spider.lua
+msgid "Cave Spider"
+msgstr "Araña de las cavernas"
+
+#: squid.lua
+msgid "Squid"
+msgstr "Calamar"
+
+#: vex.lua
+msgid "Vex"
+msgstr "Ánima"
+
+#: villager_evoker.lua
+msgid "Evoker"
+msgstr "Evocador"
+
+#: villager_illusioner.lua
+msgid "Illusioner"
+msgstr "Ilusionista"
+
+#: villager.lua
+msgid "Villager"
+msgstr "Aldeano"
+
+#: villager_vindicator.lua
+msgid "Vindicator"
+msgstr "Vindicador"
+
+#: villager_zombie.lua
+msgid "Zombie Villager"
+msgstr "Aldeano zombi"
+
+#: witch.lua
+msgid "Witch"
+msgstr "Bruja"
+
+#: wither.lua
+msgid "Wither"
+msgstr "Marchito"
+
+#: wolf.lua
+msgid "Wolf"
+msgstr "Lobo"
+
+#: zombie.lua
+msgid "Husk"
+msgstr "Zombie cascarilla"
+
+#: zombie.lua
+msgid "Zombie"
+msgstr "Zombie"
+
+#: zombiepig.lua
+msgid "Zombie Pigman"
+msgstr "Hombre-Cerdo zombie"
